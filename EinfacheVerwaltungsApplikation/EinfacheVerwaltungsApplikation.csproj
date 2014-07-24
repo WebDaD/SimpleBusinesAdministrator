@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{921175D0-EB81-4A10-A754-E6D700A4CCF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ManageAdministerExalt</RootNamespace>
+    <AssemblyName>EinfacheVerwaltungsApplikation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Bill.cs" />
+    <Compile Include="Classes\Config.cs" />
+    <Compile Include="Classes\Customer.cs" />
+    <Compile Include="Classes\Customers.cs" />
+    <Compile Include="Classes\Discount.cs" />
+    <Compile Include="Classes\Expense.cs" />
+    <Compile Include="Classes\Job.cs" />
+    <Compile Include="Classes\PaymentCondition.cs" />
+    <Compile Include="Classes\Reminder.cs" />
+    <Compile Include="Classes\Service.cs" />
+    <Compile Include="Classes\Services.cs" />
+    <Compile Include="Classes\Term.cs" />
+    <Compile Include="Classes\Terms.cs" />
+    <Compile Include="Discounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Discounts.Designer.cs">
+      <DependentUpon>Discounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnterLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnterLicense.Designer.cs">
+      <DependentUpon>EnterLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expenses.cs" />
+    <Compile Include="Export.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Export.Designer.cs">
+      <DependentUpon>Export.cs</DependentUpon>
+    </Compile>
+    <Compile Include="job_create_bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_create_bill.Designer.cs">
+      <DependentUpon>job_create_bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="job_create_reminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_create_reminder.Designer.cs">
+      <DependentUpon>job_create_reminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="job_edit_discounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_edit_discounts.Designer.cs">
+      <DependentUpon>job_edit_discounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="job_edit_services.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_edit_services.Designer.cs">
+      <DependentUpon>job_edit_services.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="job_new_get_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_new_get_Customer.Designer.cs">
+      <DependentUpon>job_new_get_Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentConditions.Designer.cs">
+      <DependentUpon>PaymentConditions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reminders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reminders.Designer.cs">
+      <DependentUpon>Reminders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectModule.Designer.cs">
+      <DependentUpon>SelectModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Discounts.resx">
+      <DependentUpon>Discounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnterLicense.resx">
+      <DependentUpon>EnterLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="job_edit_services.resx">
+      <DependentUpon>job_edit_services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="job_new_get_Customer.resx">
+      <DependentUpon>job_new_get_Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reminders.resx">
+      <DependentUpon>Reminders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectModule.resx">
+      <DependentUpon>SelectModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebDaD.Toolkit\WebDaD.Toolkit.csproj">
+      <Project>{D0D1B5C0-0B35-41F1-88E4-BC1014D6BA28}</Project>
+      <Name>WebDaD.Toolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
