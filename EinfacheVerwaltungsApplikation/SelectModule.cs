@@ -17,7 +17,7 @@ namespace ManageAdministerExalt
         public SelectModule()
         {
             InitializeComponent();
-            this.Text = Config.Name + " :: " + "Modulauswahl";
+            this.Text = Config.Name + " :: " + "Datenbank";
         }
 
         private void SelectModule_Load(object sender, EventArgs e)
