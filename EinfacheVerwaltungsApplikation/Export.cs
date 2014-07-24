@@ -47,7 +47,15 @@ namespace ManageAdministerExalt
             if (cb_export_type.SelectedIndex == -1) MessageBox.Show("Exporttyp wählen", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             ExportType et = (ExportType)Enum.Parse(typeof(ExportType), cb_export_type.SelectedItem.ToString());
-            Template t = new Template(db,cb_template.SelectedValue.ToString());
+            Template t;
+            if (cb_template.SelectedValue.ToString().Equals("0"))
+            {
+                t = new Template();
+            }
+            else
+            {
+                t = new Template(db, cb_template.SelectedValue.ToString());
+            }
 
             string file = WebDaD.Toolkit.Export.Export.DataExport(et, data, t, Config.BasePath);
 
