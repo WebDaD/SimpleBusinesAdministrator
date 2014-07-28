@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ManageAdministerExalt.Classes;
+using WebDaD.Toolkit.Database;
 
 namespace ManageAdministerExalt
 {
     public partial class Reminders : Form
     {
-        public Reminders()
+        public Reminders(Database db)
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Mahnungen";

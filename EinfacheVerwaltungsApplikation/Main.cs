@@ -600,17 +600,17 @@ namespace ManageAdministerExalt
 
         private void rabatteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Discounts().ShowDialog();
+            new Discounts(db).ShowDialog();
         }
 
         private void mahnungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Reminders().ShowDialog();
+            new Reminders(db).ShowDialog();
         }
 
         private void zahlungsbedigungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new PaymentConditions().ShowDialog();
+            new PaymentConditions(db).ShowDialog();
         }
 
         private void tb_ex_attachment_Click(object sender, EventArgs e)

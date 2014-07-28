@@ -6,12 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WebDaD.Toolkit.Database;
 
 namespace ManageAdministerExalt
 {
     public partial class PaymentConditions : Form
     {
-        public PaymentConditions()
+        public PaymentConditions(Database db)
         {
             InitializeComponent();
         }

@@ -31,9 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lv_discounts = new System.Windows.Forms.ListView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cms_discounts = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_id = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,16 +48,14 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_exit = new System.Windows.Forms.Button();
-            this.cms_discounts = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_new = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.cms_discounts.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_value)).BeginInit();
-            this.cms_discounts.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -65,6 +66,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btn_new);
             this.splitContainer1.Panel1.Controls.Add(this.lv_discounts);
             // 
             // splitContainer1.Panel2
@@ -76,20 +78,55 @@
             // 
             // lv_discounts
             // 
+            this.lv_discounts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lv_discounts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
             this.lv_discounts.ContextMenuStrip = this.cms_discounts;
-            this.lv_discounts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv_discounts.GridLines = true;
             this.lv_discounts.Location = new System.Drawing.Point(0, 0);
             this.lv_discounts.Name = "lv_discounts";
-            this.lv_discounts.Size = new System.Drawing.Size(201, 235);
+            this.lv_discounts.Size = new System.Drawing.Size(201, 189);
             this.lv_discounts.TabIndex = 0;
             this.lv_discounts.UseCompatibleStateImageBehavior = false;
             this.lv_discounts.View = System.Windows.Forms.View.Details;
             this.lv_discounts.SelectedIndexChanged += new System.EventHandler(this.lv_discounts_SelectedIndexChanged);
             this.lv_discounts.Resize += new System.EventHandler(this.lv_discounts_Resize);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 34;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 144;
+            // 
+            // cms_discounts
+            // 
+            this.cms_discounts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.löschenToolStripMenuItem});
+            this.cms_discounts.Name = "cms_discounts";
+            this.cms_discounts.Size = new System.Drawing.Size(119, 48);
+            this.cms_discounts.Opening += new System.ComponentModel.CancelEventHandler(this.cms_discounts_Opening);
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
+            // 
+            // löschenToolStripMenuItem
+            // 
+            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
+            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.löschenToolStripMenuItem.Text = "Löschen";
+            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -119,16 +156,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(306, 235);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 34;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 144;
             // 
             // label1
             // 
@@ -236,28 +263,16 @@
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // cms_discounts
+            // btn_new
             // 
-            this.cms_discounts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem,
-            this.löschenToolStripMenuItem});
-            this.cms_discounts.Name = "cms_discounts";
-            this.cms_discounts.Size = new System.Drawing.Size(119, 48);
-            this.cms_discounts.Opening += new System.ComponentModel.CancelEventHandler(this.cms_discounts_Opening);
-            // 
-            // neuToolStripMenuItem
-            // 
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem.Text = "Neu";
-            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
-            // 
-            // löschenToolStripMenuItem
-            // 
-            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.löschenToolStripMenuItem.Text = "Löschen";
-            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
+            this.btn_new.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_new.Location = new System.Drawing.Point(0, 195);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(201, 40);
+            this.btn_new.TabIndex = 1;
+            this.btn_new.Text = "Neu";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // Discounts
             // 
@@ -268,14 +283,16 @@
             this.MinimumSize = new System.Drawing.Size(527, 273);
             this.Name = "Discounts";
             this.Text = "MAX :: Rabatte";
+            this.Load += new System.EventHandler(this.Discounts_Load);
+            this.Resize += new System.EventHandler(this.Discounts_Resize);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.cms_discounts.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_value)).EndInit();
-            this.cms_discounts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -301,5 +318,6 @@
         private System.Windows.Forms.ContextMenuStrip cms_discounts;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
+        private System.Windows.Forms.Button btn_new;
     }
 }
