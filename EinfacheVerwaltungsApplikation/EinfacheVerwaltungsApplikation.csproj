@@ -74,7 +74,7 @@
     <Compile Include="EnterLicense.Designer.cs">
       <DependentUpon>EnterLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Expenses.cs" />
+    <Compile Include="Classes\Expenses.cs" />
     <Compile Include="Export.cs">
       <SubType>Form</SubType>
     </Compile>

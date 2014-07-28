@@ -10,7 +10,7 @@ namespace ManageAdministerExalt.Classes
     /// <summary>
     /// Holds Information on one Term and has static classes to getTerms
     /// </summary>
-    public class Term : Exportable
+    public class Term : Exportable, Joinable
     {
         public static Dictionary<string, string> getTerms(Database db)
         {
@@ -165,6 +165,16 @@ namespace ManageAdministerExalt.Classes
         }
 
         public string Filename()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string JoinOn(Joinable jointable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTableName()
         {
             throw new NotImplementedException();
         }

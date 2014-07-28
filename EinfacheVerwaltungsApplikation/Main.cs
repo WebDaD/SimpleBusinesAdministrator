@@ -100,7 +100,7 @@ namespace ManageAdministerExalt
 
         private void fillCustomers()
         {
-            customers = Customer.getCustomers(db);
+            customers = Customer.getObjectList(db);
             if (customers != null)
             {
                 lv_cu_customers.Items.Clear();

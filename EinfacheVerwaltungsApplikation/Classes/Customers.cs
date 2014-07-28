@@ -19,7 +19,7 @@ namespace ManageAdministerExalt.Classes
             this.db = db;
             customers = new List<Customer>();
             List<List<string>> d = new List<List<string>>();
-            d = db.getRow(Customer.table, new string[] { "id" }, "`active`='1'", "id ASC");
+            d = db.getRow(Customer.TableName, new string[] { "id" }, "`active`='1'", "id ASC");
             foreach (List<string> item in d)
             {
                 customers.Add(new Customer(db, item[0]));

@@ -11,12 +11,12 @@ namespace ManageAdministerExalt.Classes
     /// <summary>
     /// Gets or Sets all Data for Customers
     /// </summary>
-    public class Customer : Exportable
+    public class Customer : Exportable, Joinable
     {
-        public static Dictionary<string, string> getCustomers(Database db)
+        public static Dictionary<string, string> getObjectList(Database db)
         {
             List<List<string>> d = new List<List<string>>();
-            d = db.getRow(Customer.table, new string[] { "id", "name" },"`active`='1'");
+            d = db.getRow(Customer.TableName, new string[] { "id", "name" },"`active`='1'");
 
             Dictionary<string, string> r = new Dictionary<string, string>();
             foreach (List<string> item in d)
@@ -29,7 +29,7 @@ namespace ManageAdministerExalt.Classes
         }
 
         private Database db;
-        public static string table = "customers";
+        public static string TableName = "customers";
 
         private string id;
         public string ID { get { return id; } set { id = value; } }
@@ -96,7 +96,7 @@ namespace ManageAdministerExalt.Classes
         {
             this.db = db;
             List<List<string>> d = new List<List<string>>();
-            d = this.db.getRow(Customer.table, new string[] { "id", "name","street","plz","city","mail","phone","mobile","fax","contact" },"`id`='"+id+"'","",1);
+            d = this.db.getRow(Customer.TableName, new string[] { "id", "name", "street", "plz", "city", "mail", "phone", "mobile", "fax", "contact" }, "`id`='" + id + "'", "", 1);
             this.id = d[0][0];
             this.name = d[0][1];
             this.street = d[0][2];
@@ -132,11 +132,11 @@ namespace ManageAdministerExalt.Classes
             bool ok = true;
             if (String.IsNullOrEmpty(this.id))
             {
-                ok = db.Insert(Customer.table, this.FieldSet);
+                ok = db.Insert(Customer.TableName, this.FieldSet);
             }
             else
             {
-                ok = db.Update(Customer.table, this.FieldSet, "`id`='" + this.id + "'");
+                ok = db.Update(Customer.TableName, this.FieldSet, "`id`='" + this.id + "'");
 
             }
             if (ok)
@@ -155,7 +155,7 @@ namespace ManageAdministerExalt.Classes
             Dictionary<string, string> tmp = new Dictionary<string, string>();
             tmp.Add("active", "0");
 
-            ok = db.Update(Customer.table, tmp, "`id`='" + this.id + "'");
+            ok = db.Update(Customer.TableName, tmp, "`id`='" + this.id + "'");
             return ok;
         }
 
@@ -172,6 +172,18 @@ namespace ManageAdministerExalt.Classes
         public string Filename()
         {
             throw new NotImplementedException();
+        }
+
+
+        public string JoinOn(Joinable jointable)
+        {
+            //TODO: Sub-Tables may here switch their ownfields
+            return "id";
+        }
+
+        public string GetTableName()
+        {
+            return Customer.TableName;
         }
     }
 }

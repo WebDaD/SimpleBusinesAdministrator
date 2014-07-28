@@ -8,7 +8,7 @@ using System.IO;
 
 namespace ManageAdministerExalt.Classes
 {
-    class Expense : Exportable
+    class Expense : Exportable, Joinable
     {
         public static readonly string table = "expenses";
 
@@ -160,6 +160,17 @@ namespace ManageAdministerExalt.Classes
         }
 
         public string Filename()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public string JoinOn(Joinable jointable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTableName()
         {
             throw new NotImplementedException();
         }

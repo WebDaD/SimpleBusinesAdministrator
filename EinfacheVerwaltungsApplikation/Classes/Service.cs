@@ -10,7 +10,7 @@ namespace ManageAdministerExalt.Classes
     /// <summary>
     /// All Data for One Service. With Static Class to get Lists of services
     /// </summary>
-    public class Service : Exportable
+    public class Service : Exportable, Joinable
     {
         public static Dictionary<string, string> getServices(Database db)
         {
@@ -133,6 +133,16 @@ namespace ManageAdministerExalt.Classes
         }
 
         public string Filename()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string JoinOn(Joinable jointable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetTableName()
         {
             throw new NotImplementedException();
         }
