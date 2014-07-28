@@ -28,8 +28,6 @@ namespace ManageAdministerExalt.Classes
 
         public Content ToContent()
         {
-            Content c = new Content(DataType.Table);
-
             DataTable t = new DataTable();
             t.Columns.Add("ID");
             t.Columns.Add("Name");
@@ -39,7 +37,7 @@ namespace ManageAdministerExalt.Classes
                 t.Rows.Add(new string[] { item.KundenNummer, item.Name });
             }
 
-            c.Table = t;
+            Content c = new ContentTable(DataType.Table,t);
             return c;
         }
 
