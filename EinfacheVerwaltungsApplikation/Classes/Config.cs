@@ -21,15 +21,15 @@ namespace ManageAdministerExalt.Classes
             }
         }
 
-        public static string DatabasePath
+        public static string DatabaseConnectionString
         {
             get
             {
-                return Properties.Settings.Default.db_path;
+                return Properties.Settings.Default.db_connection_string;
             }
             set
             {
-                Properties.Settings.Default.db_path = value;
+                Properties.Settings.Default.db_connection_string = value;
                 Properties.Settings.Default.Save();
             }
         }

@@ -26,7 +26,7 @@ namespace ManageAdministerExalt
             else
             {
 
-                if (!String.IsNullOrEmpty(Config.DatabasePath))
+                if (!String.IsNullOrEmpty(Config.DatabaseConnectionString))
                 {
                     Application.Run(new Main());
                 }

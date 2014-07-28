@@ -55,8 +55,19 @@ namespace ManageAdministerExalt
                 MessageBox.Show("Bitte den Pfad der Datenbank wählen", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Config.DatabasePath = tb_path.Text;
+            
             Config.DatabaseType = (DatabaseType)Enum.Parse(typeof(DatabaseType), cb_module.SelectedItem.ToString());
+
+            switch (Config.DatabaseType)
+            {
+                case DatabaseType.SQLite:
+                    Config.DatabaseConnectionString = Database_SQLite.GetConnectionString(tb_path.Text);
+                    break;
+                //TODO: on other types, check the needed fields!
+                default:
+                    break;
+            }
+
             Config.BasePath = Application.StartupPath;
             //TODO: restliche Daten, wenn typ passend
             Main m = new Main();
@@ -67,6 +78,7 @@ namespace ManageAdministerExalt
 
         private void tb_path_Click(object sender, EventArgs e)
         {
+            //TODO: only if databasetype == sqlite!
             btn_browse_Click(sender, e);
         }
 

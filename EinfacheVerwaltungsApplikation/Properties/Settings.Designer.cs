@@ -38,12 +38,12 @@ namespace ManageAdministerExalt.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string db_path {
+        public string db_connection_string {
             get {
-                return ((string)(this["db_path"]));
+                return ((string)(this["db_connection_string"]));
             }
             set {
-                this["db_path"] = value;
+                this["db_connection_string"] = value;
             }
         }
         

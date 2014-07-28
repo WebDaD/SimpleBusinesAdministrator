@@ -27,10 +27,10 @@ namespace ManageAdministerExalt
         public Main()
         {
             InitializeComponent();
-            switch (Properties.Settings.Default.db_type)
+            switch (Config.DatabaseType)
             {
                 case DatabaseType.SQLite:
-                    db = Database_SQLite.getDatabase(Properties.Settings.Default.db_path);
+                    db = Database_SQLite.getDatabase(Config.DatabaseConnectionString);
                     break;
                 default:
                     //TODO: ERROR

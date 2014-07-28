@@ -5,7 +5,7 @@
     <Setting Name="db_type" Type="WebDaD.Toolkit.Database.DatabaseType" Scope="User">
       <Value Profile="(Default)">SQLite</Value>
     </Setting>
-    <Setting Name="db_path" Type="System.String" Scope="User">
+    <Setting Name="db_connection_string" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="basepath" Type="System.String" Scope="User">
