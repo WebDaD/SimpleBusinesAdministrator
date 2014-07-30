@@ -50,6 +50,15 @@ namespace ManageAdministerExalt
 
             tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
 
+            foreach (TabControl t  in tabs.TabPages)
+            {
+                ((Control)t).Enabled = false;
+            }
+            foreach (string active_tab in Config.ActiveTabs)
+            {
+                ((Control)tabs.TabPages[active_tab]).Enabled = true;
+            }
+
         }
 
         private void checkOpenPoints()

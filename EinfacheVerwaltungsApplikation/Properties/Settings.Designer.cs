@@ -106,5 +106,23 @@ namespace ManageAdministerExalt.Properties {
                 this["default_tab"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>tab_customers</string>
+  <string>tab_worker</string>
+  <string>tab_jobs</string>
+  <string>tab_reports</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection active_tabs {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["active_tabs"]));
+            }
+            set {
+                this["active_tabs"] = value;
+            }
+        }
     }
 }

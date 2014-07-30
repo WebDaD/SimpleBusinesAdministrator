@@ -93,5 +93,27 @@ namespace ManageAdministerExalt.Classes
                 Properties.Settings.Default.Save();
             }
         }
+
+        public static List<string> ActiveTabs
+        {
+            get
+            {
+                List<string> r = new List<string>();
+                foreach (string item in Properties.Settings.Default.active_tabs)
+                {
+                    r.Add(item);
+                }
+                return r;
+            }
+            set
+            {
+                Properties.Settings.Default.active_tabs.Clear();
+                foreach (string item in value)
+                {
+                    Properties.Settings.Default.active_tabs.Add(item);
+                }
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

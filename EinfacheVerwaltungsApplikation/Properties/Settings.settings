@@ -23,5 +23,14 @@
     <Setting Name="default_tab" Type="System.String" Scope="User">
       <Value Profile="(Default)">tab_reports</Value>
     </Setting>
+    <Setting Name="active_tabs" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;tab_customers&lt;/string&gt;
+  &lt;string&gt;tab_worker&lt;/string&gt;
+  &lt;string&gt;tab_jobs&lt;/string&gt;
+  &lt;string&gt;tab_reports&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

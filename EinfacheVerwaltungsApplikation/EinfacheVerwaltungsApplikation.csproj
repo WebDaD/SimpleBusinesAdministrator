@@ -54,6 +54,7 @@
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Discount.cs" />
     <Compile Include="Classes\Expense.cs" />
+    <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\Job.cs" />
     <Compile Include="Classes\PaymentCondition.cs" />
     <Compile Include="Classes\Reminder.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Classes\Services.cs" />
     <Compile Include="Classes\Term.cs" />
     <Compile Include="Classes\Terms.cs" />
+    <Compile Include="Classes\Worker.cs" />
     <Compile Include="Discounts.cs">
       <SubType>Form</SubType>
     </Compile>
