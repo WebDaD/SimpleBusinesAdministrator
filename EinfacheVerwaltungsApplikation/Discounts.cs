@@ -30,7 +30,7 @@ namespace ManageAdministerExalt
 
         private void fillDiscounts()
         {
-            discounts = Discount.getDiscounts(db);
+            discounts = new Discount(db).GetIDList();
             if (discounts != null)
             {
                 lv_discounts.Items.Clear();
@@ -53,7 +53,7 @@ namespace ManageAdministerExalt
         {
             tb_name.Text = discount.Name;
             nu_value.Value = discount.Value;
-            cb_type.SelectedItem = cb_type.Items[cb_type.Items.IndexOf(discount.TypeName)];
+            cb_type.SelectedItem = cb_type.Items[discount.Type];
             btn_save.Enabled = false;
             btn_cancel.Enabled = false;
         }
@@ -62,7 +62,7 @@ namespace ManageAdministerExalt
         {
             discount.Name = tb_name.Text;
             discount.Value = nu_value.Value;
-            discount.TypeName = cb_type.SelectedText;
+            discount.Type = cb_type.SelectedIndex;
             if (!discount.Save())
             {
                 MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -107,7 +107,7 @@ namespace ManageAdministerExalt
                 lb_id.Text = discount.NiceID;
                 tb_name.Text = discount.Name;
                 nu_value.Value = discount.Value;
-                cb_type.SelectedItem = cb_type.Items[cb_type.Items.IndexOf(discount.TypeName)];
+                cb_type.SelectedItem = cb_type.Items[discount.Type];
 
 
                 btn_save.Enabled = false;
