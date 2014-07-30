@@ -10,7 +10,7 @@ namespace ManageAdministerExalt.Classes
     /// <summary>
     /// All Data for One Service. With Static Class to get Lists of services
     /// </summary>
-    public class Service : Exportable, Joinable
+    public class Service : Exportable, Joinable, CRUDable
     {
         public static Dictionary<string, string> getServices(Database db)
         {

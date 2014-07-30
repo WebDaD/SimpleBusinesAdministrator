@@ -5,27 +5,40 @@ using System.Text;
 using WebDaD.Toolkit.Database;
 using WebDaD.Toolkit.Export;
 using System.IO;
+using System.Data;
 
 namespace ManageAdministerExalt.Classes
 {
     /// <summary>
     /// Gets or Sets all Data for Customers
     /// </summary>
-    public class Customer : Exportable, Joinable
+    public class Customer : Exportable, Joinable, CRUDable
     {
-        public static Dictionary<string, string> getObjectList(Database db)
+        public Dictionary<string, string> getIDList()
         {
-            List<List<string>> d = new List<List<string>>();
-            d = db.getRow(Customer.TableName, new string[] { "id", "name" },"`active`='1'");
+            Result d = this.db.getRow(Customer.TableName, new string[] { "id", "name" },"`active`='1'");
+            if (d.RowCount < 1) return null;
 
             Dictionary<string, string> r = new Dictionary<string, string>();
-            foreach (List<string> item in d)
+            foreach (Row item in d.Rows)
             {
-                r.Add(item[0], item[1]);
+                r.Add(item.Cells["id"], item.Cells["name"]);
             }
 
-            if (d.Count > 0) return r;
+            if (r.Count > 0) return r;
             else return null;
+        }
+
+
+        public List<CRUDable> GetFullList()
+        {
+            List<CRUDable> customers = new List<CRUDable>();
+            Result d = this.db.getRow(Customer.TableName, new string[] { "id" }, "`active`='1'", "id ASC");
+            foreach (Row row in d.Rows)
+            {
+                customers.Add(new Customer(db, row.Cells["id"]));
+            }
+            return customers;
         }
 
         private Database db;
@@ -34,11 +47,11 @@ namespace ManageAdministerExalt.Classes
         private string id;
         public string ID { get { return id; } set { id = value; } }
 
-        public static string makeKundenNummer(string id)
+        public static string makeNiceID(string id)
         {
             return "C" + id.PadLeft(5, '0');
         }
-        public string KundenNummer
+        public string NiceID
         {
             get
             {
@@ -92,21 +105,25 @@ namespace ManageAdministerExalt.Classes
             } 
         }
 
+        public Customer GetSingleInstance(string id)
+        {
+            return new Customer(this.db, id);
+        }
+
         public Customer(Database db, string id)
         {
             this.db = db;
-            List<List<string>> d = new List<List<string>>();
-            d = this.db.getRow(Customer.TableName, new string[] { "id", "name", "street", "plz", "city", "mail", "phone", "mobile", "fax", "contact" }, "`id`='" + id + "'", "", 1);
-            this.id = d[0][0];
-            this.name = d[0][1];
-            this.street = d[0][2];
-            this.plz = d[0][3];
-            this.city = d[0][4];
-            this.mail = d[0][5];
-            this.phone = d[0][6];
-            this.mobile = d[0][7];
-            this.fax = d[0][8];
-            this.contact = d[0][9];
+            Result d = this.db.getRow(Customer.TableName, new string[] { "id", "name", "street", "plz", "city", "mail", "phone", "mobile", "fax", "contact" }, "`id`='" + id + "'", "", 1);
+            this.id = d.FirstRow["id"];
+            this.name = d.FirstRow["name"];
+            this.street = d.FirstRow["street"];
+            this.plz = d.FirstRow["plz"];
+            this.city = d.FirstRow["city"];
+            this.mail = d.FirstRow["mail"];
+            this.phone = d.FirstRow["phone"];
+            this.mobile = d.FirstRow["mobile"];
+            this.fax = d.FirstRow["fax"];
+            this.contact = d.FirstRow["contact"];
         }
 
         /// <summary>
@@ -127,6 +144,11 @@ namespace ManageAdministerExalt.Classes
             this.contact = "";
         }
 
+        public Customer New()
+        {
+            return new Customer(this.db);
+        }
+
         public bool Save()
         {
             bool ok = true;
@@ -142,7 +164,7 @@ namespace ManageAdministerExalt.Classes
             if (ok)
             {
                 if(String.IsNullOrEmpty(this.id))this.id = db.GetLastInsertedID();
-                string target = Config.BasePath + Path.DirectorySeparatorChar + "customers" + Path.DirectorySeparatorChar + this.KundenNummer;
+                string target = Config.BasePath + Path.DirectorySeparatorChar + "customers" + Path.DirectorySeparatorChar + this.NiceID;
                 if (!Directory.Exists(target)) Directory.CreateDirectory(target);
             }
 
@@ -159,31 +181,73 @@ namespace ManageAdministerExalt.Classes
             return ok;
         }
 
-        public Content ToContent()
+        public Content ToContent(ExportCount c)
         {
-            throw new NotImplementedException();
+            if (c == ExportCount.MULTI)
+            {
+                DataTable t = new DataTable();
+                t.Columns.Add("ID");
+                t.Columns.Add("Name");
+
+                foreach (Customer item in this.GetFullList())
+                {
+                    t.Rows.Add(new string[] { item.NiceID, item.Name });
+                }
+
+                Content ct = new ContentTable(DataType.Table, t);
+                return ct;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public string DataName()
+        public string DataName(ExportCount c)
         {
-            throw new NotImplementedException();
+            if (c == ExportCount.MULTI)
+            {
+                return "Liste der Kunden";
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
-        public string Filename()
+        public string Filename(ExportCount c)
         {
-            throw new NotImplementedException();
+            if (c == ExportCount.MULTI)
+            {
+                return "customers";
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
-
-        public string JoinOn(Joinable jointable)
-        {
-            //TODO: Sub-Tables may here switch their ownfields
-            return "id";
-        }
 
         public string GetTableName()
         {
             return Customer.TableName;
+        }
+
+
+        public string GetJoinOn(Joinable jointable)
+        {
+            return "id";
+        }
+
+        public List<string> GetFields()
+        {
+            List<string> f = new List<string>();
+            foreach (KeyValuePair<string,string> item in this.FieldSet)
+            {
+                f.Add(Customer.TableName + "_" + item.Key);
+            }
+            return f;
+            
         }
     }
 }

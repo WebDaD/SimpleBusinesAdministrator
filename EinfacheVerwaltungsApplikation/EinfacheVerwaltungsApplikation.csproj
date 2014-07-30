@@ -52,7 +52,6 @@
     <Compile Include="Classes\Bill.cs" />
     <Compile Include="Classes\Config.cs" />
     <Compile Include="Classes\Customer.cs" />
-    <Compile Include="Classes\Customers.cs" />
     <Compile Include="Classes\Discount.cs" />
     <Compile Include="Classes\Expense.cs" />
     <Compile Include="Classes\Job.cs" />

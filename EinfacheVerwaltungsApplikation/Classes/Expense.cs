@@ -8,7 +8,7 @@ using System.IO;
 
 namespace ManageAdministerExalt.Classes
 {
-    class Expense : Exportable, Joinable
+    class Expense : Exportable, Joinable, CRUDable
     {
         public static readonly string table = "expenses";
 

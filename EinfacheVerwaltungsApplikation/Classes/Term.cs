@@ -10,21 +10,21 @@ namespace ManageAdministerExalt.Classes
     /// <summary>
     /// Holds Information on one Term and has static classes to getTerms
     /// </summary>
-    public class Term : Exportable, Joinable
+    public class Term : Exportable, Joinable, CRUDable
     {
         public static Dictionary<string, string> getTerms(Database db)
         {
-            List<List<string>> d = new List<List<string>>();
-            d = db.getRow(Term.table, new string[] { "ordering", "title" }, "`active`='1'","ordering ASC");
+            Result d = db.getRow(Term.table, new string[] { "ordering", "title" }, "`active`='1'","ordering ASC");
+
+            if (d.RowCount < 1) return null;
 
             Dictionary<string, string> r = new Dictionary<string, string>();
-            foreach (List<string> item in d)
+            foreach (Row row in d.Rows)
             {
-                r.Add(item[0], item[1]);
+                r.Add(row.Cells["ordering"], row.Cells["title"]);
             }
 
-            if (d.Count > 0) return r;
-            else return null;
+            return r;
         }
 
 
@@ -76,12 +76,11 @@ namespace ManageAdministerExalt.Classes
         public Term(Database db, string ordering)
         {
             this.db = db;
-            List<List<string>> d = new List<List<string>>();
-            d = this.db.getRow(Term.table, new string[] { "id", "title", "content", "ordering" }, "`ordering`='" + ordering + "'", "", 1);
-            this.id = d[0][0];
-            this.title = d[0][1];
-            this.content = d[0][2];
-            this.ordering = d[0][3];
+            Result d = this.db.getRow(Term.table, new string[] { "id", "title", "content", "ordering" }, "`ordering`='" + ordering + "'", "", 1);
+            this.id = d.FirstRow["id"];
+            this.title = d.FirstRow["title"]; ;
+            this.content = d.FirstRow["content"]; ;
+            this.ordering = d.FirstRow["ordering"]; ;
         }
 
         /// <summary>

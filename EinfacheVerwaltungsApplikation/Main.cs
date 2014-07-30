@@ -10,6 +10,7 @@ using WebDaD.Toolkit.Database;
 using ManageAdministerExalt.Classes;
 using System.Diagnostics;
 using System.IO;
+using WebDaD.Toolkit.Export;
 
 namespace ManageAdministerExalt
 {
@@ -100,7 +101,7 @@ namespace ManageAdministerExalt
 
         private void fillCustomers()
         {
-            customers = Customer.getObjectList(db);
+            customers = new Customer(db).getIDList();
             if (customers != null)
             {
                 lv_cu_customers.Items.Clear();
@@ -286,7 +287,7 @@ namespace ManageAdministerExalt
             {
                 customer = new Customer(db, lv_cu_customers.SelectedItems[0].Text);
 
-                lb_cu_id.Text = customer.KundenNummer;
+                lb_cu_id.Text = customer.NiceID;
                 tb_cu_name.Text = customer.Name;
                 tb_cu_street.Text = customer.Street;
                 tb_cu_plz.Text = customer.PLZ;
@@ -333,17 +334,18 @@ namespace ManageAdministerExalt
 
         private void btn_cu_open_folder_Click(object sender, EventArgs e)
         {
-            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + "customers" + Path.DirectorySeparatorChar + customer.KundenNummer);
+            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + "customers" + Path.DirectorySeparatorChar + customer.NiceID);
         }
 
         private void btn_cu_export_Click(object sender, EventArgs e)
         {
-            new Export(customer,db).ShowDialog();
+            new Export(customer,db, ExportCount.SINGLE).ShowDialog();
         }
 
         private void btn_cu_export_all_Click(object sender, EventArgs e)
         {
-            new Export(new Customers(db),db).ShowDialog();
+
+            new Export(customer, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void se_neuToolStripMenuItem1_Click(object sender, EventArgs e)

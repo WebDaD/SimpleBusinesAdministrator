@@ -17,11 +17,10 @@ namespace ManageAdministerExalt.Classes
         {
             this.db = db;
             terms = new List<Term>();
-            List<List<string>> d = new List<List<string>>();
-            d = db.getRow(Term.table, new string[] { "ordering" }, "`active`='1'", "ordering ASC");
-            foreach (List<string> item in d)
+            Result d = db.getRow(Term.table, new string[] { "ordering" }, "`active`='1'", "ordering ASC");
+            foreach (Row row in d.Rows)
             {
-                terms.Add(new Term(db, item[0]));
+                terms.Add(new Term(db, row.Cells[0].Content));
             }
         }
 

@@ -17,13 +17,15 @@ namespace ManageAdministerExalt
     {
         private Exportable data;
         private Database db;
-        public Export(Exportable data, Database db)
+        private ExportCount ec;
+        public Export(Exportable data, Database db, ExportCount ec)
         {
             InitializeComponent();
             this.data = data;
             this.db=db;
+            this.ec = ec;
             if (!this.db.isOpen()) db.Open();
-            lb_data_head.Text = data.DataName();
+            lb_data_head.Text = data.DataName(ec);
 
             foreach (ExportType t in (ExportType[])Enum.GetValues(typeof(ExportType)))
             {
@@ -57,7 +59,7 @@ namespace ManageAdministerExalt
                 t = new Template(db, cb_template.SelectedValue.ToString());
             }
 
-            string file = WebDaD.Toolkit.Export.Export.DataExport(et, data, t, Config.BasePath);
+            string file = WebDaD.Toolkit.Export.Export.DataExport(et, data, t, Config.BasePath, ec);
 
             if (cb_open_export.Checked)
             {
