@@ -47,7 +47,9 @@ namespace ManageAdministerExalt
             this.Text = Config.Name + " :: " + "Hauptansicht";
 
             checkOpenPoints();
-           
+
+            tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
+
         }
 
         private void checkOpenPoints()

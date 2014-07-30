@@ -80,5 +80,18 @@ namespace ManageAdministerExalt.Classes
                 Properties.Settings.Default.Save();
             }
         }
+
+        public static string DefaultTab
+        {
+            get
+            {
+                return Properties.Settings.Default.default_tab;
+            }
+            set
+            {
+                Properties.Settings.Default.default_tab = value;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

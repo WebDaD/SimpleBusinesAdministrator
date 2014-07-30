@@ -20,5 +20,8 @@
     <Setting Name="license_key" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="default_tab" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tab_reports</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -244,7 +244,7 @@ namespace ManageAdministerExalt.Classes
             List<string> f = new List<string>();
             foreach (KeyValuePair<string,string> item in this.FieldSet)
             {
-                f.Add(Customer.TableName + "." + item.Key);
+                f.Add(Customer.TableName + "." + Customer.TableName+"_"+item.Key);
             }
             return f;
             

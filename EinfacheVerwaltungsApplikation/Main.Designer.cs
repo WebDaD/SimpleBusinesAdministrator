@@ -41,7 +41,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabs = new System.Windows.Forms.TabControl();
             this.tab_customers = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lv_cu_customers = new System.Windows.Forms.ListView();
@@ -256,8 +256,49 @@
             this.grid_reports = new System.Windows.Forms.DataGridView();
             this.btn_re_Export = new System.Windows.Forms.Button();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
+            this.tab_worker = new System.Windows.Forms.TabPage();
+            this.tab_items = new System.Windows.Forms.TabPage();
+            this.splitContainer12 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer13 = new System.Windows.Forms.SplitContainer();
+            this.lv_it_items = new System.Windows.Forms.ListView();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_it_export = new System.Windows.Forms.Button();
+            this.btn_it_import = new System.Windows.Forms.Button();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.grid_it_log = new System.Windows.Forms.DataGridView();
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cms_it_items = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eingangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ausgangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.splitContainer14 = new System.Windows.Forms.SplitContainer();
+            this.lv_wo_worker = new System.Windows.Forms.ListView();
+            this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_wo_export = new System.Windows.Forms.Button();
+            this.btn_wo_export_all = new System.Windows.Forms.Button();
+            this.cms_wo_worker = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.neuToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.löschenToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -349,6 +390,31 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_reports)).BeginInit();
+            this.tab_worker.SuspendLayout();
+            this.tab_items.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer12)).BeginInit();
+            this.splitContainer12.Panel1.SuspendLayout();
+            this.splitContainer12.Panel2.SuspendLayout();
+            this.splitContainer12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).BeginInit();
+            this.splitContainer13.Panel1.SuspendLayout();
+            this.splitContainer13.Panel2.SuspendLayout();
+            this.splitContainer13.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
+            this.tableLayoutPanel22.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_it_log)).BeginInit();
+            this.cms_it_items.SuspendLayout();
+            this.tableLayoutPanel23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
+            this.splitContainer14.Panel1.SuspendLayout();
+            this.splitContainer14.Panel2.SuspendLayout();
+            this.splitContainer14.SuspendLayout();
+            this.tableLayoutPanel24.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.tableLayoutPanel25.SuspendLayout();
+            this.cms_wo_worker.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -448,20 +514,22 @@
             this.überToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.überToolStripMenuItem.Text = "Über ...";
             // 
-            // tabControl1
+            // tabs
             // 
-            this.tabControl1.Controls.Add(this.tab_customers);
-            this.tabControl1.Controls.Add(this.tab_services);
-            this.tabControl1.Controls.Add(this.tab_jobs);
-            this.tabControl1.Controls.Add(this.tab_agb);
-            this.tabControl1.Controls.Add(this.tab_expenses);
-            this.tabControl1.Controls.Add(this.tab_reports);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(832, 610);
-            this.tabControl1.TabIndex = 1;
+            this.tabs.Controls.Add(this.tab_customers);
+            this.tabs.Controls.Add(this.tab_services);
+            this.tabs.Controls.Add(this.tab_jobs);
+            this.tabs.Controls.Add(this.tab_agb);
+            this.tabs.Controls.Add(this.tab_expenses);
+            this.tabs.Controls.Add(this.tab_reports);
+            this.tabs.Controls.Add(this.tab_worker);
+            this.tabs.Controls.Add(this.tab_items);
+            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabs.Location = new System.Drawing.Point(0, 24);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(832, 610);
+            this.tabs.TabIndex = 1;
             // 
             // tab_customers
             // 
@@ -2781,7 +2849,7 @@
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
             this.splitContainer3.Size = new System.Drawing.Size(824, 584);
-            this.splitContainer3.SplitterDistance = 203;
+            this.splitContainer3.SplitterDistance = 202;
             this.splitContainer3.TabIndex = 0;
             // 
             // lv_re_reports
@@ -2794,7 +2862,7 @@
             this.lv_re_reports.GridLines = true;
             this.lv_re_reports.Location = new System.Drawing.Point(0, 0);
             this.lv_re_reports.Name = "lv_re_reports";
-            this.lv_re_reports.Size = new System.Drawing.Size(203, 584);
+            this.lv_re_reports.Size = new System.Drawing.Size(202, 584);
             this.lv_re_reports.TabIndex = 0;
             this.lv_re_reports.UseCompatibleStateImageBehavior = false;
             this.lv_re_reports.View = System.Windows.Forms.View.Details;
@@ -2824,7 +2892,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.btn_re_Export);
-            this.splitContainer4.Size = new System.Drawing.Size(617, 584);
+            this.splitContainer4.Size = new System.Drawing.Size(618, 584);
             this.splitContainer4.SplitterDistance = 542;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -2834,7 +2902,7 @@
             this.grid_reports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_reports.Location = new System.Drawing.Point(0, 0);
             this.grid_reports.Name = "grid_reports";
-            this.grid_reports.Size = new System.Drawing.Size(617, 542);
+            this.grid_reports.Size = new System.Drawing.Size(618, 542);
             this.grid_reports.TabIndex = 0;
             // 
             // btn_re_Export
@@ -2842,7 +2910,7 @@
             this.btn_re_Export.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_re_Export.Location = new System.Drawing.Point(0, 0);
             this.btn_re_Export.Name = "btn_re_Export";
-            this.btn_re_Export.Size = new System.Drawing.Size(617, 38);
+            this.btn_re_Export.Size = new System.Drawing.Size(618, 38);
             this.btn_re_Export.TabIndex = 0;
             this.btn_re_Export.Text = "Export";
             this.btn_re_Export.UseVisualStyleBackColor = true;
@@ -2851,12 +2919,447 @@
             // 
             this.ofd_ex_attachement.ReadOnlyChecked = true;
             // 
+            // tab_worker
+            // 
+            this.tab_worker.Controls.Add(this.splitContainer14);
+            this.tab_worker.Location = new System.Drawing.Point(4, 22);
+            this.tab_worker.Name = "tab_worker";
+            this.tab_worker.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_worker.Size = new System.Drawing.Size(824, 584);
+            this.tab_worker.TabIndex = 6;
+            this.tab_worker.Text = "Mitarbeiter";
+            this.tab_worker.UseVisualStyleBackColor = true;
+            // 
+            // tab_items
+            // 
+            this.tab_items.Controls.Add(this.splitContainer12);
+            this.tab_items.Location = new System.Drawing.Point(4, 22);
+            this.tab_items.Name = "tab_items";
+            this.tab_items.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_items.Size = new System.Drawing.Size(824, 584);
+            this.tab_items.TabIndex = 7;
+            this.tab_items.Text = "Lager";
+            this.tab_items.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer12
+            // 
+            this.splitContainer12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer12.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer12.Name = "splitContainer12";
+            // 
+            // splitContainer12.Panel1
+            // 
+            this.splitContainer12.Panel1.Controls.Add(this.splitContainer13);
+            // 
+            // splitContainer12.Panel2
+            // 
+            this.splitContainer12.Panel2.Controls.Add(this.tableLayoutPanel22);
+            this.splitContainer12.Size = new System.Drawing.Size(818, 578);
+            this.splitContainer12.SplitterDistance = 272;
+            this.splitContainer12.TabIndex = 0;
+            // 
+            // splitContainer13
+            // 
+            this.splitContainer13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer13.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer13.Name = "splitContainer13";
+            this.splitContainer13.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer13.Panel1
+            // 
+            this.splitContainer13.Panel1.Controls.Add(this.lv_it_items);
+            // 
+            // splitContainer13.Panel2
+            // 
+            this.splitContainer13.Panel2.Controls.Add(this.tableLayoutPanel21);
+            this.splitContainer13.Size = new System.Drawing.Size(272, 578);
+            this.splitContainer13.SplitterDistance = 540;
+            this.splitContainer13.TabIndex = 0;
+            // 
+            // lv_it_items
+            // 
+            this.lv_it_items.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15});
+            this.lv_it_items.ContextMenuStrip = this.cms_it_items;
+            this.lv_it_items.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_it_items.FullRowSelect = true;
+            this.lv_it_items.GridLines = true;
+            this.lv_it_items.Location = new System.Drawing.Point(0, 0);
+            this.lv_it_items.Name = "lv_it_items";
+            this.lv_it_items.Size = new System.Drawing.Size(272, 540);
+            this.lv_it_items.TabIndex = 0;
+            this.lv_it_items.UseCompatibleStateImageBehavior = false;
+            this.lv_it_items.View = System.Windows.Forms.View.Details;
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 2;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Controls.Add(this.btn_it_export, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.btn_it_import, 1, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 1;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(272, 34);
+            this.tableLayoutPanel21.TabIndex = 0;
+            // 
+            // btn_it_export
+            // 
+            this.btn_it_export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_it_export.Location = new System.Drawing.Point(3, 3);
+            this.btn_it_export.Name = "btn_it_export";
+            this.btn_it_export.Size = new System.Drawing.Size(130, 28);
+            this.btn_it_export.TabIndex = 0;
+            this.btn_it_export.Text = "Ausgang";
+            this.btn_it_export.UseVisualStyleBackColor = true;
+            // 
+            // btn_it_import
+            // 
+            this.btn_it_import.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_it_import.Location = new System.Drawing.Point(139, 3);
+            this.btn_it_import.Name = "btn_it_import";
+            this.btn_it_import.Size = new System.Drawing.Size(130, 28);
+            this.btn_it_import.TabIndex = 1;
+            this.btn_it_import.Text = "Eingang";
+            this.btn_it_import.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 1;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Controls.Add(this.groupBox12, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.groupBox13, 0, 1);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 2;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(542, 578);
+            this.tableLayoutPanel22.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.grid_it_log);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox12.Location = new System.Drawing.Point(3, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(536, 398);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Historie";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.tableLayoutPanel23);
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox13.Location = new System.Drawing.Point(3, 407);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(536, 168);
+            this.groupBox13.TabIndex = 1;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Bericht";
+            // 
+            // grid_it_log
+            // 
+            this.grid_it_log.AllowUserToAddRows = false;
+            this.grid_it_log.AllowUserToDeleteRows = false;
+            this.grid_it_log.AllowUserToOrderColumns = true;
+            this.grid_it_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_it_log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_it_log.Location = new System.Drawing.Point(3, 16);
+            this.grid_it_log.Name = "grid_it_log";
+            this.grid_it_log.ReadOnly = true;
+            this.grid_it_log.Size = new System.Drawing.Size(530, 379);
+            this.grid_it_log.TabIndex = 0;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "ID";
+            this.columnHeader13.Width = 45;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Name";
+            this.columnHeader14.Width = 126;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Anzahl";
+            // 
+            // cms_it_items
+            // 
+            this.cms_it_items.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eingangToolStripMenuItem,
+            this.ausgangToolStripMenuItem});
+            this.cms_it_items.Name = "cms_it_items";
+            this.cms_it_items.Size = new System.Drawing.Size(122, 48);
+            // 
+            // eingangToolStripMenuItem
+            // 
+            this.eingangToolStripMenuItem.Name = "eingangToolStripMenuItem";
+            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.eingangToolStripMenuItem.Text = "Eingang";
+            // 
+            // ausgangToolStripMenuItem
+            // 
+            this.ausgangToolStripMenuItem.Name = "ausgangToolStripMenuItem";
+            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.ausgangToolStripMenuItem.Text = "Ausgang";
+            // 
+            // tableLayoutPanel23
+            // 
+            this.tableLayoutPanel23.ColumnCount = 2;
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.Controls.Add(this.label42, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.label44, 1, 0);
+            this.tableLayoutPanel23.Controls.Add(this.label45, 0, 1);
+            this.tableLayoutPanel23.Controls.Add(this.label46, 1, 1);
+            this.tableLayoutPanel23.Controls.Add(this.label47, 0, 2);
+            this.tableLayoutPanel23.Controls.Add(this.label48, 1, 2);
+            this.tableLayoutPanel23.Controls.Add(this.label49, 0, 3);
+            this.tableLayoutPanel23.Controls.Add(this.label50, 1, 3);
+            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
+            this.tableLayoutPanel23.RowCount = 4;
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(530, 149);
+            this.tableLayoutPanel23.TabIndex = 0;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(3, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(41, 13);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "label42";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(268, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(41, 13);
+            this.label44.TabIndex = 1;
+            this.label44.Text = "label44";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(3, 54);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(41, 13);
+            this.label45.TabIndex = 2;
+            this.label45.Text = "label45";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(268, 54);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(41, 13);
+            this.label46.TabIndex = 3;
+            this.label46.Text = "label46";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(3, 108);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(41, 13);
+            this.label47.TabIndex = 4;
+            this.label47.Text = "label47";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(268, 108);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(41, 13);
+            this.label48.TabIndex = 5;
+            this.label48.Text = "label48";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(3, 128);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(41, 13);
+            this.label49.TabIndex = 6;
+            this.label49.Text = "label49";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(268, 128);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(41, 13);
+            this.label50.TabIndex = 7;
+            this.label50.Text = "label50";
+            // 
+            // splitContainer14
+            // 
+            this.splitContainer14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer14.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer14.Name = "splitContainer14";
+            // 
+            // splitContainer14.Panel1
+            // 
+            this.splitContainer14.Panel1.Controls.Add(this.lv_wo_worker);
+            // 
+            // splitContainer14.Panel2
+            // 
+            this.splitContainer14.Panel2.Controls.Add(this.tableLayoutPanel24);
+            this.splitContainer14.Size = new System.Drawing.Size(818, 578);
+            this.splitContainer14.SplitterDistance = 229;
+            this.splitContainer14.TabIndex = 0;
+            // 
+            // lv_wo_worker
+            // 
+            this.lv_wo_worker.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.columnHeader17});
+            this.lv_wo_worker.ContextMenuStrip = this.cms_wo_worker;
+            this.lv_wo_worker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_wo_worker.FullRowSelect = true;
+            this.lv_wo_worker.GridLines = true;
+            this.lv_wo_worker.Location = new System.Drawing.Point(0, 0);
+            this.lv_wo_worker.Name = "lv_wo_worker";
+            this.lv_wo_worker.Size = new System.Drawing.Size(229, 578);
+            this.lv_wo_worker.TabIndex = 0;
+            this.lv_wo_worker.UseCompatibleStateImageBehavior = false;
+            this.lv_wo_worker.View = System.Windows.Forms.View.Details;
+            // 
+            // tableLayoutPanel24
+            // 
+            this.tableLayoutPanel24.ColumnCount = 1;
+            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel24.Controls.Add(this.groupBox14, 0, 0);
+            this.tableLayoutPanel24.Controls.Add(this.groupBox15, 0, 1);
+            this.tableLayoutPanel24.Controls.Add(this.groupBox16, 0, 2);
+            this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel24.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel24.Name = "tableLayoutPanel24";
+            this.tableLayoutPanel24.RowCount = 3;
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(585, 578);
+            this.tableLayoutPanel24.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
+            this.ID.Width = 47;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Name";
+            this.columnHeader17.Width = 161;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox14.Location = new System.Drawing.Point(3, 3);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(579, 398);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Daten";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox15.Location = new System.Drawing.Point(3, 407);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(579, 109);
+            this.groupBox15.TabIndex = 1;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Bericht";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.tableLayoutPanel25);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox16.Location = new System.Drawing.Point(3, 522);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(579, 53);
+            this.groupBox16.TabIndex = 2;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Steuerung";
+            // 
+            // tableLayoutPanel25
+            // 
+            this.tableLayoutPanel25.ColumnCount = 2;
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.Controls.Add(this.btn_wo_export, 0, 0);
+            this.tableLayoutPanel25.Controls.Add(this.btn_wo_export_all, 1, 0);
+            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
+            this.tableLayoutPanel25.RowCount = 1;
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(573, 34);
+            this.tableLayoutPanel25.TabIndex = 0;
+            // 
+            // btn_wo_export
+            // 
+            this.btn_wo_export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_wo_export.Location = new System.Drawing.Point(3, 3);
+            this.btn_wo_export.Name = "btn_wo_export";
+            this.btn_wo_export.Size = new System.Drawing.Size(280, 28);
+            this.btn_wo_export.TabIndex = 0;
+            this.btn_wo_export.Text = "Export";
+            this.btn_wo_export.UseVisualStyleBackColor = true;
+            // 
+            // btn_wo_export_all
+            // 
+            this.btn_wo_export_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_wo_export_all.Location = new System.Drawing.Point(289, 3);
+            this.btn_wo_export_all.Name = "btn_wo_export_all";
+            this.btn_wo_export_all.Size = new System.Drawing.Size(281, 28);
+            this.btn_wo_export_all.TabIndex = 1;
+            this.btn_wo_export_all.Text = "Alle Exportieren";
+            this.btn_wo_export_all.UseVisualStyleBackColor = true;
+            // 
+            // cms_wo_worker
+            // 
+            this.cms_wo_worker.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem4,
+            this.löschenToolStripMenuItem4});
+            this.cms_wo_worker.Name = "cms_wo_worker";
+            this.cms_wo_worker.Size = new System.Drawing.Size(119, 48);
+            // 
+            // neuToolStripMenuItem4
+            // 
+            this.neuToolStripMenuItem4.Name = "neuToolStripMenuItem4";
+            this.neuToolStripMenuItem4.Size = new System.Drawing.Size(118, 22);
+            this.neuToolStripMenuItem4.Text = "Neu";
+            // 
+            // löschenToolStripMenuItem4
+            // 
+            this.löschenToolStripMenuItem4.Name = "löschenToolStripMenuItem4";
+            this.löschenToolStripMenuItem4.Size = new System.Drawing.Size(118, 22);
+            this.löschenToolStripMenuItem4.Text = "Löschen";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 634);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabs);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(848, 672);
@@ -2867,7 +3370,7 @@
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tabs.ResumeLayout(false);
             this.tab_customers.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -2968,6 +3471,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_reports)).EndInit();
+            this.tab_worker.ResumeLayout(false);
+            this.tab_items.ResumeLayout(false);
+            this.splitContainer12.Panel1.ResumeLayout(false);
+            this.splitContainer12.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer12)).EndInit();
+            this.splitContainer12.ResumeLayout(false);
+            this.splitContainer13.Panel1.ResumeLayout(false);
+            this.splitContainer13.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).EndInit();
+            this.splitContainer13.ResumeLayout(false);
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel22.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_it_log)).EndInit();
+            this.cms_it_items.ResumeLayout(false);
+            this.tableLayoutPanel23.ResumeLayout(false);
+            this.tableLayoutPanel23.PerformLayout();
+            this.splitContainer14.Panel1.ResumeLayout(false);
+            this.splitContainer14.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
+            this.splitContainer14.ResumeLayout(false);
+            this.tableLayoutPanel24.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.tableLayoutPanel25.ResumeLayout(false);
+            this.cms_wo_worker.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2977,7 +3506,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage tab_customers;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ContextMenuStrip cms_cu_customers;
@@ -3202,5 +3731,46 @@
         private System.Windows.Forms.TextBox tb_cu_fax;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.TabPage tab_worker;
+        private System.Windows.Forms.TabPage tab_items;
+        private System.Windows.Forms.SplitContainer splitContainer12;
+        private System.Windows.Forms.SplitContainer splitContainer13;
+        private System.Windows.Forms.ListView lv_it_items;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.Button btn_it_export;
+        private System.Windows.Forms.Button btn_it_import;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.DataGridView grid_it_log;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ContextMenuStrip cms_it_items;
+        private System.Windows.Forms.ToolStripMenuItem eingangToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ausgangToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.SplitContainer splitContainer14;
+        private System.Windows.Forms.ListView lv_wo_worker;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
+        private System.Windows.Forms.Button btn_wo_export;
+        private System.Windows.Forms.Button btn_wo_export_all;
+        private System.Windows.Forms.ContextMenuStrip cms_wo_worker;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem4;
     }
 }

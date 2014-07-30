@@ -94,5 +94,17 @@ namespace ManageAdministerExalt.Properties {
                 this["license_key"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("tab_reports")]
+        public string default_tab {
+            get {
+                return ((string)(this["default_tab"]));
+            }
+            set {
+                this["default_tab"] = value;
+            }
+        }
     }
 }
