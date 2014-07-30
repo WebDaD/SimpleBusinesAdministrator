@@ -297,6 +297,10 @@
             this.cms_wo_worker = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.neuToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.löschenToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label51 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_jo_edit_items = new System.Windows.Forms.Button();
+            this.lb_jo_items = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -415,6 +419,7 @@
             this.groupBox16.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
             this.cms_wo_worker.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1740,14 +1745,17 @@
             this.tableLayoutPanel15.Controls.Add(this.dt_jo_jdate, 1, 2);
             this.tableLayoutPanel15.Controls.Add(this.label41, 0, 3);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 3);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 5);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 5);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 6);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 6);
             this.tableLayoutPanel15.Controls.Add(this.label43, 0, 4);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 4);
+            this.tableLayoutPanel15.Controls.Add(this.label51, 0, 5);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel26, 1, 5);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 6;
+            this.tableLayoutPanel15.RowCount = 7;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1857,10 +1865,10 @@
             // 
             // btn_jo_cancel
             // 
-            this.btn_jo_cancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 117);
+            this.btn_jo_cancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 183);
             this.btn_jo_cancel.Name = "btn_jo_cancel";
-            this.btn_jo_cancel.Size = new System.Drawing.Size(273, 86);
+            this.btn_jo_cancel.Size = new System.Drawing.Size(273, 20);
             this.btn_jo_cancel.TabIndex = 8;
             this.btn_jo_cancel.Text = "Abbrechen";
             this.btn_jo_cancel.UseVisualStyleBackColor = true;
@@ -1868,10 +1876,10 @@
             // 
             // btn_jo_save
             // 
-            this.btn_jo_save.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_save.Location = new System.Drawing.Point(282, 117);
+            this.btn_jo_save.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_jo_save.Location = new System.Drawing.Point(282, 183);
             this.btn_jo_save.Name = "btn_jo_save";
-            this.btn_jo_save.Size = new System.Drawing.Size(274, 86);
+            this.btn_jo_save.Size = new System.Drawing.Size(274, 20);
             this.btn_jo_save.TabIndex = 9;
             this.btn_jo_save.Text = "Speichern";
             this.btn_jo_save.UseVisualStyleBackColor = true;
@@ -3354,6 +3362,49 @@
             this.löschenToolStripMenuItem4.Size = new System.Drawing.Size(118, 22);
             this.löschenToolStripMenuItem4.Text = "Löschen";
             // 
+            // label51
+            // 
+            this.label51.Location = new System.Drawing.Point(3, 114);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(273, 13);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "Lager";
+            // 
+            // tableLayoutPanel26
+            // 
+            this.tableLayoutPanel26.ColumnCount = 2;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Controls.Add(this.btn_jo_edit_items, 1, 0);
+            this.tableLayoutPanel26.Controls.Add(this.lb_jo_items, 0, 0);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 114);
+            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 1;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(280, 24);
+            this.tableLayoutPanel26.TabIndex = 13;
+            // 
+            // btn_jo_edit_items
+            // 
+            this.btn_jo_edit_items.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_jo_edit_items.Location = new System.Drawing.Point(143, 3);
+            this.btn_jo_edit_items.Name = "btn_jo_edit_items";
+            this.btn_jo_edit_items.Size = new System.Drawing.Size(134, 18);
+            this.btn_jo_edit_items.TabIndex = 0;
+            this.btn_jo_edit_items.Text = "Bearbeiten";
+            this.btn_jo_edit_items.UseVisualStyleBackColor = true;
+            this.btn_jo_edit_items.Click += new System.EventHandler(this.btn_jo_edit_items_Click);
+            // 
+            // lb_jo_items
+            // 
+            this.lb_jo_items.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_items.Location = new System.Drawing.Point(3, 0);
+            this.lb_jo_items.Name = "lb_jo_items";
+            this.lb_jo_items.Size = new System.Drawing.Size(134, 20);
+            this.lb_jo_items.TabIndex = 1;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3497,6 +3548,7 @@
             this.groupBox16.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
             this.cms_wo_worker.ResumeLayout(false);
+            this.tableLayoutPanel26.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3772,5 +3824,9 @@
         private System.Windows.Forms.ContextMenuStrip cms_wo_worker;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem4;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
+        private System.Windows.Forms.Button btn_jo_edit_items;
+        private System.Windows.Forms.Label lb_jo_items;
     }
 }

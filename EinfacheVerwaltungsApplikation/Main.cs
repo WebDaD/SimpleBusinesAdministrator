@@ -801,6 +801,12 @@ namespace ManageAdministerExalt
 
         }
 
+        private void btn_jo_edit_items_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         private void btn_jo_cancel_Click(object sender, EventArgs e)
         {
 
@@ -881,6 +887,7 @@ namespace ManageAdministerExalt
             db.Close();
         }
 
+        
         
 
         
