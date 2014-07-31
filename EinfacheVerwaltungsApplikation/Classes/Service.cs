@@ -4,46 +4,16 @@ using System.Linq;
 using System.Text;
 using WebDaD.Toolkit.Database;
 using WebDaD.Toolkit.Export;
+using System.Data;
 
 namespace ManageAdministerExalt.Classes
 {
-    /// <summary>
-    /// All Data for One Service. With Static Class to get Lists of services
-    /// </summary>
-    public class Service : Exportable, Joinable, CRUDable
+    public class Service : Joinable, Exportable, CRUDable
     {
-        public static Dictionary<string, string> getServices(Database db)
-        {
-            List<List<string>> d = new List<List<string>>();
-            d = db.getRow(Service.table, new string[] { "id", "name" }, "`active`='1'");
-
-            Dictionary<string, string> r = new Dictionary<string, string>();
-            foreach (List<string> item in d)
-            {
-                r.Add(item[0], item[1]);
-            }
-
-            if (d.Count > 0) return r;
-            else return null;
-        }
+        public static string TableName = "services";
 
         private Database db;
-        private static string table = "services";
-
         private string id;
-        public string ID { get { return id; } set { id = value; } }
-
-        public static string makeServiceNummer(string id) //TODO: use Propertiy Ption!
-        {
-            return "S" + id.PadLeft(5, '0');
-        }
-        public string ServiceNummer
-        {
-            get
-            {
-                return "S" + id.PadLeft(5, '0');
-            }
-        }
 
         private string name;
         public string Name { get { return name; } set { name = value; } }
@@ -54,38 +24,31 @@ namespace ManageAdministerExalt.Classes
         private string unit;
         public string Unit { get { return unit; } set { unit = value; } }
 
-        private string price;
-        public string Price { get { return price; } set { price = value; } }
+        private decimal value;
+        public decimal Value { get { return value; } set { this.value = value; } }
 
-         public Dictionary<string, string> FieldSet 
+        public string NiceID
         {
-            get 
+            get
+            {
+                return Config.CreateNiceID(Config.IDFormating["service"], id);
+            }
+        }
+
+        public Dictionary<string, string> FieldSet
+        {
+            get
             {
                 Dictionary<string, string> r = new Dictionary<string, string>();
                 r.Add("name", this.name);
                 r.Add("description", this.description);
                 r.Add("unit", this.unit);
-                r.Add("value", this.price);
+                r.Add("value", this.value.ToString());
                 r.Add("active", "1");
                 return r;
-            } 
+            }
         }
 
-        public Service(Database db, string id)
-        {
-            this.db = db;
-            List<List<string>> d = new List<List<string>>();
-            d = this.db.getRow(Service.table, new string[] { "id", "name","description","unit","value" },"`id`='"+id+"'","",1);
-            this.id = d[0][0];
-            this.name = d[0][1];
-            this.description = d[0][2];
-            this.unit = d[0][3];
-            this.price = d[0][4];
-        }
-
-        /// <summary>
-        /// Empty Service for Saving purposes or Errors
-        /// </summary>
         public Service(Database db)
         {
             this.db = db;
@@ -93,7 +56,84 @@ namespace ManageAdministerExalt.Classes
             this.name = "";
             this.description = "";
             this.unit = "";
-            this.price = "";
+            this.value = 0;
+        }
+
+        public Service(Database db, string id)
+        {
+            this.db = db;
+            Result d = this.db.getRow(Service.TableName, new string[] { "id", "name", "description", "unit", "value" }, "`id`='" + id + "'", "", 1);
+            this.id = d.FirstRow["id"];
+            this.name = d.FirstRow["name"];
+            this.description = d.FirstRow["description"];
+            this.unit = d.FirstRow["unit"];
+            this.value = Decimal.Parse(d.FirstRow["value"]);
+
+        }
+        public string GetJoinOn(Joinable jointable)
+        {
+            return "id";
+        }
+
+        public string GetTableName()
+        {
+            return Service.TableName;
+        }
+
+        public List<string> GetFields()
+        {
+            List<string> f = new List<string>();
+            foreach (KeyValuePair<string, string> item in this.FieldSet)
+            {
+                f.Add(Service.TableName + "." + Service.TableName + "_" + item.Key);
+            }
+            return f;
+        }
+
+        public Content ToContent(ExportCount c)
+        {
+            if (c == ExportCount.MULTI)
+            {
+                DataTable t = new DataTable();
+                t.Columns.Add("ID");
+                t.Columns.Add("Name");
+
+                foreach (Reminder item in this.GetFullList())
+                {
+                    t.Rows.Add(new string[] { item.NiceID, item.Name });
+                }
+
+                Content ct = new ContentTable(DataType.Table, t);
+                return ct;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string DataName(ExportCount c)
+        {
+            if (c == ExportCount.MULTI)
+            {
+                return "Liste der Dienstleistungen";
+            }
+            else
+            {
+                return this.NiceID + " - " + this.Name;
+            }
+        }
+
+        public string Filename(ExportCount c)
+        {
+            if (c == ExportCount.MULTI)
+            {
+                return "services";
+            }
+            else
+            {
+                return this.NiceID;
+            }
         }
 
         public bool Save()
@@ -101,13 +141,14 @@ namespace ManageAdministerExalt.Classes
             bool ok = true;
             if (String.IsNullOrEmpty(this.id))
             {
-                ok = db.Insert(Service.table, this.FieldSet);
+                ok = db.Insert(Service.TableName, this.FieldSet);
             }
             else
             {
-                ok = db.Update(Service.table, this.FieldSet, "`id`='" + this.id + "'");
+                ok = db.Update(Service.TableName, this.FieldSet, "`id`='" + this.id + "'");
 
             }
+
             return ok;
         }
 
@@ -117,34 +158,44 @@ namespace ManageAdministerExalt.Classes
             Dictionary<string, string> tmp = new Dictionary<string, string>();
             tmp.Add("active", "0");
 
-            ok = db.Update(Service.table, tmp, "`id`='" + this.id + "'");
-
+            ok = db.Update(Service.TableName, tmp, "`id`='" + this.id + "'");
             return ok;
         }
 
-        public Content ToContent()
+        public CRUDable New()
         {
-            throw new NotImplementedException();
+            return new Service(this.db);
         }
 
-        public string DataName()
+        public Dictionary<string, string> GetIDList()
         {
-            throw new NotImplementedException();
+            Result d = this.db.getRow(Service.TableName, new string[] { "id", "name" }, "`active`='1'");
+            if (d.RowCount < 1) return null;
+
+            Dictionary<string, string> r = new Dictionary<string, string>();
+            foreach (Row item in d.Rows)
+            {
+                r.Add(item.Cells["id"], item.Cells["name"]);
+            }
+
+            if (r.Count > 0) return r;
+            else return null;
         }
 
-        public string Filename()
+        public CRUDable GetSingleInstance(string id)
         {
-            throw new NotImplementedException();
+            return new Service(this.db, id);
         }
 
-        public string JoinOn(Joinable jointable)
+        public List<CRUDable> GetFullList()
         {
-            throw new NotImplementedException();
-        }
-
-        public string GetTableName()
-        {
-            throw new NotImplementedException();
+            List<CRUDable> services = new List<CRUDable>();
+            Result d = this.db.getRow(Service.TableName, new string[] { "id" }, "`active`='1'", "id ASC");
+            foreach (Row row in d.Rows)
+            {
+                services.Add(new Service(db, row.Cells["id"]));
+            }
+            return services;
         }
     }
 }

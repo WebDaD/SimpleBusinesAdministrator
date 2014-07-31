@@ -146,7 +146,7 @@ namespace ManageAdministerExalt
 
         private void fillServices()
         {
-            services = Service.getServices(db);
+            services = new Service(db).GetIDList();
             if (services != null)
             {
                 lv_se_services.Items.Clear();
@@ -393,7 +393,7 @@ namespace ManageAdministerExalt
 
         private void se_löschenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Wollen Sie wirklick die Leistung " + service.ServiceNummer + " (" + service.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Wollen Sie wirklick die Leistung " + service.NiceID + " (" + service.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 service.Delete();
                 fillServices();
@@ -407,11 +407,11 @@ namespace ManageAdministerExalt
             {
                 service = new Service(db, lv_se_services.SelectedItems[0].Text);
 
-                lb_se_ID.Text = service.ServiceNummer;
+                lb_se_ID.Text = service.NiceID;
                 tb_se_name.Text = service.Name;
                 tb_se_description.Text = service.Description;
                 tb_se_unit.Text = service.Unit;
-                tb_se_price.Text = service.Price;
+                tb_se_price.Text = service.Value.ToString();
 
                 //TODO load report
 
@@ -437,7 +437,7 @@ namespace ManageAdministerExalt
             tb_se_name.Text = service.Name;
             tb_se_description.Text = service.Description;
             tb_se_unit.Text = service.Unit;
-            tb_se_price.Text = service.Price;
+            tb_se_price.Text = service.Value.ToString();
             btn_se_cancel.Enabled = false;
             btn_se_save.Enabled = false;
         }
@@ -447,7 +447,7 @@ namespace ManageAdministerExalt
             service.Name = tb_se_name.Text;
             service.Description = tb_se_description.Text;
             service.Unit = tb_se_unit.Text;
-            service.Price = tb_se_price.Text;
+            service.Value = Decimal.Parse(tb_se_price.Text);
             if (!service.Save())
             {
                 MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -472,12 +472,12 @@ namespace ManageAdministerExalt
 
         private void btn_se_export_Click(object sender, EventArgs e)
         {
-            new Export(service,db).ShowDialog();
+            new Export(service, db, ExportCount.SINGLE).ShowDialog();
         }
 
         private void btn_se_export_all_Click(object sender, EventArgs e)
         {
-            new Export(new Services(db),db).ShowDialog();
+            new Export(service, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void lv_se_services_Resize(object sender, EventArgs e)
