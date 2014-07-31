@@ -127,7 +127,9 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("worker|mitarbeiter;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("worker|mitarbeiter;customer|kunde;discount|rabatt;expense|ausgabe;item|Gegenstand" +
+            ";job|auftrag;paymentcondition|zahlungsbedingung;reminder|Mahnung;service|leistun" +
+            "g;term|agb;\r\n")]
         public string paths {
             get {
                 return ((string)(this["paths"]));
@@ -139,7 +141,9 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("reminder|R%ID5%;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("bill|B%ID5%;customer|C%ID5%;discount|D%ID5%;expense|E%ID5%;item|I%ID5%;job|J%ID5%" +
+            ";paymentcondition|P%ID5%;reminder|R%ID5%;sevrice|S%ID5%;term|§ %ID2%;worker|W%ID" +
+            "5%;")]
         public string idformating {
             get {
                 return ((string)(this["idformating"]));

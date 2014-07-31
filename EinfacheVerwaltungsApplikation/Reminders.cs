@@ -34,14 +34,14 @@ namespace ManageAdministerExalt
             reminders = new Reminder(db).GetIDList();
             if (reminders != null)
             {
-                lv_payment_conditions.Items.Clear();
+                lv_reminders.Items.Clear();
                 foreach (KeyValuePair<string, string> item in reminders)
                 {
                     ListViewItem t = new ListViewItem(item.Key);
                     string[] tmp = item.Value.Split('|');
                     t.SubItems.Add(tmp[0]);
                     t.SubItems.Add(tmp[1]);
-                    lv_payment_conditions.Items.Add(t);
+                    lv_reminders.Items.Add(t);
                 }
             }
         }
@@ -64,14 +64,14 @@ namespace ManageAdministerExalt
                 MessageBox.Show("Mahnung " + reminder.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             int sele = -1;
-            if (lv_payment_conditions.SelectedIndices.Count > 0)
+            if (lv_reminders.SelectedIndices.Count > 0)
             {
-                sele = lv_payment_conditions.SelectedIndices[0];
+                sele = lv_reminders.SelectedIndices[0];
             }
             fillReminders();
             if (sele > 0)
             {
-                lv_payment_conditions.Items[sele].Selected = true;
+                lv_reminders.Items[sele].Selected = true;
             }
             setEditMode(false);
         }
@@ -90,9 +90,9 @@ namespace ManageAdministerExalt
 
         private void lv_reminders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lv_payment_conditions.SelectedIndices.Count > 0)
+            if (lv_reminders.SelectedIndices.Count > 0)
             {
-                reminder = new Reminder(db, lv_payment_conditions.SelectedItems[0].Text);
+                reminder = new Reminder(db, lv_reminders.SelectedItems[0].Text);
 
                 setReminderFields();
 
@@ -103,7 +103,7 @@ namespace ManageAdministerExalt
 
         private void lv_reminders_Resize(object sender, EventArgs e)
         {
-            sizeLastColumn(lv_payment_conditions);
+            sizeLastColumn(lv_reminders);
         }
 
         private void tb_TextChanged(object sender, EventArgs e)
@@ -125,12 +125,12 @@ namespace ManageAdministerExalt
 
         private void cms_reminders_Opening(object sender, CancelEventArgs e)
         {
-            löschenToolStripMenuItem.Enabled = lv_payment_conditions.SelectedIndices.Count > 0;
+            löschenToolStripMenuItem.Enabled = lv_reminders.SelectedIndices.Count > 0;
         }
 
         private void neuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            lv_payment_conditions.SelectedIndices.Clear();
+            lv_reminders.SelectedIndices.Clear();
             reminder = new Reminder(db);
             setReminderFields();
             setEditMode(true);
@@ -143,13 +143,13 @@ namespace ManageAdministerExalt
             {
                 reminder.Delete();
                 fillReminders();
-                lv_payment_conditions.SelectedIndices.Clear();
+                lv_reminders.SelectedIndices.Clear();
             }
         }
 
         private void Reminders_Load(object sender, EventArgs e)
         {
-            sizeLastColumn(lv_payment_conditions);
+            sizeLastColumn(lv_reminders);
         }
 
         private void sizeLastColumn(ListView lv)

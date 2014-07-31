@@ -14,7 +14,9 @@ namespace ManageAdministerExalt.Classes
     /// </summary>
     public class Customer : Exportable, Joinable, CRUDable
     {
-        public Dictionary<string, string> getIDList()
+        
+
+        public Dictionary<string, string> GetIDList()
         {
             Result d = this.db.getRow(Customer.TableName, new string[] { "id", "name" },"`active`='1'");
             if (d.RowCount < 1) return null;
@@ -105,10 +107,12 @@ namespace ManageAdministerExalt.Classes
             } 
         }
 
-        public Customer GetSingleInstance(string id)
+        public CRUDable GetSingleInstance(string id)
         {
             return new Customer(this.db, id);
         }
+      
+
 
         public Customer(Database db, string id)
         {
@@ -144,7 +148,7 @@ namespace ManageAdministerExalt.Classes
             this.contact = "";
         }
 
-        public Customer New()
+        public CRUDable New()
         {
             return new Customer(this.db);
         }
@@ -257,5 +261,8 @@ namespace ManageAdministerExalt.Classes
             //TODO: Write some Reports ( see main mask)
             return r;
         }
+
+
+        
     }
 }

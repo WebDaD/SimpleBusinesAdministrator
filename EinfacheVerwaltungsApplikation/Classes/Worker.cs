@@ -14,7 +14,7 @@ namespace ManageAdministerExalt.Classes
         
 
         private Database db;
-        public static string TableName = "customers";
+        public static string TableName = "workers";
 
         private string id;
 
@@ -254,11 +254,20 @@ namespace ManageAdministerExalt.Classes
 
             //TODO: Write some Reports (jobs,jobs_avg,jobs_sum,work_months,salary_sum,value)
             r.Add("jobs", "0");
+
             r.Add("jobs_avg", "400,32");
-            r.Add("jobs_sum", "50.000,00");
+
+            decimal job_sum = 50000;
+            r.Add("jobs_sum", job_sum.ToString());
+
             int work_months = DateTime.Now.AddMonths(1).Month - WorksSince.Month;
             r.Add("work_months", work_months.ToString());
-            r.Add("salary_sum", (work_months * salary).ToString());
+
+            decimal sal_sum = work_months * salary;
+            r.Add("salary_sum", sal_sum.ToString());
+
+            decimal value = job_sum/sal_sum;
+            r.Add("value", value.ToString());
             return r;
         }
     }

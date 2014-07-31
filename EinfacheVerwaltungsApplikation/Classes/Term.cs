@@ -28,7 +28,7 @@ public class Term : Joinable, Exportable, CRUDable
         {
             get
             {
-                return Config.CreateNiceID(Config.IDFormating["term"], ordering.ToString());
+                return Config.CreateNiceID(Config.IDFormating["term"], ordering.ToString()).Replace("P","§");
             }
         }
 

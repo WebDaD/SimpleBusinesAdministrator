@@ -130,7 +130,10 @@ namespace ManageAdministerExalt.Classes
                 Dictionary<string, string> r = new Dictionary<string, string>();
                 foreach (string item in t)
                 {
-                    r.Add(item.Split('|')[0], item.Split('|')[1]);
+                    if (!String.IsNullOrEmpty(item))
+                    {
+                        r.Add(item.Split('|')[0], item.Split('|')[1]);
+                    }
                 }
                 return r;
 
@@ -139,7 +142,7 @@ namespace ManageAdministerExalt.Classes
                 string x = "";
                 foreach (KeyValuePair<string,string> item in value)
                 {
-                    x += item.Key + "|" + item.Value + ";";
+                        x += item.Key + "|" + item.Value + ";";
                 }
                 Properties.Settings.Default.paths = x;
                 Properties.Settings.Default.Save();
@@ -154,7 +157,10 @@ namespace ManageAdministerExalt.Classes
                 Dictionary<string, string> r = new Dictionary<string, string>();
                 foreach (string item in t)
                 {
-                    r.Add(item.Split('|')[0], item.Split('|')[1]);
+                    if (!String.IsNullOrEmpty(item))
+                    {
+                        r.Add(item.Split('|')[0], item.Split('|')[1]);
+                    }
                 }
                 return r;
 
@@ -183,13 +189,14 @@ namespace ManageAdministerExalt.Classes
             string count="";
             Regex reg = new Regex(reg_ID);
             Match m = reg.Match(r);
-            while (m.Success)
+            if(m.Success)
             {
                 Group g = m.Groups[1];
                 count = g.ToString();
+                int c = Int32.Parse(count);
+                r = r.Replace("%ID" + count + "%", id.PadLeft(c, '0'));
             }
-            int c = Int32.Parse(count);
-            r = r.Replace("%ID" + count + "%", id.PadLeft(c, '0'));
+            
 
             return r;
         }

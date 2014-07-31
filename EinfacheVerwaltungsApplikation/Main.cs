@@ -52,7 +52,7 @@ namespace ManageAdministerExalt
 
             tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
 
-            foreach (TabControl t  in tabs.TabPages)
+            foreach (TabPage t  in tabs.TabPages)
             {
                 ((Control)t).Enabled = false;
             }
@@ -104,9 +104,7 @@ namespace ManageAdministerExalt
                 foreach (KeyValuePair<string, string> item in workers)
                 {
                     ListViewItem t = new ListViewItem(item.Key);
-                    string[] tmp = item.Value.Split('|');
-                    t.SubItems.Add(tmp[0]);
-                    t.SubItems.Add(tmp[1]);
+                    t.SubItems.Add(item.Value);
                     lv_wo_worker.Items.Add(t);
                 }
             }
@@ -131,7 +129,7 @@ namespace ManageAdministerExalt
 
         private void fillCustomers()
         {
-            customers = new Customer(db).getIDList();
+            customers = new Customer(db).GetIDList();
             if (customers != null)
             {
                 lv_cu_customers.Items.Clear();

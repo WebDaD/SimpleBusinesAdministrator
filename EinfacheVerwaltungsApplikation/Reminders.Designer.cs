@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.lv_payment_conditions = new System.Windows.Forms.ListView();
+            this.lv_reminders = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cms_payment_conditions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cms_reminders = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,7 +54,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.cms_payment_conditions.SuspendLayout();
+            this.cms_reminders.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_period)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nu_value)).BeginInit();
@@ -68,7 +68,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.lv_payment_conditions);
+            this.splitContainer1.Panel1.Controls.Add(this.lv_reminders);
             // 
             // splitContainer1.Panel2
             // 
@@ -79,20 +79,20 @@
             // 
             // lv_reminders
             // 
-            this.lv_payment_conditions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lv_reminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.lv_payment_conditions.ContextMenuStrip = this.cms_payment_conditions;
-            this.lv_payment_conditions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lv_payment_conditions.GridLines = true;
-            this.lv_payment_conditions.Location = new System.Drawing.Point(0, 0);
-            this.lv_payment_conditions.Name = "lv_reminders";
-            this.lv_payment_conditions.Size = new System.Drawing.Size(180, 290);
-            this.lv_payment_conditions.TabIndex = 0;
-            this.lv_payment_conditions.UseCompatibleStateImageBehavior = false;
-            this.lv_payment_conditions.View = System.Windows.Forms.View.Details;
-            this.lv_payment_conditions.SelectedIndexChanged += new System.EventHandler(this.lv_reminders_SelectedIndexChanged);
-            this.lv_payment_conditions.Resize += new System.EventHandler(this.lv_reminders_Resize);
+            this.lv_reminders.ContextMenuStrip = this.cms_reminders;
+            this.lv_reminders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_reminders.GridLines = true;
+            this.lv_reminders.Location = new System.Drawing.Point(0, 0);
+            this.lv_reminders.Name = "lv_reminders";
+            this.lv_reminders.Size = new System.Drawing.Size(180, 290);
+            this.lv_reminders.TabIndex = 0;
+            this.lv_reminders.UseCompatibleStateImageBehavior = false;
+            this.lv_reminders.View = System.Windows.Forms.View.Details;
+            this.lv_reminders.SelectedIndexChanged += new System.EventHandler(this.lv_reminders_SelectedIndexChanged);
+            this.lv_reminders.Resize += new System.EventHandler(this.lv_reminders_Resize);
             // 
             // columnHeader1
             // 
@@ -106,12 +106,12 @@
             // 
             // cms_reminders
             // 
-            this.cms_payment_conditions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cms_reminders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.neuToolStripMenuItem,
             this.löschenToolStripMenuItem});
-            this.cms_payment_conditions.Name = "cms_reminders";
-            this.cms_payment_conditions.Size = new System.Drawing.Size(119, 48);
-            this.cms_payment_conditions.Opening += new System.ComponentModel.CancelEventHandler(this.cms_reminders_Opening);
+            this.cms_reminders.Name = "cms_reminders";
+            this.cms_reminders.Size = new System.Drawing.Size(119, 48);
+            this.cms_reminders.Opening += new System.ComponentModel.CancelEventHandler(this.cms_reminders_Opening);
             // 
             // neuToolStripMenuItem
             // 
@@ -321,7 +321,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.cms_payment_conditions.ResumeLayout(false);
+            this.cms_reminders.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_period)).EndInit();

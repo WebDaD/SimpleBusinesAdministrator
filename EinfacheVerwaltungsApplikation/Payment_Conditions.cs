@@ -131,7 +131,7 @@ namespace ManageAdministerExalt
         private void neuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lv_payment_conditions.SelectedIndices.Clear();
-            payment_condition = new Reminder(db);
+            payment_condition = new PaymentCondition(db);
             setPaymentConditionFields();
             setEditMode(true);
             tb_name.Focus();
