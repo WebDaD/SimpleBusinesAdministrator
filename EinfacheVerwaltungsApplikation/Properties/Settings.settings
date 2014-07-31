@@ -33,7 +33,10 @@
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="paths" Type="System.String" Scope="User">
-      <Value Profile="(Default)">worker-mitarbeiter;</Value>
+      <Value Profile="(Default)">worker|mitarbeiter;</Value>
+    </Setting>
+    <Setting Name="idformating" Type="System.String" Scope="User">
+      <Value Profile="(Default)">reminder|R%ID5%;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

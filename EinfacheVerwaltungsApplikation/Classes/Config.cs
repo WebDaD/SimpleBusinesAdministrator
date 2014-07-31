@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebDaD.Toolkit.Database;
+using System.Text.RegularExpressions;
 
 namespace ManageAdministerExalt.Classes
 {
@@ -51,8 +52,13 @@ namespace ManageAdministerExalt.Classes
         {
             get
             {
-                return Properties.Settings.Default.app_name + " " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                return Properties.Settings.Default.app_name;
             }
+        }
+
+        public static string Version
+        {
+            get { return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(); }
         }
 
         public static string Username
@@ -124,7 +130,7 @@ namespace ManageAdministerExalt.Classes
                 Dictionary<string, string> r = new Dictionary<string, string>();
                 foreach (string item in t)
                 {
-                    r.Add(item.Split('-')[0], item.Split('-')[1]);
+                    r.Add(item.Split('|')[0], item.Split('|')[1]);
                 }
                 return r;
 
@@ -133,17 +139,58 @@ namespace ManageAdministerExalt.Classes
                 string x = "";
                 foreach (KeyValuePair<string,string> item in value)
                 {
-                    x += item.Key + "-" + item.Value + ";";
+                    x += item.Key + "|" + item.Value + ";";
                 }
                 Properties.Settings.Default.paths = x;
                 Properties.Settings.Default.Save();
             }
         }
 
-        public static string CreateNiceID(string formating, string id)
+        public static Dictionary<string, string> IDFormating
         {
-            string r = "";
-            //TODO: parse string
+            get
+            {
+                string[] t = Properties.Settings.Default.idformating.Split(';');
+                Dictionary<string, string> r = new Dictionary<string, string>();
+                foreach (string item in t)
+                {
+                    r.Add(item.Split('|')[0], item.Split('|')[1]);
+                }
+                return r;
+
+            }
+            set
+            {
+                string x = "";
+                foreach (KeyValuePair<string, string> item in value)
+                {
+                    x += item.Key + "|" + item.Value + ";";
+                }
+                Properties.Settings.Default.idformating = x;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        public static string CreateNiceID(string formating, string id, DateTime date=new DateTime())
+        {
+            string r = formating;
+            r = r.Replace("%YY%", date.ToString("yy"));
+            r = r.Replace("%YYYY%", date.ToString("yyyy"));
+            r = r.Replace("%M%", date.ToString("MM"));
+            r = r.Replace("%D%", date.ToString("dd"));
+
+            string reg_ID = @"%ID(\d+)%";
+            string count="";
+            Regex reg = new Regex(reg_ID);
+            Match m = reg.Match(r);
+            while (m.Success)
+            {
+                Group g = m.Groups[1];
+                count = g.ToString();
+            }
+            int c = Int32.Parse(count);
+            r = r.Replace("%ID" + count + "%", id.PadLeft(c, '0'));
+
             return r;
         }
     }

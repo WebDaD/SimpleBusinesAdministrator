@@ -127,13 +127,25 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("worker-mitarbeiter;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("worker|mitarbeiter;")]
         public string paths {
             get {
                 return ((string)(this["paths"]));
             }
             set {
                 this["paths"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("reminder|R%ID5%;")]
+        public string idformating {
+            get {
+                return ((string)(this["idformating"]));
+            }
+            set {
+                this["idformating"] = value;
             }
         }
     }

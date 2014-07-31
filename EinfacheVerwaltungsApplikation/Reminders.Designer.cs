@@ -31,9 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lv_reminders = new System.Windows.Forms.ListView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cms_reminders = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_id = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,17 +50,14 @@
             this.nu_period = new System.Windows.Forms.NumericUpDown();
             this.cb_type = new System.Windows.Forms.ComboBox();
             this.nu_value = new System.Windows.Forms.NumericUpDown();
-            this.cms_reminders = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.cms_reminders.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_period)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nu_value)).BeginInit();
-            this.cms_reminders.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -94,6 +94,39 @@
             this.lv_reminders.SelectedIndexChanged += new System.EventHandler(this.lv_reminders_SelectedIndexChanged);
             this.lv_reminders.Resize += new System.EventHandler(this.lv_reminders_Resize);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 38;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 93;
+            // 
+            // cms_reminders
+            // 
+            this.cms_reminders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.löschenToolStripMenuItem});
+            this.cms_reminders.Name = "cms_reminders";
+            this.cms_reminders.Size = new System.Drawing.Size(119, 48);
+            this.cms_reminders.Opening += new System.ComponentModel.CancelEventHandler(this.cms_reminders_Opening);
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
+            // 
+            // löschenToolStripMenuItem
+            // 
+            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
+            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.löschenToolStripMenuItem.Text = "Löschen";
+            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -125,16 +158,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(356, 290);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 38;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 93;
             // 
             // label1
             // 
@@ -284,29 +307,6 @@
             this.nu_value.TabIndex = 12;
             this.nu_value.ValueChanged += new System.EventHandler(this.tb_TextChanged);
             // 
-            // cms_reminders
-            // 
-            this.cms_reminders.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem,
-            this.löschenToolStripMenuItem});
-            this.cms_reminders.Name = "cms_reminders";
-            this.cms_reminders.Size = new System.Drawing.Size(153, 70);
-            this.cms_reminders.Opening += new System.ComponentModel.CancelEventHandler(this.cms_reminders_Opening);
-            // 
-            // neuToolStripMenuItem
-            // 
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem.Text = "Neu";
-            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
-            // 
-            // löschenToolStripMenuItem
-            // 
-            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.löschenToolStripMenuItem.Text = "Löschen";
-            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
-            // 
             // Reminders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,15 +316,16 @@
             this.MinimumSize = new System.Drawing.Size(556, 328);
             this.Name = "Reminders";
             this.Text = "MAX :: Mahnungen";
+            this.Load += new System.EventHandler(this.Reminders_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.cms_reminders.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_period)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nu_value)).EndInit();
-            this.cms_reminders.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
