@@ -11,6 +11,8 @@ namespace ManageAdministerExalt.Classes
 {
     public class Worker : Exportable, Joinable, CRUDable
     {
+        
+
         private Database db;
         public static string TableName = "customers";
 
@@ -53,7 +55,7 @@ namespace ManageAdministerExalt.Classes
         {
             get
             {
-                return "W" + id.PadLeft(5, '0');
+                return Config.CreateNiceID(Config.IDFormating["worker"], id);
             }
         }
 

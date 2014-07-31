@@ -8,46 +8,45 @@ using System.IO;
 
 namespace ManageAdministerExalt.Classes
 {
-    class Expense : Exportable, Joinable, CRUDable
+    public class Expense : Joinable, Exportable, CRUDable
     {
-        public static readonly string table = "expenses";
+        public static List<string> GetExpenseYears(Database db)
+        {
+            Result d = db.getRow(Expense.TableName, new string[] { "strftime('%Y',edate)" }, "`active`='1'");
+            if (d.RowCount < 1) return null;
+
+            List<string> r = new List<string>();
+            foreach (Row item in d.Rows)
+            {
+                r.Add(item.Cells["strftime('%Y',edate)"]);
+            }
+
+            r = r.Distinct<string>().ToList<string>();
+
+            if (r.Count > 0) return r;
+            else return null;
+        }
 
         private Database db;
+
         private string id;
 
-        public Expense(Database db, string id)
-        {
-            this.db = db;
-            List<List<string>> d = new List<List<string>>();
-            d = this.db.getRow(Expense.table, new string[] { "id", "name", "edate", "value", "attachment" }, "`id`='" + id + "'", "", 1);
-            this.id = d[0][0];
-            this.name = d[0][1];
-            this.date = DateTime.Parse(d[0][2]);
-            this.value = Convert.ToDecimal(d[0][3]);
-            this.attachment = d[0][4];
-        }
+        private static string TableName = "expenses";
 
-        public Expense(Database db)
-        {
-            this.db = db;
-            this.id = "";
-            this.name = "";
-            this.date = DateTime.Now;
-            this.value = 0;
-            this.attachment = "";
-        }
         private string name;
         public string Name { get { return name; } set { name = value; } }
 
-        private DateTime date;
-        public DateTime Date { get { return date; } set { date = value; } }
+        public string NiceID { get {  return Config.CreateNiceID(Config.IDFormating["expense"], id); } }
+
+        private DateTime edate;
+        public DateTime EDate { get{return edate;} set{edate=value;} }
 
         private decimal value;
         public decimal Value { get { return value; } set { this.value = value; } }
 
         private string attachment;
         public string Attachment { get { return attachment; } set { attachment = value; } }
-        private string insert_attachment="";
+
 
         public Dictionary<string, string> FieldSet
         {
@@ -55,124 +54,170 @@ namespace ManageAdministerExalt.Classes
             {
                 Dictionary<string, string> r = new Dictionary<string, string>();
                 r.Add("name", this.name);
-                r.Add("edate", this.date.ToString("yyyy-MM-dd HH:mm:ss"));
+                r.Add("edate", this.edate.ToString("yyyy-MM-dd HH:mm:ss"));
                 r.Add("value", this.value.ToString());
-                r.Add("attachment", this.insert_attachment);
+                r.Add("attachment", this.attachment);
+                r.Add("active", "1");
                 return r;
             }
         }
 
-        internal bool Save()
+
+        public Expense(Database db)
         {
-           
+            this.db = db;
+            this.name = "";
+            this.edate=DateTime.Now;
+            this.value = 0;
+            this.attachment = "";
+        }
 
-            this.insert_attachment = Path.GetFileName(this.attachment);
+        public Expense(Database db, string id)
+        {
+            this.db = db;
+            this.id = id;
+            Result d = this.db.getRow(Expense.TableName, new string[] { "id", "name", "edate", "value", "attachment" }, "`id`='" + id + "'", "", 1);
+            this.id = d.FirstRow["id"];
+            this.name = d.FirstRow["name"];
+            this.edate = DateTime.Parse(d.FirstRow["edate"]);
+            this.value = Decimal.Parse(d.FirstRow["dvalue"]);
+            this.attachment = d.FirstRow["attachment"];
+        }
+        public Dictionary<string, string> GetIDList()
+        {
+            Result d = this.db.getRow(Expense.TableName, new string[] { "id", "name" }, "`active`='1'","edate ASC");
+            if (d.RowCount < 1) return null;
 
-            bool ok = true;
-            if (String.IsNullOrEmpty(this.id))
+            Dictionary<string, string> r = new Dictionary<string, string>();
+            foreach (Row item in d.Rows)
             {
-                ok = db.Insert(Expense.table, this.FieldSet);
-                this.id = db.GetLastInsertedID();
+                r.Add(item.Cells["id"], item.Cells["name"]);
+            }
+
+            if (r.Count > 0) return r;
+            else return null;
+        }
+
+        public Dictionary<string, string> GetIDList(string year)
+        {
+            Result d;
+            if (year == "Alle")
+            {
+                d = this.db.getRow(Expense.TableName, new string[] { "id", "name" }, "`active`='1'", "edate ASC");
             }
             else
             {
-                ok = db.Update(Expense.table, this.FieldSet, "`id`='" + this.id + "'");
+                d = this.db.getRow(Expense.TableName, new string[] { "id", "name" }, "`active`='1' AND strftime('%Y',edate)='" + year + "'", "edate ASC");
+            }
+            if (d.RowCount < 1) return null;
+
+            Dictionary<string, string> r = new Dictionary<string, string>();
+            foreach (Row item in d.Rows)
+            {
+                r.Add(item.Cells["id"], item.Cells["name"]);
+            }
+
+            if (r.Count > 0) return r;
+            else return null;
+        }
+
+        public string GetJoinOn(Joinable jointable)
+        {
+            return "id";
+        }
+
+        public string GetTableName()
+        {
+            return Expense.TableName;
+        }
+
+        public List<string> GetFields()
+        {
+            List<string> f = new List<string>();
+            foreach (KeyValuePair<string, string> item in this.FieldSet)
+            {
+                f.Add(Expense.TableName + "." + Expense.TableName + "_" + item.Key);
+            }
+            return f;
+        }
+
+        public Content ToContent(ExportCount c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string DataName(ExportCount c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Filename(ExportCount c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Save()
+        {
+            bool ok = true;
+
+            string file="", filename = "";
+            if (this.attachment.Contains(Path.DirectorySeparatorChar))
+            {
+                file = this.attachment;
+                filename = Path.GetFileName(this.attachment);
+                this.FieldSet["attachment"] = filename;
+            }
+            if (String.IsNullOrEmpty(this.id))
+            {
+                ok = db.Insert(Expense.TableName, this.FieldSet);
+            }
+            else
+            {
+                ok = db.Update(Expense.TableName, this.FieldSet, "`id`='" + this.id + "'");
+
             }
             if (ok)
             {
-                
-                string targetpath = Config.BasePath + Path.DirectorySeparatorChar + "expenses" + Path.DirectorySeparatorChar + this.NiceID + Path.DirectorySeparatorChar;
-                if (this.attachment != Path.GetFileName(this.attachment))
+                if (String.IsNullOrEmpty(this.id)) this.id = db.GetLastInsertedID();
+                string target = Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["expense"] + Path.DirectorySeparatorChar + this.NiceID;
+                if (!Directory.Exists(target)) Directory.CreateDirectory(target);
+                if (this.attachment.Contains(Path.DirectorySeparatorChar))
                 {
-                    if (!Directory.Exists(targetpath)) Directory.CreateDirectory(targetpath);
-                    File.Copy(this.attachment, targetpath + Path.GetFileName(this.attachment), true);
+                    File.Copy(file, target + Path.DirectorySeparatorChar + filename, true);
                 }
             }
             return ok;
         }
 
-        internal static Dictionary<string, string> getExpenses(Database db, string year)
-        {
-            List<List<string>> d = new List<List<string>>();
-            if (year == "Alle")
-            {
-                d = db.getRow(Expense.table, new string[] { "id","date(edate)","name" }, "", "edate ASC");
-            }
-            else
-            {
-                d = db.getRow(Expense.table, new string[] { "id", "date(edate)", "name" }, "strftime('%Y',edate)='" + year + "'", "edate ASC");
-            }
-
-            Dictionary<string, string> r = new Dictionary<string, string>();
-            foreach (List<string> item in d)
-            {
-                r.Add(item[0], item[1]+"|"+item[2]);
-            }
-
-            if (d.Count > 0) return r;
-            else return null;
-        }
-
-        /// <summary>
-        /// Gets the Years in the Database as List of Strings
-        /// </summary>
-        /// <param name="db">A Database Object</param>
-        /// <returns>A List of Strings</returns>
-        internal static List<string> GetExpenseYears(Database db)
-        {
-            List<List<string>> d = new List<List<string>>();
-            List<string> r = new List<string>();
-            d = db.getRow(Expense.table, new string[] { "strftime('%Y',edate)" }, "", "edate ASC");
-            foreach (List<string> item in d)
-            {
-                r.Add(item[0]);
-            }
-            r = r.Distinct<string>().ToList<string>();
-            if (d.Count > 0) return r;
-            else return null;
-        }
-
-        public string NiceID
-        {
-            get
-            {
-                return "E" + id.PadLeft(5, '0');
-            }
-        }
-
-        internal bool Delete()
+        public bool Delete()
         {
             bool ok = true;
+            Dictionary<string, string> tmp = new Dictionary<string, string>();
+            tmp.Add("active", "0");
 
-
-            ok = db.Execute("DELETE FROM " + Expense.table + " WHERE `id`=" + this.id);
+            ok = db.Update(Expense.TableName, tmp, "`id`='" + this.id + "'");
             return ok;
         }
 
-        public Content ToContent()
+        public CRUDable New()
         {
-            throw new NotImplementedException();
+            return new Expense(this.db);
         }
 
-        public string DataName()
+        public CRUDable GetSingleInstance(string id)
         {
-            throw new NotImplementedException();
+            return new Expense(this.db, id);
         }
 
-        public string Filename()
+        public List<CRUDable> GetFullList()
         {
-            throw new NotImplementedException();
-        }
-
-
-        public string JoinOn(Joinable jointable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetTableName()
-        {
-            throw new NotImplementedException();
+            List<CRUDable> expenses = new List<CRUDable>();
+            Result d = this.db.getRow(Expense.TableName, new string[] { "id" }, "`active`='1'", "id ASC");
+            foreach (Row row in d.Rows)
+            {
+                expenses.Add(new Expense(db, row.Cells["id"]));
+            }
+            return expenses;
         }
     }
 }

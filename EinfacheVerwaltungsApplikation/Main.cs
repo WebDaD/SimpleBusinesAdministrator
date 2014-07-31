@@ -114,7 +114,7 @@ namespace ManageAdministerExalt
 
         private void fillExpenses(string year)
         {
-            expenses = Expense.getExpenses(db,year);
+            expenses = new Expense(db).GetIDList(year);
             if (expenses != null)
             {
                 lv_ex_expenses.Items.Clear();
@@ -235,7 +235,7 @@ namespace ManageAdministerExalt
         /// <param name="e"></param>
         private void löschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Wollen Sie wirklick den Kunden "+customer.KundenNummer+" ("+customer.Name+") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Wollen Sie wirklick den Kunden "+customer.NiceID+" ("+customer.Name+") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 customer.Delete();
                 fillCustomers();
@@ -642,7 +642,7 @@ namespace ManageAdministerExalt
 
         private void zahlungsbedigungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new PaymentConditions(db).ShowDialog();
+            new Payment_Conditions(db).ShowDialog();
         }
 
         private void tb_ex_attachment_Click(object sender, EventArgs e)
@@ -657,7 +657,7 @@ namespace ManageAdministerExalt
         private void btn_ex_cancel_Click(object sender, EventArgs e)
         {
             tb_ex_name.Text = expense.Name;
-            dt_ex_edate.Value = expense.Date;
+            dt_ex_edate.Value = expense.EDate;
             nu_ex_value.Value = expense.Value;
             tb_ex_attachment.Text = expense.Attachment;
             btn_ex_cancel.Enabled = false;
@@ -667,7 +667,7 @@ namespace ManageAdministerExalt
         private void btn_ex_save_Click(object sender, EventArgs e)
         {
             expense.Name = tb_ex_name.Text;
-            expense.Date = dt_ex_edate.Value;
+            expense.EDate = dt_ex_edate.Value;
             expense.Value = nu_ex_value.Value;
             expense.Attachment = tb_ex_attachment.Text;
             if (!expense.Save())
@@ -711,7 +711,7 @@ namespace ManageAdministerExalt
 
                 lb_ex_id.Text = expense.NiceID;
                 tb_ex_name.Text = expense.Name;
-                dt_ex_edate.Value = expense.Date;
+                dt_ex_edate.Value = expense.EDate;
                 nu_ex_value.Value = expense.Value;
                 tb_ex_attachment.Text = expense.Attachment;
 
@@ -756,7 +756,7 @@ namespace ManageAdministerExalt
 
         private void btn_ex_open_attachment_Click(object sender, EventArgs e)
         {
-            string file = Config.BasePath + Path.DirectorySeparatorChar + "expenses" + Path.DirectorySeparatorChar + expense.NiceID + Path.DirectorySeparatorChar + expense.Attachment;
+            string file = Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["expense"] + Path.DirectorySeparatorChar + expense.NiceID + Path.DirectorySeparatorChar + expense.Attachment;
             Process.Start(file);
         }
 

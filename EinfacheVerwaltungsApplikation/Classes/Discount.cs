@@ -19,7 +19,7 @@ namespace ManageAdministerExalt.Classes
         private string name;
         public string Name { get { return name; } set { name = value; } }
 
-        public string NiceID { get { return "D" + id.PadLeft(5, '0'); } }
+        public string NiceID { get { return Config.CreateNiceID(Config.IDFormating["discount"], id); } }
 
         private decimal value;
         public decimal Value { get { return value; } set { this.value = value; } }
