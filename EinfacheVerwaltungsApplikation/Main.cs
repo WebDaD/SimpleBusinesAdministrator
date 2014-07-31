@@ -25,6 +25,8 @@ namespace ManageAdministerExalt
         private Dictionary<string, string> terms;
         private Expense expense;
         private Dictionary<string, string> expenses;
+        private Worker worker;
+        private Dictionary<string, string> workers;
         public Main()
         {
             InitializeComponent();
@@ -91,6 +93,23 @@ namespace ManageAdministerExalt
             fillTerms();
             fillExpenses(cb_ex_year.SelectedItem.ToString());
             //TODO: fill Jobs
+            fillWorkers();
+        }
+        private void fillWorkers()
+        {
+            workers = new Worker(db).GetIDList();
+            if (workers != null)
+            {
+                lv_wo_worker.Items.Clear();
+                foreach (KeyValuePair<string, string> item in workers)
+                {
+                    ListViewItem t = new ListViewItem(item.Key);
+                    string[] tmp = item.Value.Split('|');
+                    t.SubItems.Add(tmp[0]);
+                    t.SubItems.Add(tmp[1]);
+                    lv_wo_worker.Items.Add(t);
+                }
+            }
         }
 
         private void fillExpenses(string year)
@@ -155,7 +174,7 @@ namespace ManageAdministerExalt
             }
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void sizeLVs()
         {
             sizeLastColumn(lv_cu_customers);
             sizeLastColumn(lv_se_services);
@@ -163,16 +182,16 @@ namespace ManageAdministerExalt
             sizeLastColumn(lv_ex_expenses);
             sizeLastColumn(lv_re_reports);
             sizeLastColumn(lv_jo_jobs);
+            sizeLastColumn(lv_wo_worker);
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            sizeLVs();
         }
         private void Main_Resize(object sender, EventArgs e)
         {
-            sizeLastColumn(lv_cu_customers);
-            sizeLastColumn(lv_se_services);
-            sizeLastColumn(lv_tc_terms);
-            sizeLastColumn(lv_ex_expenses);
-            sizeLastColumn(lv_re_reports);
-            sizeLastColumn(lv_jo_jobs);
-
+            sizeLVs();
         }
 
         private void cms_cu_customers_Opening(object sender, CancelEventArgs e)
@@ -743,12 +762,12 @@ namespace ManageAdministerExalt
 
         private void btn_ex_export_Click(object sender, EventArgs e)
         {
-            new Export(expense, db).ShowDialog();
+            new Export(expense, db, ExportCount.SINGLE).ShowDialog();
         }
 
         private void btn_ex_export_all_Click(object sender, EventArgs e)
         {
-            new Export(new Expenses(db,cb_ex_year.SelectedItem.ToString()), db).ShowDialog();
+            new Export(worker, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void lv_jo_jobs_Resize(object sender, EventArgs e)
@@ -887,11 +906,166 @@ namespace ManageAdministerExalt
             db.Close();
         }
 
-        
-        
+        private void lv_wo_worker_Resize(object sender, EventArgs e)
+        {
+            sizeLastColumn(lv_wo_worker);
+        }
 
-        
+        private void lv_wo_worker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_wo_worker.SelectedIndices.Count > 0)
+            {
+                worker = new Worker(db, lv_wo_worker.SelectedItems[0].Text);
 
+                lb_wo_id.Text = worker.NiceID;
+                tb_wo_name.Text = worker.Name;
+                dt_wo_dayofbirth.Value = worker.DateOfBirth;
+                dt_wo_workssince.Value = worker.WorksSince;
+                nu_wo_salary.Value = worker.Salary;
+                nu_wo_hoursperweek.Value = worker.HoursPerWeek;
+                tb_wo_streetnr.Text = worker.StreetNr;
+                tb_wo_plz.Text = worker.PLZ;
+                tb_wo_city.Text = worker.City;
+                tb_wo_phone.Text = worker.Phone;
+                tb_wo_mail.Text = worker.EMail;
+                tb_wo_mobile.Text = worker.Mobile;
+
+                Dictionary<string, string> wo_rep = worker.CreateReport();
+                lb_wo_report_jobs.Text = wo_rep["jobs"];
+                lb_wo_report_job_avg.Text = wo_rep["jobs_avg"];
+                lb_wo_report_job_sum.Text = wo_rep["jobs_sum"];
+                lb_wo_report_work_months.Text = wo_rep["work_months"];
+                lb_wo_reports_salary_sum.Text = wo_rep["salary_sum"];
+                lb_wo_report_value.Text = wo_rep["value"];
+
+                btn_wo_cancel.Enabled = false;
+                btn_wo_save.Enabled = false;
+
+                btn_wo_export.Enabled = true;
+                btn_wo_openfolder.Enabled = true;
+ 
+            }
+        }
+
+        private void neuToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            //worker
+            lv_wo_worker.SelectedIndices.Clear();
+            lb_wo_id.Text = "";
+            tb_wo_name.Text = "";
+            dt_wo_dayofbirth.Value = DateTime.Now;
+            dt_wo_workssince.Value = DateTime.Now;
+            nu_wo_salary.Value = 0;
+            nu_wo_hoursperweek.Value = 0;
+            tb_wo_streetnr.Text = "";
+            tb_wo_plz.Text = "";
+            tb_wo_city.Text = "";
+            tb_wo_phone.Text = "";
+            tb_wo_mail.Text = "";
+            tb_wo_mobile.Text = "";
+
+            lb_wo_report_jobs.Text = "";
+            lb_wo_report_job_avg.Text = "";
+            lb_wo_report_job_sum.Text = "";
+            lb_wo_report_work_months.Text = "";
+            lb_wo_reports_salary_sum.Text = "";
+            lb_wo_report_value.Text = "";
+
+            worker = new Worker(db);
+            btn_wo_save.Enabled = true;
+            btn_wo_export.Enabled = false;
+            btn_wo_openfolder.Enabled = false;
+            tb_wo_name.Focus();
+        }
+
+        private void löschenToolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            //worker
+            if (MessageBox.Show("Wollen Sie wirklick " + worker.NiceID + " (" + worker.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                worker.Delete();
+                fillWorkers();
+                lv_wo_worker.SelectedIndices.Clear();
+            }
+        }
+
+        private void btn_wo_export_Click(object sender, EventArgs e)
+        {
+            new Export(worker, db, ExportCount.SINGLE).ShowDialog();
+        }
+
+        private void btn_wo_export_all_Click(object sender, EventArgs e)
+        {
+            new Export(worker, db, ExportCount.MULTI).ShowDialog();
+        }
+
+        private void wo_changed(object sender, EventArgs e)
+        {
+            btn_wo_cancel.Enabled = true;
+            btn_wo_save.Enabled = true;
+        }
+
+        private void btn_wo_cancel_Click(object sender, EventArgs e)
+        {
+            tb_wo_name.Text = worker.Name;
+            dt_wo_dayofbirth.Value = worker.DateOfBirth;
+            dt_wo_workssince.Value = worker.WorksSince;
+            nu_wo_salary.Value = worker.Salary;
+            nu_wo_hoursperweek.Value = worker.HoursPerWeek;
+            tb_wo_streetnr.Text = worker.StreetNr;
+            tb_wo_plz.Text = worker.PLZ;
+            tb_wo_city.Text = worker.City;
+            tb_wo_phone.Text = worker.Phone;
+            tb_wo_mail.Text = worker.EMail;
+            tb_wo_mobile.Text = worker.Mobile;
+            btn_wo_cancel.Enabled = false;
+            btn_wo_save.Enabled = false;
+        }
+
+        private void btn_wo_save_Click(object sender, EventArgs e)
+        {
+            worker.Name = tb_wo_name.Text ;
+            worker.DateOfBirth = dt_wo_dayofbirth.Value ;
+            worker.WorksSince = dt_wo_workssince.Value;
+            worker.Salary = nu_wo_salary.Value;
+            worker.HoursPerWeek = nu_wo_hoursperweek.Value;
+            worker.StreetNr = tb_wo_streetnr.Text;
+            worker.PLZ = tb_wo_plz.Text;
+            worker.City = tb_wo_city.Text;
+            worker.Phone = tb_wo_phone.Text;
+            worker.EMail = tb_wo_mail.Text;
+            worker.Mobile = tb_wo_mobile.Text;
+            if (!worker.Save())
+            {
+                MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Mitarbeiter " + worker.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            btn_wo_cancel.Enabled = false;
+            btn_wo_save.Enabled = false;
+            int sele = -1;
+            if (lv_wo_worker.SelectedIndices.Count > 0)
+            {
+                sele = lv_wo_worker.SelectedIndices[0];
+            }
+            fillWorkers();
+            if (sele > 0)
+            {
+                lv_wo_worker.Items[sele].Selected = true;
+            }
+        }
+
+        private void cms_wo_worker_Opening(object sender, CancelEventArgs e)
+        {
+            löschenToolStripMenuItem4.Enabled = lv_wo_worker.SelectedIndices.Count > 0;
+        }
+
+        private void btn_wo_openfolder_Click(object sender, EventArgs e)
+        {
+            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["worker"] + Path.DirectorySeparatorChar + worker.NiceID);
+        }
        
     }
 }

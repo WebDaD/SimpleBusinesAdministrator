@@ -32,5 +32,8 @@
   &lt;string&gt;tab_reports&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="paths" Type="System.String" Scope="User">
+      <Value Profile="(Default)">worker-mitarbeiter;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

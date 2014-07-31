@@ -8,7 +8,7 @@ namespace ManageAdministerExalt.Classes
 {
     public static class Config
     {
-        public static DatabaseType DatabaseType 
+        public static DatabaseType DatabaseType
         {
             get
             {
@@ -114,6 +114,37 @@ namespace ManageAdministerExalt.Classes
                 }
                 Properties.Settings.Default.Save();
             }
+        }
+
+        public static Dictionary<string, string> Paths
+        {
+            get
+            {
+                string[] t = Properties.Settings.Default.paths.Split(';');
+                Dictionary<string, string> r = new Dictionary<string, string>();
+                foreach (string item in t)
+                {
+                    r.Add(item.Split('-')[0], item.Split('-')[1]);
+                }
+                return r;
+
+            }
+            set {
+                string x = "";
+                foreach (KeyValuePair<string,string> item in value)
+                {
+                    x += item.Key + "-" + item.Value + ";";
+                }
+                Properties.Settings.Default.paths = x;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        public static string CreateNiceID(string formating, string id)
+        {
+            string r = "";
+            //TODO: parse string
+            return r;
         }
     }
 }

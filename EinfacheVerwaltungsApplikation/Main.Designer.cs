@@ -301,6 +301,47 @@
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_jo_edit_items = new System.Windows.Forms.Button();
             this.lb_jo_items = new System.Windows.Forms.Label();
+            this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
+            this.label52 = new System.Windows.Forms.Label();
+            this.lb_wo_id = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.btn_wo_cancel = new System.Windows.Forms.Button();
+            this.btn_wo_save = new System.Windows.Forms.Button();
+            this.tb_wo_name = new System.Windows.Forms.TextBox();
+            this.dt_wo_dayofbirth = new System.Windows.Forms.DateTimePicker();
+            this.dt_wo_workssince = new System.Windows.Forms.DateTimePicker();
+            this.nu_wo_salary = new System.Windows.Forms.NumericUpDown();
+            this.nu_wo_hoursperweek = new System.Windows.Forms.NumericUpDown();
+            this.tb_wo_streetnr = new System.Windows.Forms.TextBox();
+            this.tb_wo_plz = new System.Windows.Forms.TextBox();
+            this.tb_wo_city = new System.Windows.Forms.TextBox();
+            this.tb_wo_phone = new System.Windows.Forms.TextBox();
+            this.tb_wo_mobile = new System.Windows.Forms.TextBox();
+            this.tb_wo_mail = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.lb_wo_report_work_months = new System.Windows.Forms.Label();
+            this.lb_wo_reports_salary_sum = new System.Windows.Forms.Label();
+            this.lb_wo_report_jobs = new System.Windows.Forms.Label();
+            this.lb_wo_report_job_avg = new System.Windows.Forms.Label();
+            this.lb_wo_report_job_sum = new System.Windows.Forms.Label();
+            this.lb_wo_report_value = new System.Windows.Forms.Label();
+            this.btn_wo_openfolder = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -416,10 +457,16 @@
             this.splitContainer14.Panel2.SuspendLayout();
             this.splitContainer14.SuspendLayout();
             this.tableLayoutPanel24.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.tableLayoutPanel25.SuspendLayout();
             this.cms_wo_worker.SuspendLayout();
             this.tableLayoutPanel26.SuspendLayout();
+            this.tableLayoutPanel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_salary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_hoursperweek)).BeginInit();
+            this.tableLayoutPanel28.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -3248,6 +3295,8 @@
             this.lv_wo_worker.TabIndex = 0;
             this.lv_wo_worker.UseCompatibleStateImageBehavior = false;
             this.lv_wo_worker.View = System.Windows.Forms.View.Details;
+            this.lv_wo_worker.SelectedIndexChanged += new System.EventHandler(this.lv_wo_worker_SelectedIndexChanged);
+            this.lv_wo_worker.Resize += new System.EventHandler(this.lv_wo_worker_Resize);
             // 
             // tableLayoutPanel24
             // 
@@ -3260,8 +3309,8 @@
             this.tableLayoutPanel24.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel24.Name = "tableLayoutPanel24";
             this.tableLayoutPanel24.RowCount = 3;
-            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63F));
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27F));
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel24.Size = new System.Drawing.Size(585, 578);
             this.tableLayoutPanel24.TabIndex = 0;
@@ -3278,20 +3327,22 @@
             // 
             // groupBox14
             // 
+            this.groupBox14.Controls.Add(this.tableLayoutPanel27);
             this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox14.Location = new System.Drawing.Point(3, 3);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(579, 398);
+            this.groupBox14.Size = new System.Drawing.Size(579, 358);
             this.groupBox14.TabIndex = 0;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Daten";
             // 
             // groupBox15
             // 
+            this.groupBox15.Controls.Add(this.tableLayoutPanel28);
             this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox15.Location = new System.Drawing.Point(3, 407);
+            this.groupBox15.Location = new System.Drawing.Point(3, 367);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(579, 109);
+            this.groupBox15.Size = new System.Drawing.Size(579, 150);
             this.groupBox15.TabIndex = 1;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Bericht";
@@ -3300,47 +3351,52 @@
             // 
             this.groupBox16.Controls.Add(this.tableLayoutPanel25);
             this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox16.Location = new System.Drawing.Point(3, 522);
+            this.groupBox16.Location = new System.Drawing.Point(3, 523);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(579, 53);
+            this.groupBox16.Size = new System.Drawing.Size(579, 52);
             this.groupBox16.TabIndex = 2;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Steuerung";
             // 
             // tableLayoutPanel25
             // 
-            this.tableLayoutPanel25.ColumnCount = 2;
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel25.ColumnCount = 3;
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel25.Controls.Add(this.btn_wo_export, 0, 0);
             this.tableLayoutPanel25.Controls.Add(this.btn_wo_export_all, 1, 0);
+            this.tableLayoutPanel25.Controls.Add(this.btn_wo_openfolder, 2, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(573, 34);
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(573, 33);
             this.tableLayoutPanel25.TabIndex = 0;
             // 
             // btn_wo_export
             // 
             this.btn_wo_export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_wo_export.Enabled = false;
             this.btn_wo_export.Location = new System.Drawing.Point(3, 3);
             this.btn_wo_export.Name = "btn_wo_export";
-            this.btn_wo_export.Size = new System.Drawing.Size(280, 28);
+            this.btn_wo_export.Size = new System.Drawing.Size(184, 27);
             this.btn_wo_export.TabIndex = 0;
             this.btn_wo_export.Text = "Export";
             this.btn_wo_export.UseVisualStyleBackColor = true;
+            this.btn_wo_export.Click += new System.EventHandler(this.btn_wo_export_Click);
             // 
             // btn_wo_export_all
             // 
             this.btn_wo_export_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_wo_export_all.Location = new System.Drawing.Point(289, 3);
+            this.btn_wo_export_all.Location = new System.Drawing.Point(193, 3);
             this.btn_wo_export_all.Name = "btn_wo_export_all";
-            this.btn_wo_export_all.Size = new System.Drawing.Size(281, 28);
+            this.btn_wo_export_all.Size = new System.Drawing.Size(184, 27);
             this.btn_wo_export_all.TabIndex = 1;
             this.btn_wo_export_all.Text = "Alle Exportieren";
             this.btn_wo_export_all.UseVisualStyleBackColor = true;
+            this.btn_wo_export_all.Click += new System.EventHandler(this.btn_wo_export_all_Click);
             // 
             // cms_wo_worker
             // 
@@ -3349,18 +3405,21 @@
             this.löschenToolStripMenuItem4});
             this.cms_wo_worker.Name = "cms_wo_worker";
             this.cms_wo_worker.Size = new System.Drawing.Size(119, 48);
+            this.cms_wo_worker.Opening += new System.ComponentModel.CancelEventHandler(this.cms_wo_worker_Opening);
             // 
             // neuToolStripMenuItem4
             // 
             this.neuToolStripMenuItem4.Name = "neuToolStripMenuItem4";
             this.neuToolStripMenuItem4.Size = new System.Drawing.Size(118, 22);
             this.neuToolStripMenuItem4.Text = "Neu";
+            this.neuToolStripMenuItem4.Click += new System.EventHandler(this.neuToolStripMenuItem4_Click);
             // 
             // löschenToolStripMenuItem4
             // 
             this.löschenToolStripMenuItem4.Name = "löschenToolStripMenuItem4";
             this.löschenToolStripMenuItem4.Size = new System.Drawing.Size(118, 22);
             this.löschenToolStripMenuItem4.Text = "Löschen";
+            this.löschenToolStripMenuItem4.Click += new System.EventHandler(this.löschenToolStripMenuItem4_Click);
             // 
             // label51
             // 
@@ -3404,6 +3463,457 @@
             this.lb_jo_items.Name = "lb_jo_items";
             this.lb_jo_items.Size = new System.Drawing.Size(134, 20);
             this.lb_jo_items.TabIndex = 1;
+            // 
+            // tableLayoutPanel27
+            // 
+            this.tableLayoutPanel27.ColumnCount = 2;
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel27.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel27.Controls.Add(this.label52, 0, 0);
+            this.tableLayoutPanel27.Controls.Add(this.lb_wo_id, 1, 0);
+            this.tableLayoutPanel27.Controls.Add(this.label54, 0, 1);
+            this.tableLayoutPanel27.Controls.Add(this.label55, 0, 2);
+            this.tableLayoutPanel27.Controls.Add(this.label56, 0, 3);
+            this.tableLayoutPanel27.Controls.Add(this.label57, 0, 4);
+            this.tableLayoutPanel27.Controls.Add(this.label58, 0, 5);
+            this.tableLayoutPanel27.Controls.Add(this.label59, 0, 6);
+            this.tableLayoutPanel27.Controls.Add(this.label60, 0, 7);
+            this.tableLayoutPanel27.Controls.Add(this.label61, 0, 8);
+            this.tableLayoutPanel27.Controls.Add(this.label62, 0, 9);
+            this.tableLayoutPanel27.Controls.Add(this.label63, 0, 10);
+            this.tableLayoutPanel27.Controls.Add(this.label64, 0, 11);
+            this.tableLayoutPanel27.Controls.Add(this.btn_wo_cancel, 0, 12);
+            this.tableLayoutPanel27.Controls.Add(this.btn_wo_save, 1, 12);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_name, 1, 1);
+            this.tableLayoutPanel27.Controls.Add(this.dt_wo_dayofbirth, 1, 2);
+            this.tableLayoutPanel27.Controls.Add(this.dt_wo_workssince, 1, 3);
+            this.tableLayoutPanel27.Controls.Add(this.nu_wo_salary, 1, 4);
+            this.tableLayoutPanel27.Controls.Add(this.nu_wo_hoursperweek, 1, 5);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_streetnr, 1, 6);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_plz, 1, 7);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_city, 1, 8);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_phone, 1, 9);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_mobile, 1, 10);
+            this.tableLayoutPanel27.Controls.Add(this.tb_wo_mail, 1, 11);
+            this.tableLayoutPanel27.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel27.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel27.Name = "tableLayoutPanel27";
+            this.tableLayoutPanel27.RowCount = 13;
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(573, 339);
+            this.tableLayoutPanel27.TabIndex = 0;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(3, 0);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(18, 13);
+            this.label52.TabIndex = 0;
+            this.label52.Text = "ID";
+            // 
+            // lb_wo_id
+            // 
+            this.lb_wo_id.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_wo_id.Location = new System.Drawing.Point(289, 0);
+            this.lb_wo_id.Name = "lb_wo_id";
+            this.lb_wo_id.Size = new System.Drawing.Size(281, 23);
+            this.lb_wo_id.TabIndex = 1;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(3, 23);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(35, 13);
+            this.label54.TabIndex = 2;
+            this.label54.Text = "Name";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(3, 49);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(73, 13);
+            this.label55.TabIndex = 3;
+            this.label55.Text = "Geburtsdatum";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(3, 75);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(92, 13);
+            this.label56.TabIndex = 4;
+            this.label56.Text = "Einstellungsdatum";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(3, 101);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(97, 13);
+            this.label57.TabIndex = 5;
+            this.label57.Text = "Monatsgehalt (in €)";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(3, 127);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(86, 13);
+            this.label58.TabIndex = 6;
+            this.label58.Text = "Wochenstunden";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(3, 153);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(124, 13);
+            this.label59.TabIndex = 7;
+            this.label59.Text = "Straße und Hausnummer";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(3, 179);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(27, 13);
+            this.label60.TabIndex = 8;
+            this.label60.Text = "PLZ";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(3, 205);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(32, 13);
+            this.label61.TabIndex = 9;
+            this.label61.Text = "Stadt";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(3, 231);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(43, 13);
+            this.label62.TabIndex = 10;
+            this.label62.Text = "Telefon";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(3, 257);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(32, 13);
+            this.label63.TabIndex = 11;
+            this.label63.Text = "Mobil";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(3, 283);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(36, 13);
+            this.label64.TabIndex = 12;
+            this.label64.Text = "E-Mail";
+            // 
+            // btn_wo_cancel
+            // 
+            this.btn_wo_cancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_wo_cancel.Enabled = false;
+            this.btn_wo_cancel.Location = new System.Drawing.Point(3, 313);
+            this.btn_wo_cancel.Name = "btn_wo_cancel";
+            this.btn_wo_cancel.Size = new System.Drawing.Size(280, 23);
+            this.btn_wo_cancel.TabIndex = 13;
+            this.btn_wo_cancel.Text = "Abbrechen";
+            this.btn_wo_cancel.UseVisualStyleBackColor = true;
+            this.btn_wo_cancel.Click += new System.EventHandler(this.btn_wo_cancel_Click);
+            // 
+            // btn_wo_save
+            // 
+            this.btn_wo_save.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_wo_save.Enabled = false;
+            this.btn_wo_save.Location = new System.Drawing.Point(289, 313);
+            this.btn_wo_save.Name = "btn_wo_save";
+            this.btn_wo_save.Size = new System.Drawing.Size(281, 23);
+            this.btn_wo_save.TabIndex = 14;
+            this.btn_wo_save.Text = "Speichern";
+            this.btn_wo_save.UseVisualStyleBackColor = true;
+            this.btn_wo_save.Click += new System.EventHandler(this.btn_wo_save_Click);
+            // 
+            // tb_wo_name
+            // 
+            this.tb_wo_name.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_name.Location = new System.Drawing.Point(289, 26);
+            this.tb_wo_name.Name = "tb_wo_name";
+            this.tb_wo_name.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_name.TabIndex = 15;
+            this.tb_wo_name.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // dt_wo_dayofbirth
+            // 
+            this.dt_wo_dayofbirth.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dt_wo_dayofbirth.Location = new System.Drawing.Point(289, 52);
+            this.dt_wo_dayofbirth.Name = "dt_wo_dayofbirth";
+            this.dt_wo_dayofbirth.Size = new System.Drawing.Size(281, 20);
+            this.dt_wo_dayofbirth.TabIndex = 16;
+            this.dt_wo_dayofbirth.ValueChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // dt_wo_workssince
+            // 
+            this.dt_wo_workssince.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dt_wo_workssince.Location = new System.Drawing.Point(289, 78);
+            this.dt_wo_workssince.Name = "dt_wo_workssince";
+            this.dt_wo_workssince.Size = new System.Drawing.Size(281, 20);
+            this.dt_wo_workssince.TabIndex = 17;
+            this.dt_wo_workssince.ValueChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // nu_wo_salary
+            // 
+            this.nu_wo_salary.DecimalPlaces = 2;
+            this.nu_wo_salary.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nu_wo_salary.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nu_wo_salary.Location = new System.Drawing.Point(289, 104);
+            this.nu_wo_salary.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nu_wo_salary.Name = "nu_wo_salary";
+            this.nu_wo_salary.Size = new System.Drawing.Size(281, 20);
+            this.nu_wo_salary.TabIndex = 18;
+            this.nu_wo_salary.ValueChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // nu_wo_hoursperweek
+            // 
+            this.nu_wo_hoursperweek.DecimalPlaces = 2;
+            this.nu_wo_hoursperweek.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nu_wo_hoursperweek.Location = new System.Drawing.Point(289, 130);
+            this.nu_wo_hoursperweek.Maximum = new decimal(new int[] {
+            168,
+            0,
+            0,
+            0});
+            this.nu_wo_hoursperweek.Name = "nu_wo_hoursperweek";
+            this.nu_wo_hoursperweek.Size = new System.Drawing.Size(281, 20);
+            this.nu_wo_hoursperweek.TabIndex = 19;
+            this.nu_wo_hoursperweek.ValueChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tb_wo_streetnr
+            // 
+            this.tb_wo_streetnr.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_streetnr.Location = new System.Drawing.Point(289, 156);
+            this.tb_wo_streetnr.Name = "tb_wo_streetnr";
+            this.tb_wo_streetnr.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_streetnr.TabIndex = 20;
+            this.tb_wo_streetnr.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tb_wo_plz
+            // 
+            this.tb_wo_plz.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_plz.Location = new System.Drawing.Point(289, 182);
+            this.tb_wo_plz.Name = "tb_wo_plz";
+            this.tb_wo_plz.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_plz.TabIndex = 21;
+            this.tb_wo_plz.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tb_wo_city
+            // 
+            this.tb_wo_city.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_city.Location = new System.Drawing.Point(289, 208);
+            this.tb_wo_city.Name = "tb_wo_city";
+            this.tb_wo_city.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_city.TabIndex = 22;
+            this.tb_wo_city.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tb_wo_phone
+            // 
+            this.tb_wo_phone.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_phone.Location = new System.Drawing.Point(289, 234);
+            this.tb_wo_phone.Name = "tb_wo_phone";
+            this.tb_wo_phone.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_phone.TabIndex = 23;
+            this.tb_wo_phone.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tb_wo_mobile
+            // 
+            this.tb_wo_mobile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_mobile.Location = new System.Drawing.Point(289, 260);
+            this.tb_wo_mobile.Name = "tb_wo_mobile";
+            this.tb_wo_mobile.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_mobile.TabIndex = 24;
+            this.tb_wo_mobile.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tb_wo_mail
+            // 
+            this.tb_wo_mail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_wo_mail.Location = new System.Drawing.Point(289, 286);
+            this.tb_wo_mail.Name = "tb_wo_mail";
+            this.tb_wo_mail.Size = new System.Drawing.Size(281, 20);
+            this.tb_wo_mail.TabIndex = 25;
+            this.tb_wo_mail.TextChanged += new System.EventHandler(this.wo_changed);
+            // 
+            // tableLayoutPanel28
+            // 
+            this.tableLayoutPanel28.ColumnCount = 2;
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel28.Controls.Add(this.label65, 0, 0);
+            this.tableLayoutPanel28.Controls.Add(this.label66, 0, 1);
+            this.tableLayoutPanel28.Controls.Add(this.label67, 0, 2);
+            this.tableLayoutPanel28.Controls.Add(this.label68, 0, 3);
+            this.tableLayoutPanel28.Controls.Add(this.label69, 0, 4);
+            this.tableLayoutPanel28.Controls.Add(this.label70, 0, 5);
+            this.tableLayoutPanel28.Controls.Add(this.lb_wo_report_work_months, 1, 0);
+            this.tableLayoutPanel28.Controls.Add(this.lb_wo_reports_salary_sum, 1, 1);
+            this.tableLayoutPanel28.Controls.Add(this.lb_wo_report_jobs, 1, 2);
+            this.tableLayoutPanel28.Controls.Add(this.lb_wo_report_job_avg, 1, 3);
+            this.tableLayoutPanel28.Controls.Add(this.lb_wo_report_job_sum, 1, 4);
+            this.tableLayoutPanel28.Controls.Add(this.lb_wo_report_value, 1, 5);
+            this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel28.Name = "tableLayoutPanel28";
+            this.tableLayoutPanel28.RowCount = 6;
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(573, 131);
+            this.tableLayoutPanel28.TabIndex = 0;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(3, 0);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(65, 13);
+            this.label65.TabIndex = 0;
+            this.label65.Text = "Arbeitet seit:";
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(3, 20);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(69, 13);
+            this.label66.TabIndex = 1;
+            this.label66.Text = "Gehalt bisher";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(3, 40);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(47, 13);
+            this.label67.TabIndex = 2;
+            this.label67.Text = "Aufträge";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(3, 60);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(135, 13);
+            this.label68.TabIndex = 3;
+            this.label68.Text = "Auftragswert (Durchschnitt)";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(3, 80);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(111, 13);
+            this.label69.TabIndex = 4;
+            this.label69.Text = "Auftragswert (Gesamt)";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(3, 100);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(124, 13);
+            this.label70.TabIndex = 5;
+            this.label70.Text = "Umsatz durch Mitarbeiter";
+            // 
+            // lb_wo_report_work_months
+            // 
+            this.lb_wo_report_work_months.AutoSize = true;
+            this.lb_wo_report_work_months.Location = new System.Drawing.Point(289, 0);
+            this.lb_wo_report_work_months.Name = "lb_wo_report_work_months";
+            this.lb_wo_report_work_months.Size = new System.Drawing.Size(0, 13);
+            this.lb_wo_report_work_months.TabIndex = 6;
+            // 
+            // lb_wo_reports_salary_sum
+            // 
+            this.lb_wo_reports_salary_sum.AutoSize = true;
+            this.lb_wo_reports_salary_sum.Location = new System.Drawing.Point(289, 20);
+            this.lb_wo_reports_salary_sum.Name = "lb_wo_reports_salary_sum";
+            this.lb_wo_reports_salary_sum.Size = new System.Drawing.Size(0, 13);
+            this.lb_wo_reports_salary_sum.TabIndex = 7;
+            // 
+            // lb_wo_report_jobs
+            // 
+            this.lb_wo_report_jobs.AutoSize = true;
+            this.lb_wo_report_jobs.Location = new System.Drawing.Point(289, 40);
+            this.lb_wo_report_jobs.Name = "lb_wo_report_jobs";
+            this.lb_wo_report_jobs.Size = new System.Drawing.Size(0, 13);
+            this.lb_wo_report_jobs.TabIndex = 8;
+            // 
+            // lb_wo_report_job_avg
+            // 
+            this.lb_wo_report_job_avg.AutoSize = true;
+            this.lb_wo_report_job_avg.Location = new System.Drawing.Point(289, 60);
+            this.lb_wo_report_job_avg.Name = "lb_wo_report_job_avg";
+            this.lb_wo_report_job_avg.Size = new System.Drawing.Size(0, 13);
+            this.lb_wo_report_job_avg.TabIndex = 9;
+            // 
+            // lb_wo_report_job_sum
+            // 
+            this.lb_wo_report_job_sum.AutoSize = true;
+            this.lb_wo_report_job_sum.Location = new System.Drawing.Point(289, 80);
+            this.lb_wo_report_job_sum.Name = "lb_wo_report_job_sum";
+            this.lb_wo_report_job_sum.Size = new System.Drawing.Size(0, 13);
+            this.lb_wo_report_job_sum.TabIndex = 10;
+            // 
+            // lb_wo_report_value
+            // 
+            this.lb_wo_report_value.AutoSize = true;
+            this.lb_wo_report_value.Location = new System.Drawing.Point(289, 100);
+            this.lb_wo_report_value.Name = "lb_wo_report_value";
+            this.lb_wo_report_value.Size = new System.Drawing.Size(0, 13);
+            this.lb_wo_report_value.TabIndex = 11;
+            // 
+            // btn_wo_openfolder
+            // 
+            this.btn_wo_openfolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_wo_openfolder.Enabled = false;
+            this.btn_wo_openfolder.Location = new System.Drawing.Point(383, 3);
+            this.btn_wo_openfolder.Name = "btn_wo_openfolder";
+            this.btn_wo_openfolder.Size = new System.Drawing.Size(187, 27);
+            this.btn_wo_openfolder.TabIndex = 2;
+            this.btn_wo_openfolder.Text = "Öffne Ordner";
+            this.btn_wo_openfolder.UseVisualStyleBackColor = true;
+            this.btn_wo_openfolder.Click += new System.EventHandler(this.btn_wo_openfolder_Click);
             // 
             // Main
             // 
@@ -3545,10 +4055,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
             this.splitContainer14.ResumeLayout(false);
             this.tableLayoutPanel24.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
             this.cms_wo_worker.ResumeLayout(false);
             this.tableLayoutPanel26.ResumeLayout(false);
+            this.tableLayoutPanel27.ResumeLayout(false);
+            this.tableLayoutPanel27.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_salary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_hoursperweek)).EndInit();
+            this.tableLayoutPanel28.ResumeLayout(false);
+            this.tableLayoutPanel28.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3828,5 +4346,46 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
         private System.Windows.Forms.Button btn_jo_edit_items;
         private System.Windows.Forms.Label lb_jo_items;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label lb_wo_id;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Button btn_wo_cancel;
+        private System.Windows.Forms.Button btn_wo_save;
+        private System.Windows.Forms.TextBox tb_wo_name;
+        private System.Windows.Forms.DateTimePicker dt_wo_dayofbirth;
+        private System.Windows.Forms.DateTimePicker dt_wo_workssince;
+        private System.Windows.Forms.NumericUpDown nu_wo_salary;
+        private System.Windows.Forms.NumericUpDown nu_wo_hoursperweek;
+        private System.Windows.Forms.TextBox tb_wo_streetnr;
+        private System.Windows.Forms.TextBox tb_wo_plz;
+        private System.Windows.Forms.TextBox tb_wo_city;
+        private System.Windows.Forms.TextBox tb_wo_phone;
+        private System.Windows.Forms.TextBox tb_wo_mobile;
+        private System.Windows.Forms.TextBox tb_wo_mail;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label lb_wo_report_work_months;
+        private System.Windows.Forms.Label lb_wo_reports_salary_sum;
+        private System.Windows.Forms.Label lb_wo_report_jobs;
+        private System.Windows.Forms.Label lb_wo_report_job_avg;
+        private System.Windows.Forms.Label lb_wo_report_job_sum;
+        private System.Windows.Forms.Label lb_wo_report_value;
+        private System.Windows.Forms.Button btn_wo_openfolder;
     }
 }

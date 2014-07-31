@@ -124,5 +124,17 @@ namespace ManageAdministerExalt.Properties {
                 this["active_tabs"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("worker-mitarbeiter;")]
+        public string paths {
+            get {
+                return ((string)(this["paths"]));
+            }
+            set {
+                this["paths"] = value;
+            }
+        }
     }
 }
