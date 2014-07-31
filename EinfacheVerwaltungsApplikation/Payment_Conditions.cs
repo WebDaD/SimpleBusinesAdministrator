@@ -11,31 +11,31 @@ using WebDaD.Toolkit.Database;
 
 namespace ManageAdministerExalt
 {
-    public partial class Reminders : Form
+    public partial class Payment_Conditions : Form
     {
         private bool editmode = false;
         private Database db;
-        private Reminder reminder;
-        private Dictionary<string, string> reminders;
+        private PaymentCondition payment_condition;
+        private Dictionary<string, string> payment_conditions;
 
-        public Reminders(Database db)
+        public Payment_Conditions(Database db)
         {
             InitializeComponent();
-            this.Text = Config.Name + " :: " + "Mahnungen";
+            this.Text = Config.Name + " :: " + "Zahlungsbedingungen";
             this.db = db;
-            fillReminders();
+            fillPaymentConditions();
             foreach (KeyValuePair<int, string> item in Reminder.Types)
             {
                 cb_type.Items.Add(item.Value);
             }
         }
-        private void fillReminders()
+        private void fillPaymentConditions()
         {
-            reminders = new Reminder(db).GetIDList();
-            if (reminders != null)
+            payment_conditions = new PaymentCondition(db).GetIDList();
+            if (payment_conditions != null)
             {
                 lv_payment_conditions.Items.Clear();
-                foreach (KeyValuePair<string, string> item in reminders)
+                foreach (KeyValuePair<string, string> item in payment_conditions)
                 {
                     ListViewItem t = new ListViewItem(item.Key);
                     string[] tmp = item.Value.Split('|');
@@ -48,27 +48,27 @@ namespace ManageAdministerExalt
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            setReminderFields();
+            setPaymentConditionFields();
             setEditMode(false);
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            getReminderFields();
-            if (!reminder.Save())
+            getPaymentConditionFields();
+            if (!payment_condition.Save())
             {
                 MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Mahnung " + reminder.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Zahlungsbedingung " + payment_condition.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             int sele = -1;
             if (lv_payment_conditions.SelectedIndices.Count > 0)
             {
                 sele = lv_payment_conditions.SelectedIndices[0];
             }
-            fillReminders();
+            fillPaymentConditions();
             if (sele > 0)
             {
                 lv_payment_conditions.Items[sele].Selected = true;
@@ -88,20 +88,20 @@ namespace ManageAdministerExalt
             else { this.Close(); }
         }
 
-        private void lv_reminders_SelectedIndexChanged(object sender, EventArgs e)
+        private void lv_payment_conditions_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lv_payment_conditions.SelectedIndices.Count > 0)
             {
-                reminder = new Reminder(db, lv_payment_conditions.SelectedItems[0].Text);
+                payment_condition = new PaymentCondition(db, lv_payment_conditions.SelectedItems[0].Text);
 
-                setReminderFields();
-
+                setPaymentConditionFields();
+                
                 setEditMode(false);
 
             }
         }
 
-        private void lv_reminders_Resize(object sender, EventArgs e)
+        private void lv_payment_conditions_Resize(object sender, EventArgs e)
         {
             sizeLastColumn(lv_payment_conditions);
         }
@@ -131,23 +131,23 @@ namespace ManageAdministerExalt
         private void neuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lv_payment_conditions.SelectedIndices.Clear();
-            reminder = new Reminder(db);
-            setReminderFields();
+            payment_condition = new Reminder(db);
+            setPaymentConditionFields();
             setEditMode(true);
             tb_name.Focus();
         }
 
         private void löschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Wollen Sie wirklick " + reminder.NiceID + " (" + reminder.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Wollen Sie wirklick " + payment_condition.NiceID + " (" + payment_condition.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                reminder.Delete();
-                fillReminders();
+                payment_condition.Delete();
+                fillPaymentConditions();
                 lv_payment_conditions.SelectedIndices.Clear();
             }
         }
 
-        private void Reminders_Load(object sender, EventArgs e)
+        private void Payment_Conditions_Load(object sender, EventArgs e)
         {
             sizeLastColumn(lv_payment_conditions);
         }
@@ -163,20 +163,20 @@ namespace ManageAdministerExalt
             editmode = p;
         }
 
-        private void setReminderFields()
+        private void setPaymentConditionFields()
         {
-            lb_id.Text = reminder.NiceID;
-            tb_name.Text = reminder.Name;
-            nu_period.Value = reminder.Period;
-            nu_value.Value = reminder.Value;
-            cb_type.SelectedIndex = reminder.Type;
+            lb_id.Text = payment_condition.NiceID;
+            tb_name.Text = payment_condition.Name;
+            nu_period.Value = payment_condition.Period;
+            nu_value.Value = payment_condition.Value;
+            cb_type.SelectedIndex = payment_condition.Type;
         }
-        private void getReminderFields()
+        private void getPaymentConditionFields()
         {
-            reminder.Name = tb_name.Text;
-            reminder.Period = nu_period.Value;
-            reminder.Value = nu_value.Value;
-            reminder.Type = cb_type.SelectedIndex;
+            payment_condition.Name = tb_name.Text;
+            payment_condition.Period = nu_period.Value;
+            payment_condition.Value = nu_value.Value;
+            payment_condition.Type = cb_type.SelectedIndex;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ManageAdministerExalt
 {
-    partial class Reminders
+    partial class Payment_Conditions
     {
         /// <summary>
         /// Required designer variable.
@@ -77,7 +77,7 @@
             this.splitContainer1.SplitterDistance = 180;
             this.splitContainer1.TabIndex = 0;
             // 
-            // lv_reminders
+            // lv_payment_conditions
             // 
             this.lv_payment_conditions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -86,13 +86,13 @@
             this.lv_payment_conditions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv_payment_conditions.GridLines = true;
             this.lv_payment_conditions.Location = new System.Drawing.Point(0, 0);
-            this.lv_payment_conditions.Name = "lv_reminders";
+            this.lv_payment_conditions.Name = "lv_payment_conditions";
             this.lv_payment_conditions.Size = new System.Drawing.Size(180, 290);
             this.lv_payment_conditions.TabIndex = 0;
             this.lv_payment_conditions.UseCompatibleStateImageBehavior = false;
             this.lv_payment_conditions.View = System.Windows.Forms.View.Details;
-            this.lv_payment_conditions.SelectedIndexChanged += new System.EventHandler(this.lv_reminders_SelectedIndexChanged);
-            this.lv_payment_conditions.Resize += new System.EventHandler(this.lv_reminders_Resize);
+            this.lv_payment_conditions.SelectedIndexChanged += new System.EventHandler(this.lv_payment_conditions_SelectedIndexChanged);
+            this.lv_payment_conditions.Resize += new System.EventHandler(this.lv_payment_conditions_Resize);
             // 
             // columnHeader1
             // 
@@ -104,7 +104,7 @@
             this.columnHeader2.Text = "Name";
             this.columnHeader2.Width = 93;
             // 
-            // cms_reminders
+            // cms_payment_conditions
             // 
             this.cms_payment_conditions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.neuToolStripMenuItem,
@@ -190,9 +190,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Mahnfrist (in Tagen)";
+            this.label4.Text = "Grenze (in Tagen)";
             // 
             // label5
             // 
@@ -307,16 +307,16 @@
             this.nu_value.TabIndex = 12;
             this.nu_value.ValueChanged += new System.EventHandler(this.tb_TextChanged);
             // 
-            // Reminders
+            // Payment_Conditions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 290);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(556, 328);
-            this.Name = "Reminders";
+            this.Name = "Payment_Conditions";
             this.Text = "MAX :: Mahnungen";
-            this.Load += new System.EventHandler(this.Reminders_Load);
+            this.Load += new System.EventHandler(this.Payment_Conditions_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -333,7 +333,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListView lv_reminders;
+        private System.Windows.Forms.ListView lv_payment_conditions;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -350,7 +350,7 @@
         private System.Windows.Forms.NumericUpDown nu_period;
         private System.Windows.Forms.ComboBox cb_type;
         private System.Windows.Forms.NumericUpDown nu_value;
-        private System.Windows.Forms.ContextMenuStrip cms_reminders;
+        private System.Windows.Forms.ContextMenuStrip cms_payment_conditions;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
     }
