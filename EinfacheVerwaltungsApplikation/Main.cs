@@ -161,7 +161,7 @@ namespace ManageAdministerExalt
 
         private void fillTerms()
         {
-            terms = Term.getTerms(db);
+            terms = new Term(db).GetIDList();
             if (terms != null)
             {
                 lv_tc_terms.Items.Clear();
@@ -487,20 +487,20 @@ namespace ManageAdministerExalt
 
         private void btn_tc_export_Click(object sender, EventArgs e)
         {
-            new Export(new Terms(db), db).ShowDialog();
+            new Export(term, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void btn_tc_save_Click(object sender, EventArgs e)
         {
-            term.Title = tb_tc_title.Text;
-            term.Content = tb_tc_content.Text;
+            term.Name = tb_tc_title.Text;
+            term.Description = tb_tc_content.Text;
             if (!term.Save())
             {
                 MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("AGB " + term.Title + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("AGB " + term.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             btn_tc_cancel.Enabled = false;
             btn_tc_save.Enabled = false;
@@ -518,8 +518,8 @@ namespace ManageAdministerExalt
 
         private void btn_tc_cancel_Click(object sender, EventArgs e)
         {
-            tb_tc_title.Text = term.Title;
-            tb_tc_content.Text = term.Content;
+            tb_tc_title.Text = term.Name;
+            tb_tc_content.Text = term.Description;
             btn_tc_cancel.Enabled = false;
             btn_tc_save.Enabled = false;
         }
@@ -536,8 +536,8 @@ namespace ManageAdministerExalt
                 term = new Term(db, lv_tc_terms.SelectedItems[0].Text);
 
                 lb_tc_id.Text = term.NiceID;
-                tb_tc_title.Text = term.Title;
-                tb_tc_content.Text = term.Content;
+                tb_tc_title.Text = term.Name;
+                tb_tc_content.Text = term.Description;
 
                 btn_tc_cancel.Enabled = false;
                 btn_tc_save.Enabled = false;
@@ -575,7 +575,7 @@ namespace ManageAdministerExalt
         /// <param name="e"></param>
         private void löschenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Wollen Sie wirklick " + term.NiceID + " (" + term.Title + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Wollen Sie wirklick " + term.NiceID + " (" + term.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 term.Delete();
                 fillTerms();
@@ -614,7 +614,7 @@ namespace ManageAdministerExalt
             nachUntenToolStripMenuItem.Enabled = lv_tc_terms.SelectedIndices.Count > 0;
             if (lv_tc_terms.SelectedIndices.Count > 0)
             {
-                if (term.Ordering == "1") nachObenToolStripMenuItem.Enabled = false;
+                if (term.Ordering == 1) nachObenToolStripMenuItem.Enabled = false;
                 if (lv_tc_terms.SelectedIndices[0] == lv_tc_terms.Items.Count -1) nachUntenToolStripMenuItem.Enabled = false;
             }
         }

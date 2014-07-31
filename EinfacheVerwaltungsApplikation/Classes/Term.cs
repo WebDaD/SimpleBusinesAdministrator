@@ -4,95 +4,121 @@ using System.Linq;
 using System.Text;
 using WebDaD.Toolkit.Database;
 using WebDaD.Toolkit.Export;
+using System.Data;
 
 namespace ManageAdministerExalt.Classes
 {
-    /// <summary>
-    /// Holds Information on one Term and has static classes to getTerms
-    /// </summary>
-    public class Term : Exportable, Joinable, CRUDable
+public class Term : Joinable, Exportable, CRUDable
     {
-        public static Dictionary<string, string> getTerms(Database db)
-        {
-            Result d = db.getRow(Term.table, new string[] { "ordering", "title" }, "`active`='1'","ordering ASC");
-
-            if (d.RowCount < 1) return null;
-
-            Dictionary<string, string> r = new Dictionary<string, string>();
-            foreach (Row row in d.Rows)
-            {
-                r.Add(row.Cells["ordering"], row.Cells["title"]);
-            }
-
-            return r;
-        }
-
-
+        public static string TableName = "terms";
 
         private Database db;
-        public static string table = "terms";
-        public static readonly int MOVE_UP = -1;
-        public static readonly int MOVE_DOWN = 1;
-
         private string id;
-        public string ID { get { return id; } set { id = value; } }
+
+        private string name;
+        public string Name { get { return name; } set { name = value; } }
+
+        private string description;
+        public string Description { get { return description; } set { description = value; } }
+
+        private int ordering;
+        public int Ordering { get { return ordering; } set { ordering = value; } }
 
         public string NiceID
         {
-            get { return "§ " + this.ordering; }
+            get
+            {
+                return Config.CreateNiceID(Config.IDFormating["term"], ordering.ToString());
+            }
         }
 
-        private string title;
-        public string Title { get { return title; } set { title = value; } }
-
-        private string content;
-        public string Content { get { return content; } set { content = value; } }
-
-        private string ordering;
-        public string Ordering { get { return ordering; } set { ordering = value; } }
-
-        public Dictionary<string, string> FieldSet 
+        public Dictionary<string, string> FieldSet
         {
-            get 
+            get
             {
                 Dictionary<string, string> r = new Dictionary<string, string>();
-                r.Add("title", this.title);
-                r.Add("content", this.content);
-                if (this.ordering == "")
-                {
-                    string high_order = this.db.getValue(Term.table, "MAX(ordering)", "1=1");
-                    int t_order = Int32.Parse(high_order) + 1;
-                    r.Add("ordering", t_order.ToString());
-                }
-                else
-                {
-                    r.Add("ordering", this.ordering);
-                }
+                r.Add("name", this.name);
+                r.Add("description", this.description);
+                r.Add("ordering", this.ordering.ToString());
                 r.Add("active", "1");
                 return r;
-            } 
+            }
+        }
+
+        public Term(Database db)
+        {
+            this.db = db;
+            this.id = "";
+            this.name = "";
+            this.description = "";
+            this.ordering = 0;
         }
 
         public Term(Database db, string ordering)
         {
             this.db = db;
-            Result d = this.db.getRow(Term.table, new string[] { "id", "title", "content", "ordering" }, "`ordering`='" + ordering + "'", "", 1);
+            Result d = this.db.getRow(Term.TableName, new string[] { "id", "name", "description", "ordering" }, "`ordering`='" + id + "'", "ordering ASC", 1);
             this.id = d.FirstRow["id"];
-            this.title = d.FirstRow["title"]; ;
-            this.content = d.FirstRow["content"]; ;
-            this.ordering = d.FirstRow["ordering"]; ;
+            this.name = d.FirstRow["name"];
+            this.description = d.FirstRow["description"];
+            this.ordering = Convert.ToInt32(d.FirstRow["ordering"]);
+
+        }
+        public string GetJoinOn(Joinable jointable)
+        {
+            return "id";
         }
 
-        /// <summary>
-        /// Empty Service for Saving purposes or Errors
-        /// </summary>
-        public Term(Database db)
+        public string GetTableName()
         {
-            this.db = db;
-            this.id = "";
-            this.title = "";
-            this.content = "";
-            this.ordering = "";
+            return Term.TableName;
+        }
+
+        public List<string> GetFields()
+        {
+            List<string> f = new List<string>();
+            foreach (KeyValuePair<string, string> item in this.FieldSet)
+            {
+                f.Add(Term.TableName + "." + Term.TableName + "_" + item.Key);
+            }
+            return f;
+        }
+
+        public Content ToContent(ExportCount c)
+        {
+            if (c == ExportCount.MULTI)
+            {
+                Content ct = new ContentParagraphs(DataType.Paragraphs, this.GetIDList());
+                return ct;
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string DataName(ExportCount c)
+        {
+            if (c == ExportCount.MULTI)
+            {
+                return "Allgemeine Geschäftsbedingungen";
+            }
+            else
+            {
+                return this.NiceID + " - " + this.Name;
+            }
+        }
+
+        public string Filename(ExportCount c)
+        {
+            if (c == ExportCount.MULTI)
+            {
+                return "agb";
+            }
+            else
+            {
+                return this.NiceID;
+            }
         }
 
         public bool Save()
@@ -100,30 +126,61 @@ namespace ManageAdministerExalt.Classes
             bool ok = true;
             if (String.IsNullOrEmpty(this.id))
             {
-                ok = db.Insert(Term.table, this.FieldSet);
+                ok = db.Insert(Term.TableName, this.FieldSet);
             }
             else
             {
-                ok = db.Update(Term.table, this.FieldSet, "`id`='" + this.id + "'");
+                ok = db.Update(Term.TableName, this.FieldSet, "`id`='" + this.id + "'");
 
             }
+
             return ok;
         }
 
         public bool Delete()
         {
             bool ok = true;
-            string t_order = this.ordering;
             Dictionary<string, string> tmp = new Dictionary<string, string>();
             tmp.Add("active", "0");
-            tmp.Add("ordering", "0");
 
-            ok = db.Update(Term.table, tmp, "`id`='" + this.id + "'");
-
-            //Every item with an ordering above this ordering must have ordering--
-            ok = db.Execute("UPDATE "+Term.table+" SET `ordering`=`ordering`-1 WHERE `ordering`>"+t_order);
-
+            ok = db.Update(Term.TableName, tmp, "`id`='" + this.id + "'");
             return ok;
+        }
+
+        public CRUDable New()
+        {
+            return new Term(this.db);
+        }
+
+        public Dictionary<string, string> GetIDList()
+        {
+            Result d = this.db.getRow(Term.TableName, new string[] { "ordering", "name" }, "`active`='1'","ordering ASC");
+            if (d.RowCount < 1) return null;
+
+            Dictionary<string, string> r = new Dictionary<string, string>();
+            foreach (Row item in d.Rows)
+            {
+                r.Add(item.Cells["ordering"], item.Cells["name"]);
+            }
+
+            if (r.Count > 0) return r;
+            else return null;
+        }
+
+        public CRUDable GetSingleInstance(string id)
+        {
+            return new Term(this.db, id);
+        }
+
+        public List<CRUDable> GetFullList()
+        {
+            List<CRUDable> terms = new List<CRUDable>();
+            Result d = this.db.getRow(Term.TableName, new string[] { "ordering" }, "`active`='1'", "ordering ASC");
+            foreach (Row row in d.Rows)
+            {
+                terms.Add(new Term(db, row.Cells["ordering"]));
+            }
+            return terms;
         }
 
         public bool Move(int direction)
@@ -132,50 +189,27 @@ namespace ManageAdministerExalt.Classes
             Dictionary<string, string> tmp = new Dictionary<string, string>();
 
             //get ordering target
-            int order_now = Int32.Parse(ordering);
+            int order_now = this.ordering;
             int order_new = order_now + direction;
 
             //get id of target
-            string target_id = db.getValue(Term.table, "id", "`ordering`=" + order_new.ToString());
+            string target_id = db.getValue(Term.TableName, "id", "`ordering`=" + order_new.ToString());
 
 
             //set ordering of this to order_new
             tmp.Add("ordering", order_new.ToString());
-            ok = db.Update(Term.table, tmp, "`id`='" + this.id + "'");
-            this.ordering = order_new.ToString();
+            ok = db.Update(Term.TableName, tmp, "`id`='" + this.id + "'");
+            this.ordering = order_new;
 
             //set ordering of target to order_now
             tmp.Clear();
             tmp.Add("ordering", order_now.ToString());
-            ok = db.Update(Term.table, tmp, "`id`='" + target_id + "'");
+            ok = db.Update(Term.TableName, tmp, "`id`='" + target_id + "'");
 
             return ok;
         }
 
-        public Content ToContent()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public string DataName()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string Filename()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string JoinOn(Joinable jointable)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetTableName()
-        {
-            throw new NotImplementedException();
-        }
+        public static int MOVE_UP = -1;
+        public static int MOVE_DOWN = 1;
     }
 }
