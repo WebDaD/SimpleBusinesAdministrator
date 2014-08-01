@@ -72,7 +72,7 @@ namespace ManageAdministerExalt
         {
             //Expenses :: Year
             cb_ex_year.Items.Add("Alle");
-            List<string> years = Expense.GetExpenseYears(db);
+            List<string> years = new Expense(db).GetExpenseYears();
             if (years != null)
             {
                 foreach (string year in years)

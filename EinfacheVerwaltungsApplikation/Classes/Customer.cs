@@ -12,58 +12,8 @@ namespace ManageAdministerExalt.Classes
     /// <summary>
     /// Gets or Sets all Data for Customers
     /// </summary>
-    public class Customer : Exportable, Joinable, CRUDable
+    public class Customer : Module
     {
-        
-
-        public Dictionary<string, string> GetIDList()
-        {
-            Result d = this.db.getRow(Customer.TableName, new string[] { "id", "name" },"`active`='1'");
-            if (d.RowCount < 1) return null;
-
-            Dictionary<string, string> r = new Dictionary<string, string>();
-            foreach (Row item in d.Rows)
-            {
-                r.Add(item.Cells["id"], item.Cells["name"]);
-            }
-
-            if (r.Count > 0) return r;
-            else return null;
-        }
-
-
-        public List<CRUDable> GetFullList()
-        {
-            List<CRUDable> customers = new List<CRUDable>();
-            Result d = this.db.getRow(Customer.TableName, new string[] { "id" }, "`active`='1'", "id ASC");
-            foreach (Row row in d.Rows)
-            {
-                customers.Add(new Customer(db, row.Cells["id"]));
-            }
-            return customers;
-        }
-
-        private Database db;
-        public static string TableName = "customers";
-
-        private string id;
-        public string ID { get { return id; } set { id = value; } }
-
-        public static string makeNiceID(string id)
-        {
-            return "C" + id.PadLeft(5, '0');
-        }
-        public string NiceID
-        {
-            get
-            {
-                return "C" + id.PadLeft(5, '0');
-            }
-        }
-
-        private string name;
-        public string Name { get { return name; } set { name = value; } }
-
         private string street;
         public string Street { get { return street; } set { street = value; } }
 
@@ -88,104 +38,65 @@ namespace ManageAdministerExalt.Classes
         private string contact;
         public string Contact { get { return contact; } set { contact = value; } }
 
-        public Dictionary<string, string> FieldSet 
+        public override Dictionary<string, string> FieldSet()
         {
-            get 
+            Dictionary<string, string> r = base.FieldSet();
+            r.Add("street", this.street);
+            r.Add("plz", this.plz);
+            r.Add("city", this.city);
+            r.Add("mail", this.mail);
+            r.Add("phone", this.phone);
+            r.Add("mobile", this.mobile);
+            r.Add("fax", this.fax);
+            r.Add("contact", this.contact);
+            return r;
+        }
+
+
+
+        public Customer(Database db, string id=""):base(db,"customers","Kunden",id)
+        {
+            if (String.IsNullOrEmpty(id))
             {
-                Dictionary<string, string> r = new Dictionary<string, string>();
-                r.Add("name", this.name);
-                r.Add("street", this.street);
-                r.Add("plz", this.plz);
-                r.Add("city", this.city);
-                r.Add("mail", this.mail);
-                r.Add("phone", this.phone);
-                r.Add("mobile", this.mobile);
-                r.Add("fax", this.fax);
-                r.Add("contact", this.contact);
-                r.Add("active", "1");
-                return r;
-            } 
-        }
-
-        public CRUDable GetSingleInstance(string id)
-        {
-            return new Customer(this.db, id);
-        }
-      
-
-
-        public Customer(Database db, string id)
-        {
-            this.db = db;
-            Result d = this.db.getRow(Customer.TableName, new string[] { "id", "name", "street", "plz", "city", "mail", "phone", "mobile", "fax", "contact" }, "`id`='" + id + "'", "", 1);
-            this.id = d.FirstRow["id"];
-            this.name = d.FirstRow["name"];
-            this.street = d.FirstRow["street"];
-            this.plz = d.FirstRow["plz"];
-            this.city = d.FirstRow["city"];
-            this.mail = d.FirstRow["mail"];
-            this.phone = d.FirstRow["phone"];
-            this.mobile = d.FirstRow["mobile"];
-            this.fax = d.FirstRow["fax"];
-            this.contact = d.FirstRow["contact"];
-        }
-
-        /// <summary>
-        /// Empty Customer for Saving purposes or Errors
-        /// </summary>
-        public Customer(Database db)
-        {
-            this.db = db;
-            this.id = "";
-            this.name = "";
-            this.street = "";
-            this.plz = "";
-            this.city = "";
-            this.mail = "";
-            this.phone = "";
-            this.mobile = "";
-            this.fax = "";
-            this.contact = "";
-        }
-
-        public CRUDable New()
-        {
-            return new Customer(this.db);
-        }
-
-        public bool Save()
-        {
-            bool ok = true;
-            if (String.IsNullOrEmpty(this.id))
-            {
-                ok = db.Insert(Customer.TableName, this.FieldSet);
+                base.Name = "";
+                this.street = "";
+                this.plz = "";
+                this.city = "";
+                this.mail = "";
+                this.phone = "";
+                this.mobile = "";
+                this.fax = "";
+                this.contact = "";
             }
             else
             {
-                ok = db.Update(Customer.TableName, this.FieldSet, "`id`='" + this.id + "'");
-
+                Result d = base.DB.getRow(base.Tablename, new string[] { "name", "street", "plz", "city", "mail", "phone", "mobile", "fax", "contact" }, "`id`='" + id + "'", "", 1);
+                base.Name = d.FirstRow["name"];
+                this.street = d.FirstRow["street"];
+                this.plz = d.FirstRow["plz"];
+                this.city = d.FirstRow["city"];
+                this.mail = d.FirstRow["mail"];
+                this.phone = d.FirstRow["phone"];
+                this.mobile = d.FirstRow["mobile"];
+                this.fax = d.FirstRow["fax"];
+                this.contact = d.FirstRow["contact"];
             }
+           
+        }
+
+        public override bool Save()
+        {
+            bool ok = base.Save();
             if (ok)
             {
-                if(String.IsNullOrEmpty(this.id))this.id = db.GetLastInsertedID();
-                string target = Config.BasePath + Path.DirectorySeparatorChar + "customers" + Path.DirectorySeparatorChar + this.NiceID;
+                if (String.IsNullOrEmpty(base.ID)) base.ID = base.DB.GetLastInsertedID();
+                string target = base.Basepath + this.NiceID;
                 if (!Directory.Exists(target)) Directory.CreateDirectory(target);
             }
-
             return ok;
         }
 
-        public bool Delete()
-        {
-            bool ok = true;
-            Dictionary<string, string> tmp = new Dictionary<string, string>();
-            tmp.Add("active", "0");
-
-            ok = db.Update(Customer.TableName, tmp, "`id`='" + this.id + "'");
-            return ok;
-        }
-
-        public Content ToContent(ExportCount c)
+        public override Content ToContent(ExportCount c)
         {
             if (c == ExportCount.MULTI)
             {
@@ -207,51 +118,11 @@ namespace ManageAdministerExalt.Classes
             }
         }
 
-        public string DataName(ExportCount c)
+
+
+        public override CRUDable createObject(Database db, string id)
         {
-            if (c == ExportCount.MULTI)
-            {
-                return "Liste der Kunden";
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string Filename(ExportCount c)
-        {
-            if (c == ExportCount.MULTI)
-            {
-                return "customers";
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-
-        public string GetTableName()
-        {
-            return Customer.TableName;
-        }
-
-
-        public string GetJoinOn(Joinable jointable)
-        {
-            return "id";
-        }
-
-        public List<string> GetFields()
-        {
-            List<string> f = new List<string>();
-            foreach (KeyValuePair<string,string> item in this.FieldSet)
-            {
-                f.Add(Customer.TableName + "." + Customer.TableName+"_"+item.Key);
-            }
-            return f;
-            
+            return new Customer(db, id);
         }
 
         public Dictionary<string, string> CreateReport()
@@ -263,6 +134,6 @@ namespace ManageAdministerExalt.Classes
         }
 
 
-        
+
     }
 }
