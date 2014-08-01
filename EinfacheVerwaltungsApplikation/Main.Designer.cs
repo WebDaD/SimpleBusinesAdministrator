@@ -114,9 +114,9 @@
             this.tb_se_name = new System.Windows.Forms.TextBox();
             this.tb_se_unit = new System.Windows.Forms.TextBox();
             this.tb_se_description = new System.Windows.Forms.TextBox();
-            this.tb_se_price = new System.Windows.Forms.TextBox();
             this.btn_se_cancel = new System.Windows.Forms.Button();
             this.btn_se_save = new System.Windows.Forms.Button();
+            this.nu_se_value = new System.Windows.Forms.NumericUpDown();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
@@ -169,6 +169,10 @@
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_jo_discounts_sum = new System.Windows.Forms.Label();
             this.btn_jo_discounts_edit = new System.Windows.Forms.Button();
+            this.label51 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_jo_edit_items = new System.Windows.Forms.Button();
+            this.lb_jo_items = new System.Windows.Forms.Label();
             this.gb_jo_offer = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_jo_export_job = new System.Windows.Forms.Button();
@@ -255,52 +259,16 @@
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.grid_reports = new System.Windows.Forms.DataGridView();
             this.btn_re_Export = new System.Windows.Forms.Button();
-            this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
             this.tab_worker = new System.Windows.Forms.TabPage();
-            this.tab_items = new System.Windows.Forms.TabPage();
-            this.splitContainer12 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer13 = new System.Windows.Forms.SplitContainer();
-            this.lv_it_items = new System.Windows.Forms.ListView();
-            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_it_export = new System.Windows.Forms.Button();
-            this.btn_it_import = new System.Windows.Forms.Button();
-            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.grid_it_log = new System.Windows.Forms.DataGridView();
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cms_it_items = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eingangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ausgangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
             this.splitContainer14 = new System.Windows.Forms.SplitContainer();
             this.lv_wo_worker = new System.Windows.Forms.ListView();
-            this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_wo_export = new System.Windows.Forms.Button();
-            this.btn_wo_export_all = new System.Windows.Forms.Button();
             this.cms_wo_worker = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.neuToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.löschenToolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label51 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_jo_edit_items = new System.Windows.Forms.Button();
-            this.lb_jo_items = new System.Windows.Forms.Label();
+            this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
             this.label52 = new System.Windows.Forms.Label();
             this.lb_wo_id = new System.Windows.Forms.Label();
@@ -328,6 +296,7 @@
             this.tb_wo_phone = new System.Windows.Forms.TextBox();
             this.tb_wo_mobile = new System.Windows.Forms.TextBox();
             this.tb_wo_mail = new System.Windows.Forms.TextBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
@@ -341,7 +310,38 @@
             this.lb_wo_report_job_avg = new System.Windows.Forms.Label();
             this.lb_wo_report_job_sum = new System.Windows.Forms.Label();
             this.lb_wo_report_value = new System.Windows.Forms.Label();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_wo_export = new System.Windows.Forms.Button();
+            this.btn_wo_export_all = new System.Windows.Forms.Button();
             this.btn_wo_openfolder = new System.Windows.Forms.Button();
+            this.tab_items = new System.Windows.Forms.TabPage();
+            this.splitContainer12 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer13 = new System.Windows.Forms.SplitContainer();
+            this.lv_it_items = new System.Windows.Forms.ListView();
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cms_it_items = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eingangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ausgangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_it_export = new System.Windows.Forms.Button();
+            this.btn_it_import = new System.Windows.Forms.Button();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.grid_it_log = new System.Windows.Forms.DataGridView();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -366,6 +366,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_se_value)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -386,6 +387,7 @@
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel26.SuspendLayout();
             this.gb_jo_offer.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.gb_jo_bill.SuspendLayout();
@@ -436,6 +438,20 @@
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_reports)).BeginInit();
             this.tab_worker.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
+            this.splitContainer14.Panel1.SuspendLayout();
+            this.splitContainer14.Panel2.SuspendLayout();
+            this.splitContainer14.SuspendLayout();
+            this.cms_wo_worker.SuspendLayout();
+            this.tableLayoutPanel24.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.tableLayoutPanel27.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_salary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_hoursperweek)).BeginInit();
+            this.groupBox15.SuspendLayout();
+            this.tableLayoutPanel28.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.tableLayoutPanel25.SuspendLayout();
             this.tab_items.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer12)).BeginInit();
             this.splitContainer12.Panel1.SuspendLayout();
@@ -445,28 +461,13 @@
             this.splitContainer13.Panel1.SuspendLayout();
             this.splitContainer13.Panel2.SuspendLayout();
             this.splitContainer13.SuspendLayout();
+            this.cms_it_items.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_it_log)).BeginInit();
-            this.cms_it_items.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
-            this.splitContainer14.Panel1.SuspendLayout();
-            this.splitContainer14.Panel2.SuspendLayout();
-            this.splitContainer14.SuspendLayout();
-            this.tableLayoutPanel24.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            this.tableLayoutPanel25.SuspendLayout();
-            this.cms_wo_worker.SuspendLayout();
-            this.tableLayoutPanel26.SuspendLayout();
-            this.tableLayoutPanel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_salary)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_hoursperweek)).BeginInit();
-            this.tableLayoutPanel28.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1266,9 +1267,9 @@
             this.tableLayoutPanel6.Controls.Add(this.tb_se_name, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.tb_se_unit, 1, 2);
             this.tableLayoutPanel6.Controls.Add(this.tb_se_description, 1, 3);
-            this.tableLayoutPanel6.Controls.Add(this.tb_se_price, 1, 4);
             this.tableLayoutPanel6.Controls.Add(this.btn_se_cancel, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.btn_se_save, 1, 5);
+            this.tableLayoutPanel6.Controls.Add(this.nu_se_value, 1, 4);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel6.MinimumSize = new System.Drawing.Size(483, 155);
@@ -1332,9 +1333,9 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(3, 98);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(30, 13);
+            this.label19.Size = new System.Drawing.Size(83, 13);
             this.label19.TabIndex = 5;
-            this.label19.Text = "Preis";
+            this.label19.Text = "Preis pro Einheit";
             // 
             // tb_se_name
             // 
@@ -1363,15 +1364,6 @@
             this.tb_se_description.TabIndex = 8;
             this.tb_se_description.TextChanged += new System.EventHandler(this.tb_se_TextChanged);
             // 
-            // tb_se_price
-            // 
-            this.tb_se_price.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_se_price.Location = new System.Drawing.Point(250, 101);
-            this.tb_se_price.Name = "tb_se_price";
-            this.tb_se_price.Size = new System.Drawing.Size(242, 20);
-            this.tb_se_price.TabIndex = 9;
-            this.tb_se_price.TextChanged += new System.EventHandler(this.tb_se_TextChanged);
-            // 
             // btn_se_cancel
             // 
             this.btn_se_cancel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1393,6 +1385,21 @@
             this.btn_se_save.Text = "Speichern";
             this.btn_se_save.UseVisualStyleBackColor = true;
             this.btn_se_save.Click += new System.EventHandler(this.btn_se_save_Click);
+            // 
+            // nu_se_value
+            // 
+            this.nu_se_value.DecimalPlaces = 2;
+            this.nu_se_value.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nu_se_value.Location = new System.Drawing.Point(250, 101);
+            this.nu_se_value.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nu_se_value.Name = "nu_se_value";
+            this.nu_se_value.Size = new System.Drawing.Size(242, 20);
+            this.nu_se_value.TabIndex = 12;
+            this.nu_se_value.ValueChanged += new System.EventHandler(this.tb_se_TextChanged);
             // 
             // groupBox5
             // 
@@ -1976,6 +1983,49 @@
             this.btn_jo_discounts_edit.Text = "Bearbeiten";
             this.btn_jo_discounts_edit.UseVisualStyleBackColor = true;
             this.btn_jo_discounts_edit.Click += new System.EventHandler(this.btn_jo_discounts_edit_Click);
+            // 
+            // label51
+            // 
+            this.label51.Location = new System.Drawing.Point(3, 114);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(273, 13);
+            this.label51.TabIndex = 12;
+            this.label51.Text = "Lager";
+            // 
+            // tableLayoutPanel26
+            // 
+            this.tableLayoutPanel26.ColumnCount = 2;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Controls.Add(this.btn_jo_edit_items, 1, 0);
+            this.tableLayoutPanel26.Controls.Add(this.lb_jo_items, 0, 0);
+            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 114);
+            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
+            this.tableLayoutPanel26.RowCount = 1;
+            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(280, 24);
+            this.tableLayoutPanel26.TabIndex = 13;
+            // 
+            // btn_jo_edit_items
+            // 
+            this.btn_jo_edit_items.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_jo_edit_items.Location = new System.Drawing.Point(143, 3);
+            this.btn_jo_edit_items.Name = "btn_jo_edit_items";
+            this.btn_jo_edit_items.Size = new System.Drawing.Size(134, 18);
+            this.btn_jo_edit_items.TabIndex = 0;
+            this.btn_jo_edit_items.Text = "Bearbeiten";
+            this.btn_jo_edit_items.UseVisualStyleBackColor = true;
+            this.btn_jo_edit_items.Click += new System.EventHandler(this.btn_jo_edit_items_Click);
+            // 
+            // lb_jo_items
+            // 
+            this.lb_jo_items.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_items.Location = new System.Drawing.Point(3, 0);
+            this.lb_jo_items.Name = "lb_jo_items";
+            this.lb_jo_items.Size = new System.Drawing.Size(134, 20);
+            this.lb_jo_items.TabIndex = 1;
             // 
             // gb_jo_offer
             // 
@@ -2970,10 +3020,6 @@
             this.btn_re_Export.Text = "Export";
             this.btn_re_Export.UseVisualStyleBackColor = true;
             // 
-            // ofd_ex_attachement
-            // 
-            this.ofd_ex_attachement.ReadOnlyChecked = true;
-            // 
             // tab_worker
             // 
             this.tab_worker.Controls.Add(this.splitContainer14);
@@ -2984,284 +3030,6 @@
             this.tab_worker.TabIndex = 6;
             this.tab_worker.Text = "Mitarbeiter";
             this.tab_worker.UseVisualStyleBackColor = true;
-            // 
-            // tab_items
-            // 
-            this.tab_items.Controls.Add(this.splitContainer12);
-            this.tab_items.Location = new System.Drawing.Point(4, 22);
-            this.tab_items.Name = "tab_items";
-            this.tab_items.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_items.Size = new System.Drawing.Size(824, 584);
-            this.tab_items.TabIndex = 7;
-            this.tab_items.Text = "Lager";
-            this.tab_items.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer12
-            // 
-            this.splitContainer12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer12.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer12.Name = "splitContainer12";
-            // 
-            // splitContainer12.Panel1
-            // 
-            this.splitContainer12.Panel1.Controls.Add(this.splitContainer13);
-            // 
-            // splitContainer12.Panel2
-            // 
-            this.splitContainer12.Panel2.Controls.Add(this.tableLayoutPanel22);
-            this.splitContainer12.Size = new System.Drawing.Size(818, 578);
-            this.splitContainer12.SplitterDistance = 272;
-            this.splitContainer12.TabIndex = 0;
-            // 
-            // splitContainer13
-            // 
-            this.splitContainer13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer13.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer13.Name = "splitContainer13";
-            this.splitContainer13.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer13.Panel1
-            // 
-            this.splitContainer13.Panel1.Controls.Add(this.lv_it_items);
-            // 
-            // splitContainer13.Panel2
-            // 
-            this.splitContainer13.Panel2.Controls.Add(this.tableLayoutPanel21);
-            this.splitContainer13.Size = new System.Drawing.Size(272, 578);
-            this.splitContainer13.SplitterDistance = 540;
-            this.splitContainer13.TabIndex = 0;
-            // 
-            // lv_it_items
-            // 
-            this.lv_it_items.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
-            this.lv_it_items.ContextMenuStrip = this.cms_it_items;
-            this.lv_it_items.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lv_it_items.FullRowSelect = true;
-            this.lv_it_items.GridLines = true;
-            this.lv_it_items.Location = new System.Drawing.Point(0, 0);
-            this.lv_it_items.Name = "lv_it_items";
-            this.lv_it_items.Size = new System.Drawing.Size(272, 540);
-            this.lv_it_items.TabIndex = 0;
-            this.lv_it_items.UseCompatibleStateImageBehavior = false;
-            this.lv_it_items.View = System.Windows.Forms.View.Details;
-            // 
-            // tableLayoutPanel21
-            // 
-            this.tableLayoutPanel21.ColumnCount = 2;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.Controls.Add(this.btn_it_export, 0, 0);
-            this.tableLayoutPanel21.Controls.Add(this.btn_it_import, 1, 0);
-            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
-            this.tableLayoutPanel21.RowCount = 1;
-            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(272, 34);
-            this.tableLayoutPanel21.TabIndex = 0;
-            // 
-            // btn_it_export
-            // 
-            this.btn_it_export.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_it_export.Location = new System.Drawing.Point(3, 3);
-            this.btn_it_export.Name = "btn_it_export";
-            this.btn_it_export.Size = new System.Drawing.Size(130, 28);
-            this.btn_it_export.TabIndex = 0;
-            this.btn_it_export.Text = "Ausgang";
-            this.btn_it_export.UseVisualStyleBackColor = true;
-            // 
-            // btn_it_import
-            // 
-            this.btn_it_import.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_it_import.Location = new System.Drawing.Point(139, 3);
-            this.btn_it_import.Name = "btn_it_import";
-            this.btn_it_import.Size = new System.Drawing.Size(130, 28);
-            this.btn_it_import.TabIndex = 1;
-            this.btn_it_import.Text = "Eingang";
-            this.btn_it_import.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel22
-            // 
-            this.tableLayoutPanel22.ColumnCount = 1;
-            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Controls.Add(this.groupBox12, 0, 0);
-            this.tableLayoutPanel22.Controls.Add(this.groupBox13, 0, 1);
-            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
-            this.tableLayoutPanel22.RowCount = 2;
-            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(542, 578);
-            this.tableLayoutPanel22.TabIndex = 0;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.grid_it_log);
-            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox12.Location = new System.Drawing.Point(3, 3);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(536, 398);
-            this.groupBox12.TabIndex = 0;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Historie";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.tableLayoutPanel23);
-            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox13.Location = new System.Drawing.Point(3, 407);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(536, 168);
-            this.groupBox13.TabIndex = 1;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Bericht";
-            // 
-            // grid_it_log
-            // 
-            this.grid_it_log.AllowUserToAddRows = false;
-            this.grid_it_log.AllowUserToDeleteRows = false;
-            this.grid_it_log.AllowUserToOrderColumns = true;
-            this.grid_it_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_it_log.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_it_log.Location = new System.Drawing.Point(3, 16);
-            this.grid_it_log.Name = "grid_it_log";
-            this.grid_it_log.ReadOnly = true;
-            this.grid_it_log.Size = new System.Drawing.Size(530, 379);
-            this.grid_it_log.TabIndex = 0;
-            // 
-            // columnHeader13
-            // 
-            this.columnHeader13.Text = "ID";
-            this.columnHeader13.Width = 45;
-            // 
-            // columnHeader14
-            // 
-            this.columnHeader14.Text = "Name";
-            this.columnHeader14.Width = 126;
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Anzahl";
-            // 
-            // cms_it_items
-            // 
-            this.cms_it_items.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eingangToolStripMenuItem,
-            this.ausgangToolStripMenuItem});
-            this.cms_it_items.Name = "cms_it_items";
-            this.cms_it_items.Size = new System.Drawing.Size(122, 48);
-            // 
-            // eingangToolStripMenuItem
-            // 
-            this.eingangToolStripMenuItem.Name = "eingangToolStripMenuItem";
-            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.eingangToolStripMenuItem.Text = "Eingang";
-            // 
-            // ausgangToolStripMenuItem
-            // 
-            this.ausgangToolStripMenuItem.Name = "ausgangToolStripMenuItem";
-            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.ausgangToolStripMenuItem.Text = "Ausgang";
-            // 
-            // tableLayoutPanel23
-            // 
-            this.tableLayoutPanel23.ColumnCount = 2;
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.Controls.Add(this.label42, 0, 0);
-            this.tableLayoutPanel23.Controls.Add(this.label44, 1, 0);
-            this.tableLayoutPanel23.Controls.Add(this.label45, 0, 1);
-            this.tableLayoutPanel23.Controls.Add(this.label46, 1, 1);
-            this.tableLayoutPanel23.Controls.Add(this.label47, 0, 2);
-            this.tableLayoutPanel23.Controls.Add(this.label48, 1, 2);
-            this.tableLayoutPanel23.Controls.Add(this.label49, 0, 3);
-            this.tableLayoutPanel23.Controls.Add(this.label50, 1, 3);
-            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
-            this.tableLayoutPanel23.RowCount = 4;
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(530, 149);
-            this.tableLayoutPanel23.TabIndex = 0;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(3, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(41, 13);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "label42";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(268, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(41, 13);
-            this.label44.TabIndex = 1;
-            this.label44.Text = "label44";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(3, 54);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(41, 13);
-            this.label45.TabIndex = 2;
-            this.label45.Text = "label45";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(268, 54);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(41, 13);
-            this.label46.TabIndex = 3;
-            this.label46.Text = "label46";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(3, 108);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(41, 13);
-            this.label47.TabIndex = 4;
-            this.label47.Text = "label47";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(268, 108);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(41, 13);
-            this.label48.TabIndex = 5;
-            this.label48.Text = "label48";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(3, 128);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(41, 13);
-            this.label49.TabIndex = 6;
-            this.label49.Text = "label49";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(268, 128);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(41, 13);
-            this.label50.TabIndex = 7;
-            this.label50.Text = "label50";
             // 
             // splitContainer14
             // 
@@ -3298,23 +3066,6 @@
             this.lv_wo_worker.SelectedIndexChanged += new System.EventHandler(this.lv_wo_worker_SelectedIndexChanged);
             this.lv_wo_worker.Resize += new System.EventHandler(this.lv_wo_worker_Resize);
             // 
-            // tableLayoutPanel24
-            // 
-            this.tableLayoutPanel24.ColumnCount = 1;
-            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel24.Controls.Add(this.groupBox14, 0, 0);
-            this.tableLayoutPanel24.Controls.Add(this.groupBox15, 0, 1);
-            this.tableLayoutPanel24.Controls.Add(this.groupBox16, 0, 2);
-            this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel24.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel24.Name = "tableLayoutPanel24";
-            this.tableLayoutPanel24.RowCount = 3;
-            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63F));
-            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27F));
-            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(585, 578);
-            this.tableLayoutPanel24.TabIndex = 0;
-            // 
             // ID
             // 
             this.ID.Text = "ID";
@@ -3324,79 +3075,6 @@
             // 
             this.columnHeader17.Text = "Name";
             this.columnHeader17.Width = 161;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.tableLayoutPanel27);
-            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox14.Location = new System.Drawing.Point(3, 3);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(579, 358);
-            this.groupBox14.TabIndex = 0;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Daten";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.tableLayoutPanel28);
-            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox15.Location = new System.Drawing.Point(3, 367);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(579, 150);
-            this.groupBox15.TabIndex = 1;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Bericht";
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.tableLayoutPanel25);
-            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox16.Location = new System.Drawing.Point(3, 523);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(579, 52);
-            this.groupBox16.TabIndex = 2;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Steuerung";
-            // 
-            // tableLayoutPanel25
-            // 
-            this.tableLayoutPanel25.ColumnCount = 3;
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel25.Controls.Add(this.btn_wo_export, 0, 0);
-            this.tableLayoutPanel25.Controls.Add(this.btn_wo_export_all, 1, 0);
-            this.tableLayoutPanel25.Controls.Add(this.btn_wo_openfolder, 2, 0);
-            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
-            this.tableLayoutPanel25.RowCount = 1;
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(573, 33);
-            this.tableLayoutPanel25.TabIndex = 0;
-            // 
-            // btn_wo_export
-            // 
-            this.btn_wo_export.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_wo_export.Enabled = false;
-            this.btn_wo_export.Location = new System.Drawing.Point(3, 3);
-            this.btn_wo_export.Name = "btn_wo_export";
-            this.btn_wo_export.Size = new System.Drawing.Size(184, 27);
-            this.btn_wo_export.TabIndex = 0;
-            this.btn_wo_export.Text = "Export";
-            this.btn_wo_export.UseVisualStyleBackColor = true;
-            this.btn_wo_export.Click += new System.EventHandler(this.btn_wo_export_Click);
-            // 
-            // btn_wo_export_all
-            // 
-            this.btn_wo_export_all.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_wo_export_all.Location = new System.Drawing.Point(193, 3);
-            this.btn_wo_export_all.Name = "btn_wo_export_all";
-            this.btn_wo_export_all.Size = new System.Drawing.Size(184, 27);
-            this.btn_wo_export_all.TabIndex = 1;
-            this.btn_wo_export_all.Text = "Alle Exportieren";
-            this.btn_wo_export_all.UseVisualStyleBackColor = true;
-            this.btn_wo_export_all.Click += new System.EventHandler(this.btn_wo_export_all_Click);
             // 
             // cms_wo_worker
             // 
@@ -3421,48 +3099,33 @@
             this.löschenToolStripMenuItem4.Text = "Löschen";
             this.löschenToolStripMenuItem4.Click += new System.EventHandler(this.löschenToolStripMenuItem4_Click);
             // 
-            // label51
+            // tableLayoutPanel24
             // 
-            this.label51.Location = new System.Drawing.Point(3, 114);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(273, 13);
-            this.label51.TabIndex = 12;
-            this.label51.Text = "Lager";
+            this.tableLayoutPanel24.ColumnCount = 1;
+            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel24.Controls.Add(this.groupBox14, 0, 0);
+            this.tableLayoutPanel24.Controls.Add(this.groupBox15, 0, 1);
+            this.tableLayoutPanel24.Controls.Add(this.groupBox16, 0, 2);
+            this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel24.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel24.Name = "tableLayoutPanel24";
+            this.tableLayoutPanel24.RowCount = 3;
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63F));
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27F));
+            this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(585, 578);
+            this.tableLayoutPanel24.TabIndex = 0;
             // 
-            // tableLayoutPanel26
+            // groupBox14
             // 
-            this.tableLayoutPanel26.ColumnCount = 2;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Controls.Add(this.btn_jo_edit_items, 1, 0);
-            this.tableLayoutPanel26.Controls.Add(this.lb_jo_items, 0, 0);
-            this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 114);
-            this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel26.Name = "tableLayoutPanel26";
-            this.tableLayoutPanel26.RowCount = 1;
-            this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(280, 24);
-            this.tableLayoutPanel26.TabIndex = 13;
-            // 
-            // btn_jo_edit_items
-            // 
-            this.btn_jo_edit_items.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_jo_edit_items.Location = new System.Drawing.Point(143, 3);
-            this.btn_jo_edit_items.Name = "btn_jo_edit_items";
-            this.btn_jo_edit_items.Size = new System.Drawing.Size(134, 18);
-            this.btn_jo_edit_items.TabIndex = 0;
-            this.btn_jo_edit_items.Text = "Bearbeiten";
-            this.btn_jo_edit_items.UseVisualStyleBackColor = true;
-            this.btn_jo_edit_items.Click += new System.EventHandler(this.btn_jo_edit_items_Click);
-            // 
-            // lb_jo_items
-            // 
-            this.lb_jo_items.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_items.Location = new System.Drawing.Point(3, 0);
-            this.lb_jo_items.Name = "lb_jo_items";
-            this.lb_jo_items.Size = new System.Drawing.Size(134, 20);
-            this.lb_jo_items.TabIndex = 1;
+            this.groupBox14.Controls.Add(this.tableLayoutPanel27);
+            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox14.Location = new System.Drawing.Point(3, 3);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(579, 358);
+            this.groupBox14.TabIndex = 0;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Daten";
             // 
             // tableLayoutPanel27
             // 
@@ -3771,6 +3434,17 @@
             this.tb_wo_mail.TabIndex = 25;
             this.tb_wo_mail.TextChanged += new System.EventHandler(this.wo_changed);
             // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.tableLayoutPanel28);
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox15.Location = new System.Drawing.Point(3, 367);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(579, 150);
+            this.groupBox15.TabIndex = 1;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Bericht";
+            // 
             // tableLayoutPanel28
             // 
             this.tableLayoutPanel28.ColumnCount = 2;
@@ -3903,17 +3577,350 @@
             this.lb_wo_report_value.Size = new System.Drawing.Size(0, 13);
             this.lb_wo_report_value.TabIndex = 11;
             // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.tableLayoutPanel25);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox16.Location = new System.Drawing.Point(3, 523);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(579, 52);
+            this.groupBox16.TabIndex = 2;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Steuerung";
+            // 
+            // tableLayoutPanel25
+            // 
+            this.tableLayoutPanel25.ColumnCount = 3;
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel25.Controls.Add(this.btn_wo_export, 0, 0);
+            this.tableLayoutPanel25.Controls.Add(this.btn_wo_export_all, 1, 0);
+            this.tableLayoutPanel25.Controls.Add(this.btn_wo_openfolder, 2, 0);
+            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
+            this.tableLayoutPanel25.RowCount = 1;
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(573, 33);
+            this.tableLayoutPanel25.TabIndex = 0;
+            // 
+            // btn_wo_export
+            // 
+            this.btn_wo_export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_wo_export.Enabled = false;
+            this.btn_wo_export.Location = new System.Drawing.Point(3, 3);
+            this.btn_wo_export.Name = "btn_wo_export";
+            this.btn_wo_export.Size = new System.Drawing.Size(185, 27);
+            this.btn_wo_export.TabIndex = 0;
+            this.btn_wo_export.Text = "Export";
+            this.btn_wo_export.UseVisualStyleBackColor = true;
+            this.btn_wo_export.Click += new System.EventHandler(this.btn_wo_export_Click);
+            // 
+            // btn_wo_export_all
+            // 
+            this.btn_wo_export_all.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_wo_export_all.Location = new System.Drawing.Point(194, 3);
+            this.btn_wo_export_all.Name = "btn_wo_export_all";
+            this.btn_wo_export_all.Size = new System.Drawing.Size(185, 27);
+            this.btn_wo_export_all.TabIndex = 1;
+            this.btn_wo_export_all.Text = "Alle Exportieren";
+            this.btn_wo_export_all.UseVisualStyleBackColor = true;
+            this.btn_wo_export_all.Click += new System.EventHandler(this.btn_wo_export_all_Click);
+            // 
             // btn_wo_openfolder
             // 
             this.btn_wo_openfolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_wo_openfolder.Enabled = false;
-            this.btn_wo_openfolder.Location = new System.Drawing.Point(383, 3);
+            this.btn_wo_openfolder.Location = new System.Drawing.Point(385, 3);
             this.btn_wo_openfolder.Name = "btn_wo_openfolder";
-            this.btn_wo_openfolder.Size = new System.Drawing.Size(187, 27);
+            this.btn_wo_openfolder.Size = new System.Drawing.Size(185, 27);
             this.btn_wo_openfolder.TabIndex = 2;
             this.btn_wo_openfolder.Text = "Öffne Ordner";
             this.btn_wo_openfolder.UseVisualStyleBackColor = true;
             this.btn_wo_openfolder.Click += new System.EventHandler(this.btn_wo_openfolder_Click);
+            // 
+            // tab_items
+            // 
+            this.tab_items.Controls.Add(this.splitContainer12);
+            this.tab_items.Location = new System.Drawing.Point(4, 22);
+            this.tab_items.Name = "tab_items";
+            this.tab_items.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_items.Size = new System.Drawing.Size(824, 584);
+            this.tab_items.TabIndex = 7;
+            this.tab_items.Text = "Lager";
+            this.tab_items.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer12
+            // 
+            this.splitContainer12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer12.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer12.Name = "splitContainer12";
+            // 
+            // splitContainer12.Panel1
+            // 
+            this.splitContainer12.Panel1.Controls.Add(this.splitContainer13);
+            // 
+            // splitContainer12.Panel2
+            // 
+            this.splitContainer12.Panel2.Controls.Add(this.tableLayoutPanel22);
+            this.splitContainer12.Size = new System.Drawing.Size(818, 578);
+            this.splitContainer12.SplitterDistance = 272;
+            this.splitContainer12.TabIndex = 0;
+            // 
+            // splitContainer13
+            // 
+            this.splitContainer13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer13.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer13.Name = "splitContainer13";
+            this.splitContainer13.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer13.Panel1
+            // 
+            this.splitContainer13.Panel1.Controls.Add(this.lv_it_items);
+            // 
+            // splitContainer13.Panel2
+            // 
+            this.splitContainer13.Panel2.Controls.Add(this.tableLayoutPanel21);
+            this.splitContainer13.Size = new System.Drawing.Size(272, 578);
+            this.splitContainer13.SplitterDistance = 540;
+            this.splitContainer13.TabIndex = 0;
+            // 
+            // lv_it_items
+            // 
+            this.lv_it_items.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader13,
+            this.columnHeader14,
+            this.columnHeader15});
+            this.lv_it_items.ContextMenuStrip = this.cms_it_items;
+            this.lv_it_items.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_it_items.FullRowSelect = true;
+            this.lv_it_items.GridLines = true;
+            this.lv_it_items.Location = new System.Drawing.Point(0, 0);
+            this.lv_it_items.Name = "lv_it_items";
+            this.lv_it_items.Size = new System.Drawing.Size(272, 540);
+            this.lv_it_items.TabIndex = 0;
+            this.lv_it_items.UseCompatibleStateImageBehavior = false;
+            this.lv_it_items.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "ID";
+            this.columnHeader13.Width = 45;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Name";
+            this.columnHeader14.Width = 126;
+            // 
+            // columnHeader15
+            // 
+            this.columnHeader15.Text = "Anzahl";
+            // 
+            // cms_it_items
+            // 
+            this.cms_it_items.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eingangToolStripMenuItem,
+            this.ausgangToolStripMenuItem});
+            this.cms_it_items.Name = "cms_it_items";
+            this.cms_it_items.Size = new System.Drawing.Size(122, 48);
+            // 
+            // eingangToolStripMenuItem
+            // 
+            this.eingangToolStripMenuItem.Name = "eingangToolStripMenuItem";
+            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.eingangToolStripMenuItem.Text = "Eingang";
+            // 
+            // ausgangToolStripMenuItem
+            // 
+            this.ausgangToolStripMenuItem.Name = "ausgangToolStripMenuItem";
+            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.ausgangToolStripMenuItem.Text = "Ausgang";
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 2;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Controls.Add(this.btn_it_export, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.btn_it_import, 1, 0);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 1;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(272, 34);
+            this.tableLayoutPanel21.TabIndex = 0;
+            // 
+            // btn_it_export
+            // 
+            this.btn_it_export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_it_export.Location = new System.Drawing.Point(3, 3);
+            this.btn_it_export.Name = "btn_it_export";
+            this.btn_it_export.Size = new System.Drawing.Size(130, 28);
+            this.btn_it_export.TabIndex = 0;
+            this.btn_it_export.Text = "Ausgang";
+            this.btn_it_export.UseVisualStyleBackColor = true;
+            // 
+            // btn_it_import
+            // 
+            this.btn_it_import.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_it_import.Location = new System.Drawing.Point(139, 3);
+            this.btn_it_import.Name = "btn_it_import";
+            this.btn_it_import.Size = new System.Drawing.Size(130, 28);
+            this.btn_it_import.TabIndex = 1;
+            this.btn_it_import.Text = "Eingang";
+            this.btn_it_import.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.ColumnCount = 1;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel22.Controls.Add(this.groupBox12, 0, 0);
+            this.tableLayoutPanel22.Controls.Add(this.groupBox13, 0, 1);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 2;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(542, 578);
+            this.tableLayoutPanel22.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.grid_it_log);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox12.Location = new System.Drawing.Point(3, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(536, 398);
+            this.groupBox12.TabIndex = 0;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Historie";
+            // 
+            // grid_it_log
+            // 
+            this.grid_it_log.AllowUserToAddRows = false;
+            this.grid_it_log.AllowUserToDeleteRows = false;
+            this.grid_it_log.AllowUserToOrderColumns = true;
+            this.grid_it_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_it_log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_it_log.Location = new System.Drawing.Point(3, 16);
+            this.grid_it_log.Name = "grid_it_log";
+            this.grid_it_log.ReadOnly = true;
+            this.grid_it_log.Size = new System.Drawing.Size(530, 379);
+            this.grid_it_log.TabIndex = 0;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.tableLayoutPanel23);
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox13.Location = new System.Drawing.Point(3, 407);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(536, 168);
+            this.groupBox13.TabIndex = 1;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Bericht";
+            // 
+            // tableLayoutPanel23
+            // 
+            this.tableLayoutPanel23.ColumnCount = 2;
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.Controls.Add(this.label42, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.label44, 1, 0);
+            this.tableLayoutPanel23.Controls.Add(this.label45, 0, 1);
+            this.tableLayoutPanel23.Controls.Add(this.label46, 1, 1);
+            this.tableLayoutPanel23.Controls.Add(this.label47, 0, 2);
+            this.tableLayoutPanel23.Controls.Add(this.label48, 1, 2);
+            this.tableLayoutPanel23.Controls.Add(this.label49, 0, 3);
+            this.tableLayoutPanel23.Controls.Add(this.label50, 1, 3);
+            this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel23.Name = "tableLayoutPanel23";
+            this.tableLayoutPanel23.RowCount = 4;
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(530, 149);
+            this.tableLayoutPanel23.TabIndex = 0;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(3, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(41, 13);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "label42";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(268, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(41, 13);
+            this.label44.TabIndex = 1;
+            this.label44.Text = "label44";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(3, 54);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(41, 13);
+            this.label45.TabIndex = 2;
+            this.label45.Text = "label45";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(268, 54);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(41, 13);
+            this.label46.TabIndex = 3;
+            this.label46.Text = "label46";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(3, 108);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(41, 13);
+            this.label47.TabIndex = 4;
+            this.label47.Text = "label47";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(268, 108);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(41, 13);
+            this.label48.TabIndex = 5;
+            this.label48.Text = "label48";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(3, 128);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(41, 13);
+            this.label49.TabIndex = 6;
+            this.label49.Text = "label49";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(268, 128);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(41, 13);
+            this.label50.TabIndex = 7;
+            this.label50.Text = "label50";
+            // 
+            // ofd_ex_attachement
+            // 
+            this.ofd_ex_attachement.ReadOnlyChecked = true;
             // 
             // Main
             // 
@@ -3957,6 +3964,7 @@
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_se_value)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
@@ -3980,6 +3988,7 @@
             this.tableLayoutPanel15.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel26.ResumeLayout(false);
             this.gb_jo_offer.ResumeLayout(false);
             this.tableLayoutPanel18.ResumeLayout(false);
             this.gb_jo_bill.ResumeLayout(false);
@@ -4033,6 +4042,22 @@
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_reports)).EndInit();
             this.tab_worker.ResumeLayout(false);
+            this.splitContainer14.Panel1.ResumeLayout(false);
+            this.splitContainer14.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
+            this.splitContainer14.ResumeLayout(false);
+            this.cms_wo_worker.ResumeLayout(false);
+            this.tableLayoutPanel24.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.tableLayoutPanel27.ResumeLayout(false);
+            this.tableLayoutPanel27.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_salary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_hoursperweek)).EndInit();
+            this.groupBox15.ResumeLayout(false);
+            this.tableLayoutPanel28.ResumeLayout(false);
+            this.tableLayoutPanel28.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.tableLayoutPanel25.ResumeLayout(false);
             this.tab_items.ResumeLayout(false);
             this.splitContainer12.Panel1.ResumeLayout(false);
             this.splitContainer12.Panel2.ResumeLayout(false);
@@ -4042,31 +4067,14 @@
             this.splitContainer13.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).EndInit();
             this.splitContainer13.ResumeLayout(false);
+            this.cms_it_items.ResumeLayout(false);
             this.tableLayoutPanel21.ResumeLayout(false);
             this.tableLayoutPanel22.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_it_log)).EndInit();
-            this.cms_it_items.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel23.PerformLayout();
-            this.splitContainer14.Panel1.ResumeLayout(false);
-            this.splitContainer14.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
-            this.splitContainer14.ResumeLayout(false);
-            this.tableLayoutPanel24.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
-            this.tableLayoutPanel25.ResumeLayout(false);
-            this.cms_wo_worker.ResumeLayout(false);
-            this.tableLayoutPanel26.ResumeLayout(false);
-            this.tableLayoutPanel27.ResumeLayout(false);
-            this.tableLayoutPanel27.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_salary)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nu_wo_hoursperweek)).EndInit();
-            this.tableLayoutPanel28.ResumeLayout(false);
-            this.tableLayoutPanel28.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4148,7 +4156,6 @@
         private System.Windows.Forms.TextBox tb_se_name;
         private System.Windows.Forms.TextBox tb_se_unit;
         private System.Windows.Forms.TextBox tb_se_description;
-        private System.Windows.Forms.TextBox tb_se_price;
         private System.Windows.Forms.Button btn_se_cancel;
         private System.Windows.Forms.Button btn_se_save;
         private System.Windows.Forms.ToolStripMenuItem se_neuToolStripMenuItem1;
@@ -4387,5 +4394,6 @@
         private System.Windows.Forms.Label lb_wo_report_job_sum;
         private System.Windows.Forms.Label lb_wo_report_value;
         private System.Windows.Forms.Button btn_wo_openfolder;
+        private System.Windows.Forms.NumericUpDown nu_se_value;
     }
 }

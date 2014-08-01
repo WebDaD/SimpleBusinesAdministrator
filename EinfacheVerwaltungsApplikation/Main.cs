@@ -383,7 +383,7 @@ namespace ManageAdministerExalt
             tb_se_name.Text = "";
             tb_se_description.Text = "";
             tb_se_unit.Text = "";
-            tb_se_price.Text = "";
+            nu_se_value.Value = 0;
             service = new Service(db);
             btn_se_save.Enabled = true;
             tb_se_name.Focus();
@@ -409,7 +409,7 @@ namespace ManageAdministerExalt
                 tb_se_name.Text = service.Name;
                 tb_se_description.Text = service.Description;
                 tb_se_unit.Text = service.Unit;
-                tb_se_price.Text = service.Value.ToString();
+                nu_se_value.Value = service.Value;
 
                 //TODO load report
 
@@ -435,7 +435,7 @@ namespace ManageAdministerExalt
             tb_se_name.Text = service.Name;
             tb_se_description.Text = service.Description;
             tb_se_unit.Text = service.Unit;
-            tb_se_price.Text = service.Value.ToString();
+            nu_se_value.Value = service.Value;
             btn_se_cancel.Enabled = false;
             btn_se_save.Enabled = false;
         }
@@ -445,7 +445,7 @@ namespace ManageAdministerExalt
             service.Name = tb_se_name.Text;
             service.Description = tb_se_description.Text;
             service.Unit = tb_se_unit.Text;
-            service.Value = Decimal.Parse(tb_se_price.Text);
+            service.Value = nu_se_value.Value;
             if (!service.Save())
             {
                 MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
