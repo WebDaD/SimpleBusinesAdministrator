@@ -109,27 +109,9 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>tab_customers</string>
-  <string>tab_worker</string>
-  <string>tab_jobs</string>
-  <string>tab_reports</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection active_tabs {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["active_tabs"]));
-            }
-            set {
-                this["active_tabs"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("workers|mitarbeiter;customers|kunde;discounts|rabatt;expenses|ausgabe;items|Gegen" +
             "stand;jobs|auftrag;paymentconditions|zahlungsbedingung;reminders|Mahnung;service" +
-            "s|leistung;terms|agb;\r\n")]
+            "s|leistung;terms|agb;")]
         public string paths {
             get {
                 return ((string)(this["paths"]));
@@ -150,6 +132,28 @@ namespace ManageAdministerExalt.Properties {
             }
             set {
                 this["idformating"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>tab_customers</string>
+  <string>tab_services</string>
+  <string>tab_terms</string>
+  <string>tab_reports</string>
+  <string>tab_worker</string>
+  <string>tab_jobs</string>
+  <string>tab_items</string>
+  <string>tab_expenses</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection active_tabs {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["active_tabs"]));
+            }
+            set {
+                this["active_tabs"] = value;
             }
         }
     }

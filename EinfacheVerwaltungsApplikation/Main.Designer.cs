@@ -176,7 +176,31 @@
             this.label53 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.cb_jo_worker = new System.Windows.Forms.ComboBox();
-            this.tab_agb = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_jo_adress = new System.Windows.Forms.Label();
+            this.btn_jo_edit_address = new System.Windows.Forms.Button();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_jo_status = new System.Windows.Forms.Label();
+            this.btn_jo_next = new System.Windows.Forms.Button();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.label72 = new System.Windows.Forms.Label();
+            this.lb_jo_offer_created = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.lb_jo_offer_sent = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.lb_jo_bill_created = new System.Windows.Forms.Label();
+            this.lb_jo_bill_sent = new System.Windows.Forms.Label();
+            this.lb_jo_payment_received = new System.Windows.Forms.Label();
+            this.lb_jo_reminder_sent = new System.Windows.Forms.Label();
+            this.lb_jo_reminder_target = new System.Windows.Forms.Label();
+            this.btn_jo_openFolder = new System.Windows.Forms.Button();
+            this.tab_terms = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.lv_tc_terms = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -302,7 +326,6 @@
             this.lv_it_items = new System.Windows.Forms.ListView();
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cms_it_items = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eingangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ausgangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -315,38 +338,19 @@
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.label42 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
+            this.lb_it_sum = new System.Windows.Forms.Label();
+            this.lb_it_id_name = new System.Windows.Forms.Label();
+            this.lb_it_id = new System.Windows.Forms.Label();
+            this.btn_it_save = new System.Windows.Forms.Button();
+            this.btn_it_cancel = new System.Windows.Forms.Button();
+            this.tb_it_name = new System.Windows.Forms.TextBox();
+            this.nu_it_value = new System.Windows.Forms.NumericUpDown();
+            this.lb_it_count = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.lb_jo_adress = new System.Windows.Forms.Label();
-            this.btn_jo_edit_address = new System.Windows.Forms.Button();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.lb_jo_status = new System.Windows.Forms.Label();
-            this.btn_jo_next = new System.Windows.Forms.Button();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.label72 = new System.Windows.Forms.Label();
-            this.lb_jo_offer_created = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.lb_jo_offer_sent = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.lb_jo_bill_created = new System.Windows.Forms.Label();
-            this.lb_jo_bill_sent = new System.Windows.Forms.Label();
-            this.lb_jo_payment_received = new System.Windows.Forms.Label();
-            this.lb_jo_reminder_sent = new System.Windows.Forms.Label();
-            this.lb_jo_reminder_target = new System.Windows.Forms.Label();
-            this.btn_jo_openFolder = new System.Windows.Forms.Button();
+            this.neuToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -393,7 +397,12 @@
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel26.SuspendLayout();
-            this.tab_agb.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.tableLayoutPanel20.SuspendLayout();
+            this.tab_terms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
@@ -467,11 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid_it_log)).BeginInit();
             this.groupBox13.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
-            this.tableLayoutPanel18.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.tableLayoutPanel19.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_it_value)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -576,7 +581,7 @@
             this.tabs.Controls.Add(this.tab_customers);
             this.tabs.Controls.Add(this.tab_services);
             this.tabs.Controls.Add(this.tab_jobs);
-            this.tabs.Controls.Add(this.tab_agb);
+            this.tabs.Controls.Add(this.tab_terms);
             this.tabs.Controls.Add(this.tab_expenses);
             this.tabs.Controls.Add(this.tab_reports);
             this.tabs.Controls.Add(this.tab_worker);
@@ -587,6 +592,7 @@
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(832, 610);
             this.tabs.TabIndex = 1;
+            this.tabs.Deselecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabs_Deselecting);
             // 
             // tab_customers
             // 
@@ -2062,16 +2068,300 @@
             this.cb_jo_worker.Name = "cb_jo_worker";
             this.cb_jo_worker.Size = new System.Drawing.Size(274, 21);
             this.cb_jo_worker.TabIndex = 16;
+            this.cb_jo_worker.SelectedIndexChanged += new System.EventHandler(this.cb_jo_worker_SelectedIndexChanged);
             // 
-            // tab_agb
+            // tableLayoutPanel18
             // 
-            this.tab_agb.Controls.Add(this.splitContainer5);
-            this.tab_agb.Location = new System.Drawing.Point(4, 22);
-            this.tab_agb.Name = "tab_agb";
-            this.tab_agb.Size = new System.Drawing.Size(824, 584);
-            this.tab_agb.TabIndex = 2;
-            this.tab_agb.Text = "AGB\'s";
-            this.tab_agb.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel18.ColumnCount = 2;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Controls.Add(this.lb_jo_adress, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.btn_jo_edit_address, 1, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 168);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(274, 24);
+            this.tableLayoutPanel18.TabIndex = 17;
+            // 
+            // lb_jo_adress
+            // 
+            this.lb_jo_adress.AutoSize = true;
+            this.lb_jo_adress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_jo_adress.Location = new System.Drawing.Point(3, 0);
+            this.lb_jo_adress.Name = "lb_jo_adress";
+            this.lb_jo_adress.Size = new System.Drawing.Size(131, 24);
+            this.lb_jo_adress.TabIndex = 0;
+            // 
+            // btn_jo_edit_address
+            // 
+            this.btn_jo_edit_address.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_edit_address.Location = new System.Drawing.Point(139, 2);
+            this.btn_jo_edit_address.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_jo_edit_address.Name = "btn_jo_edit_address";
+            this.btn_jo_edit_address.Size = new System.Drawing.Size(133, 20);
+            this.btn_jo_edit_address.TabIndex = 1;
+            this.btn_jo_edit_address.Text = "Bearbeiten";
+            this.btn_jo_edit_address.UseVisualStyleBackColor = true;
+            this.btn_jo_edit_address.Click += new System.EventHandler(this.btn_jo_edit_address_Click);
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.tableLayoutPanel19);
+            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox17.Location = new System.Drawing.Point(3, 263);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(565, 51);
+            this.groupBox17.TabIndex = 1;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Auftrag";
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 2;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Controls.Add(this.lb_jo_status, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.btn_jo_next, 1, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 1;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(559, 32);
+            this.tableLayoutPanel19.TabIndex = 0;
+            // 
+            // lb_jo_status
+            // 
+            this.lb_jo_status.AutoSize = true;
+            this.lb_jo_status.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_jo_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_jo_status.Location = new System.Drawing.Point(3, 0);
+            this.lb_jo_status.Name = "lb_jo_status";
+            this.lb_jo_status.Size = new System.Drawing.Size(273, 32);
+            this.lb_jo_status.TabIndex = 0;
+            this.lb_jo_status.Text = "In Erstellung";
+            this.lb_jo_status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_jo_next
+            // 
+            this.btn_jo_next.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_jo_next.Location = new System.Drawing.Point(282, 3);
+            this.btn_jo_next.Name = "btn_jo_next";
+            this.btn_jo_next.Size = new System.Drawing.Size(274, 26);
+            this.btn_jo_next.TabIndex = 1;
+            this.btn_jo_next.Text = "Angebot erstellen";
+            this.btn_jo_next.UseVisualStyleBackColor = true;
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.tableLayoutPanel20);
+            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox18.Location = new System.Drawing.Point(3, 320);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(565, 255);
+            this.groupBox18.TabIndex = 2;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Dati";
+            // 
+            // tableLayoutPanel20
+            // 
+            this.tableLayoutPanel20.ColumnCount = 2;
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.Controls.Add(this.label72, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_offer_created, 1, 0);
+            this.tableLayoutPanel20.Controls.Add(this.label74, 0, 1);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_offer_sent, 1, 1);
+            this.tableLayoutPanel20.Controls.Add(this.label76, 0, 2);
+            this.tableLayoutPanel20.Controls.Add(this.label77, 0, 3);
+            this.tableLayoutPanel20.Controls.Add(this.label78, 0, 4);
+            this.tableLayoutPanel20.Controls.Add(this.label79, 0, 5);
+            this.tableLayoutPanel20.Controls.Add(this.label80, 0, 6);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_bill_created, 1, 2);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_bill_sent, 1, 3);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_payment_received, 1, 4);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_sent, 1, 5);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_target, 1, 6);
+            this.tableLayoutPanel20.Controls.Add(this.btn_jo_openFolder, 0, 7);
+            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
+            this.tableLayoutPanel20.RowCount = 8;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 236);
+            this.tableLayoutPanel20.TabIndex = 0;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label72.Location = new System.Drawing.Point(3, 3);
+            this.label72.Margin = new System.Windows.Forms.Padding(3);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(273, 13);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Angebot erstellt";
+            // 
+            // lb_jo_offer_created
+            // 
+            this.lb_jo_offer_created.AutoSize = true;
+            this.lb_jo_offer_created.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_offer_created.Location = new System.Drawing.Point(282, 0);
+            this.lb_jo_offer_created.Name = "lb_jo_offer_created";
+            this.lb_jo_offer_created.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_offer_created.TabIndex = 1;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label74.Location = new System.Drawing.Point(3, 22);
+            this.label74.Margin = new System.Windows.Forms.Padding(3);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(273, 13);
+            this.label74.TabIndex = 2;
+            this.label74.Text = "Angebot verschickt";
+            // 
+            // lb_jo_offer_sent
+            // 
+            this.lb_jo_offer_sent.AutoSize = true;
+            this.lb_jo_offer_sent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_offer_sent.Location = new System.Drawing.Point(282, 19);
+            this.lb_jo_offer_sent.Name = "lb_jo_offer_sent";
+            this.lb_jo_offer_sent.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_offer_sent.TabIndex = 3;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label76.Location = new System.Drawing.Point(3, 41);
+            this.label76.Margin = new System.Windows.Forms.Padding(3);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(273, 13);
+            this.label76.TabIndex = 4;
+            this.label76.Text = "Rechnung erstellt";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label77.Location = new System.Drawing.Point(3, 60);
+            this.label77.Margin = new System.Windows.Forms.Padding(3);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(273, 13);
+            this.label77.TabIndex = 5;
+            this.label77.Text = "Rechnung verschickt";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label78.Location = new System.Drawing.Point(3, 79);
+            this.label78.Margin = new System.Windows.Forms.Padding(3);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(273, 13);
+            this.label78.TabIndex = 6;
+            this.label78.Text = "Zahlungseingang";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label79.Location = new System.Drawing.Point(3, 98);
+            this.label79.Margin = new System.Windows.Forms.Padding(3);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(273, 13);
+            this.label79.TabIndex = 7;
+            this.label79.Text = "Mahnung verschickt";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label80.Location = new System.Drawing.Point(3, 117);
+            this.label80.Margin = new System.Windows.Forms.Padding(3);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(273, 13);
+            this.label80.TabIndex = 8;
+            this.label80.Text = "Mahnungsfrist";
+            // 
+            // lb_jo_bill_created
+            // 
+            this.lb_jo_bill_created.AutoSize = true;
+            this.lb_jo_bill_created.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_bill_created.Location = new System.Drawing.Point(282, 38);
+            this.lb_jo_bill_created.Name = "lb_jo_bill_created";
+            this.lb_jo_bill_created.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_bill_created.TabIndex = 9;
+            // 
+            // lb_jo_bill_sent
+            // 
+            this.lb_jo_bill_sent.AutoSize = true;
+            this.lb_jo_bill_sent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_bill_sent.Location = new System.Drawing.Point(282, 57);
+            this.lb_jo_bill_sent.Name = "lb_jo_bill_sent";
+            this.lb_jo_bill_sent.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_bill_sent.TabIndex = 10;
+            // 
+            // lb_jo_payment_received
+            // 
+            this.lb_jo_payment_received.AutoSize = true;
+            this.lb_jo_payment_received.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_payment_received.Location = new System.Drawing.Point(282, 76);
+            this.lb_jo_payment_received.Name = "lb_jo_payment_received";
+            this.lb_jo_payment_received.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_payment_received.TabIndex = 11;
+            // 
+            // lb_jo_reminder_sent
+            // 
+            this.lb_jo_reminder_sent.AutoSize = true;
+            this.lb_jo_reminder_sent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_reminder_sent.Location = new System.Drawing.Point(282, 95);
+            this.lb_jo_reminder_sent.Name = "lb_jo_reminder_sent";
+            this.lb_jo_reminder_sent.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_reminder_sent.TabIndex = 12;
+            // 
+            // lb_jo_reminder_target
+            // 
+            this.lb_jo_reminder_target.AutoSize = true;
+            this.lb_jo_reminder_target.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_reminder_target.Location = new System.Drawing.Point(282, 114);
+            this.lb_jo_reminder_target.Name = "lb_jo_reminder_target";
+            this.lb_jo_reminder_target.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_reminder_target.TabIndex = 13;
+            // 
+            // btn_jo_openFolder
+            // 
+            this.tableLayoutPanel20.SetColumnSpan(this.btn_jo_openFolder, 2);
+            this.btn_jo_openFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_jo_openFolder.Location = new System.Drawing.Point(3, 210);
+            this.btn_jo_openFolder.Name = "btn_jo_openFolder";
+            this.btn_jo_openFolder.Size = new System.Drawing.Size(553, 23);
+            this.btn_jo_openFolder.TabIndex = 14;
+            this.btn_jo_openFolder.Text = "Öffne Ordner";
+            this.btn_jo_openFolder.UseVisualStyleBackColor = true;
+            this.btn_jo_openFolder.Click += new System.EventHandler(this.btn_jo_openFolder_Click);
+            // 
+            // tab_terms
+            // 
+            this.tab_terms.Controls.Add(this.splitContainer5);
+            this.tab_terms.Location = new System.Drawing.Point(4, 22);
+            this.tab_terms.Name = "tab_terms";
+            this.tab_terms.Size = new System.Drawing.Size(824, 584);
+            this.tab_terms.TabIndex = 2;
+            this.tab_terms.Text = "AGB\'s";
+            this.tab_terms.UseVisualStyleBackColor = true;
             // 
             // splitContainer5
             // 
@@ -3454,8 +3744,7 @@
             // 
             this.lv_it_items.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
+            this.columnHeader14});
             this.lv_it_items.ContextMenuStrip = this.cms_it_items;
             this.lv_it_items.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv_it_items.FullRowSelect = true;
@@ -3466,6 +3755,8 @@
             this.lv_it_items.TabIndex = 0;
             this.lv_it_items.UseCompatibleStateImageBehavior = false;
             this.lv_it_items.View = System.Windows.Forms.View.Details;
+            this.lv_it_items.SelectedIndexChanged += new System.EventHandler(this.lv_it_items_SelectedIndexChanged);
+            this.lv_it_items.Resize += new System.EventHandler(this.lv_it_items_Resize);
             // 
             // columnHeader13
             // 
@@ -3477,29 +3768,29 @@
             this.columnHeader14.Text = "Name";
             this.columnHeader14.Width = 126;
             // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Anzahl";
-            // 
             // cms_it_items
             // 
             this.cms_it_items.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem5,
             this.eingangToolStripMenuItem,
             this.ausgangToolStripMenuItem});
             this.cms_it_items.Name = "cms_it_items";
-            this.cms_it_items.Size = new System.Drawing.Size(122, 48);
+            this.cms_it_items.Size = new System.Drawing.Size(122, 70);
+            this.cms_it_items.Opening += new System.ComponentModel.CancelEventHandler(this.cms_it_items_Opening);
             // 
             // eingangToolStripMenuItem
             // 
             this.eingangToolStripMenuItem.Name = "eingangToolStripMenuItem";
-            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eingangToolStripMenuItem.Text = "Eingang";
+            this.eingangToolStripMenuItem.Click += new System.EventHandler(this.eingangToolStripMenuItem_Click);
             // 
             // ausgangToolStripMenuItem
             // 
             this.ausgangToolStripMenuItem.Name = "ausgangToolStripMenuItem";
-            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ausgangToolStripMenuItem.Text = "Ausgang";
+            this.ausgangToolStripMenuItem.Click += new System.EventHandler(this.ausgangToolStripMenuItem_Click);
             // 
             // tableLayoutPanel21
             // 
@@ -3519,22 +3810,26 @@
             // btn_it_export
             // 
             this.btn_it_export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_it_export.Enabled = false;
             this.btn_it_export.Location = new System.Drawing.Point(3, 3);
             this.btn_it_export.Name = "btn_it_export";
             this.btn_it_export.Size = new System.Drawing.Size(130, 28);
             this.btn_it_export.TabIndex = 0;
             this.btn_it_export.Text = "Ausgang";
             this.btn_it_export.UseVisualStyleBackColor = true;
+            this.btn_it_export.Click += new System.EventHandler(this.btn_it_export_Click);
             // 
             // btn_it_import
             // 
             this.btn_it_import.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_it_import.Enabled = false;
             this.btn_it_import.Location = new System.Drawing.Point(139, 3);
             this.btn_it_import.Name = "btn_it_import";
             this.btn_it_import.Size = new System.Drawing.Size(130, 28);
             this.btn_it_import.TabIndex = 1;
             this.btn_it_import.Text = "Eingang";
             this.btn_it_import.UseVisualStyleBackColor = true;
+            this.btn_it_import.Click += new System.EventHandler(this.btn_it_import_Click);
             // 
             // tableLayoutPanel22
             // 
@@ -3567,11 +3862,16 @@
             this.grid_it_log.AllowUserToAddRows = false;
             this.grid_it_log.AllowUserToDeleteRows = false;
             this.grid_it_log.AllowUserToOrderColumns = true;
+            this.grid_it_log.AllowUserToResizeRows = false;
+            this.grid_it_log.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_it_log.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grid_it_log.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_it_log.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_it_log.Location = new System.Drawing.Point(3, 16);
+            this.grid_it_log.MultiSelect = false;
             this.grid_it_log.Name = "grid_it_log";
             this.grid_it_log.ReadOnly = true;
+            this.grid_it_log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grid_it_log.Size = new System.Drawing.Size(530, 379);
             this.grid_it_log.TabIndex = 0;
             // 
@@ -3591,383 +3891,173 @@
             this.tableLayoutPanel23.ColumnCount = 2;
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.Controls.Add(this.label42, 0, 0);
-            this.tableLayoutPanel23.Controls.Add(this.label44, 1, 0);
-            this.tableLayoutPanel23.Controls.Add(this.label45, 0, 1);
-            this.tableLayoutPanel23.Controls.Add(this.label46, 1, 1);
-            this.tableLayoutPanel23.Controls.Add(this.label47, 0, 2);
-            this.tableLayoutPanel23.Controls.Add(this.label48, 1, 2);
-            this.tableLayoutPanel23.Controls.Add(this.label49, 0, 3);
-            this.tableLayoutPanel23.Controls.Add(this.label50, 1, 3);
+            this.tableLayoutPanel23.Controls.Add(this.label42, 0, 1);
+            this.tableLayoutPanel23.Controls.Add(this.label45, 0, 2);
+            this.tableLayoutPanel23.Controls.Add(this.label47, 0, 4);
+            this.tableLayoutPanel23.Controls.Add(this.label49, 0, 5);
+            this.tableLayoutPanel23.Controls.Add(this.lb_it_sum, 1, 5);
+            this.tableLayoutPanel23.Controls.Add(this.lb_it_id_name, 0, 0);
+            this.tableLayoutPanel23.Controls.Add(this.lb_it_id, 1, 0);
+            this.tableLayoutPanel23.Controls.Add(this.btn_it_save, 1, 3);
+            this.tableLayoutPanel23.Controls.Add(this.btn_it_cancel, 0, 3);
+            this.tableLayoutPanel23.Controls.Add(this.tb_it_name, 1, 1);
+            this.tableLayoutPanel23.Controls.Add(this.nu_it_value, 1, 2);
+            this.tableLayoutPanel23.Controls.Add(this.lb_it_count, 1, 4);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel23.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
-            this.tableLayoutPanel23.RowCount = 4;
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel23.RowCount = 6;
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel23.Size = new System.Drawing.Size(530, 149);
             this.tableLayoutPanel23.TabIndex = 0;
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(3, 0);
+            this.label42.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label42.Location = new System.Drawing.Point(3, 22);
+            this.label42.Margin = new System.Windows.Forms.Padding(3);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(41, 13);
+            this.label42.Size = new System.Drawing.Size(259, 20);
             this.label42.TabIndex = 0;
-            this.label42.Text = "label42";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(268, 0);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(41, 13);
-            this.label44.TabIndex = 1;
-            this.label44.Text = "label44";
+            this.label42.Text = "Name";
             // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(3, 54);
+            this.label45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label45.Location = new System.Drawing.Point(3, 48);
+            this.label45.Margin = new System.Windows.Forms.Padding(3);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(41, 13);
+            this.label45.Size = new System.Drawing.Size(259, 20);
             this.label45.TabIndex = 2;
-            this.label45.Text = "label45";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(268, 54);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(41, 13);
-            this.label46.TabIndex = 3;
-            this.label46.Text = "label46";
+            this.label45.Text = "Einzelwert";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(3, 108);
+            this.label47.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label47.Location = new System.Drawing.Point(3, 103);
+            this.label47.Margin = new System.Windows.Forms.Padding(3);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(41, 13);
+            this.label47.Size = new System.Drawing.Size(259, 13);
             this.label47.TabIndex = 4;
-            this.label47.Text = "label47";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(268, 108);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(41, 13);
-            this.label48.TabIndex = 5;
-            this.label48.Text = "label48";
+            this.label47.Text = "Aktuelle Anzahl";
             // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(3, 128);
+            this.label49.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label49.Location = new System.Drawing.Point(3, 122);
+            this.label49.Margin = new System.Windows.Forms.Padding(3);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(41, 13);
+            this.label49.Size = new System.Drawing.Size(259, 24);
             this.label49.TabIndex = 6;
-            this.label49.Text = "label49";
+            this.label49.Text = "Gesamtwert";
             // 
-            // label50
+            // lb_it_sum
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(268, 128);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(41, 13);
-            this.label50.TabIndex = 7;
-            this.label50.Text = "label50";
+            this.lb_it_sum.AutoSize = true;
+            this.lb_it_sum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_it_sum.Location = new System.Drawing.Point(268, 119);
+            this.lb_it_sum.Name = "lb_it_sum";
+            this.lb_it_sum.Size = new System.Drawing.Size(259, 13);
+            this.lb_it_sum.TabIndex = 7;
+            // 
+            // lb_it_id_name
+            // 
+            this.lb_it_id_name.AutoSize = true;
+            this.lb_it_id_name.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_it_id_name.Location = new System.Drawing.Point(3, 3);
+            this.lb_it_id_name.Margin = new System.Windows.Forms.Padding(3);
+            this.lb_it_id_name.Name = "lb_it_id_name";
+            this.lb_it_id_name.Size = new System.Drawing.Size(259, 13);
+            this.lb_it_id_name.TabIndex = 8;
+            this.lb_it_id_name.Text = "ID";
+            // 
+            // lb_it_id
+            // 
+            this.lb_it_id.AutoSize = true;
+            this.lb_it_id.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_it_id.Location = new System.Drawing.Point(268, 0);
+            this.lb_it_id.Name = "lb_it_id";
+            this.lb_it_id.Size = new System.Drawing.Size(259, 13);
+            this.lb_it_id.TabIndex = 9;
+            // 
+            // btn_it_save
+            // 
+            this.btn_it_save.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_it_save.Enabled = false;
+            this.btn_it_save.Location = new System.Drawing.Point(268, 74);
+            this.btn_it_save.Name = "btn_it_save";
+            this.btn_it_save.Size = new System.Drawing.Size(259, 23);
+            this.btn_it_save.TabIndex = 10;
+            this.btn_it_save.Text = "Speichern";
+            this.btn_it_save.UseVisualStyleBackColor = true;
+            this.btn_it_save.Click += new System.EventHandler(this.btn_it_save_Click);
+            // 
+            // btn_it_cancel
+            // 
+            this.btn_it_cancel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_it_cancel.Enabled = false;
+            this.btn_it_cancel.Location = new System.Drawing.Point(3, 74);
+            this.btn_it_cancel.Name = "btn_it_cancel";
+            this.btn_it_cancel.Size = new System.Drawing.Size(259, 23);
+            this.btn_it_cancel.TabIndex = 11;
+            this.btn_it_cancel.Text = "Abbrechen";
+            this.btn_it_cancel.UseVisualStyleBackColor = true;
+            this.btn_it_cancel.Click += new System.EventHandler(this.btn_it_cancel_Click);
+            // 
+            // tb_it_name
+            // 
+            this.tb_it_name.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_it_name.Location = new System.Drawing.Point(268, 22);
+            this.tb_it_name.Name = "tb_it_name";
+            this.tb_it_name.Size = new System.Drawing.Size(259, 20);
+            this.tb_it_name.TabIndex = 12;
+            this.tb_it_name.TextChanged += new System.EventHandler(this.tb_it_changed);
+            // 
+            // nu_it_value
+            // 
+            this.nu_it_value.DecimalPlaces = 2;
+            this.nu_it_value.Dock = System.Windows.Forms.DockStyle.Top;
+            this.nu_it_value.Location = new System.Drawing.Point(268, 48);
+            this.nu_it_value.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nu_it_value.Name = "nu_it_value";
+            this.nu_it_value.Size = new System.Drawing.Size(259, 20);
+            this.nu_it_value.TabIndex = 13;
+            this.nu_it_value.ThousandsSeparator = true;
+            this.nu_it_value.ValueChanged += new System.EventHandler(this.tb_it_changed);
+            // 
+            // lb_it_count
+            // 
+            this.lb_it_count.AutoSize = true;
+            this.lb_it_count.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_it_count.Location = new System.Drawing.Point(268, 103);
+            this.lb_it_count.Margin = new System.Windows.Forms.Padding(3);
+            this.lb_it_count.Name = "lb_it_count";
+            this.lb_it_count.Size = new System.Drawing.Size(259, 13);
+            this.lb_it_count.TabIndex = 14;
             // 
             // ofd_ex_attachement
             // 
             this.ofd_ex_attachement.ReadOnlyChecked = true;
             // 
-            // tableLayoutPanel18
+            // neuToolStripMenuItem5
             // 
-            this.tableLayoutPanel18.ColumnCount = 2;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Controls.Add(this.lb_jo_adress, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.btn_jo_edit_address, 1, 0);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 168);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 1;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(274, 24);
-            this.tableLayoutPanel18.TabIndex = 17;
-            // 
-            // lb_jo_adress
-            // 
-            this.lb_jo_adress.AutoSize = true;
-            this.lb_jo_adress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_adress.Location = new System.Drawing.Point(3, 0);
-            this.lb_jo_adress.Name = "lb_jo_adress";
-            this.lb_jo_adress.Size = new System.Drawing.Size(131, 24);
-            this.lb_jo_adress.TabIndex = 0;
-            // 
-            // btn_jo_edit_address
-            // 
-            this.btn_jo_edit_address.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_edit_address.Location = new System.Drawing.Point(139, 2);
-            this.btn_jo_edit_address.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_jo_edit_address.Name = "btn_jo_edit_address";
-            this.btn_jo_edit_address.Size = new System.Drawing.Size(133, 20);
-            this.btn_jo_edit_address.TabIndex = 1;
-            this.btn_jo_edit_address.Text = "Bearbeiten";
-            this.btn_jo_edit_address.UseVisualStyleBackColor = true;
-            this.btn_jo_edit_address.Click += new System.EventHandler(this.btn_jo_edit_address_Click);
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.tableLayoutPanel19);
-            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox17.Location = new System.Drawing.Point(3, 263);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(565, 51);
-            this.groupBox17.TabIndex = 1;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Auftrag";
-            // 
-            // tableLayoutPanel19
-            // 
-            this.tableLayoutPanel19.ColumnCount = 2;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Controls.Add(this.lb_jo_status, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.btn_jo_next, 1, 0);
-            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 1;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(559, 32);
-            this.tableLayoutPanel19.TabIndex = 0;
-            // 
-            // lb_jo_status
-            // 
-            this.lb_jo_status.AutoSize = true;
-            this.lb_jo_status.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_jo_status.Location = new System.Drawing.Point(3, 0);
-            this.lb_jo_status.Name = "lb_jo_status";
-            this.lb_jo_status.Size = new System.Drawing.Size(273, 32);
-            this.lb_jo_status.TabIndex = 0;
-            this.lb_jo_status.Text = "In Erstellung";
-            this.lb_jo_status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_jo_next
-            // 
-            this.btn_jo_next.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_jo_next.Location = new System.Drawing.Point(282, 3);
-            this.btn_jo_next.Name = "btn_jo_next";
-            this.btn_jo_next.Size = new System.Drawing.Size(274, 26);
-            this.btn_jo_next.TabIndex = 1;
-            this.btn_jo_next.Text = "Angebot erstellen";
-            this.btn_jo_next.UseVisualStyleBackColor = true;
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.tableLayoutPanel20);
-            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox18.Location = new System.Drawing.Point(3, 320);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(565, 255);
-            this.groupBox18.TabIndex = 2;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Dati";
-            // 
-            // tableLayoutPanel20
-            // 
-            this.tableLayoutPanel20.ColumnCount = 2;
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Controls.Add(this.label72, 0, 0);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_offer_created, 1, 0);
-            this.tableLayoutPanel20.Controls.Add(this.label74, 0, 1);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_offer_sent, 1, 1);
-            this.tableLayoutPanel20.Controls.Add(this.label76, 0, 2);
-            this.tableLayoutPanel20.Controls.Add(this.label77, 0, 3);
-            this.tableLayoutPanel20.Controls.Add(this.label78, 0, 4);
-            this.tableLayoutPanel20.Controls.Add(this.label79, 0, 5);
-            this.tableLayoutPanel20.Controls.Add(this.label80, 0, 6);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_bill_created, 1, 2);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_bill_sent, 1, 3);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_payment_received, 1, 4);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_sent, 1, 5);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_target, 1, 6);
-            this.tableLayoutPanel20.Controls.Add(this.btn_jo_openFolder, 0, 7);
-            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 8;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 236);
-            this.tableLayoutPanel20.TabIndex = 0;
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label72.Location = new System.Drawing.Point(3, 3);
-            this.label72.Margin = new System.Windows.Forms.Padding(3);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(273, 13);
-            this.label72.TabIndex = 0;
-            this.label72.Text = "Angebot erstellt";
-            // 
-            // lb_jo_offer_created
-            // 
-            this.lb_jo_offer_created.AutoSize = true;
-            this.lb_jo_offer_created.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_offer_created.Location = new System.Drawing.Point(282, 0);
-            this.lb_jo_offer_created.Name = "lb_jo_offer_created";
-            this.lb_jo_offer_created.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_offer_created.TabIndex = 1;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label74.Location = new System.Drawing.Point(3, 22);
-            this.label74.Margin = new System.Windows.Forms.Padding(3);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(273, 13);
-            this.label74.TabIndex = 2;
-            this.label74.Text = "Angebot verschickt";
-            // 
-            // lb_jo_offer_sent
-            // 
-            this.lb_jo_offer_sent.AutoSize = true;
-            this.lb_jo_offer_sent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_offer_sent.Location = new System.Drawing.Point(282, 19);
-            this.lb_jo_offer_sent.Name = "lb_jo_offer_sent";
-            this.lb_jo_offer_sent.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_offer_sent.TabIndex = 3;
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label76.Location = new System.Drawing.Point(3, 41);
-            this.label76.Margin = new System.Windows.Forms.Padding(3);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(273, 13);
-            this.label76.TabIndex = 4;
-            this.label76.Text = "Rechnung erstellt";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label77.Location = new System.Drawing.Point(3, 60);
-            this.label77.Margin = new System.Windows.Forms.Padding(3);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(273, 13);
-            this.label77.TabIndex = 5;
-            this.label77.Text = "Rechnung verschickt";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label78.Location = new System.Drawing.Point(3, 79);
-            this.label78.Margin = new System.Windows.Forms.Padding(3);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(273, 13);
-            this.label78.TabIndex = 6;
-            this.label78.Text = "Zahlungseingang";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label79.Location = new System.Drawing.Point(3, 98);
-            this.label79.Margin = new System.Windows.Forms.Padding(3);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(273, 13);
-            this.label79.TabIndex = 7;
-            this.label79.Text = "Mahnung verschickt";
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label80.Location = new System.Drawing.Point(3, 117);
-            this.label80.Margin = new System.Windows.Forms.Padding(3);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(273, 13);
-            this.label80.TabIndex = 8;
-            this.label80.Text = "Mahnungsfrist";
-            // 
-            // lb_jo_bill_created
-            // 
-            this.lb_jo_bill_created.AutoSize = true;
-            this.lb_jo_bill_created.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_bill_created.Location = new System.Drawing.Point(282, 38);
-            this.lb_jo_bill_created.Name = "lb_jo_bill_created";
-            this.lb_jo_bill_created.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_bill_created.TabIndex = 9;
-            // 
-            // lb_jo_bill_sent
-            // 
-            this.lb_jo_bill_sent.AutoSize = true;
-            this.lb_jo_bill_sent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_bill_sent.Location = new System.Drawing.Point(282, 57);
-            this.lb_jo_bill_sent.Name = "lb_jo_bill_sent";
-            this.lb_jo_bill_sent.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_bill_sent.TabIndex = 10;
-            // 
-            // lb_jo_payment_received
-            // 
-            this.lb_jo_payment_received.AutoSize = true;
-            this.lb_jo_payment_received.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_payment_received.Location = new System.Drawing.Point(282, 76);
-            this.lb_jo_payment_received.Name = "lb_jo_payment_received";
-            this.lb_jo_payment_received.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_payment_received.TabIndex = 11;
-            // 
-            // lb_jo_reminder_sent
-            // 
-            this.lb_jo_reminder_sent.AutoSize = true;
-            this.lb_jo_reminder_sent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_reminder_sent.Location = new System.Drawing.Point(282, 95);
-            this.lb_jo_reminder_sent.Name = "lb_jo_reminder_sent";
-            this.lb_jo_reminder_sent.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_reminder_sent.TabIndex = 12;
-            // 
-            // lb_jo_reminder_target
-            // 
-            this.lb_jo_reminder_target.AutoSize = true;
-            this.lb_jo_reminder_target.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lb_jo_reminder_target.Location = new System.Drawing.Point(282, 114);
-            this.lb_jo_reminder_target.Name = "lb_jo_reminder_target";
-            this.lb_jo_reminder_target.Size = new System.Drawing.Size(274, 13);
-            this.lb_jo_reminder_target.TabIndex = 13;
-            // 
-            // btn_jo_openFolder
-            // 
-            this.tableLayoutPanel20.SetColumnSpan(this.btn_jo_openFolder, 2);
-            this.btn_jo_openFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_openFolder.Location = new System.Drawing.Point(3, 210);
-            this.btn_jo_openFolder.Name = "btn_jo_openFolder";
-            this.btn_jo_openFolder.Size = new System.Drawing.Size(553, 23);
-            this.btn_jo_openFolder.TabIndex = 14;
-            this.btn_jo_openFolder.Text = "Öffne Ordner";
-            this.btn_jo_openFolder.UseVisualStyleBackColor = true;
-            this.btn_jo_openFolder.Click += new System.EventHandler(this.btn_jo_openFolder_Click);
+            this.neuToolStripMenuItem5.Name = "neuToolStripMenuItem5";
+            this.neuToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem5.Text = "Neu";
+            this.neuToolStripMenuItem5.Click += new System.EventHandler(this.neuToolStripMenuItem5_Click);
             // 
             // Main
             // 
@@ -4036,7 +4126,15 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel26.ResumeLayout(false);
-            this.tab_agb.ResumeLayout(false);
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.tableLayoutPanel20.PerformLayout();
+            this.tab_terms.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
@@ -4115,14 +4213,7 @@
             this.groupBox13.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel23.PerformLayout();
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel18.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.tableLayoutPanel19.ResumeLayout(false);
-            this.tableLayoutPanel19.PerformLayout();
-            this.groupBox18.ResumeLayout(false);
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nu_it_value)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4139,7 +4230,7 @@
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
         private System.Windows.Forms.TabPage tab_jobs;
-        private System.Windows.Forms.TabPage tab_agb;
+        private System.Windows.Forms.TabPage tab_terms;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -4348,19 +4439,15 @@
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ContextMenuStrip cms_it_items;
         private System.Windows.Forms.ToolStripMenuItem eingangToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ausgangToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label lb_it_sum;
         private System.Windows.Forms.SplitContainer splitContainer14;
         private System.Windows.Forms.ListView lv_wo_worker;
         private System.Windows.Forms.ColumnHeader ID;
@@ -4448,5 +4535,13 @@
         private System.Windows.Forms.Label lb_jo_reminder_sent;
         private System.Windows.Forms.Label lb_jo_reminder_target;
         private System.Windows.Forms.Button btn_jo_openFolder;
+        private System.Windows.Forms.Label lb_it_id_name;
+        private System.Windows.Forms.Label lb_it_id;
+        private System.Windows.Forms.Button btn_it_save;
+        private System.Windows.Forms.Button btn_it_cancel;
+        private System.Windows.Forms.TextBox tb_it_name;
+        private System.Windows.Forms.NumericUpDown nu_it_value;
+        private System.Windows.Forms.Label lb_it_count;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem5;
     }
 }

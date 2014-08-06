@@ -27,6 +27,8 @@ namespace ManageAdministerExalt
         private Dictionary<string, string> expenses;
         private Worker worker;
         private Dictionary<string, string> workers;
+        private Item item;
+        private Dictionary<string, string> items;
         public Main()
         {
             InitializeComponent();
@@ -52,15 +54,22 @@ namespace ManageAdministerExalt
 
             tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
 
-            foreach (TabPage t  in tabs.TabPages)//TODO: do not allow selection! (hide?)
+            List<TabPage> remove = new List<TabPage>();
+            foreach (TabPage tp in tabs.TabPages)
             {
-                ((Control)t).Enabled = false;
+                if(!Config.ActiveTabs.Contains(tp.Name)){
+                    remove.Add(tp);
+                }
             }
-            foreach (string active_tab in Config.ActiveTabs)
+            foreach (TabPage t in remove)
             {
-                ((Control)tabs.TabPages[active_tab]).Enabled = true;
+                 tabs.TabPages.Remove(t);
             }
+        }
 
+        private void tabs_Deselecting(object sender, TabControlCancelEventArgs e)
+        {
+            //TODO: if edit_mode, stop!
         }
 
         private void checkOpenPoints()
@@ -82,7 +91,7 @@ namespace ManageAdministerExalt
             }
             cb_ex_year.SelectedItem = cb_ex_year.Items[0];
 
-            //Jobs
+            //TODO Jobs :: Years, Months, Customers
             
         }
 
@@ -94,6 +103,24 @@ namespace ManageAdministerExalt
             fillExpenses(cb_ex_year.SelectedItem.ToString());
             fillJobs();
             fillWorkers();
+            fillItems();
+        }
+
+        private void fillItems()
+        {
+            items = new Item(db).GetIDList();
+            if (items != null)
+            {
+                lv_it_items.Items.Clear();
+                foreach (KeyValuePair<string, string> item in items)
+                {
+                    ListViewItem t = new ListViewItem(item.Key);
+                    t.SubItems.Add(item.Value);
+                    lv_it_items.Items.Add(t);
+                }
+                btn_it_export.Enabled = true;
+                btn_it_import.Enabled = true;
+            }
         }
 
         private void fillJobs()
@@ -188,6 +215,7 @@ namespace ManageAdministerExalt
             sizeLastColumn(lv_re_reports);
             sizeLastColumn(lv_jo_jobs);
             sizeLastColumn(lv_wo_worker);
+            sizeLastColumn(lv_it_items);
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -792,46 +820,50 @@ namespace ManageAdministerExalt
 
         private void cb_jo_filter_years_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //refill jobs
         }
 
         private void cb_jo_filter_months_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //refill jobs
         }
 
         private void cb_jo_filter_customers_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //refill jobs
         }
 
         private void lv_jo_jobs_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //load main (data, status, btn_text, dates)
         }
 
         private void dt_jo_jdate_ValueChanged(object sender, EventArgs e)
         {
-
+            //activate editmode
         }
 
+        private void cb_jo_worker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //activate editmode
+        }
         private void btn_jo_services_edit_Click(object sender, EventArgs e)
         {
-
+            //open window (with id)
         }
 
         private void btn_jo_discounts_edit_Click(object sender, EventArgs e)
         {
-
+            //open window (with id)
         }
 
         private void btn_jo_edit_items_Click(object sender, EventArgs e)
         {
-
+            //open window (with id)
         }
         private void btn_jo_edit_address_Click(object sender, EventArgs e)
         {
-
+            //Open window
         }
 
         private void btn_jo_cancel_Click(object sender, EventArgs e)
@@ -844,56 +876,6 @@ namespace ManageAdministerExalt
 
         }
 
-        private void btn_jo_export_job_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_jsent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_status_ok_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_export_bill_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_bill_send_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_bill_ok_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_jo_reminders_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_reminders_new_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_reminder_sent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_jo_reminder_ok_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmd_jo_jobs_Opening(object sender, CancelEventArgs e)
         {
 
@@ -901,7 +883,7 @@ namespace ManageAdministerExalt
 
         private void neuToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            //jobs
+            //jobs (open window and ask for customer)
         }
 
         private void löschenToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -1080,7 +1062,123 @@ namespace ManageAdministerExalt
             Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["worker"] + Path.DirectorySeparatorChar + worker.NiceID);
         }
 
-        
+        private void lv_it_items_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_it_items.SelectedIndices.Count > 0)
+            {
+                loadItem(lv_it_items.SelectedItems[0].Text);
+            }
+        }
+
+        private void loadItem(string id)
+        {
+            item = new Item(db, id);
+
+            lb_it_id.Text = item.NiceID;
+            tb_it_name.Text = item.Name;
+            nu_it_value.Value = item.Value;
+
+            lb_it_count.Text = item.Count.ToString();
+            lb_it_sum.Text = item.Value_Sum.ToString("C");
+
+            btn_it_cancel.Enabled = false;
+            btn_it_save.Enabled = false;
+
+            grid_it_log.DataSource = item.Log;
+        }
+
+        private void btn_it_import_Click(object sender, EventArgs e)
+        {
+            new Items_Edit(db, true).ShowDialog();
+            loadItem(item.ID);
+        }
+
+        private void btn_it_export_Click(object sender, EventArgs e)
+        {
+            new Items_Edit(db, false).ShowDialog();
+            loadItem(item.ID);
+        }
+
+        private void cms_it_items_Opening(object sender, CancelEventArgs e)
+        {
+            eingangToolStripMenuItem.Enabled = lv_it_items.SelectedIndices.Count > 0;
+            ausgangToolStripMenuItem.Enabled = lv_it_items.SelectedIndices.Count > 0;
+
+        }
+
+        private void eingangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Items_Edit(db,true, item).ShowDialog();
+            loadItem(item.ID);
+
+        }
+
+        private void ausgangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Items_Edit(db,false, item).ShowDialog();
+            loadItem(item.ID);
+        }
+
+
+        private void lv_it_items_Resize(object sender, EventArgs e)
+        {
+            sizeLastColumn(lv_it_items);
+        }
+
+        private void btn_it_save_Click(object sender, EventArgs e)
+        {
+            item.Name = tb_it_name.Text;
+            item.Value = nu_it_value.Value;
+          
+            if (!item.Save())
+            {
+                MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Gegenstand " + item.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            btn_it_cancel.Enabled = false;
+            btn_it_save.Enabled = false;
+            int sele = -1;
+            if (lv_it_items.SelectedIndices.Count > 0)
+            {
+                sele = lv_it_items.SelectedIndices[0];
+            }
+            fillItems();
+            if (sele > 0)
+            {
+                lv_it_items.Items[sele].Selected = true;
+            }
+        }
+
+        private void btn_it_cancel_Click(object sender, EventArgs e)
+        {
+            tb_it_name.Text = item.Name;
+            nu_it_value.Value = item.Value;
+            btn_it_cancel.Enabled = false;
+            btn_it_save.Enabled = false;
+        }
+
+        private void tb_it_changed(object sender, EventArgs e)
+        {
+            btn_it_cancel.Enabled = true;
+            btn_it_save.Enabled = true;
+        }
+
+        private void neuToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            //it
+            lv_it_items.SelectedIndices.Clear();
+            lb_it_id.Text = "";
+            tb_it_name.Text = "";
+            nu_it_value.Value = 0;
+
+            item = new Item(db);
+            btn_it_save.Enabled = true;
+            tb_it_name.Focus();
+        }
+
 
         
        

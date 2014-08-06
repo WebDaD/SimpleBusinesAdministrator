@@ -23,21 +23,24 @@
     <Setting Name="default_tab" Type="System.String" Scope="User">
       <Value Profile="(Default)">tab_jobs</Value>
     </Setting>
+    <Setting Name="paths" Type="System.String" Scope="User">
+      <Value Profile="(Default)">workers|mitarbeiter;customers|kunde;discounts|rabatt;expenses|ausgabe;items|Gegenstand;jobs|auftrag;paymentconditions|zahlungsbedingung;reminders|Mahnung;services|leistung;terms|agb;</Value>
+    </Setting>
+    <Setting Name="idformating" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bills|B%ID5%;customers|C%ID5%;discounts|D%ID5%;expenses|E%ID5%;items|I%ID5%;jobs|J%ID5%;paymentconditions|P%ID5%;reminders|R%ID5%;services|S%ID5%;terms|P %ID2%;workers|W%ID5%;</Value>
+    </Setting>
     <Setting Name="active_tabs" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;tab_customers&lt;/string&gt;
+  &lt;string&gt;tab_services&lt;/string&gt;
+  &lt;string&gt;tab_terms&lt;/string&gt;
+  &lt;string&gt;tab_reports&lt;/string&gt;
   &lt;string&gt;tab_worker&lt;/string&gt;
   &lt;string&gt;tab_jobs&lt;/string&gt;
-  &lt;string&gt;tab_reports&lt;/string&gt;
+  &lt;string&gt;tab_items&lt;/string&gt;
+  &lt;string&gt;tab_expenses&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
-    </Setting>
-    <Setting Name="paths" Type="System.String" Scope="User">
-      <Value Profile="(Default)">workers|mitarbeiter;customers|kunde;discounts|rabatt;expenses|ausgabe;items|Gegenstand;jobs|auftrag;paymentconditions|zahlungsbedingung;reminders|Mahnung;services|leistung;terms|agb;
-</Value>
-    </Setting>
-    <Setting Name="idformating" Type="System.String" Scope="User">
-      <Value Profile="(Default)">bills|B%ID5%;customers|C%ID5%;discounts|D%ID5%;expenses|E%ID5%;items|I%ID5%;jobs|J%ID5%;paymentconditions|P%ID5%;reminders|R%ID5%;services|S%ID5%;terms|P %ID2%;workers|W%ID5%;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -71,18 +71,18 @@ namespace ManageAdministerExalt.Classes
             Result d;
             if (year == "Alle")
             {
-                d = base.DB.getRow(base.Tablename, new string[] { "id", "name" }, "`active`='1'", "edate ASC");
+                d = base.DB.getRow(base.Tablename, new string[] { "id","edate", "name" }, "`active`='1'", "edate ASC");
             }
             else
             {
-                d = base.DB.getRow(base.Tablename, new string[] { "id", "name" }, "`active`='1' AND strftime('%Y',edate)='" + year + "'", "edate ASC");
+                d = base.DB.getRow(base.Tablename, new string[] { "id", "edate","name" }, "`active`='1' AND strftime('%Y',edate)='" + year + "'", "edate ASC");
             }
             if (d.RowCount < 1) return null;
 
             Dictionary<string, string> r = new Dictionary<string, string>();
             foreach (Row item in d.Rows)
             {
-                r.Add(item.Cells["id"], item.Cells["name"]);
+                r.Add(item.Cells["id"], item.Cells["edate"]+"|"+item.Cells["name"]);
             }
 
             if (r.Count > 0) return r;
