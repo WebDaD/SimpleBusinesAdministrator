@@ -909,6 +909,11 @@ namespace ManageAdministerExalt
             //jobs
         }
 
+        private void btn_jo_openFolder_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             db.Close();
@@ -1074,6 +1079,8 @@ namespace ManageAdministerExalt
         {
             Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["worker"] + Path.DirectorySeparatorChar + worker.NiceID);
         }
+
+        
 
         
        

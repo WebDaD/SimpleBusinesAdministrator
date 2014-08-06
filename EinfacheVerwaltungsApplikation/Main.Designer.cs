@@ -346,6 +346,7 @@
             this.lb_jo_payment_received = new System.Windows.Forms.Label();
             this.lb_jo_reminder_sent = new System.Windows.Forms.Label();
             this.lb_jo_reminder_target = new System.Windows.Forms.Label();
+            this.btn_jo_openFolder = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -3800,10 +3801,12 @@
             this.tableLayoutPanel20.Controls.Add(this.lb_jo_payment_received, 1, 4);
             this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_sent, 1, 5);
             this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_target, 1, 6);
+            this.tableLayoutPanel20.Controls.Add(this.btn_jo_openFolder, 0, 7);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 7;
+            this.tableLayoutPanel20.RowCount = 8;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -3901,7 +3904,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label80.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label80.Location = new System.Drawing.Point(3, 117);
             this.label80.Margin = new System.Windows.Forms.Padding(3);
             this.label80.Name = "label80";
@@ -3953,6 +3956,18 @@
             this.lb_jo_reminder_target.Name = "lb_jo_reminder_target";
             this.lb_jo_reminder_target.Size = new System.Drawing.Size(274, 13);
             this.lb_jo_reminder_target.TabIndex = 13;
+            // 
+            // btn_jo_openFolder
+            // 
+            this.tableLayoutPanel20.SetColumnSpan(this.btn_jo_openFolder, 2);
+            this.btn_jo_openFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_jo_openFolder.Location = new System.Drawing.Point(3, 210);
+            this.btn_jo_openFolder.Name = "btn_jo_openFolder";
+            this.btn_jo_openFolder.Size = new System.Drawing.Size(553, 23);
+            this.btn_jo_openFolder.TabIndex = 14;
+            this.btn_jo_openFolder.Text = "Öffne Ordner";
+            this.btn_jo_openFolder.UseVisualStyleBackColor = true;
+            this.btn_jo_openFolder.Click += new System.EventHandler(this.btn_jo_openFolder_Click);
             // 
             // Main
             // 
@@ -4432,5 +4447,6 @@
         private System.Windows.Forms.Label lb_jo_payment_received;
         private System.Windows.Forms.Label lb_jo_reminder_sent;
         private System.Windows.Forms.Label lb_jo_reminder_target;
+        private System.Windows.Forms.Button btn_jo_openFolder;
     }
 }
