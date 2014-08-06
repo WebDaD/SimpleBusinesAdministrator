@@ -97,7 +97,7 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("tab_reports")]
+        [global::System.Configuration.DefaultSettingValueAttribute("tab_jobs")]
         public string default_tab {
             get {
                 return ((string)(this["default_tab"]));
@@ -127,9 +127,9 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("worker|mitarbeiter;customer|kunde;discount|rabatt;expense|ausgabe;item|Gegenstand" +
-            ";job|auftrag;paymentcondition|zahlungsbedingung;reminder|Mahnung;service|leistun" +
-            "g;term|agb;\r\n")]
+        [global::System.Configuration.DefaultSettingValueAttribute("workers|mitarbeiter;customers|kunde;discounts|rabatt;expenses|ausgabe;items|Gegen" +
+            "stand;jobs|auftrag;paymentconditions|zahlungsbedingung;reminders|Mahnung;service" +
+            "s|leistung;terms|agb;\r\n")]
         public string paths {
             get {
                 return ((string)(this["paths"]));
@@ -141,9 +141,9 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("bill|B%ID5%;customer|C%ID5%;discount|D%ID5%;expense|E%ID5%;item|I%ID5%;job|J%ID5%" +
-            ";paymentcondition|P%ID5%;reminder|R%ID5%;sevrice|S%ID5%;term|§ %ID2%;worker|W%ID" +
-            "5%;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("bills|B%ID5%;customers|C%ID5%;discounts|D%ID5%;expenses|E%ID5%;items|I%ID5%;jobs|" +
+            "J%ID5%;paymentconditions|P%ID5%;reminders|R%ID5%;services|S%ID5%;terms|P %ID2%;w" +
+            "orkers|W%ID5%;")]
         public string idformating {
             get {
                 return ((string)(this["idformating"]));

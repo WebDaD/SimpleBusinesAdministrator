@@ -204,12 +204,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebDaD.Toolkit\WebDaD.Toolkit.csproj">
+    <ProjectReference Include="..\..\WebDaD_Toolkit\WebDaD.Toolkit\WebDaD.Toolkit.csproj">
       <Project>{D0D1B5C0-0B35-41F1-88E4-BC1014D6BA28}</Project>
       <Name>WebDaD.Toolkit</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

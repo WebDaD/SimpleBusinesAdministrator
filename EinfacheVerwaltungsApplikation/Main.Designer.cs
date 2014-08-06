@@ -173,28 +173,9 @@
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_jo_edit_items = new System.Windows.Forms.Button();
             this.lb_jo_items = new System.Windows.Forms.Label();
-            this.gb_jo_offer = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_jo_export_job = new System.Windows.Forms.Button();
-            this.lb_jo_jstatus_sent = new System.Windows.Forms.Label();
-            this.lb_jo_jstatus_ok = new System.Windows.Forms.Label();
-            this.btn_jo_jsent = new System.Windows.Forms.Button();
-            this.btn_jo_status_ok = new System.Windows.Forms.Button();
-            this.gb_jo_bill = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.btn_jo_export_bill = new System.Windows.Forms.Button();
-            this.lb_jo_status_bill_sent = new System.Windows.Forms.Label();
-            this.lb_jo_status_bill_ok = new System.Windows.Forms.Label();
-            this.btn_jo_bill_send = new System.Windows.Forms.Button();
-            this.btn_jo_bill_ok = new System.Windows.Forms.Button();
-            this.gb_jo_reminder = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.cb_jo_reminders = new System.Windows.Forms.ComboBox();
-            this.btn_jo_reminders_new = new System.Windows.Forms.Button();
-            this.btn_jo_reminder_sent = new System.Windows.Forms.Button();
-            this.btn_jo_reminder_ok = new System.Windows.Forms.Button();
-            this.lb_jo_reminder_status_sent = new System.Windows.Forms.Label();
-            this.lb_jo_reminder_status_ok = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.cb_jo_worker = new System.Windows.Forms.ComboBox();
             this.tab_agb = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.lv_tc_terms = new System.Windows.Forms.ListView();
@@ -342,6 +323,29 @@
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_jo_adress = new System.Windows.Forms.Label();
+            this.btn_jo_edit_address = new System.Windows.Forms.Button();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_jo_status = new System.Windows.Forms.Label();
+            this.btn_jo_next = new System.Windows.Forms.Button();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.label72 = new System.Windows.Forms.Label();
+            this.lb_jo_offer_created = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.lb_jo_offer_sent = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.lb_jo_bill_created = new System.Windows.Forms.Label();
+            this.lb_jo_bill_sent = new System.Windows.Forms.Label();
+            this.lb_jo_payment_received = new System.Windows.Forms.Label();
+            this.lb_jo_reminder_sent = new System.Windows.Forms.Label();
+            this.lb_jo_reminder_target = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -388,12 +392,6 @@
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
             this.tableLayoutPanel26.SuspendLayout();
-            this.gb_jo_offer.SuspendLayout();
-            this.tableLayoutPanel18.SuspendLayout();
-            this.gb_jo_bill.SuspendLayout();
-            this.tableLayoutPanel19.SuspendLayout();
-            this.gb_jo_reminder.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
             this.tab_agb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
@@ -468,6 +466,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid_it_log)).BeginInit();
             this.groupBox13.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.tableLayoutPanel19.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.tableLayoutPanel20.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1761,17 +1764,15 @@
             this.tableLayoutPanel14.ColumnCount = 1;
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel14.Controls.Add(this.groupBox11, 0, 0);
-            this.tableLayoutPanel14.Controls.Add(this.gb_jo_offer, 0, 1);
-            this.tableLayoutPanel14.Controls.Add(this.gb_jo_bill, 0, 2);
-            this.tableLayoutPanel14.Controls.Add(this.gb_jo_reminder, 0, 3);
+            this.tableLayoutPanel14.Controls.Add(this.groupBox17, 0, 1);
+            this.tableLayoutPanel14.Controls.Add(this.groupBox18, 0, 2);
             this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 4;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel14.RowCount = 3;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(571, 578);
             this.tableLayoutPanel14.TabIndex = 0;
             // 
@@ -1781,7 +1782,7 @@
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(565, 225);
+            this.groupBox11.Size = new System.Drawing.Size(565, 254);
             this.groupBox11.TabIndex = 0;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Daten";
@@ -1799,16 +1800,20 @@
             this.tableLayoutPanel15.Controls.Add(this.dt_jo_jdate, 1, 2);
             this.tableLayoutPanel15.Controls.Add(this.label41, 0, 3);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 3);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 6);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 6);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 8);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 8);
             this.tableLayoutPanel15.Controls.Add(this.label43, 0, 4);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 4);
             this.tableLayoutPanel15.Controls.Add(this.label51, 0, 5);
             this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel26, 1, 5);
+            this.tableLayoutPanel15.Controls.Add(this.label53, 0, 6);
+            this.tableLayoutPanel15.Controls.Add(this.label71, 0, 7);
+            this.tableLayoutPanel15.Controls.Add(this.cb_jo_worker, 1, 6);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 1, 7);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 7;
+            this.tableLayoutPanel15.RowCount = 9;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1816,7 +1821,9 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(559, 206);
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(559, 235);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // label36
@@ -1907,7 +1914,7 @@
             // 
             // btn_jo_services_edit
             // 
-            this.btn_jo_services_edit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_jo_services_edit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_jo_services_edit.Location = new System.Drawing.Point(142, 2);
             this.btn_jo_services_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_services_edit.Name = "btn_jo_services_edit";
@@ -1920,7 +1927,7 @@
             // btn_jo_cancel
             // 
             this.btn_jo_cancel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 183);
+            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 212);
             this.btn_jo_cancel.Name = "btn_jo_cancel";
             this.btn_jo_cancel.Size = new System.Drawing.Size(273, 20);
             this.btn_jo_cancel.TabIndex = 8;
@@ -1931,7 +1938,7 @@
             // btn_jo_save
             // 
             this.btn_jo_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_save.Location = new System.Drawing.Point(282, 183);
+            this.btn_jo_save.Location = new System.Drawing.Point(282, 212);
             this.btn_jo_save.Name = "btn_jo_save";
             this.btn_jo_save.Size = new System.Drawing.Size(274, 20);
             this.btn_jo_save.TabIndex = 9;
@@ -1974,7 +1981,7 @@
             // 
             // btn_jo_discounts_edit
             // 
-            this.btn_jo_discounts_edit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_jo_discounts_edit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_jo_discounts_edit.Location = new System.Drawing.Point(142, 2);
             this.btn_jo_discounts_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_discounts_edit.Name = "btn_jo_discounts_edit";
@@ -2010,10 +2017,11 @@
             // 
             // btn_jo_edit_items
             // 
-            this.btn_jo_edit_items.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_jo_edit_items.Location = new System.Drawing.Point(143, 3);
+            this.btn_jo_edit_items.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_edit_items.Location = new System.Drawing.Point(142, 2);
+            this.btn_jo_edit_items.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_edit_items.Name = "btn_jo_edit_items";
-            this.btn_jo_edit_items.Size = new System.Drawing.Size(134, 18);
+            this.btn_jo_edit_items.Size = new System.Drawing.Size(136, 20);
             this.btn_jo_edit_items.TabIndex = 0;
             this.btn_jo_edit_items.Text = "Bearbeiten";
             this.btn_jo_edit_items.UseVisualStyleBackColor = true;
@@ -2027,277 +2035,32 @@
             this.lb_jo_items.Size = new System.Drawing.Size(134, 20);
             this.lb_jo_items.TabIndex = 1;
             // 
-            // gb_jo_offer
+            // label53
             // 
-            this.gb_jo_offer.Controls.Add(this.tableLayoutPanel18);
-            this.gb_jo_offer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_jo_offer.Location = new System.Drawing.Point(3, 234);
-            this.gb_jo_offer.Name = "gb_jo_offer";
-            this.gb_jo_offer.Size = new System.Drawing.Size(565, 109);
-            this.gb_jo_offer.TabIndex = 1;
-            this.gb_jo_offer.TabStop = false;
-            this.gb_jo_offer.Text = "Angebot";
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(3, 138);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(56, 13);
+            this.label53.TabIndex = 14;
+            this.label53.Text = "Mitarbeiter";
             // 
-            // tableLayoutPanel18
+            // label71
             // 
-            this.tableLayoutPanel18.ColumnCount = 3;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel18.Controls.Add(this.btn_jo_export_job, 0, 0);
-            this.tableLayoutPanel18.Controls.Add(this.lb_jo_jstatus_sent, 1, 0);
-            this.tableLayoutPanel18.Controls.Add(this.lb_jo_jstatus_ok, 2, 0);
-            this.tableLayoutPanel18.Controls.Add(this.btn_jo_jsent, 1, 1);
-            this.tableLayoutPanel18.Controls.Add(this.btn_jo_status_ok, 2, 1);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 2;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(559, 90);
-            this.tableLayoutPanel18.TabIndex = 0;
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(3, 165);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(83, 13);
+            this.label71.TabIndex = 15;
+            this.label71.Text = "Auftragsadresse";
             // 
-            // btn_jo_export_job
+            // cb_jo_worker
             // 
-            this.btn_jo_export_job.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_export_job.Location = new System.Drawing.Point(3, 3);
-            this.btn_jo_export_job.Name = "btn_jo_export_job";
-            this.tableLayoutPanel18.SetRowSpan(this.btn_jo_export_job, 2);
-            this.btn_jo_export_job.Size = new System.Drawing.Size(180, 84);
-            this.btn_jo_export_job.TabIndex = 0;
-            this.btn_jo_export_job.Text = "Erstelle Angebot";
-            this.btn_jo_export_job.UseVisualStyleBackColor = true;
-            this.btn_jo_export_job.Click += new System.EventHandler(this.btn_jo_export_job_Click);
-            // 
-            // lb_jo_jstatus_sent
-            // 
-            this.lb_jo_jstatus_sent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_jstatus_sent.ForeColor = System.Drawing.Color.Red;
-            this.lb_jo_jstatus_sent.Location = new System.Drawing.Point(189, 0);
-            this.lb_jo_jstatus_sent.Name = "lb_jo_jstatus_sent";
-            this.lb_jo_jstatus_sent.Size = new System.Drawing.Size(180, 45);
-            this.lb_jo_jstatus_sent.TabIndex = 1;
-            this.lb_jo_jstatus_sent.Text = "Noch nicht verschickt!";
-            this.lb_jo_jstatus_sent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_jo_jstatus_ok
-            // 
-            this.lb_jo_jstatus_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_jstatus_ok.ForeColor = System.Drawing.Color.Red;
-            this.lb_jo_jstatus_ok.Location = new System.Drawing.Point(375, 0);
-            this.lb_jo_jstatus_ok.Name = "lb_jo_jstatus_ok";
-            this.lb_jo_jstatus_ok.Size = new System.Drawing.Size(181, 45);
-            this.lb_jo_jstatus_ok.TabIndex = 2;
-            this.lb_jo_jstatus_ok.Text = "Noch kein Eingang!";
-            this.lb_jo_jstatus_ok.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_jo_jsent
-            // 
-            this.btn_jo_jsent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_jsent.Location = new System.Drawing.Point(189, 48);
-            this.btn_jo_jsent.Name = "btn_jo_jsent";
-            this.btn_jo_jsent.Size = new System.Drawing.Size(180, 39);
-            this.btn_jo_jsent.TabIndex = 3;
-            this.btn_jo_jsent.Text = "Angebot verschickt";
-            this.btn_jo_jsent.UseVisualStyleBackColor = true;
-            this.btn_jo_jsent.Click += new System.EventHandler(this.btn_jo_jsent_Click);
-            // 
-            // btn_jo_status_ok
-            // 
-            this.btn_jo_status_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_status_ok.Location = new System.Drawing.Point(375, 48);
-            this.btn_jo_status_ok.Name = "btn_jo_status_ok";
-            this.btn_jo_status_ok.Size = new System.Drawing.Size(181, 39);
-            this.btn_jo_status_ok.TabIndex = 4;
-            this.btn_jo_status_ok.Text = "Kunde OK";
-            this.btn_jo_status_ok.UseVisualStyleBackColor = true;
-            this.btn_jo_status_ok.Click += new System.EventHandler(this.btn_jo_status_ok_Click);
-            // 
-            // gb_jo_bill
-            // 
-            this.gb_jo_bill.Controls.Add(this.tableLayoutPanel19);
-            this.gb_jo_bill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_jo_bill.Location = new System.Drawing.Point(3, 349);
-            this.gb_jo_bill.Name = "gb_jo_bill";
-            this.gb_jo_bill.Size = new System.Drawing.Size(565, 109);
-            this.gb_jo_bill.TabIndex = 2;
-            this.gb_jo_bill.TabStop = false;
-            this.gb_jo_bill.Text = "Rechnung";
-            // 
-            // tableLayoutPanel19
-            // 
-            this.tableLayoutPanel19.ColumnCount = 3;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel19.Controls.Add(this.btn_jo_export_bill, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.lb_jo_status_bill_sent, 1, 0);
-            this.tableLayoutPanel19.Controls.Add(this.lb_jo_status_bill_ok, 2, 0);
-            this.tableLayoutPanel19.Controls.Add(this.btn_jo_bill_send, 1, 1);
-            this.tableLayoutPanel19.Controls.Add(this.btn_jo_bill_ok, 2, 1);
-            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 2;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(559, 90);
-            this.tableLayoutPanel19.TabIndex = 0;
-            // 
-            // btn_jo_export_bill
-            // 
-            this.btn_jo_export_bill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_export_bill.Location = new System.Drawing.Point(3, 3);
-            this.btn_jo_export_bill.Name = "btn_jo_export_bill";
-            this.tableLayoutPanel19.SetRowSpan(this.btn_jo_export_bill, 2);
-            this.btn_jo_export_bill.Size = new System.Drawing.Size(180, 84);
-            this.btn_jo_export_bill.TabIndex = 0;
-            this.btn_jo_export_bill.Text = "Erstelle Rechnung";
-            this.btn_jo_export_bill.UseVisualStyleBackColor = true;
-            this.btn_jo_export_bill.Click += new System.EventHandler(this.btn_jo_export_bill_Click);
-            // 
-            // lb_jo_status_bill_sent
-            // 
-            this.lb_jo_status_bill_sent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_status_bill_sent.ForeColor = System.Drawing.Color.Red;
-            this.lb_jo_status_bill_sent.Location = new System.Drawing.Point(189, 0);
-            this.lb_jo_status_bill_sent.Name = "lb_jo_status_bill_sent";
-            this.lb_jo_status_bill_sent.Size = new System.Drawing.Size(180, 45);
-            this.lb_jo_status_bill_sent.TabIndex = 1;
-            this.lb_jo_status_bill_sent.Text = "Noch nicht verschickt!";
-            this.lb_jo_status_bill_sent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_jo_status_bill_ok
-            // 
-            this.lb_jo_status_bill_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_status_bill_ok.ForeColor = System.Drawing.Color.Red;
-            this.lb_jo_status_bill_ok.Location = new System.Drawing.Point(375, 0);
-            this.lb_jo_status_bill_ok.Name = "lb_jo_status_bill_ok";
-            this.lb_jo_status_bill_ok.Size = new System.Drawing.Size(181, 45);
-            this.lb_jo_status_bill_ok.TabIndex = 2;
-            this.lb_jo_status_bill_ok.Text = "Noch kein Eingang!";
-            this.lb_jo_status_bill_ok.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_jo_bill_send
-            // 
-            this.btn_jo_bill_send.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_bill_send.Location = new System.Drawing.Point(189, 48);
-            this.btn_jo_bill_send.Name = "btn_jo_bill_send";
-            this.btn_jo_bill_send.Size = new System.Drawing.Size(180, 39);
-            this.btn_jo_bill_send.TabIndex = 3;
-            this.btn_jo_bill_send.Text = "Rechung verschickt";
-            this.btn_jo_bill_send.UseVisualStyleBackColor = true;
-            this.btn_jo_bill_send.Click += new System.EventHandler(this.btn_jo_bill_send_Click);
-            // 
-            // btn_jo_bill_ok
-            // 
-            this.btn_jo_bill_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_bill_ok.Location = new System.Drawing.Point(375, 48);
-            this.btn_jo_bill_ok.Name = "btn_jo_bill_ok";
-            this.btn_jo_bill_ok.Size = new System.Drawing.Size(181, 39);
-            this.btn_jo_bill_ok.TabIndex = 4;
-            this.btn_jo_bill_ok.Text = "Zahlungseingang";
-            this.btn_jo_bill_ok.UseVisualStyleBackColor = true;
-            this.btn_jo_bill_ok.Click += new System.EventHandler(this.btn_jo_bill_ok_Click);
-            // 
-            // gb_jo_reminder
-            // 
-            this.gb_jo_reminder.Controls.Add(this.tableLayoutPanel20);
-            this.gb_jo_reminder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gb_jo_reminder.Location = new System.Drawing.Point(3, 464);
-            this.gb_jo_reminder.Name = "gb_jo_reminder";
-            this.gb_jo_reminder.Size = new System.Drawing.Size(565, 111);
-            this.gb_jo_reminder.TabIndex = 3;
-            this.gb_jo_reminder.TabStop = false;
-            this.gb_jo_reminder.Text = "Mahnung";
-            // 
-            // tableLayoutPanel20
-            // 
-            this.tableLayoutPanel20.ColumnCount = 3;
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel20.Controls.Add(this.cb_jo_reminders, 0, 0);
-            this.tableLayoutPanel20.Controls.Add(this.btn_jo_reminders_new, 0, 1);
-            this.tableLayoutPanel20.Controls.Add(this.btn_jo_reminder_sent, 1, 1);
-            this.tableLayoutPanel20.Controls.Add(this.btn_jo_reminder_ok, 2, 1);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_status_sent, 1, 0);
-            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_status_ok, 2, 0);
-            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 2;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 92);
-            this.tableLayoutPanel20.TabIndex = 0;
-            // 
-            // cb_jo_reminders
-            // 
-            this.cb_jo_reminders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cb_jo_reminders.FormattingEnabled = true;
-            this.cb_jo_reminders.Location = new System.Drawing.Point(3, 3);
-            this.cb_jo_reminders.Name = "cb_jo_reminders";
-            this.cb_jo_reminders.Size = new System.Drawing.Size(180, 21);
-            this.cb_jo_reminders.TabIndex = 0;
-            this.cb_jo_reminders.SelectedIndexChanged += new System.EventHandler(this.cb_jo_reminders_SelectedIndexChanged);
-            // 
-            // btn_jo_reminders_new
-            // 
-            this.btn_jo_reminders_new.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_reminders_new.Location = new System.Drawing.Point(3, 49);
-            this.btn_jo_reminders_new.Name = "btn_jo_reminders_new";
-            this.btn_jo_reminders_new.Size = new System.Drawing.Size(180, 40);
-            this.btn_jo_reminders_new.TabIndex = 1;
-            this.btn_jo_reminders_new.Text = "Neue Mahnung";
-            this.btn_jo_reminders_new.UseVisualStyleBackColor = true;
-            this.btn_jo_reminders_new.Click += new System.EventHandler(this.btn_jo_reminders_new_Click);
-            // 
-            // btn_jo_reminder_sent
-            // 
-            this.btn_jo_reminder_sent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_reminder_sent.Location = new System.Drawing.Point(189, 49);
-            this.btn_jo_reminder_sent.Name = "btn_jo_reminder_sent";
-            this.btn_jo_reminder_sent.Size = new System.Drawing.Size(180, 40);
-            this.btn_jo_reminder_sent.TabIndex = 2;
-            this.btn_jo_reminder_sent.Text = "Mahnung Verschickt";
-            this.btn_jo_reminder_sent.UseVisualStyleBackColor = true;
-            this.btn_jo_reminder_sent.Click += new System.EventHandler(this.btn_jo_reminder_sent_Click);
-            // 
-            // btn_jo_reminder_ok
-            // 
-            this.btn_jo_reminder_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_reminder_ok.Location = new System.Drawing.Point(375, 49);
-            this.btn_jo_reminder_ok.Name = "btn_jo_reminder_ok";
-            this.btn_jo_reminder_ok.Size = new System.Drawing.Size(181, 40);
-            this.btn_jo_reminder_ok.TabIndex = 3;
-            this.btn_jo_reminder_ok.Text = "Zahlungseingang";
-            this.btn_jo_reminder_ok.UseVisualStyleBackColor = true;
-            this.btn_jo_reminder_ok.Click += new System.EventHandler(this.btn_jo_reminder_ok_Click);
-            // 
-            // lb_jo_reminder_status_sent
-            // 
-            this.lb_jo_reminder_status_sent.AutoSize = true;
-            this.lb_jo_reminder_status_sent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_reminder_status_sent.ForeColor = System.Drawing.Color.Red;
-            this.lb_jo_reminder_status_sent.Location = new System.Drawing.Point(189, 0);
-            this.lb_jo_reminder_status_sent.Name = "lb_jo_reminder_status_sent";
-            this.lb_jo_reminder_status_sent.Size = new System.Drawing.Size(180, 46);
-            this.lb_jo_reminder_status_sent.TabIndex = 4;
-            this.lb_jo_reminder_status_sent.Text = "Noch nicht verschickt!";
-            this.lb_jo_reminder_status_sent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_jo_reminder_status_ok
-            // 
-            this.lb_jo_reminder_status_ok.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_jo_reminder_status_ok.ForeColor = System.Drawing.Color.Red;
-            this.lb_jo_reminder_status_ok.Location = new System.Drawing.Point(375, 0);
-            this.lb_jo_reminder_status_ok.Name = "lb_jo_reminder_status_ok";
-            this.lb_jo_reminder_status_ok.Size = new System.Drawing.Size(181, 46);
-            this.lb_jo_reminder_status_ok.TabIndex = 5;
-            this.lb_jo_reminder_status_ok.Text = "Noch kein Eingang!";
-            this.lb_jo_reminder_status_ok.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cb_jo_worker.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_jo_worker.FormattingEnabled = true;
+            this.cb_jo_worker.Location = new System.Drawing.Point(282, 141);
+            this.cb_jo_worker.Name = "cb_jo_worker";
+            this.cb_jo_worker.Size = new System.Drawing.Size(274, 21);
+            this.cb_jo_worker.TabIndex = 16;
             // 
             // tab_agb
             // 
@@ -3922,6 +3685,275 @@
             // 
             this.ofd_ex_attachement.ReadOnlyChecked = true;
             // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 2;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Controls.Add(this.lb_jo_adress, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.btn_jo_edit_address, 1, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 168);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(274, 24);
+            this.tableLayoutPanel18.TabIndex = 17;
+            // 
+            // lb_jo_adress
+            // 
+            this.lb_jo_adress.AutoSize = true;
+            this.lb_jo_adress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_jo_adress.Location = new System.Drawing.Point(3, 0);
+            this.lb_jo_adress.Name = "lb_jo_adress";
+            this.lb_jo_adress.Size = new System.Drawing.Size(131, 24);
+            this.lb_jo_adress.TabIndex = 0;
+            // 
+            // btn_jo_edit_address
+            // 
+            this.btn_jo_edit_address.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_edit_address.Location = new System.Drawing.Point(139, 2);
+            this.btn_jo_edit_address.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_jo_edit_address.Name = "btn_jo_edit_address";
+            this.btn_jo_edit_address.Size = new System.Drawing.Size(133, 20);
+            this.btn_jo_edit_address.TabIndex = 1;
+            this.btn_jo_edit_address.Text = "Bearbeiten";
+            this.btn_jo_edit_address.UseVisualStyleBackColor = true;
+            this.btn_jo_edit_address.Click += new System.EventHandler(this.btn_jo_edit_address_Click);
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.tableLayoutPanel19);
+            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox17.Location = new System.Drawing.Point(3, 263);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(565, 51);
+            this.groupBox17.TabIndex = 1;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Auftrag";
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 2;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Controls.Add(this.lb_jo_status, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.btn_jo_next, 1, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 1;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(559, 32);
+            this.tableLayoutPanel19.TabIndex = 0;
+            // 
+            // lb_jo_status
+            // 
+            this.lb_jo_status.AutoSize = true;
+            this.lb_jo_status.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lb_jo_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_jo_status.Location = new System.Drawing.Point(3, 0);
+            this.lb_jo_status.Name = "lb_jo_status";
+            this.lb_jo_status.Size = new System.Drawing.Size(273, 32);
+            this.lb_jo_status.TabIndex = 0;
+            this.lb_jo_status.Text = "In Erstellung";
+            this.lb_jo_status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_jo_next
+            // 
+            this.btn_jo_next.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_jo_next.Location = new System.Drawing.Point(282, 3);
+            this.btn_jo_next.Name = "btn_jo_next";
+            this.btn_jo_next.Size = new System.Drawing.Size(274, 26);
+            this.btn_jo_next.TabIndex = 1;
+            this.btn_jo_next.Text = "Angebot erstellen";
+            this.btn_jo_next.UseVisualStyleBackColor = true;
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.tableLayoutPanel20);
+            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox18.Location = new System.Drawing.Point(3, 320);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(565, 255);
+            this.groupBox18.TabIndex = 2;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Dati";
+            // 
+            // tableLayoutPanel20
+            // 
+            this.tableLayoutPanel20.ColumnCount = 2;
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel20.Controls.Add(this.label72, 0, 0);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_offer_created, 1, 0);
+            this.tableLayoutPanel20.Controls.Add(this.label74, 0, 1);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_offer_sent, 1, 1);
+            this.tableLayoutPanel20.Controls.Add(this.label76, 0, 2);
+            this.tableLayoutPanel20.Controls.Add(this.label77, 0, 3);
+            this.tableLayoutPanel20.Controls.Add(this.label78, 0, 4);
+            this.tableLayoutPanel20.Controls.Add(this.label79, 0, 5);
+            this.tableLayoutPanel20.Controls.Add(this.label80, 0, 6);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_bill_created, 1, 2);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_bill_sent, 1, 3);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_payment_received, 1, 4);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_sent, 1, 5);
+            this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_target, 1, 6);
+            this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
+            this.tableLayoutPanel20.RowCount = 7;
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 236);
+            this.tableLayoutPanel20.TabIndex = 0;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label72.Location = new System.Drawing.Point(3, 3);
+            this.label72.Margin = new System.Windows.Forms.Padding(3);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(273, 13);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Angebot erstellt";
+            // 
+            // lb_jo_offer_created
+            // 
+            this.lb_jo_offer_created.AutoSize = true;
+            this.lb_jo_offer_created.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_offer_created.Location = new System.Drawing.Point(282, 0);
+            this.lb_jo_offer_created.Name = "lb_jo_offer_created";
+            this.lb_jo_offer_created.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_offer_created.TabIndex = 1;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label74.Location = new System.Drawing.Point(3, 22);
+            this.label74.Margin = new System.Windows.Forms.Padding(3);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(273, 13);
+            this.label74.TabIndex = 2;
+            this.label74.Text = "Angebot verschickt";
+            // 
+            // lb_jo_offer_sent
+            // 
+            this.lb_jo_offer_sent.AutoSize = true;
+            this.lb_jo_offer_sent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_offer_sent.Location = new System.Drawing.Point(282, 19);
+            this.lb_jo_offer_sent.Name = "lb_jo_offer_sent";
+            this.lb_jo_offer_sent.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_offer_sent.TabIndex = 3;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label76.Location = new System.Drawing.Point(3, 41);
+            this.label76.Margin = new System.Windows.Forms.Padding(3);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(273, 13);
+            this.label76.TabIndex = 4;
+            this.label76.Text = "Rechnung erstellt";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label77.Location = new System.Drawing.Point(3, 60);
+            this.label77.Margin = new System.Windows.Forms.Padding(3);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(273, 13);
+            this.label77.TabIndex = 5;
+            this.label77.Text = "Rechnung verschickt";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label78.Location = new System.Drawing.Point(3, 79);
+            this.label78.Margin = new System.Windows.Forms.Padding(3);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(273, 13);
+            this.label78.TabIndex = 6;
+            this.label78.Text = "Zahlungseingang";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label79.Location = new System.Drawing.Point(3, 98);
+            this.label79.Margin = new System.Windows.Forms.Padding(3);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(273, 13);
+            this.label79.TabIndex = 7;
+            this.label79.Text = "Mahnung verschickt";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label80.Location = new System.Drawing.Point(3, 117);
+            this.label80.Margin = new System.Windows.Forms.Padding(3);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(273, 13);
+            this.label80.TabIndex = 8;
+            this.label80.Text = "Mahnungsfrist";
+            // 
+            // lb_jo_bill_created
+            // 
+            this.lb_jo_bill_created.AutoSize = true;
+            this.lb_jo_bill_created.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_bill_created.Location = new System.Drawing.Point(282, 38);
+            this.lb_jo_bill_created.Name = "lb_jo_bill_created";
+            this.lb_jo_bill_created.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_bill_created.TabIndex = 9;
+            // 
+            // lb_jo_bill_sent
+            // 
+            this.lb_jo_bill_sent.AutoSize = true;
+            this.lb_jo_bill_sent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_bill_sent.Location = new System.Drawing.Point(282, 57);
+            this.lb_jo_bill_sent.Name = "lb_jo_bill_sent";
+            this.lb_jo_bill_sent.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_bill_sent.TabIndex = 10;
+            // 
+            // lb_jo_payment_received
+            // 
+            this.lb_jo_payment_received.AutoSize = true;
+            this.lb_jo_payment_received.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_payment_received.Location = new System.Drawing.Point(282, 76);
+            this.lb_jo_payment_received.Name = "lb_jo_payment_received";
+            this.lb_jo_payment_received.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_payment_received.TabIndex = 11;
+            // 
+            // lb_jo_reminder_sent
+            // 
+            this.lb_jo_reminder_sent.AutoSize = true;
+            this.lb_jo_reminder_sent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_reminder_sent.Location = new System.Drawing.Point(282, 95);
+            this.lb_jo_reminder_sent.Name = "lb_jo_reminder_sent";
+            this.lb_jo_reminder_sent.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_reminder_sent.TabIndex = 12;
+            // 
+            // lb_jo_reminder_target
+            // 
+            this.lb_jo_reminder_target.AutoSize = true;
+            this.lb_jo_reminder_target.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_jo_reminder_target.Location = new System.Drawing.Point(282, 114);
+            this.lb_jo_reminder_target.Name = "lb_jo_reminder_target";
+            this.lb_jo_reminder_target.Size = new System.Drawing.Size(274, 13);
+            this.lb_jo_reminder_target.TabIndex = 13;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3989,13 +4021,6 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel17.ResumeLayout(false);
             this.tableLayoutPanel26.ResumeLayout(false);
-            this.gb_jo_offer.ResumeLayout(false);
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.gb_jo_bill.ResumeLayout(false);
-            this.tableLayoutPanel19.ResumeLayout(false);
-            this.gb_jo_reminder.ResumeLayout(false);
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel20.PerformLayout();
             this.tab_agb.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
@@ -4075,6 +4100,14 @@
             this.groupBox13.ResumeLayout(false);
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel23.PerformLayout();
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.tableLayoutPanel19.ResumeLayout(false);
+            this.tableLayoutPanel19.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.tableLayoutPanel20.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4260,9 +4293,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.GroupBox gb_jo_offer;
-        private System.Windows.Forms.GroupBox gb_jo_bill;
-        private System.Windows.Forms.GroupBox gb_jo_reminder;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label lb_jo_id;
@@ -4280,25 +4310,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Label lb_jo_discounts_sum;
         private System.Windows.Forms.Button btn_jo_discounts_edit;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.Button btn_jo_export_job;
-        private System.Windows.Forms.Label lb_jo_jstatus_sent;
-        private System.Windows.Forms.Label lb_jo_jstatus_ok;
-        private System.Windows.Forms.Button btn_jo_jsent;
-        private System.Windows.Forms.Button btn_jo_status_ok;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
-        private System.Windows.Forms.Button btn_jo_export_bill;
-        private System.Windows.Forms.Label lb_jo_status_bill_sent;
-        private System.Windows.Forms.Label lb_jo_status_bill_ok;
-        private System.Windows.Forms.Button btn_jo_bill_send;
-        private System.Windows.Forms.Button btn_jo_bill_ok;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
-        private System.Windows.Forms.ComboBox cb_jo_reminders;
-        private System.Windows.Forms.Button btn_jo_reminders_new;
-        private System.Windows.Forms.Button btn_jo_reminder_sent;
-        private System.Windows.Forms.Button btn_jo_reminder_ok;
-        private System.Windows.Forms.Label lb_jo_reminder_status_sent;
-        private System.Windows.Forms.Label lb_jo_reminder_status_ok;
         private System.Windows.Forms.ContextMenuStrip cmd_jo_jobs;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem3;
@@ -4395,5 +4406,31 @@
         private System.Windows.Forms.Label lb_wo_report_value;
         private System.Windows.Forms.Button btn_wo_openfolder;
         private System.Windows.Forms.NumericUpDown nu_se_value;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.ComboBox cb_jo_worker;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.Label lb_jo_adress;
+        private System.Windows.Forms.Button btn_jo_edit_address;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.Label lb_jo_status;
+        private System.Windows.Forms.Button btn_jo_next;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label lb_jo_offer_created;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label lb_jo_offer_sent;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label lb_jo_bill_created;
+        private System.Windows.Forms.Label lb_jo_bill_sent;
+        private System.Windows.Forms.Label lb_jo_payment_received;
+        private System.Windows.Forms.Label lb_jo_reminder_sent;
+        private System.Windows.Forms.Label lb_jo_reminder_target;
     }
 }

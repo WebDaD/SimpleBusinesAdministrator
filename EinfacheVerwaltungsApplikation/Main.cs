@@ -52,7 +52,7 @@ namespace ManageAdministerExalt
 
             tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
 
-            foreach (TabPage t  in tabs.TabPages)
+            foreach (TabPage t  in tabs.TabPages)//TODO: do not allow selection! (hide?)
             {
                 ((Control)t).Enabled = false;
             }
@@ -92,8 +92,15 @@ namespace ManageAdministerExalt
             fillServices();
             fillTerms();
             fillExpenses(cb_ex_year.SelectedItem.ToString());
-            //TODO: fill Jobs
+            fillJobs();
             fillWorkers();
+        }
+
+        private void fillJobs()
+        {
+            //TODO: Fill Jobs
+
+            //TODO: Fill cb_jo_workers
         }
         private void fillWorkers()
         {
@@ -822,7 +829,10 @@ namespace ManageAdministerExalt
         {
 
         }
+        private void btn_jo_edit_address_Click(object sender, EventArgs e)
+        {
 
+        }
 
         private void btn_jo_cancel_Click(object sender, EventArgs e)
         {
@@ -1064,6 +1074,8 @@ namespace ManageAdministerExalt
         {
             Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["worker"] + Path.DirectorySeparatorChar + worker.NiceID);
         }
+
+        
        
     }
 }

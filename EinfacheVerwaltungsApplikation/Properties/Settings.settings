@@ -21,7 +21,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="default_tab" Type="System.String" Scope="User">
-      <Value Profile="(Default)">tab_reports</Value>
+      <Value Profile="(Default)">tab_jobs</Value>
     </Setting>
     <Setting Name="active_tabs" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
@@ -33,11 +33,11 @@
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="paths" Type="System.String" Scope="User">
-      <Value Profile="(Default)">worker|mitarbeiter;customer|kunde;discount|rabatt;expense|ausgabe;item|Gegenstand;job|auftrag;paymentcondition|zahlungsbedingung;reminder|Mahnung;service|leistung;term|agb;
+      <Value Profile="(Default)">workers|mitarbeiter;customers|kunde;discounts|rabatt;expenses|ausgabe;items|Gegenstand;jobs|auftrag;paymentconditions|zahlungsbedingung;reminders|Mahnung;services|leistung;terms|agb;
 </Value>
     </Setting>
     <Setting Name="idformating" Type="System.String" Scope="User">
-      <Value Profile="(Default)">bill|B%ID5%;customer|C%ID5%;discount|D%ID5%;expense|E%ID5%;item|I%ID5%;job|J%ID5%;paymentcondition|P%ID5%;reminder|R%ID5%;sevrice|S%ID5%;term|§ %ID2%;worker|W%ID5%;</Value>
+      <Value Profile="(Default)">bills|B%ID5%;customers|C%ID5%;discounts|D%ID5%;expenses|E%ID5%;items|I%ID5%;jobs|J%ID5%;paymentconditions|P%ID5%;reminders|R%ID5%;services|S%ID5%;terms|P %ID2%;workers|W%ID5%;</Value>
     </Setting>
   </Settings>
 </SettingsFile>
