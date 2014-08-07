@@ -12,11 +12,13 @@ namespace ManageAdministerExalt
 {
     public partial class job_edit_services : Form
     {
-        public job_edit_services()
+        private Job job;
+        public job_edit_services(Job job)
         {
             InitializeComponent();
+            this.job = job;
             //TODO: Load Services, fill left list and listview
-            this.Text = Config.Name + " :: " + "Leistungen"; //TODO: Also show Job
+            this.Text = Config.Name + " :: " + "Leistungen :: "+job.NiceID; 
         }
 
         private void btn_add_Click(object sender, EventArgs e)

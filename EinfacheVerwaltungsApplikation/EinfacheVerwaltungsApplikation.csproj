@@ -56,6 +56,7 @@
     <Compile Include="Classes\Expense.cs" />
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\Job.cs" />
+    <Compile Include="Classes\JobStatus.cs" />
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\PaymentCondition.cs" />
     <Compile Include="Classes\Reminder.cs" />
@@ -98,11 +99,23 @@
     <Compile Include="job_create_reminder.Designer.cs">
       <DependentUpon>job_create_reminder.cs</DependentUpon>
     </Compile>
+    <Compile Include="job_edit_address.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_edit_address.Designer.cs">
+      <DependentUpon>job_edit_address.cs</DependentUpon>
+    </Compile>
     <Compile Include="job_edit_discounts.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="job_edit_discounts.Designer.cs">
       <DependentUpon>job_edit_discounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="job_edit_items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="job_edit_items.Designer.cs">
+      <DependentUpon>job_edit_items.cs</DependentUpon>
     </Compile>
     <Compile Include="job_edit_services.cs">
       <SubType>Form</SubType>

@@ -11,6 +11,7 @@ using ManageAdministerExalt.Classes;
 using System.Diagnostics;
 using System.IO;
 using WebDaD.Toolkit.Export;
+using WebDaD.Toolkit.Helper;
 
 namespace ManageAdministerExalt
 {
@@ -29,6 +30,12 @@ namespace ManageAdministerExalt
         private Dictionary<string, string> workers;
         private Item item;
         private Dictionary<string, string> items;
+        private Job job;
+        private Dictionary<string, string> jobs;
+
+        private bool editmode;
+        private bool filterstart=true;
+
         public Main()
         {
             InitializeComponent();
@@ -65,11 +72,52 @@ namespace ManageAdministerExalt
             {
                  tabs.TabPages.Remove(t);
             }
+
+            editmode = false;
+
+            if (Config.Timer)
+            {
+                timer.Interval = Config.TimerInterval * 60 * 1000 ;
+                timer.Enabled = true;
+                timer.Start();
+            }
+            else { timer.Enabled = false; }
+        }
+
+        private void setEditmode(bool edit)
+        {
+            this.editmode = edit;
+            btn_cu_cancel.Enabled = edit;
+            btn_cu_save.Enabled = edit;
+            btn_se_cancel.Enabled = edit;
+            btn_se_save.Enabled = edit;
+            btn_tc_cancel.Enabled = edit;
+            btn_tc_save.Enabled = edit;
+            btn_ex_cancel.Enabled = edit;
+            btn_ex_save.Enabled = edit;
+            btn_jo_cancel.Enabled = edit;
+            btn_jo_save.Enabled = edit;
+            btn_wo_cancel.Enabled = edit;
+            btn_wo_save.Enabled = edit;
+            btn_it_cancel.Enabled = edit;
+            btn_it_save.Enabled = edit;
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (!editmode)
+            {
+                fillFilters();
+                fillLists();
+                
+            }
+            //TODO: backup
+            checkOpenPoints();
         }
 
         private void tabs_Deselecting(object sender, TabControlCancelEventArgs e)
         {
-            //TODO: if edit_mode, stop!
+            if (this.editmode) e.Cancel=true;
         }
 
         private void checkOpenPoints()
@@ -91,8 +139,43 @@ namespace ManageAdministerExalt
             }
             cb_ex_year.SelectedItem = cb_ex_year.Items[0];
 
-            //TODO Jobs :: Years, Months, Customers
+            //Jobs :: Years, Months, Customers
+            cb_jo_filter_years.Items.Add("Alle");
+            List<string> jo_years = new Job(db).GetYears();
+            if (jo_years != null)
+            {
+                foreach (string year in jo_years)
+                {
+                    cb_ex_year.Items.Add(year);
+                }
+            }
             
+
+            cb_jo_filter_months.Items.Add("Alle");
+            List<string> jo_months = new Job(db).GetMonths();
+            if (jo_months != null)
+            {
+                foreach (string month in jo_months)
+                {
+                    cb_jo_filter_months.Items.Add(month);
+                }
+            }
+            
+
+            cb_jo_filter_customers.Items.Add(new ComboBoxItem("0","Alle"));
+            List<ComboBoxItem> jo_customers = new Job(db).GetCustomers();
+            if (jo_customers != null)
+            {
+                foreach (ComboBoxItem customer in jo_customers)
+                {
+                    cb_jo_filter_customers.Items.Add(customer);
+                }
+            }
+            filterstart = true;
+            cb_jo_filter_years.SelectedItem = cb_jo_filter_years.Items[0];
+            cb_jo_filter_customers.SelectedItem = cb_jo_filter_customers.Items[0];
+            cb_jo_filter_months.SelectedItem = cb_jo_filter_months.Items[0];
+            filterstart = false;
         }
 
         private void fillLists()
@@ -101,7 +184,7 @@ namespace ManageAdministerExalt
             fillServices();
             fillTerms();
             fillExpenses(cb_ex_year.SelectedItem.ToString());
-            fillJobs();
+            fillJobs(false);
             fillWorkers();
             fillItems();
         }
@@ -123,11 +206,39 @@ namespace ManageAdministerExalt
             }
         }
 
-        private void fillJobs()
+        private void fillJobs(bool filtered)
         {
-            //TODO: Fill Jobs
+            if (filtered)
+            {
+                jobs = job.GetFilteredIDList(cb_jo_filter_years.SelectedItem.ToString(), cb_jo_filter_months.SelectedItem.ToString(), ((ComboBoxItem)cb_jo_filter_customers.SelectedItem).Value);
+            }
+            else
+            {
+                jobs = new Job(db).GetIDList();
+            }
+            if (jobs != null)
+            {
+                lv_jo_jobs.Items.Clear();
+                foreach (KeyValuePair<string, string> item in jobs)
+                {
+                    ListViewItem t = new ListViewItem(item.Key);
+                    string[] tmp = item.Value.Split('|');
+                    t.SubItems.Add(tmp[0]);
+                    t.SubItems.Add(tmp[1]);
+                    lv_jo_jobs.Items.Add(t);
+                }
+            }
 
-            //TODO: Fill cb_jo_workers
+            cb_jo_worker.Items.Clear();
+            List<ComboBoxItem> jo_workers = new Job(db).GetWorkers();
+            if (jo_workers != null)
+            {
+                foreach (ComboBoxItem worker in jo_workers)
+                {
+                    cb_jo_worker.Items.Add(worker);
+                }
+            }
+            cb_jo_worker.SelectedIndex = -1;
         }
         private void fillWorkers()
         {
@@ -305,8 +416,7 @@ namespace ManageAdministerExalt
             {
                 MessageBox.Show("Kunde " + customer.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            btn_cu_cancel.Enabled = false;
-            btn_cu_save.Enabled = false;
+            setEditmode(false);
             int sele = -1;
             if (lv_cu_customers.SelectedIndices.Count > 0)
             {
@@ -330,8 +440,7 @@ namespace ManageAdministerExalt
             tb_cu_mobile.Text = customer.Mobile;
             tb_cu_fax.Text = customer.Fax;
             tb_cu_contact.Text = customer.Contact;
-            btn_cu_cancel.Enabled = false;
-            btn_cu_save.Enabled = false;
+            setEditmode(false);
         }
 
         private void lv_cu_customers_Resize(object sender, EventArgs e)
@@ -363,8 +472,7 @@ namespace ManageAdministerExalt
 
                 //TODO load report
 
-                btn_cu_cancel.Enabled = false;
-                btn_cu_save.Enabled = false;
+                setEditmode(false);
 
                 btn_cu_new_job.Enabled = true;
                 btn_cu_open_folder.Enabled = true;
@@ -380,24 +488,59 @@ namespace ManageAdministerExalt
 
         private void tb_cu_TextChanged(object sender, EventArgs e)
         {
-            btn_cu_cancel.Enabled = true;
-            btn_cu_save.Enabled = true;
+            setEditmode(true);
         }
 
         private void beendenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: Option: really?
-            Application.Exit();
+            if (editmode)
+            {
+                if (MessageBox.Show("Sie bearbeiten gerade einen Datensatz.\nWollen Sie wirklick beenden?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            if(Config.AskForExit)
+            {
+
+                if (MessageBox.Show("Wollen Sie wirklick beenden?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
         }
 
         private void btn_cu_new_job_Click(object sender, EventArgs e)
         {
-            //TODO: Create neu Job
+            if (lv_cu_customers.SelectedIndices.Count > 0)
+            {
+                lb_jo_id.Text = "";
+                tb_jo_name.Text = "";
+                dt_jo_jdate.Value = DateTime.Now;
+                lb_jo_services_sum.Text = "";
+                lb_jo_discounts_sum.Text = "";
+                lb_jo_items.Text = "";
+                cb_jo_worker.SelectedIndex = -1;
+                lb_jo_adress.Text = "";
+
+                job = new Job(db);
+                job.setCustomer(lv_cu_customers.SelectedItems[0].Text);
+                lb_jo_customer_id.Text = job.Customer_ID;
+                btn_jo_save.Enabled = true;
+                tabs.SelectedIndex = tabs.TabPages.IndexOf(tabs.TabPages["tab_jobs"]);
+
+                tb_jo_name.Focus();
+
+                btn_jo_discounts_edit.Enabled = false;
+                btn_jo_edit_address.Enabled = false;
+                btn_jo_edit_items.Enabled = false;
+                btn_jo_services_edit.Enabled = false;
+            }
         }
 
         private void btn_cu_open_folder_Click(object sender, EventArgs e)
         {
-            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + "customers" + Path.DirectorySeparatorChar + customer.NiceID);
+            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["customers"] + Path.DirectorySeparatorChar + customer.NiceID);
         }
 
         private void btn_cu_export_Click(object sender, EventArgs e)
@@ -448,9 +591,7 @@ namespace ManageAdministerExalt
 
                 //TODO load report
 
-                btn_se_cancel.Enabled = false;
-                btn_se_save.Enabled = false;
-
+                setEditmode(false);
                 btn_se_export.Enabled = true;
             }
             else
@@ -461,8 +602,7 @@ namespace ManageAdministerExalt
 
         private void tb_se_TextChanged(object sender, EventArgs e)
         {
-            btn_se_cancel.Enabled = true;
-            btn_se_save.Enabled = true;
+            setEditmode(true);
         }
 
         private void btn_se_cancel_Click(object sender, EventArgs e)
@@ -471,8 +611,7 @@ namespace ManageAdministerExalt
             tb_se_description.Text = service.Description;
             tb_se_unit.Text = service.Unit;
             nu_se_value.Value = service.Value;
-            btn_se_cancel.Enabled = false;
-            btn_se_save.Enabled = false;
+            setEditmode(false);
         }
 
         private void btn_se_save_Click(object sender, EventArgs e)
@@ -489,8 +628,7 @@ namespace ManageAdministerExalt
             {
                 MessageBox.Show("Leistung " + service.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            btn_se_cancel.Enabled = false;
-            btn_se_save.Enabled = false;
+            setEditmode(false);
             int sele = -1;
             if (lv_se_services.SelectedIndices.Count > 0)
             {
@@ -535,8 +673,7 @@ namespace ManageAdministerExalt
             {
                 MessageBox.Show("AGB " + term.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            btn_tc_cancel.Enabled = false;
-            btn_tc_save.Enabled = false;
+            setEditmode(false);
             int sele = -1;
             if (lv_tc_terms.SelectedIndices.Count > 0)
             {
@@ -553,8 +690,7 @@ namespace ManageAdministerExalt
         {
             tb_tc_title.Text = term.Name;
             tb_tc_content.Text = term.Description;
-            btn_tc_cancel.Enabled = false;
-            btn_tc_save.Enabled = false;
+            setEditmode(false);
         }
 
         private void lv_tc_terms_Resize(object sender, EventArgs e)
@@ -572,8 +708,7 @@ namespace ManageAdministerExalt
                 tb_tc_title.Text = term.Name;
                 tb_tc_content.Text = term.Description;
 
-                btn_tc_cancel.Enabled = false;
-                btn_tc_save.Enabled = false;
+                setEditmode(false);
 
                 btn_tc_export.Enabled = true;
             }
@@ -581,8 +716,7 @@ namespace ManageAdministerExalt
 
         private void tc_TextChanged(object sender, EventArgs e)
         {
-            btn_tc_cancel.Enabled = true;
-            btn_tc_save.Enabled = true;
+            setEditmode(true);
         }
 
         /// <summary>
@@ -660,6 +794,7 @@ namespace ManageAdministerExalt
         private void aktualisierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fillLists();
+            fillFilters();
             checkOpenPoints();
         }
 
@@ -693,8 +828,7 @@ namespace ManageAdministerExalt
             dt_ex_edate.Value = expense.EDate;
             nu_ex_value.Value = expense.Value;
             tb_ex_attachment.Text = expense.Attachment;
-            btn_ex_cancel.Enabled = false;
-            btn_ex_save.Enabled = false;
+            setEditmode(false);
         }
 
         private void btn_ex_save_Click(object sender, EventArgs e)
@@ -711,8 +845,7 @@ namespace ManageAdministerExalt
             {
                 MessageBox.Show("Ausgabe " + expense.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            btn_ex_cancel.Enabled = false;
-            btn_ex_save.Enabled = false;
+            setEditmode(false);
             int sele = -1;
             if (lv_ex_expenses.SelectedIndices.Count > 0)
             {
@@ -727,8 +860,7 @@ namespace ManageAdministerExalt
 
         private void tb_ex_TextChanged(object sender, EventArgs e)
         {
-            btn_ex_cancel.Enabled = true;
-            btn_ex_save.Enabled = true;
+            setEditmode(true);
         }
 
         private void cb_ex_year_SelectedIndexChanged(object sender, EventArgs e)
@@ -748,8 +880,7 @@ namespace ManageAdministerExalt
                 nu_ex_value.Value = expense.Value;
                 tb_ex_attachment.Text = expense.Attachment;
 
-                btn_ex_cancel.Enabled = false;
-                btn_ex_save.Enabled = false;
+                setEditmode(false);
 
                 btn_ex_export.Enabled = true;
                 btn_ex_open_attachment.Enabled = true;
@@ -789,7 +920,7 @@ namespace ManageAdministerExalt
 
         private void btn_ex_open_attachment_Click(object sender, EventArgs e)
         {
-            string file = Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["expense"] + Path.DirectorySeparatorChar + expense.NiceID + Path.DirectorySeparatorChar + expense.Attachment;
+            string file = Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["expenses"] + Path.DirectorySeparatorChar + expense.NiceID + Path.DirectorySeparatorChar + expense.Attachment;
             Process.Start(file);
         }
 
@@ -820,80 +951,209 @@ namespace ManageAdministerExalt
 
         private void cb_jo_filter_years_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //refill jobs
+            if (!filterstart) fillJobs(true);
         }
 
         private void cb_jo_filter_months_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //refill jobs
+            if (!filterstart) fillJobs(true);
         }
 
         private void cb_jo_filter_customers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //refill jobs
-        }
-
-        private void lv_jo_jobs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //load main (data, status, btn_text, dates)
+            if (!filterstart) fillJobs(true);
         }
 
         private void dt_jo_jdate_ValueChanged(object sender, EventArgs e)
         {
-            //activate editmode
+            if (tabs.SelectedTab == tabs.TabPages["tab_jobs"]) setEditmode(true);
         }
 
         private void cb_jo_worker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //activate editmode
+            if (tabs.SelectedTab == tabs.TabPages["tab_jobs"]) setEditmode(true);
         }
+
+        private void tb_jo_name_TextChanged(object sender, EventArgs e)
+        {
+            if (tabs.SelectedTab == tabs.TabPages["tab_jobs"]) setEditmode(true);
+        }
+
         private void btn_jo_services_edit_Click(object sender, EventArgs e)
         {
-            //open window (with id)
+            new job_edit_services(job).ShowDialog();
         }
 
         private void btn_jo_discounts_edit_Click(object sender, EventArgs e)
         {
-            //open window (with id)
+            new job_edit_discounts(job).ShowDialog();
         }
 
         private void btn_jo_edit_items_Click(object sender, EventArgs e)
         {
-            //open window (with id)
+            new job_edit_items(job).ShowDialog();
         }
         private void btn_jo_edit_address_Click(object sender, EventArgs e)
         {
-            //Open window
+            new job_edit_address(job).ShowDialog();
+        }
+
+        private void lv_jo_jobs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_jo_jobs.SelectedIndices.Count > 0)
+            {
+                job = new Job(db, lv_jo_jobs.SelectedItems[0].Text);
+
+
+                lb_jo_id.Text = job.NiceID;
+                lb_jo_customer_id.Text = job.Customer_ID;
+                tb_jo_name.Text = job.Name;
+                dt_jo_jdate.Value = job.Offer_Created;
+                lb_jo_services_sum.Text = job.ServiceCount;
+                lb_jo_discounts_sum.Text = job.DiscountCount;
+                lb_jo_items.Text = job.ItemCount;
+                foreach (object o in cb_jo_worker.Items)
+                {
+                    if (o is ComboBoxItem)
+                    {
+                        if (((ComboBoxItem)o).Value == job.Worker.ID)
+                        {
+                            cb_jo_worker.SelectedItem = o;
+                        }
+                    }
+                }
+                lb_jo_adress.Text = job.Address_Text;
+
+                //TODO: report
+
+                setEditmode(false);
+
+                btn_jo_openFolder.Enabled = true;
+                btn_jo_next.Enabled = true;
+                //TODO: Load Text for Btn_Next
+
+                btn_jo_discounts_edit.Enabled = true;
+                btn_jo_edit_address.Enabled = true;
+                btn_jo_edit_items.Enabled = true;
+                btn_jo_services_edit.Enabled = true;
+            }
         }
 
         private void btn_jo_cancel_Click(object sender, EventArgs e)
         {
-
+            lb_jo_id.Text = job.NiceID;
+            lb_jo_customer_id.Text = job.Customer_ID;
+            tb_jo_name.Text = job.Name;
+            dt_jo_jdate.Value = job.Offer_Created;
+            lb_jo_services_sum.Text = job.ServiceCount;
+            lb_jo_discounts_sum.Text = job.DiscountCount;
+            lb_jo_items.Text = job.ItemCount;
+            if (job.Worker.Name != "")
+            {
+                foreach (object o in cb_jo_worker.Items)
+                {
+                    if (o is ComboBoxItem)
+                    {
+                        if (((ComboBoxItem)o).Value == job.Worker.ID)
+                        {
+                            cb_jo_worker.SelectedItem = o;
+                        }
+                    }
+                }
+            }
+            else cb_jo_worker.SelectedIndex = -1;
+            lb_jo_adress.Text = job.Address_Text;
+            setEditmode(false);
         }
 
         private void btn_jo_save_Click(object sender, EventArgs e)
         {
+            job.Name = tb_jo_name.Text;
+            job.Offer_Created = dt_jo_jdate.Value;
+            job.setWorker(((ComboBoxItem)cb_jo_worker.SelectedItem).Value);
+            if (!job.Save())
+            {
+                MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Auftrag " + job.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            setEditmode(false);
+            int sele = -1;
+            if (lv_ex_expenses.SelectedIndices.Count > 0)
+            {
+                sele = lv_jo_jobs.SelectedIndices[0];
+            }
+            fillJobs(true);
+            if (sele > 0)
+            {
+                lv_jo_jobs.Items[sele].Selected = true;
+            }
+            btn_jo_discounts_edit.Enabled = true;
+            btn_jo_edit_address.Enabled = true;
+            btn_jo_edit_items.Enabled = true;
+            btn_jo_services_edit.Enabled = true;
+        }
+
+        private void btn_jo_next_Click(object sender, EventArgs e)
+        {
+            //TODO: Next (filled by Status!)
 
         }
 
         private void cmd_jo_jobs_Opening(object sender, CancelEventArgs e)
         {
-
+            löschenToolStripMenuItem3.Enabled = lv_jo_jobs.SelectedIndices.Count > 0;
         }
 
         private void neuToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            //jobs (open window and ask for customer)
+            //jobs
+            job_new_get_Customer j = new job_new_get_Customer();
+            if (j.ShowDialog() == DialogResult.OK)
+            {
+                lb_jo_id.Text = "";
+                tb_jo_name.Text = "";
+                dt_jo_jdate.Value = DateTime.Now;
+                lb_jo_services_sum.Text = "";
+                lb_jo_discounts_sum.Text = "";
+                lb_jo_items.Text = "";
+                cb_jo_worker.SelectedIndex = -1;
+                lb_jo_adress.Text = "";
+
+                job = new Job(db);
+                job.setCustomer(j.customer_id);
+                lb_jo_customer_id.Text = job.Customer_ID;
+                btn_jo_save.Enabled = true;
+                tb_jo_name.Focus();
+
+                btn_jo_discounts_edit.Enabled = false;
+                btn_jo_edit_address.Enabled = false;
+                btn_jo_edit_items.Enabled = false;
+                btn_jo_services_edit.Enabled = false;
+            }
         }
 
         private void löschenToolStripMenuItem3_Click(object sender, EventArgs e)
         {
             //jobs
+            if (MessageBox.Show("Wollen Sie wirklick " + job.NiceID + " (" + job.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                job.Delete();
+                fillJobs(true);
+                lv_jo_jobs.SelectedIndices.Clear();
+            }
+        }
+
+        private void btn_jo_export_all_Click(object sender, EventArgs e)
+        {
+            new Export(job, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void btn_jo_openFolder_Click(object sender, EventArgs e)
         {
-
+            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["jobs"] + Path.DirectorySeparatorChar + job.NiceID);
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -933,8 +1193,7 @@ namespace ManageAdministerExalt
                 lb_wo_reports_salary_sum.Text = wo_rep["salary_sum"];
                 lb_wo_report_value.Text = wo_rep["value"];
 
-                btn_wo_cancel.Enabled = false;
-                btn_wo_save.Enabled = false;
+                setEditmode(false);
 
                 btn_wo_export.Enabled = true;
                 btn_wo_openfolder.Enabled = true;
@@ -996,8 +1255,7 @@ namespace ManageAdministerExalt
 
         private void wo_changed(object sender, EventArgs e)
         {
-            btn_wo_cancel.Enabled = true;
-            btn_wo_save.Enabled = true;
+            setEditmode(true);
         }
 
         private void btn_wo_cancel_Click(object sender, EventArgs e)
@@ -1013,8 +1271,7 @@ namespace ManageAdministerExalt
             tb_wo_phone.Text = worker.Phone;
             tb_wo_mail.Text = worker.EMail;
             tb_wo_mobile.Text = worker.Mobile;
-            btn_wo_cancel.Enabled = false;
-            btn_wo_save.Enabled = false;
+            setEditmode(false);
         }
 
         private void btn_wo_save_Click(object sender, EventArgs e)
@@ -1038,8 +1295,7 @@ namespace ManageAdministerExalt
             {
                 MessageBox.Show("Mitarbeiter " + worker.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            btn_wo_cancel.Enabled = false;
-            btn_wo_save.Enabled = false;
+            setEditmode(false);
             int sele = -1;
             if (lv_wo_worker.SelectedIndices.Count > 0)
             {
@@ -1059,7 +1315,7 @@ namespace ManageAdministerExalt
 
         private void btn_wo_openfolder_Click(object sender, EventArgs e)
         {
-            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["worker"] + Path.DirectorySeparatorChar + worker.NiceID);
+            Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["workers"] + Path.DirectorySeparatorChar + worker.NiceID);
         }
 
         private void lv_it_items_SelectedIndexChanged(object sender, EventArgs e)
@@ -1081,8 +1337,7 @@ namespace ManageAdministerExalt
             lb_it_count.Text = item.Count.ToString();
             lb_it_sum.Text = item.Value_Sum.ToString("C");
 
-            btn_it_cancel.Enabled = false;
-            btn_it_save.Enabled = false;
+            setEditmode(false);
 
             grid_it_log.DataSource = item.Log;
         }
@@ -1138,8 +1393,7 @@ namespace ManageAdministerExalt
             {
                 MessageBox.Show("Gegenstand " + item.Name + " gespeichert.", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            btn_it_cancel.Enabled = false;
-            btn_it_save.Enabled = false;
+            setEditmode(false);
             int sele = -1;
             if (lv_it_items.SelectedIndices.Count > 0)
             {
@@ -1156,14 +1410,12 @@ namespace ManageAdministerExalt
         {
             tb_it_name.Text = item.Name;
             nu_it_value.Value = item.Value;
-            btn_it_cancel.Enabled = false;
-            btn_it_save.Enabled = false;
+            setEditmode(false);
         }
 
         private void tb_it_changed(object sender, EventArgs e)
         {
-            btn_it_cancel.Enabled = true;
-            btn_it_save.Enabled = true;
+            setEditmode(true);
         }
 
         private void neuToolStripMenuItem5_Click(object sender, EventArgs e)
@@ -1179,8 +1431,5 @@ namespace ManageAdministerExalt
             tb_it_name.Focus();
         }
 
-
-        
-       
     }
 }

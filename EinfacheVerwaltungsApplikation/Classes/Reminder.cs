@@ -19,7 +19,7 @@ namespace ManageAdministerExalt.Classes
         private decimal value;
         public decimal Value { get { return value; } set { this.value = value; } }
 
-        public static Dictionary<int, string> Types //TODO into table
+        public static Dictionary<int, string> Types
         {
             get
             {

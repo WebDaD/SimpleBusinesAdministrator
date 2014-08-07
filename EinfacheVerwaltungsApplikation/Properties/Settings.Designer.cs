@@ -111,7 +111,7 @@ namespace ManageAdministerExalt.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("workers|mitarbeiter;customers|kunde;discounts|rabatt;expenses|ausgabe;items|Gegen" +
             "stand;jobs|auftrag;paymentconditions|zahlungsbedingung;reminders|Mahnung;service" +
-            "s|leistung;terms|agb;")]
+            "s|leistung;terms|agb;bills|rechnungen;")]
         public string paths {
             get {
                 return ((string)(this["paths"]));
@@ -154,6 +154,42 @@ namespace ManageAdministerExalt.Properties {
             }
             set {
                 this["active_tabs"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool timer {
+            get {
+                return ((bool)(this["timer"]));
+            }
+            set {
+                this["timer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        public int timer_interval {
+            get {
+                return ((int)(this["timer_interval"]));
+            }
+            set {
+                this["timer_interval"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool askforexit {
+            get {
+                return ((bool)(this["askforexit"]));
+            }
+            set {
+                this["askforexit"] = value;
             }
         }
     }

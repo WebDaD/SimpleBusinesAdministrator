@@ -200,5 +200,32 @@ namespace ManageAdministerExalt.Classes
 
             return r;
         }
+        public static bool Timer
+        {
+            get { return Properties.Settings.Default.timer; }
+            set
+            {
+                Properties.Settings.Default.timer = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        public static int TimerInterval
+        {
+            get { return Properties.Settings.Default.timer_interval; }
+            set
+            {
+                Properties.Settings.Default.timer_interval = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        public static bool AskForExit
+        {
+            get { return Properties.Settings.Default.askforexit; }
+            set
+            {
+                Properties.Settings.Default.askforexit = value;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }

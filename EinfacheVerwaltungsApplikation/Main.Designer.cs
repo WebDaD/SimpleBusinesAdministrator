@@ -327,6 +327,7 @@
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cms_it_items = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.neuToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.eingangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ausgangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
@@ -350,7 +351,10 @@
             this.nu_it_value = new System.Windows.Forms.NumericUpDown();
             this.lb_it_count = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
-            this.neuToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.label44 = new System.Windows.Forms.Label();
+            this.tb_jo_name = new System.Windows.Forms.TextBox();
+            this.btn_jo_export_all = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -1008,9 +1012,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 13);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 13);
+            this.label10.Size = new System.Drawing.Size(77, 13);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Gesamtwert";
+            this.label10.Text = "Gesamtgewinn";
             // 
             // lb_cu_aufträge
             // 
@@ -1033,9 +1037,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(3, 26);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(92, 13);
+            this.label13.Size = new System.Drawing.Size(106, 13);
             this.label13.TabIndex = 4;
-            this.label13.Text = "Durchschnittswert";
+            this.label13.Text = "Durchschnittsgewinn";
             // 
             // lb_cu_avg_money
             // 
@@ -1050,9 +1054,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(3, 39);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.Size = new System.Drawing.Size(133, 13);
             this.label11.TabIndex = 6;
-            this.label11.Text = "Offene Kosten";
+            this.label11.Text = "Offene Rechnungsbeträge";
             // 
             // lb_cu_open
             // 
@@ -1777,9 +1781,9 @@
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 3;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(571, 578);
             this.tableLayoutPanel14.TabIndex = 0;
             // 
@@ -1789,7 +1793,7 @@
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(565, 254);
+            this.groupBox11.Size = new System.Drawing.Size(565, 283);
             this.groupBox11.TabIndex = 0;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Daten";
@@ -1803,24 +1807,26 @@
             this.tableLayoutPanel15.Controls.Add(this.lb_jo_id, 1, 0);
             this.tableLayoutPanel15.Controls.Add(this.label38, 0, 1);
             this.tableLayoutPanel15.Controls.Add(this.lb_jo_customer_id, 1, 1);
-            this.tableLayoutPanel15.Controls.Add(this.label40, 0, 2);
-            this.tableLayoutPanel15.Controls.Add(this.dt_jo_jdate, 1, 2);
-            this.tableLayoutPanel15.Controls.Add(this.label41, 0, 3);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 3);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 8);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 8);
-            this.tableLayoutPanel15.Controls.Add(this.label43, 0, 4);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 4);
-            this.tableLayoutPanel15.Controls.Add(this.label51, 0, 5);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel26, 1, 5);
-            this.tableLayoutPanel15.Controls.Add(this.label53, 0, 6);
-            this.tableLayoutPanel15.Controls.Add(this.label71, 0, 7);
-            this.tableLayoutPanel15.Controls.Add(this.cb_jo_worker, 1, 6);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 1, 7);
+            this.tableLayoutPanel15.Controls.Add(this.label40, 0, 3);
+            this.tableLayoutPanel15.Controls.Add(this.dt_jo_jdate, 1, 3);
+            this.tableLayoutPanel15.Controls.Add(this.label41, 0, 4);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 4);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 9);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 9);
+            this.tableLayoutPanel15.Controls.Add(this.label43, 0, 5);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 5);
+            this.tableLayoutPanel15.Controls.Add(this.label51, 0, 6);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel26, 1, 6);
+            this.tableLayoutPanel15.Controls.Add(this.label53, 0, 7);
+            this.tableLayoutPanel15.Controls.Add(this.label71, 0, 8);
+            this.tableLayoutPanel15.Controls.Add(this.cb_jo_worker, 1, 7);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 1, 8);
+            this.tableLayoutPanel15.Controls.Add(this.label44, 0, 2);
+            this.tableLayoutPanel15.Controls.Add(this.tb_jo_name, 1, 2);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 9;
+            this.tableLayoutPanel15.RowCount = 10;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1830,7 +1836,8 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(559, 235);
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(559, 264);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // label36
@@ -1870,7 +1877,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(3, 40);
+            this.label40.Location = new System.Drawing.Point(3, 66);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(75, 13);
             this.label40.TabIndex = 4;
@@ -1879,7 +1886,7 @@
             // dt_jo_jdate
             // 
             this.dt_jo_jdate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dt_jo_jdate.Location = new System.Drawing.Point(282, 43);
+            this.dt_jo_jdate.Location = new System.Drawing.Point(282, 69);
             this.dt_jo_jdate.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dt_jo_jdate.Name = "dt_jo_jdate";
             this.dt_jo_jdate.Size = new System.Drawing.Size(274, 20);
@@ -1889,7 +1896,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(3, 66);
+            this.label41.Location = new System.Drawing.Point(3, 92);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(59, 13);
             this.label41.TabIndex = 6;
@@ -1903,7 +1910,7 @@
             this.tableLayoutPanel16.Controls.Add(this.lb_jo_services_sum, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.btn_jo_services_edit, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(279, 66);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(279, 92);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
@@ -1922,6 +1929,7 @@
             // btn_jo_services_edit
             // 
             this.btn_jo_services_edit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_services_edit.Enabled = false;
             this.btn_jo_services_edit.Location = new System.Drawing.Point(142, 2);
             this.btn_jo_services_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_services_edit.Name = "btn_jo_services_edit";
@@ -1934,7 +1942,7 @@
             // btn_jo_cancel
             // 
             this.btn_jo_cancel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 212);
+            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 241);
             this.btn_jo_cancel.Name = "btn_jo_cancel";
             this.btn_jo_cancel.Size = new System.Drawing.Size(273, 20);
             this.btn_jo_cancel.TabIndex = 8;
@@ -1945,7 +1953,7 @@
             // btn_jo_save
             // 
             this.btn_jo_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_save.Location = new System.Drawing.Point(282, 212);
+            this.btn_jo_save.Location = new System.Drawing.Point(282, 241);
             this.btn_jo_save.Name = "btn_jo_save";
             this.btn_jo_save.Size = new System.Drawing.Size(274, 20);
             this.btn_jo_save.TabIndex = 9;
@@ -1956,7 +1964,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(3, 90);
+            this.label43.Location = new System.Drawing.Point(3, 116);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(45, 13);
             this.label43.TabIndex = 10;
@@ -1970,7 +1978,7 @@
             this.tableLayoutPanel17.Controls.Add(this.lb_jo_discounts_sum, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.btn_jo_discounts_edit, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(279, 90);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(279, 116);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
@@ -1989,6 +1997,7 @@
             // btn_jo_discounts_edit
             // 
             this.btn_jo_discounts_edit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_discounts_edit.Enabled = false;
             this.btn_jo_discounts_edit.Location = new System.Drawing.Point(142, 2);
             this.btn_jo_discounts_edit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_discounts_edit.Name = "btn_jo_discounts_edit";
@@ -2000,7 +2009,7 @@
             // 
             // label51
             // 
-            this.label51.Location = new System.Drawing.Point(3, 114);
+            this.label51.Location = new System.Drawing.Point(3, 140);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(273, 13);
             this.label51.TabIndex = 12;
@@ -2014,7 +2023,7 @@
             this.tableLayoutPanel26.Controls.Add(this.btn_jo_edit_items, 1, 0);
             this.tableLayoutPanel26.Controls.Add(this.lb_jo_items, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 114);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 140);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
@@ -2025,6 +2034,7 @@
             // btn_jo_edit_items
             // 
             this.btn_jo_edit_items.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_edit_items.Enabled = false;
             this.btn_jo_edit_items.Location = new System.Drawing.Point(142, 2);
             this.btn_jo_edit_items.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_edit_items.Name = "btn_jo_edit_items";
@@ -2045,7 +2055,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(3, 138);
+            this.label53.Location = new System.Drawing.Point(3, 164);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(56, 13);
             this.label53.TabIndex = 14;
@@ -2054,7 +2064,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(3, 165);
+            this.label71.Location = new System.Drawing.Point(3, 191);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(83, 13);
             this.label71.TabIndex = 15;
@@ -2064,7 +2074,7 @@
             // 
             this.cb_jo_worker.Dock = System.Windows.Forms.DockStyle.Top;
             this.cb_jo_worker.FormattingEnabled = true;
-            this.cb_jo_worker.Location = new System.Drawing.Point(282, 141);
+            this.cb_jo_worker.Location = new System.Drawing.Point(282, 167);
             this.cb_jo_worker.Name = "cb_jo_worker";
             this.cb_jo_worker.Size = new System.Drawing.Size(274, 21);
             this.cb_jo_worker.TabIndex = 16;
@@ -2078,7 +2088,7 @@
             this.tableLayoutPanel18.Controls.Add(this.lb_jo_adress, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.btn_jo_edit_address, 1, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 168);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 194);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -2097,6 +2107,7 @@
             // btn_jo_edit_address
             // 
             this.btn_jo_edit_address.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_edit_address.Enabled = false;
             this.btn_jo_edit_address.Location = new System.Drawing.Point(139, 2);
             this.btn_jo_edit_address.Margin = new System.Windows.Forms.Padding(2);
             this.btn_jo_edit_address.Name = "btn_jo_edit_address";
@@ -2110,7 +2121,7 @@
             // 
             this.groupBox17.Controls.Add(this.tableLayoutPanel19);
             this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox17.Location = new System.Drawing.Point(3, 263);
+            this.groupBox17.Location = new System.Drawing.Point(3, 292);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(565, 51);
             this.groupBox17.TabIndex = 1;
@@ -2147,6 +2158,7 @@
             // btn_jo_next
             // 
             this.btn_jo_next.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_next.Enabled = false;
             this.btn_jo_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_jo_next.Location = new System.Drawing.Point(282, 3);
             this.btn_jo_next.Name = "btn_jo_next";
@@ -2154,14 +2166,15 @@
             this.btn_jo_next.TabIndex = 1;
             this.btn_jo_next.Text = "Angebot erstellen";
             this.btn_jo_next.UseVisualStyleBackColor = true;
+            this.btn_jo_next.Click += new System.EventHandler(this.btn_jo_next_Click);
             // 
             // groupBox18
             // 
             this.groupBox18.Controls.Add(this.tableLayoutPanel20);
             this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox18.Location = new System.Drawing.Point(3, 320);
+            this.groupBox18.Location = new System.Drawing.Point(3, 349);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(565, 255);
+            this.groupBox18.Size = new System.Drawing.Size(565, 226);
             this.groupBox18.TabIndex = 2;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Dati";
@@ -2185,7 +2198,8 @@
             this.tableLayoutPanel20.Controls.Add(this.lb_jo_payment_received, 1, 4);
             this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_sent, 1, 5);
             this.tableLayoutPanel20.Controls.Add(this.lb_jo_reminder_target, 1, 6);
-            this.tableLayoutPanel20.Controls.Add(this.btn_jo_openFolder, 0, 7);
+            this.tableLayoutPanel20.Controls.Add(this.btn_jo_openFolder, 1, 7);
+            this.tableLayoutPanel20.Controls.Add(this.btn_jo_export_all, 0, 7);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
@@ -2198,7 +2212,7 @@
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 236);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 207);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // label72
@@ -2294,7 +2308,7 @@
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(273, 13);
             this.label80.TabIndex = 8;
-            this.label80.Text = "Mahnungsfrist";
+            this.label80.Text = "Mahnungszieldatum";
             // 
             // lb_jo_bill_created
             // 
@@ -2343,11 +2357,10 @@
             // 
             // btn_jo_openFolder
             // 
-            this.tableLayoutPanel20.SetColumnSpan(this.btn_jo_openFolder, 2);
             this.btn_jo_openFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_openFolder.Location = new System.Drawing.Point(3, 210);
+            this.btn_jo_openFolder.Location = new System.Drawing.Point(282, 181);
             this.btn_jo_openFolder.Name = "btn_jo_openFolder";
-            this.btn_jo_openFolder.Size = new System.Drawing.Size(553, 23);
+            this.btn_jo_openFolder.Size = new System.Drawing.Size(274, 23);
             this.btn_jo_openFolder.TabIndex = 14;
             this.btn_jo_openFolder.Text = "Öffne Ordner";
             this.btn_jo_openFolder.UseVisualStyleBackColor = true;
@@ -3057,10 +3070,18 @@
             // 
             // grid_reports
             // 
+            this.grid_reports.AllowUserToAddRows = false;
+            this.grid_reports.AllowUserToDeleteRows = false;
+            this.grid_reports.AllowUserToOrderColumns = true;
+            this.grid_reports.AllowUserToResizeColumns = false;
+            this.grid_reports.AllowUserToResizeRows = false;
+            this.grid_reports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_reports.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grid_reports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_reports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_reports.Location = new System.Drawing.Point(0, 0);
             this.grid_reports.Name = "grid_reports";
+            this.grid_reports.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grid_reports.Size = new System.Drawing.Size(618, 542);
             this.grid_reports.TabIndex = 0;
             // 
@@ -3778,17 +3799,24 @@
             this.cms_it_items.Size = new System.Drawing.Size(122, 70);
             this.cms_it_items.Opening += new System.ComponentModel.CancelEventHandler(this.cms_it_items_Opening);
             // 
+            // neuToolStripMenuItem5
+            // 
+            this.neuToolStripMenuItem5.Name = "neuToolStripMenuItem5";
+            this.neuToolStripMenuItem5.Size = new System.Drawing.Size(121, 22);
+            this.neuToolStripMenuItem5.Text = "Neu";
+            this.neuToolStripMenuItem5.Click += new System.EventHandler(this.neuToolStripMenuItem5_Click);
+            // 
             // eingangToolStripMenuItem
             // 
             this.eingangToolStripMenuItem.Name = "eingangToolStripMenuItem";
-            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eingangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.eingangToolStripMenuItem.Text = "Eingang";
             this.eingangToolStripMenuItem.Click += new System.EventHandler(this.eingangToolStripMenuItem_Click);
             // 
             // ausgangToolStripMenuItem
             // 
             this.ausgangToolStripMenuItem.Name = "ausgangToolStripMenuItem";
-            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ausgangToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.ausgangToolStripMenuItem.Text = "Ausgang";
             this.ausgangToolStripMenuItem.Click += new System.EventHandler(this.ausgangToolStripMenuItem_Click);
             // 
@@ -4052,12 +4080,41 @@
             // 
             this.ofd_ex_attachement.ReadOnlyChecked = true;
             // 
-            // neuToolStripMenuItem5
+            // timer
             // 
-            this.neuToolStripMenuItem5.Name = "neuToolStripMenuItem5";
-            this.neuToolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem5.Text = "Neu";
-            this.neuToolStripMenuItem5.Click += new System.EventHandler(this.neuToolStripMenuItem5_Click);
+            this.timer.Interval = 300000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label44.Location = new System.Drawing.Point(3, 43);
+            this.label44.Margin = new System.Windows.Forms.Padding(3);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(273, 13);
+            this.label44.TabIndex = 18;
+            this.label44.Text = "Name";
+            // 
+            // tb_jo_name
+            // 
+            this.tb_jo_name.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_jo_name.Location = new System.Drawing.Point(282, 43);
+            this.tb_jo_name.Name = "tb_jo_name";
+            this.tb_jo_name.Size = new System.Drawing.Size(274, 20);
+            this.tb_jo_name.TabIndex = 19;
+            this.tb_jo_name.TextChanged += new System.EventHandler(this.tb_jo_name_TextChanged);
+            // 
+            // btn_jo_export_all
+            // 
+            this.btn_jo_export_all.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_jo_export_all.Location = new System.Drawing.Point(3, 181);
+            this.btn_jo_export_all.Name = "btn_jo_export_all";
+            this.btn_jo_export_all.Size = new System.Drawing.Size(273, 23);
+            this.btn_jo_export_all.TabIndex = 15;
+            this.btn_jo_export_all.Text = "Exportiere Alle";
+            this.btn_jo_export_all.UseVisualStyleBackColor = true;
+            this.btn_jo_export_all.Click += new System.EventHandler(this.btn_jo_export_all_Click);
             // 
             // Main
             // 
@@ -4543,5 +4600,9 @@
         private System.Windows.Forms.NumericUpDown nu_it_value;
         private System.Windows.Forms.Label lb_it_count;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem5;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox tb_jo_name;
+        private System.Windows.Forms.Button btn_jo_export_all;
     }
 }
