@@ -32,9 +32,11 @@ namespace ManageAdministerExalt
         private Dictionary<string, string> items;
         private Job job;
         private Dictionary<string, string> jobs;
+        private Report report;
+        private Dictionary<string, string> reports;
 
         private bool editmode;
-        private bool filterstart=true;
+        private bool filterstart = true;
 
         public Main()
         {
@@ -64,20 +66,21 @@ namespace ManageAdministerExalt
             List<TabPage> remove = new List<TabPage>();
             foreach (TabPage tp in tabs.TabPages)
             {
-                if(!Config.ActiveTabs.Contains(tp.Name)){
+                if (!Config.ActiveTabs.Contains(tp.Name))
+                {
                     remove.Add(tp);
                 }
             }
             foreach (TabPage t in remove)
             {
-                 tabs.TabPages.Remove(t);
+                tabs.TabPages.Remove(t);
             }
 
             editmode = false;
 
             if (Config.Timer)
             {
-                timer.Interval = Config.TimerInterval * 60 * 1000 ;
+                timer.Interval = Config.TimerInterval * 60 * 1000;
                 timer.Enabled = true;
                 timer.Start();
             }
@@ -109,7 +112,7 @@ namespace ManageAdministerExalt
             {
                 fillFilters();
                 fillLists();
-                
+
             }
             //TODO: backup
             checkOpenPoints();
@@ -117,7 +120,7 @@ namespace ManageAdministerExalt
 
         private void tabs_Deselecting(object sender, TabControlCancelEventArgs e)
         {
-            if (this.editmode) e.Cancel=true;
+            if (this.editmode) e.Cancel = true;
         }
 
         private void checkOpenPoints()
@@ -149,7 +152,7 @@ namespace ManageAdministerExalt
                     cb_ex_year.Items.Add(year);
                 }
             }
-            
+
 
             cb_jo_filter_months.Items.Add("Alle");
             List<string> jo_months = new Job(db).GetMonths();
@@ -160,9 +163,9 @@ namespace ManageAdministerExalt
                     cb_jo_filter_months.Items.Add(month);
                 }
             }
-            
 
-            cb_jo_filter_customers.Items.Add(new ComboBoxItem("0","Alle"));
+
+            cb_jo_filter_customers.Items.Add(new ComboBoxItem("0", "Alle"));
             List<ComboBoxItem> jo_customers = new Job(db).GetCustomers();
             if (jo_customers != null)
             {
@@ -176,6 +179,8 @@ namespace ManageAdministerExalt
             cb_jo_filter_customers.SelectedItem = cb_jo_filter_customers.Items[0];
             cb_jo_filter_months.SelectedItem = cb_jo_filter_months.Items[0];
             filterstart = false;
+
+            //TODO Reports (take jobs!)
         }
 
         private void fillLists()
@@ -187,6 +192,11 @@ namespace ManageAdministerExalt
             fillJobs(false);
             fillWorkers();
             fillItems();
+            fillReports();
+        }
+        private void fillReports()
+        {
+            //TODO: use static Report.Reports here
         }
 
         private void fillItems()
@@ -379,7 +389,7 @@ namespace ManageAdministerExalt
         /// <param name="e"></param>
         private void löschenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Wollen Sie wirklick den Kunden "+customer.NiceID+" ("+customer.Name+") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Wollen Sie wirklick den Kunden " + customer.NiceID + " (" + customer.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 customer.Delete();
                 fillCustomers();
@@ -500,7 +510,7 @@ namespace ManageAdministerExalt
                     Application.Exit();
                 }
             }
-            if(Config.AskForExit)
+            if (Config.AskForExit)
             {
 
                 if (MessageBox.Show("Wollen Sie wirklick beenden?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.Yes)
@@ -545,7 +555,7 @@ namespace ManageAdministerExalt
 
         private void btn_cu_export_Click(object sender, EventArgs e)
         {
-            new Export(customer,db, ExportCount.SINGLE).ShowDialog();
+            new Export(customer, db, ExportCount.SINGLE).ShowDialog();
         }
 
         private void btn_cu_export_all_Click(object sender, EventArgs e)
@@ -782,7 +792,7 @@ namespace ManageAdministerExalt
             if (lv_tc_terms.SelectedIndices.Count > 0)
             {
                 if (term.Ordering == 1) nachObenToolStripMenuItem.Enabled = false;
-                if (lv_tc_terms.SelectedIndices[0] == lv_tc_terms.Items.Count -1) nachUntenToolStripMenuItem.Enabled = false;
+                if (lv_tc_terms.SelectedIndices[0] == lv_tc_terms.Items.Count - 1) nachUntenToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -1203,7 +1213,7 @@ namespace ManageAdministerExalt
 
                 btn_wo_export.Enabled = true;
                 btn_wo_openfolder.Enabled = true;
- 
+
             }
         }
 
@@ -1282,8 +1292,8 @@ namespace ManageAdministerExalt
 
         private void btn_wo_save_Click(object sender, EventArgs e)
         {
-            worker.Name = tb_wo_name.Text ;
-            worker.DateOfBirth = dt_wo_dayofbirth.Value ;
+            worker.Name = tb_wo_name.Text;
+            worker.DateOfBirth = dt_wo_dayofbirth.Value;
             worker.WorksSince = dt_wo_workssince.Value;
             worker.Salary = nu_wo_salary.Value;
             worker.HoursPerWeek = nu_wo_hoursperweek.Value;
@@ -1369,14 +1379,14 @@ namespace ManageAdministerExalt
 
         private void eingangToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Items_Edit(db,true, item).ShowDialog();
+            new Items_Edit(db, true, item).ShowDialog();
             loadItem(item.ID);
 
         }
 
         private void ausgangToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Items_Edit(db,false, item).ShowDialog();
+            new Items_Edit(db, false, item).ShowDialog();
             loadItem(item.ID);
         }
 
@@ -1390,7 +1400,7 @@ namespace ManageAdministerExalt
         {
             item.Name = tb_it_name.Text;
             item.Value = nu_it_value.Value;
-          
+
             if (!item.Save())
             {
                 MessageBox.Show("Konnte nicht speichern...", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1435,6 +1445,22 @@ namespace ManageAdministerExalt
             item = new Item(db);
             btn_it_save.Enabled = true;
             tb_it_name.Focus();
+        }
+
+        private void lv_re_reports_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lv_re_reports.SelectedIndices.Count > 0)
+            {
+                report = Report.GetReport(db, Convert.ToInt32(lv_wo_worker.SelectedItems[0].Text));
+                grid_reports.DataSource = report.GetData();
+                grid_reports.Refresh();
+            }
+        }
+
+        private void cb_re_filter_year_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grid_reports.DataSource = report.ChangeYear(cb_re_filter_year.SelectedItem.ToString());
+            grid_reports.Refresh();
         }
 
     }

@@ -355,6 +355,9 @@
             this.label44 = new System.Windows.Forms.Label();
             this.tb_jo_name = new System.Windows.Forms.TextBox();
             this.btn_jo_export_all = new System.Windows.Forms.Button();
+            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
+            this.label46 = new System.Windows.Forms.Label();
+            this.cb_re_filter_year = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -481,6 +484,7 @@
             this.groupBox13.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_it_value)).BeginInit();
+            this.tableLayoutPanel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -3038,6 +3042,7 @@
             this.lv_re_reports.TabIndex = 0;
             this.lv_re_reports.UseCompatibleStateImageBehavior = false;
             this.lv_re_reports.View = System.Windows.Forms.View.Details;
+            this.lv_re_reports.SelectedIndexChanged += new System.EventHandler(this.lv_re_reports_SelectedIndexChanged);
             this.lv_re_reports.Resize += new System.EventHandler(this.lv_re_reports_Resize);
             // 
             // columnHeader3
@@ -3059,6 +3064,7 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.tableLayoutPanel29);
             this.splitContainer4.Panel1.Controls.Add(this.grid_reports);
             // 
             // splitContainer4.Panel2
@@ -4116,6 +4122,43 @@
             this.btn_jo_export_all.UseVisualStyleBackColor = true;
             this.btn_jo_export_all.Click += new System.EventHandler(this.btn_jo_export_all_Click);
             // 
+            // tableLayoutPanel29
+            // 
+            this.tableLayoutPanel29.ColumnCount = 2;
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel29.Controls.Add(this.label46, 0, 0);
+            this.tableLayoutPanel29.Controls.Add(this.cb_re_filter_year, 1, 0);
+            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
+            this.tableLayoutPanel29.RowCount = 1;
+            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(618, 30);
+            this.tableLayoutPanel29.TabIndex = 1;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label46.Location = new System.Drawing.Point(3, 3);
+            this.label46.Margin = new System.Windows.Forms.Padding(3);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(303, 13);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Jahr";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cb_re_filter_year
+            // 
+            this.cb_re_filter_year.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_re_filter_year.FormattingEnabled = true;
+            this.cb_re_filter_year.Location = new System.Drawing.Point(312, 3);
+            this.cb_re_filter_year.Name = "cb_re_filter_year";
+            this.cb_re_filter_year.Size = new System.Drawing.Size(303, 21);
+            this.cb_re_filter_year.TabIndex = 1;
+            this.cb_re_filter_year.SelectedIndexChanged += new System.EventHandler(this.cb_re_filter_year_SelectedIndexChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4271,6 +4314,8 @@
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_it_value)).EndInit();
+            this.tableLayoutPanel29.ResumeLayout(false);
+            this.tableLayoutPanel29.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4604,5 +4649,8 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox tb_jo_name;
         private System.Windows.Forms.Button btn_jo_export_all;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ComboBox cb_re_filter_year;
     }
 }

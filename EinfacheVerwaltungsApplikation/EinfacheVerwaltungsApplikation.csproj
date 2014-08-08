@@ -60,6 +60,8 @@
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\PaymentCondition.cs" />
     <Compile Include="Classes\Reminder.cs" />
+    <Compile Include="Classes\Report.cs" />
+    <Compile Include="Classes\Reports\Surplus.cs" />
     <Compile Include="Classes\Service.cs" />
     <Compile Include="Classes\Term.cs" />
     <Compile Include="Classes\Worker.cs" />
