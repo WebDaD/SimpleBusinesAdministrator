@@ -981,7 +981,13 @@ namespace ManageAdministerExalt
 
         private void btn_jo_services_edit_Click(object sender, EventArgs e)
         {
-            new job_edit_services(job).ShowDialog();
+            job_edit_services j = new job_edit_services(job.Services, job.NiceID);
+            if (j.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                job.Services = j.Services;
+                j.Dispose();
+                setEditmode(true);
+            }
         }
 
         private void btn_jo_discounts_edit_Click(object sender, EventArgs e)

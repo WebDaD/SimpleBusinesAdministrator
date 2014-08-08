@@ -169,7 +169,7 @@
             this.plus1EinheitToolStripMenuItem,
             this.minus1EinheitToolStripMenuItem});
             this.cms_Services.Name = "cms_Services";
-            this.cms_Services.Size = new System.Drawing.Size(156, 92);
+            this.cms_Services.Size = new System.Drawing.Size(156, 70);
             this.cms_Services.Opening += new System.ComponentModel.CancelEventHandler(this.cms_Services_Opening);
             // 
             // löschenToolStripMenuItem
@@ -208,6 +208,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.btn_save, 2);
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_save.Enabled = false;
             this.btn_save.Location = new System.Drawing.Point(175, 243);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(397, 35);

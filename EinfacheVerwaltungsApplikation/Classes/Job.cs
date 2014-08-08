@@ -5,6 +5,7 @@ using System.Text;
 using WebDaD.Toolkit.Export;
 using WebDaD.Toolkit.Database;
 using WebDaD.Toolkit.Helper;
+using System.IO;
 
 namespace ManageAdministerExalt.Classes
 {
@@ -25,13 +26,13 @@ namespace ManageAdministerExalt.Classes
         private Worker worker;
         private string address; //split: street_nr|plz|city OR "C" <- Kunde
 
-        public Dictionary<Service, int> Services { get { return services; } }
-        public Dictionary<Reminder, DateTime> Reminders { get { return reminders; } }
-        public List<Discount> Discounts { get { return discounts; } }
-        public Bill Bill { get { return bill; } }
-        public Dictionary<Item, int> Items { get { return items; } }
+        public Dictionary<Service, int> Services { get { return services; } set { this.services = value; } }
+        public Dictionary<Reminder, DateTime> Reminders { get { return reminders; } set { this.reminders = value; } }
+        public List<Discount> Discounts { get { return discounts; } set { this.discounts = value; } }
+        public Bill Bill { get { return bill; } set { this.bill = value; } }
+        public Dictionary<Item, int> Items { get { return items; } set { this.items = value; } }
         public JobStatus Status { get { return status; } set { this.status = value; } }
-        public DateTime Offer_Sent { get { return offer_sent; } }
+        public DateTime Offer_Sent { get { return offer_sent; } set { this.offer_sent = value; } }
         public DateTime Offer_Created { get { return offer_created; } set { this.offer_created = value; } }
         public Customer Customer { get { return customer; } }
         public Worker Worker { get { return worker; } }
@@ -264,6 +265,13 @@ namespace ManageAdministerExalt.Classes
             if (ok) ok = SaveDiscounts();
             if (ok) ok = SaveItems();
             if (ok) ok = SaveReminders();
+            if (ok) ok = this.bill.Save();
+            if (ok)
+            {
+                if (String.IsNullOrEmpty(base.ID)) base.ID = base.DB.GetLastInsertedID();
+                string target = base.Basepath + this.NiceID;
+                if (!Directory.Exists(target)) Directory.CreateDirectory(target);
+            }
             return ok;
         }
 
