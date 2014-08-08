@@ -358,6 +358,7 @@
             this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
             this.label46 = new System.Windows.Forms.Label();
             this.cb_re_filter_year = new System.Windows.Forms.ComboBox();
+            this.btn_jo_actions = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -2134,16 +2135,18 @@
             // 
             // tableLayoutPanel19
             // 
-            this.tableLayoutPanel19.ColumnCount = 2;
+            this.tableLayoutPanel19.ColumnCount = 3;
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel19.Controls.Add(this.lb_jo_status, 0, 0);
             this.tableLayoutPanel19.Controls.Add(this.btn_jo_next, 1, 0);
+            this.tableLayoutPanel19.Controls.Add(this.btn_jo_actions, 2, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(559, 32);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
@@ -2163,10 +2166,10 @@
             // 
             this.btn_jo_next.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_jo_next.Enabled = false;
-            this.btn_jo_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_jo_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_jo_next.Location = new System.Drawing.Point(282, 3);
             this.btn_jo_next.Name = "btn_jo_next";
-            this.btn_jo_next.Size = new System.Drawing.Size(274, 26);
+            this.btn_jo_next.Size = new System.Drawing.Size(133, 26);
             this.btn_jo_next.TabIndex = 1;
             this.btn_jo_next.Text = "Angebot erstellen";
             this.btn_jo_next.UseVisualStyleBackColor = true;
@@ -4160,6 +4163,20 @@
             this.cb_re_filter_year.TabIndex = 1;
             this.cb_re_filter_year.SelectedIndexChanged += new System.EventHandler(this.cb_re_filter_year_SelectedIndexChanged);
             // 
+            // btn_jo_actions
+            // 
+            this.btn_jo_actions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_actions.Enabled = false;
+            this.btn_jo_actions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_jo_actions.Location = new System.Drawing.Point(421, 3);
+            this.btn_jo_actions.Name = "btn_jo_actions";
+            this.btn_jo_actions.Size = new System.Drawing.Size(135, 26);
+            this.btn_jo_actions.TabIndex = 2;
+            this.btn_jo_actions.Text = "Text";
+            this.btn_jo_actions.UseVisualStyleBackColor = true;
+            this.btn_jo_actions.Visible = false;
+            this.btn_jo_actions.Click += new System.EventHandler(this.btn_jo_actions_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4653,5 +4670,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.ComboBox cb_re_filter_year;
+        private System.Windows.Forms.Button btn_jo_actions;
     }
 }

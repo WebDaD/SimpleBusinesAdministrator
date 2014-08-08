@@ -1046,8 +1046,9 @@ namespace ManageAdministerExalt
 
                 btn_jo_openFolder.Enabled = true;
                 btn_jo_next.Enabled = true;
+                btn_jo_actions.Enabled = true;
                 //TODO: Load Text for Btn_Next
-
+                //TODO: Load Text fot btn_Action (and make it visible if needed!)
                 btn_jo_discounts_edit.Enabled = true;
                 btn_jo_edit_address.Enabled = true;
                 btn_jo_edit_items.Enabled = true;
@@ -1116,6 +1117,11 @@ namespace ManageAdministerExalt
         {
             //TODO: Next (filled by Status!)
 
+        }
+
+        private void btn_jo_actions_Click(object sender, EventArgs e)
+        {
+            //TODO: will have additional actions: export confirmation of order, add reminder... and will be activated on certain Stati
         }
 
         private void cmd_jo_jobs_Opening(object sender, CancelEventArgs e)
