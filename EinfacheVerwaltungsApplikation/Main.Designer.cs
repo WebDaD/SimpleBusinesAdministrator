@@ -3100,6 +3100,7 @@
             this.btn_re_Export.TabIndex = 0;
             this.btn_re_Export.Text = "Export";
             this.btn_re_Export.UseVisualStyleBackColor = true;
+            this.btn_re_Export.Click += new System.EventHandler(this.btn_re_Export_Click);
             // 
             // tab_worker
             // 

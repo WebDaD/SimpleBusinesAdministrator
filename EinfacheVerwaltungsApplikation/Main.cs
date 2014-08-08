@@ -1463,5 +1463,10 @@ namespace ManageAdministerExalt
             grid_reports.Refresh();
         }
 
+        private void btn_re_Export_Click(object sender, EventArgs e)
+        {
+            new Export(report, db, ExportCount.SINGLE).ShowDialog();
+        }
+
     }
 }
