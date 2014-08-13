@@ -1023,7 +1023,15 @@ namespace ManageAdministerExalt
         }
         private void btn_jo_edit_address_Click(object sender, EventArgs e)
         {
-            new job_edit_address(job).ShowDialog();
+            job_edit_address j = new job_edit_address(job); 
+            if (j.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                job = j.Job;
+                lb_jo_adress.Text = job.Address_Text;
+                j.Dispose();
+                setEditmode(true);
+            }
+
         }
 
         private void lv_jo_jobs_SelectedIndexChanged(object sender, EventArgs e)

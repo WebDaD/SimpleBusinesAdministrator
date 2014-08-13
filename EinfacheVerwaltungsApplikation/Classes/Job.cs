@@ -45,40 +45,79 @@ namespace ManageAdministerExalt.Classes
                 else return "Eigen";
             }
         }
+
+        public void SetAddressToCustomer()
+        {
+            this.address = "C";
+        }
+
         public string Address_StreetNr
         {
             get
             {
-                return address.Split('|')[0];
+                if (this.address.Contains('|'))
+                {
+                    return address.Split('|')[0];
+                }
+                else return "";
             }
             set
             {
-                string[] ht = address.Split('|');
-                address = value + "|" + ht[1] + "|" + ht[2];
+                if (this.address.Contains('|'))
+                {
+                    string[] ht = address.Split('|');
+                    address = value + "|" + ht[1] + "|" + ht[2];
+                }
+                else
+                {
+                    address = value + "| | ";
+                }
             }
         }
         public string Address_PLZ
         {
             get
             {
-                return address.Split('|')[1];
+                if (this.address.Contains('|'))
+                {
+                    return address.Split('|')[1];
+                }
+                else return "";
             }
             set
             {
-                string[] ht = address.Split('|');
-                address = ht[0] + "|" + value + "|" + ht[2];
+                if (this.address.Contains('|'))
+                {
+                    string[] ht = address.Split('|');
+                    address = ht[0] + "|" + value + "|" + ht[2];
+                }
+                else
+                {
+                    address = " |" + value + "| ";
+                }
             }
         }
         public string Address_City
         {
             get
             {
-                return address.Split('|')[2];
+                if (this.address.Contains('|'))
+                {
+                    return address.Split('|')[2];
+                }
+                else return "";
             }
             set
             {
-                string[] ht = address.Split('|');
-                address = ht[0] + "|" + ht[1] + "|" + value;
+                if (this.address.Contains('|'))
+                {
+                    string[] ht = address.Split('|');
+                    address = ht[0] + "|" + ht[1] + "|" + value;
+                }
+                else
+                {
+                    address = " | |" + value;
+                }
             }
         }
 
@@ -167,7 +206,7 @@ namespace ManageAdministerExalt.Classes
             }
             else
             {
-                Result d = base.DB.getRow(base.Tablename, new string[] { "name","address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created" }, "`id`='" + id + "'", "", 1);
+                Result d = base.DB.getRow(base.Tablename, new string[] { "name", "address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created" }, "`id`='" + id + "'", "", 1);
                 base.Name = d.FirstRow["name"];
                 this.status = (JobStatus)Enum.Parse(typeof(JobStatus), d.FirstRow["jstatus"]);
                 this.offer_sent = DateTime.Parse(d.FirstRow["jdate_sent"]);
@@ -422,7 +461,7 @@ namespace ManageAdministerExalt.Classes
             List<ComboBoxItem> r = new List<ComboBoxItem>();
             foreach (Row item in d.Rows)
             {
-                r.Add(new ComboBoxItem(item.Cells["customer_id"],new Customer(base.DB, item.Cells["customer_id"]).Name));
+                r.Add(new ComboBoxItem(item.Cells["customer_id"], new Customer(base.DB, item.Cells["customer_id"]).Name));
             }
 
             r = r.Distinct<ComboBoxItem>().ToList<ComboBoxItem>();
@@ -432,13 +471,13 @@ namespace ManageAdministerExalt.Classes
         }
         internal List<ComboBoxItem> GetWorkers()
         {
-            Result d = base.DB.getRow("workers", new string[] { "id","name" }, "`active`='1'");
+            Result d = base.DB.getRow("workers", new string[] { "id", "name" }, "`active`='1'");
             if (d.RowCount < 1) return null;
 
             List<ComboBoxItem> r = new List<ComboBoxItem>();
             foreach (Row item in d.Rows)
             {
-                r.Add(new ComboBoxItem(item.Cells["id"],item.Cells["name"]));
+                r.Add(new ComboBoxItem(item.Cells["id"], item.Cells["name"]));
             }
 
             r = r.Distinct<ComboBoxItem>().ToList<ComboBoxItem>();
@@ -449,13 +488,13 @@ namespace ManageAdministerExalt.Classes
 
         public override Dictionary<string, string> GetIDList()
         {
-            Result d = base.DB.getRow(base.Tablename, new string[] { "id", "jdate_created","customer_id" }, "`active`='1'");
+            Result d = base.DB.getRow(base.Tablename, new string[] { "id", "jdate_created", "customer_id" }, "`active`='1'");
             if (d.RowCount < 1) return null;
 
             Dictionary<string, string> r = new Dictionary<string, string>();
             foreach (Row item in d.Rows)
             {
-                r.Add(item.Cells["id"], item.Cells["jdate_created"] + "|" + Config.CreateNiceID(Config.IDFormating["customers"],item.Cells["customer_id"]));
+                r.Add(item.Cells["id"], item.Cells["jdate_created"] + "|" + Config.CreateNiceID(Config.IDFormating["customers"], item.Cells["customer_id"]));
             }
 
             if (r.Count > 0) return r;
