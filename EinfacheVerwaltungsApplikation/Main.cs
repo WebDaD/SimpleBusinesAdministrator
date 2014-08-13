@@ -1486,5 +1486,15 @@ namespace ManageAdministerExalt
             new Export(report, db, ExportCount.SINGLE).ShowDialog();
         }
 
+        private void überToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new about_us("Über SimBa", "http://www.webdad.eu/").ShowDialog();//TODO: Change to real Link
+        }
+
+        private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: Show Help?
+        }
+
     }
 }

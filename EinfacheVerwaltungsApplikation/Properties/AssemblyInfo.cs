@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
-[assembly: AssemblyTitle("EinfacheVerwaltungsApplikation")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("SimBA")]
+[assembly: AssemblyDescription("A Simple Busines Administrator")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("EinfacheVerwaltungsApplikation")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("WebDaD.eu")]
+[assembly: AssemblyProduct("SimBA")]
+[assembly: AssemblyCopyright("Copyright © WebDaD.eu 2014")]
+[assembly: AssemblyTrademark("WebDaD Tools")]
 [assembly: AssemblyCulture("")]
 
 // Durch Festlegen von ComVisible auf "false" werden die Typen in dieser Assembly unsichtbar 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2")]
-[assembly: AssemblyFileVersion("0.2")]
+[assembly: AssemblyVersion("0.5")]
+[assembly: AssemblyFileVersion("0.5")]
