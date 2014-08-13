@@ -46,10 +46,10 @@ namespace ManageAdministerExalt.Classes
             }
             else
             {
-                Result d = base.DB.getRow(base.Tablename, new string[] { "name", "dtype", "dvalue" }, "`id`='" + id + "'", "", 1);
+                Result d = base.DB.getRow(base.Tablename, new string[] { "name", "type", "value" }, "`id`='" + id + "'", "", 1);
                 base.Name = d.FirstRow["name"];
-                this.value = Decimal.Parse(d.FirstRow["dvalue"]);
-                this.type = Convert.ToInt32(d.FirstRow["dvalue"]);
+                this.value = Decimal.Parse(d.FirstRow["value"]);
+                this.type = Convert.ToInt32(d.FirstRow["type"]);
             }
 
         }

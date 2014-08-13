@@ -1017,7 +1017,7 @@ namespace ManageAdministerExalt
             job_edit_discounts j = new job_edit_discounts(job.Discounts, job.NiceID, this.db);
             if (j.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                job.Services = j.Discounts;
+                job.Discounts = j.Discounts;
                 lb_jo_discounts_sum.Text = job.DiscountCount;
                 j.Dispose();
                 setEditmode(true);

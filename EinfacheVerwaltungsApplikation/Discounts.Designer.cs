@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_new = new System.Windows.Forms.Button();
             this.lv_discounts = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,7 +49,6 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_exit = new System.Windows.Forms.Button();
-            this.btn_new = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,6 +76,17 @@
             this.splitContainer1.SplitterDistance = 201;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btn_new
+            // 
+            this.btn_new.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_new.Location = new System.Drawing.Point(0, 195);
+            this.btn_new.Name = "btn_new";
+            this.btn_new.Size = new System.Drawing.Size(201, 40);
+            this.btn_new.TabIndex = 1;
+            this.btn_new.Text = "Neu";
+            this.btn_new.UseVisualStyleBackColor = true;
+            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
+            // 
             // lv_discounts
             // 
             this.lv_discounts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -85,6 +96,7 @@
             this.columnHeader1,
             this.columnHeader2});
             this.lv_discounts.ContextMenuStrip = this.cms_discounts;
+            this.lv_discounts.FullRowSelect = true;
             this.lv_discounts.GridLines = true;
             this.lv_discounts.Location = new System.Drawing.Point(0, 0);
             this.lv_discounts.Name = "lv_discounts";
@@ -262,17 +274,6 @@
             this.btn_exit.Text = "Schließen";
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
-            // btn_new
-            // 
-            this.btn_new.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_new.Location = new System.Drawing.Point(0, 195);
-            this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(201, 40);
-            this.btn_new.TabIndex = 1;
-            this.btn_new.Text = "Neu";
-            this.btn_new.UseVisualStyleBackColor = true;
-            this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
             // Discounts
             // 

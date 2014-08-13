@@ -21,8 +21,6 @@ namespace ManageAdministerExalt
 
         public Dictionary<Service, int> Services { get { return this.services; } }
 
-
-
         private bool changes;
 
         public job_edit_services(Dictionary<Service,int> services, string jobid, Database db)
@@ -63,9 +61,11 @@ namespace ManageAdministerExalt
                 r.Add((Service)item);
             }
 
+            
+
             foreach (KeyValuePair<Service,int> item in this.services)
             {
-                r.Remove(item.Key);
+                r.RemoveAll(x => x.ID == item.Key.ID);
             }
             return r;
         }

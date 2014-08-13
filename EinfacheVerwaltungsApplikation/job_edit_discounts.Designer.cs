@@ -125,6 +125,7 @@
             // btn_save
             // 
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_save.Enabled = false;
             this.btn_save.Location = new System.Drawing.Point(359, 322);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(174, 33);
