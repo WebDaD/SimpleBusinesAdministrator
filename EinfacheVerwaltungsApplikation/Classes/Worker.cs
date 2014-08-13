@@ -47,8 +47,8 @@ namespace ManageAdministerExalt.Classes
         {
 
             Dictionary<string, string> r = base.FieldSet();
-            r.Add("dateofbirth", this.dateofbirth.ToString("yyyy-MM-dd HH:mm:ss"));
-            r.Add("works_since", this.works_since.ToString("yyyy-MM-dd HH:mm:ss"));
+            r.Add("dateofbirth", this.dateofbirth.ToString("yyyy-MM-dd"));
+            r.Add("works_since", this.works_since.ToString("yyyy-MM-dd"));
             r.Add("salary", this.salary.ToString());
             r.Add("hoursperweek", this.hoursperweek.ToString());
             r.Add("streetnr", this.streetnr);

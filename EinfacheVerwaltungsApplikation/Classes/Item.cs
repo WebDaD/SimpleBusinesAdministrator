@@ -79,7 +79,7 @@ namespace ManageAdministerExalt.Classes
         {
             Dictionary<string, string> fs = new Dictionary<string, string>();
             fs.Add("item_id", base.ID);
-            fs.Add("log_date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            fs.Add("log_date", DateTime.Now.ToString("yyyy-MM-dd"));
             fs.Add("change_value", count.ToString());
             return base.DB.Insert("item_log", fs);
         }

@@ -125,13 +125,7 @@ namespace ManageAdministerExalt.Classes
             return new Customer(db, id);
         }
 
-        public Dictionary<string, string> CreateReport()
-        {
-            Dictionary<string, string> r = new Dictionary<string, string>();
-
-            //TODO: Write some Reports ( see main mask)
-            return r;
-        }
+       //Report Properties
 
 
 

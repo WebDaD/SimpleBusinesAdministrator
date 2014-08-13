@@ -90,8 +90,8 @@ namespace ManageAdministerExalt.Classes
             r.Remove("name");
             r.Add("taxes", (this.taxes?"1":"0"));
             r.Add("job_id", this.job_id);
-            r.Add("bdate_received", this.payment_received.ToString("yyyy-MM-dd HH:mm:ss"));
-            r.Add("bdate_sent", this.bill_sent.ToString("yyyy-MM-dd HH:mm:ss"));
+            r.Add("bdate_received", this.payment_received.ToString("yyyy-MM-dd"));
+            r.Add("bdate_sent", this.bill_sent.ToString("yyyy-MM-dd"));
             return r;
         }
 

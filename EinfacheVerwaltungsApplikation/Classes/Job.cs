@@ -250,8 +250,8 @@ namespace ManageAdministerExalt.Classes
         {
             Dictionary<string, string> r = base.FieldSet();
             r.Add("address", this.address);
-            r.Add("jdate_sent", this.offer_sent.ToString("yyyy-MM-dd HH:mm:ss"));
-            r.Add("jdate_created", this.offer_created.ToString("yyyy-MM-dd HH:mm:ss"));
+            r.Add("jdate_sent", this.offer_sent.ToString("yyyy-MM-dd"));
+            r.Add("jdate_created", this.offer_created.ToString("yyyy-MM-dd"));
             r.Add("worker_id", this.worker.ID.ToString());
             r.Add("jstatus", this.status.ToString());
             r.Add("customer_id", this.customer.ID.ToString());
@@ -355,7 +355,7 @@ namespace ManageAdministerExalt.Classes
                 Dictionary<string, string> fs = new Dictionary<string, string>();
                 fs.Add("job_id", base.ID);
                 fs.Add("reminder_id", item.Key.ID);
-                fs.Add("rdate_sent", item.Key.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+                fs.Add("rdate_sent", item.Key.Value.ToString("yyyy-MM-dd"));
                 string check = base.DB.getValue("job_has_reminders", "id", "`job_id`='" + base.ID + "' AND `reminder_id`='" + item.Key.ID + "'");
                 if (String.IsNullOrEmpty(check))
                 {

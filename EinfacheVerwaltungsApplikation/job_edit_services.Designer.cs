@@ -75,15 +75,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(659, 306);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(824, 323);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btn_plus
             // 
             this.btn_plus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_plus.Location = new System.Drawing.Point(594, 3);
+            this.btn_plus.Location = new System.Drawing.Point(744, 3);
             this.btn_plus.Name = "btn_plus";
-            this.btn_plus.Size = new System.Drawing.Size(62, 60);
+            this.btn_plus.Size = new System.Drawing.Size(77, 64);
             this.btn_plus.TabIndex = 0;
             this.btn_plus.Text = "+";
             this.btn_plus.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             // btn_minus
             // 
             this.btn_minus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_minus.Location = new System.Drawing.Point(594, 69);
+            this.btn_minus.Location = new System.Drawing.Point(744, 73);
             this.btn_minus.Name = "btn_minus";
-            this.btn_minus.Size = new System.Drawing.Size(62, 60);
+            this.btn_minus.Size = new System.Drawing.Size(77, 64);
             this.btn_minus.TabIndex = 1;
             this.btn_minus.Text = "-";
             this.btn_minus.UseVisualStyleBackColor = true;
@@ -103,9 +103,9 @@
             // btn_add
             // 
             this.btn_add.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_add.Location = new System.Drawing.Point(200, 69);
+            this.btn_add.Location = new System.Drawing.Point(250, 73);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(59, 60);
+            this.btn_add.Size = new System.Drawing.Size(76, 64);
             this.btn_add.TabIndex = 2;
             this.btn_add.Text = ">>>";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -114,9 +114,9 @@
             // btn_remove
             // 
             this.btn_remove.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_remove.Location = new System.Drawing.Point(200, 135);
+            this.btn_remove.Location = new System.Drawing.Point(250, 143);
             this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(59, 60);
+            this.btn_remove.Size = new System.Drawing.Size(76, 64);
             this.btn_remove.TabIndex = 3;
             this.btn_remove.Text = "<<<";
             this.btn_remove.UseVisualStyleBackColor = true;
@@ -130,11 +130,12 @@
             this.columnHeader3});
             this.lv_on_job.ContextMenuStrip = this.cms_Services;
             this.lv_on_job.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lv_on_job.FullRowSelect = true;
             this.lv_on_job.GridLines = true;
-            this.lv_on_job.Location = new System.Drawing.Point(265, 3);
+            this.lv_on_job.Location = new System.Drawing.Point(332, 3);
             this.lv_on_job.Name = "lv_on_job";
             this.tableLayoutPanel1.SetRowSpan(this.lv_on_job, 4);
-            this.lv_on_job.Size = new System.Drawing.Size(323, 258);
+            this.lv_on_job.Size = new System.Drawing.Size(406, 274);
             this.lv_on_job.TabIndex = 5;
             this.lv_on_job.UseCompatibleStateImageBehavior = false;
             this.lv_on_job.View = System.Windows.Forms.View.Details;
@@ -143,12 +144,11 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 26;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 242;
+            this.columnHeader2.Width = 240;
             // 
             // columnHeader3
             // 
@@ -188,9 +188,9 @@
             // btn_cancel
             // 
             this.btn_cancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_cancel.Location = new System.Drawing.Point(3, 267);
+            this.btn_cancel.Location = new System.Drawing.Point(3, 283);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(191, 36);
+            this.btn_cancel.Size = new System.Drawing.Size(241, 37);
             this.btn_cancel.TabIndex = 6;
             this.btn_cancel.Text = "Abbrechen";
             this.btn_cancel.UseVisualStyleBackColor = true;
@@ -201,9 +201,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.btn_save, 2);
             this.btn_save.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_save.Enabled = false;
-            this.btn_save.Location = new System.Drawing.Point(265, 267);
+            this.btn_save.Location = new System.Drawing.Point(332, 283);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(391, 36);
+            this.btn_save.Size = new System.Drawing.Size(489, 37);
             this.btn_save.TabIndex = 7;
             this.btn_save.Text = "Speichern und Schließen";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@
             this.lv_avaiable.Location = new System.Drawing.Point(3, 3);
             this.lv_avaiable.Name = "lv_avaiable";
             this.tableLayoutPanel1.SetRowSpan(this.lv_avaiable, 4);
-            this.lv_avaiable.Size = new System.Drawing.Size(191, 258);
+            this.lv_avaiable.Size = new System.Drawing.Size(241, 274);
             this.lv_avaiable.TabIndex = 8;
             this.lv_avaiable.UseCompatibleStateImageBehavior = false;
             this.lv_avaiable.View = System.Windows.Forms.View.Details;
@@ -229,22 +229,27 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "ID";
-            this.columnHeader4.Width = 31;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Name";
-            this.columnHeader5.Width = 134;
+            this.columnHeader5.Width = 140;
             // 
             // job_edit_services
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 306);
+            this.ClientSize = new System.Drawing.Size(824, 323);
+            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(591, 319);
             this.Name = "job_edit_services";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "job_edit_services";
+            this.Load += new System.EventHandler(this.job_edit_services_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.cms_Services.ResumeLayout(false);
             this.ResumeLayout(false);

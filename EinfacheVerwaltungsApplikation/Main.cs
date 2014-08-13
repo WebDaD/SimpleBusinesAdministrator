@@ -1002,10 +1002,11 @@ namespace ManageAdministerExalt
 
         private void btn_jo_services_edit_Click(object sender, EventArgs e)
         {
-            job_edit_services j = new job_edit_services(job.Services, job.NiceID);
+            job_edit_services j = new job_edit_services(job.Services, job.NiceID, this.db);
             if (j.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 job.Services = j.Services;
+                lb_jo_services_sum.Text = job.ServiceCount;
                 j.Dispose();
                 setEditmode(true);
             }
@@ -1219,10 +1220,10 @@ namespace ManageAdministerExalt
                 tb_wo_mobile.Text = worker.Mobile;
 
                 lb_wo_report_jobs.Text = worker.R_Jobs.ToString();
-                lb_wo_report_job_avg.Text = worker.R_Jobs_Avg.ToString();
-                lb_wo_report_job_sum.Text = worker.R_Jobs_Sum.ToString();
-                lb_wo_report_work_months.Text = worker.R_Work_Months.ToString();
-                lb_wo_reports_salary_sum.Text = worker.R_Salary_Sum.ToString();
+                lb_wo_report_job_avg.Text = worker.R_Jobs_Avg.ToString("C");
+                lb_wo_report_job_sum.Text = worker.R_Jobs_Sum.ToString("C");
+                lb_wo_report_work_months.Text = worker.R_Work_Months.ToString() +" "+ ((worker.R_Work_Months>1)?"Monaten":"Monat");
+                lb_wo_reports_salary_sum.Text = worker.R_Salary_Sum.ToString("C");
                 lb_wo_report_value.Text = worker.R_Value.ToString();
 
                 setEditmode(false);

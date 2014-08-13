@@ -41,7 +41,7 @@ namespace ManageAdministerExalt.Classes
         public override Dictionary<string, string> FieldSet()
         {
             Dictionary<string, string> r = base.FieldSet();
-            r.Add("edate", this.edate.ToString("yyyy-MM-dd HH:mm:ss"));
+            r.Add("edate", this.edate.ToString("yyyy-MM-dd"));
             r.Add("value", this.value.ToString());
             r.Add("attachment", this.attachment);
             return r;
@@ -61,7 +61,7 @@ namespace ManageAdministerExalt.Classes
                 Result d = base.DB.getRow(base.Tablename, new string[] { "name", "edate", "value", "attachment" }, "`id`='" + id + "'", "", 1);
                 base.Name = d.FirstRow["name"];
                 this.edate = DateTime.Parse(d.FirstRow["edate"]);
-                this.value = Decimal.Parse(d.FirstRow["dvalue"]);
+                this.value = Decimal.Parse(d.FirstRow["value"]);
                 this.attachment = d.FirstRow["attachment"];
             }
         }
