@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -359,6 +359,14 @@
             this.lb_it_count = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kundenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leistungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aufträgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aGBsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ausgabenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mitarbeiterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -493,6 +501,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
             this.datenToolStripMenuItem,
+            this.exportToolStripMenuItem,
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -576,14 +585,14 @@
             // hilfeToolStripMenuItem
             // 
             this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
-            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.hilfeToolStripMenuItem.Text = "Hilfe";
             this.hilfeToolStripMenuItem.Click += new System.EventHandler(this.hilfeToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.überToolStripMenuItem.Text = "Über ...";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
@@ -3161,8 +3170,8 @@
             this.grid_reports.AllowUserToDeleteRows = false;
             this.grid_reports.AllowUserToOrderColumns = true;
             this.grid_reports.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.grid_reports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -4182,6 +4191,69 @@
             this.timer.Interval = 300000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // exportToolStripMenuItem
+            // 
+            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kundenToolStripMenuItem,
+            this.leistungenToolStripMenuItem,
+            this.aufträgeToolStripMenuItem,
+            this.aGBsToolStripMenuItem,
+            this.ausgabenToolStripMenuItem,
+            this.mitarbeiterToolStripMenuItem,
+            this.lagerToolStripMenuItem});
+            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.exportToolStripMenuItem.Text = "Export";
+            // 
+            // kundenToolStripMenuItem
+            // 
+            this.kundenToolStripMenuItem.Name = "kundenToolStripMenuItem";
+            this.kundenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kundenToolStripMenuItem.Text = "Kunden";
+            this.kundenToolStripMenuItem.Click += new System.EventHandler(this.kundenToolStripMenuItem_Click);
+            // 
+            // leistungenToolStripMenuItem
+            // 
+            this.leistungenToolStripMenuItem.Name = "leistungenToolStripMenuItem";
+            this.leistungenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.leistungenToolStripMenuItem.Text = "Leistungen";
+            this.leistungenToolStripMenuItem.Click += new System.EventHandler(this.leistungenToolStripMenuItem_Click);
+            // 
+            // aufträgeToolStripMenuItem
+            // 
+            this.aufträgeToolStripMenuItem.Name = "aufträgeToolStripMenuItem";
+            this.aufträgeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aufträgeToolStripMenuItem.Text = "Aufträge";
+            this.aufträgeToolStripMenuItem.Click += new System.EventHandler(this.aufträgeToolStripMenuItem_Click);
+            // 
+            // aGBsToolStripMenuItem
+            // 
+            this.aGBsToolStripMenuItem.Name = "aGBsToolStripMenuItem";
+            this.aGBsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aGBsToolStripMenuItem.Text = "AGB\'s";
+            this.aGBsToolStripMenuItem.Click += new System.EventHandler(this.aGBsToolStripMenuItem_Click);
+            // 
+            // ausgabenToolStripMenuItem
+            // 
+            this.ausgabenToolStripMenuItem.Name = "ausgabenToolStripMenuItem";
+            this.ausgabenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ausgabenToolStripMenuItem.Text = "Ausgaben";
+            this.ausgabenToolStripMenuItem.Click += new System.EventHandler(this.ausgabenToolStripMenuItem_Click);
+            // 
+            // mitarbeiterToolStripMenuItem
+            // 
+            this.mitarbeiterToolStripMenuItem.Name = "mitarbeiterToolStripMenuItem";
+            this.mitarbeiterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mitarbeiterToolStripMenuItem.Text = "Mitarbeiter";
+            this.mitarbeiterToolStripMenuItem.Click += new System.EventHandler(this.mitarbeiterToolStripMenuItem_Click);
+            // 
+            // lagerToolStripMenuItem
+            // 
+            this.lagerToolStripMenuItem.Name = "lagerToolStripMenuItem";
+            this.lagerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lagerToolStripMenuItem.Text = "Lager";
+            this.lagerToolStripMenuItem.Click += new System.EventHandler(this.lagerToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4675,5 +4747,13 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.ComboBox cb_re_filter_year;
         private System.Windows.Forms.Button btn_jo_actions;
+        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kundenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leistungenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aufträgeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aGBsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ausgabenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mitarbeiterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lagerToolStripMenuItem;
     }
 }

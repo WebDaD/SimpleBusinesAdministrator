@@ -56,6 +56,7 @@ namespace ManageAdministerExalt
                 //TODO: ERROR
             }
             db.Open();
+            loadEmptyOjects();
             fillFilters();
             fillLists();
             this.Text = Config.Name + " :: " + "Hauptansicht";
@@ -86,6 +87,18 @@ namespace ManageAdministerExalt
                 timer.Start();
             }
             else { timer.Enabled = false; }
+        }
+
+        private void loadEmptyOjects()
+        {
+            customer = new Customer(this.db);
+            service = new Service(this.db);
+            term = new Term(this.db);
+            expense = new Expense(this.db);
+            worker = new Worker(this.db);
+            item = new Item(this.db);
+            job = new Job(this.db);
+            report = new Surplus(this.db);
         }
 
         private void setEditmode(bool edit)
@@ -133,7 +146,7 @@ namespace ManageAdministerExalt
         {
             //Expenses :: Year
             cb_ex_year.Items.Add("Alle");
-            List<string> years = new Expense(db).GetExpenseYears();
+            List<string> years = expense.GetExpenseYears();
             if (years != null)
             {
                 foreach (string year in years)
@@ -145,7 +158,7 @@ namespace ManageAdministerExalt
 
             //Jobs :: Years, Months, Customers
             cb_jo_filter_years.Items.Add("Alle");
-            List<string> jo_years = new Job(db).GetYears();
+            List<string> jo_years = job.GetYears();
             if (jo_years != null)
             {
                 foreach (string year in jo_years)
@@ -156,7 +169,7 @@ namespace ManageAdministerExalt
 
 
             cb_jo_filter_months.Items.Add("Alle");
-            List<string> jo_months = new Job(db).GetMonths();
+            List<string> jo_months = job.GetMonths();
             if (jo_months != null)
             {
                 foreach (string month in jo_months)
@@ -167,7 +180,7 @@ namespace ManageAdministerExalt
 
 
             cb_jo_filter_customers.Items.Add(new ComboBoxItem("0", "Alle"));
-            List<ComboBoxItem> jo_customers = new Job(db).GetCustomers();
+            List<ComboBoxItem> jo_customers = job.GetCustomers();
             if (jo_customers != null)
             {
                 foreach (ComboBoxItem customer in jo_customers)
@@ -197,7 +210,7 @@ namespace ManageAdministerExalt
         }
         private void fillReports()
         {
-            reports = new Surplus(db).Reports;
+            reports = report.Reports;
             if (reports.Count > 0)
             {
                 lv_re_reports.Items.Clear();
@@ -212,14 +225,14 @@ namespace ManageAdministerExalt
 
         private void fillItems()
         {
-            items = new Item(db).GetIDList();
+            items = item.GetIDList();
             if (items != null)
             {
                 lv_it_items.Items.Clear();
-                foreach (KeyValuePair<string, string> item in items)
+                foreach (KeyValuePair<string, string> i in items)
                 {
-                    ListViewItem t = new ListViewItem(item.Key);
-                    t.SubItems.Add(item.Value);
+                    ListViewItem t = new ListViewItem(i.Key);
+                    t.SubItems.Add(i.Value);
                     lv_it_items.Items.Add(t);
                 }
                 btn_it_export.Enabled = true;
@@ -235,7 +248,7 @@ namespace ManageAdministerExalt
             }
             else
             {
-                jobs = new Job(db).GetIDList();
+                jobs = job.GetIDList();
             }
             if (jobs != null)
             {
@@ -251,7 +264,7 @@ namespace ManageAdministerExalt
             }
 
             cb_jo_worker.Items.Clear();
-            List<ComboBoxItem> jo_workers = new Job(db).GetWorkers();
+            List<ComboBoxItem> jo_workers = job.GetWorkers();
             if (jo_workers != null)
             {
                 foreach (ComboBoxItem worker in jo_workers)
@@ -263,7 +276,7 @@ namespace ManageAdministerExalt
         }
         private void fillWorkers()
         {
-            workers = new Worker(db).GetIDList();
+            workers = worker.GetIDList();
             if (workers != null)
             {
                 lv_wo_worker.Items.Clear();
@@ -278,7 +291,7 @@ namespace ManageAdministerExalt
 
         private void fillExpenses(string year)
         {
-            expenses = new Expense(db).GetIDList(year);
+            expenses = expense.GetIDList(year);
             if (expenses != null)
             {
                 lv_ex_expenses.Items.Clear();
@@ -295,7 +308,7 @@ namespace ManageAdministerExalt
 
         private void fillCustomers()
         {
-            customers = new Customer(db).GetIDList();
+            customers = customer.GetIDList();
             if (customers != null)
             {
                 lv_cu_customers.Items.Clear();
@@ -310,7 +323,7 @@ namespace ManageAdministerExalt
 
         private void fillServices()
         {
-            services = new Service(db).GetIDList();
+            services = service.GetIDList();
             if (services != null)
             {
                 lv_se_services.Items.Clear();
@@ -325,7 +338,7 @@ namespace ManageAdministerExalt
 
         private void fillTerms()
         {
-            terms = new Term(db).GetIDList();
+            terms = term.GetIDList();
             if (terms != null)
             {
                 lv_tc_terms.Items.Clear();
@@ -1509,6 +1522,41 @@ namespace ManageAdministerExalt
         private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //TODO: Show Help?
+        }
+
+        private void kundenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //TODO: load Exporter (multi)
+        }
+
+        private void leistungenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aufträgeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aGBsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ausgabenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mitarbeiterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

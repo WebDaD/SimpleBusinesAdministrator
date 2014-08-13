@@ -18,6 +18,7 @@ namespace ManageAdministerExalt
         private Exportable data;
         private Database db;
         private ExportCount ec;
+        private List<ExportType> supportedExportTypes;
         public Export(Exportable data, Database db, ExportCount ec)
         {
             InitializeComponent();
@@ -27,9 +28,17 @@ namespace ManageAdministerExalt
             if (!this.db.isOpen()) db.Open();
             lb_data_head.Text = data.DataName(ec);
 
-            foreach (ExportType t in (ExportType[])Enum.GetValues(typeof(ExportType)))
+            ExportType[] t =  (ExportType[])Enum.GetValues(typeof(ExportType));
+            supportedExportTypes = t.ToList<ExportType>();
+            foreach (ExportType not in WebDaD.Toolkit.Export.Export.NotYetSupported)
             {
-                cb_export_type.Items.Add(t.ToString());
+                supportedExportTypes.Remove(not);
+            }
+
+
+            foreach (ExportType ex in supportedExportTypes)
+            {
+                cb_export_type.Items.Add(ex.ToString());
             }
 
             cb_template.DataSource = new BindingSource(Template.getTemplates(db), null);
