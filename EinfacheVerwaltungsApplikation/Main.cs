@@ -1014,7 +1014,14 @@ namespace ManageAdministerExalt
 
         private void btn_jo_discounts_edit_Click(object sender, EventArgs e)
         {
-            new job_edit_discounts(job).ShowDialog();
+            job_edit_discounts j = new job_edit_discounts(job.Discounts, job.NiceID, this.db);
+            if (j.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                job.Services = j.Discounts;
+                lb_jo_discounts_sum.Text = job.DiscountCount;
+                j.Dispose();
+                setEditmode(true);
+            }
         }
 
         private void btn_jo_edit_items_Click(object sender, EventArgs e)

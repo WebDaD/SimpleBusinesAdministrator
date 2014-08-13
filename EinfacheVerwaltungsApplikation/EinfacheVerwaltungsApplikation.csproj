@@ -205,6 +205,9 @@
     <EmbeddedResource Include="job_edit_address.resx">
       <DependentUpon>job_edit_address.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="job_edit_discounts.resx">
+      <DependentUpon>job_edit_discounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="job_edit_services.resx">
       <DependentUpon>job_edit_services.cs</DependentUpon>
     </EmbeddedResource>
