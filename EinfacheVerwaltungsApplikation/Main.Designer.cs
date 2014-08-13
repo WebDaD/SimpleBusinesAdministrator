@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -179,10 +180,13 @@
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_jo_adress = new System.Windows.Forms.Label();
             this.btn_jo_edit_address = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.tb_jo_name = new System.Windows.Forms.TextBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_jo_status = new System.Windows.Forms.Label();
             this.btn_jo_next = new System.Windows.Forms.Button();
+            this.btn_jo_actions = new System.Windows.Forms.Button();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.label72 = new System.Windows.Forms.Label();
@@ -200,6 +204,7 @@
             this.lb_jo_reminder_sent = new System.Windows.Forms.Label();
             this.lb_jo_reminder_target = new System.Windows.Forms.Label();
             this.btn_jo_openFolder = new System.Windows.Forms.Button();
+            this.btn_jo_export_all = new System.Windows.Forms.Button();
             this.tab_terms = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.lv_tc_terms = new System.Windows.Forms.ListView();
@@ -259,9 +264,11 @@
             this.tab_reports = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lv_re_reports = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
+            this.label46 = new System.Windows.Forms.Label();
+            this.cb_re_filter_year = new System.Windows.Forms.ComboBox();
             this.grid_reports = new System.Windows.Forms.DataGridView();
             this.btn_re_Export = new System.Windows.Forms.Button();
             this.tab_worker = new System.Windows.Forms.TabPage();
@@ -352,13 +359,6 @@
             this.lb_it_count = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.label44 = new System.Windows.Forms.Label();
-            this.tb_jo_name = new System.Windows.Forms.TextBox();
-            this.btn_jo_export_all = new System.Windows.Forms.Button();
-            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
-            this.label46 = new System.Windows.Forms.Label();
-            this.cb_re_filter_year = new System.Windows.Forms.ComboBox();
-            this.btn_jo_actions = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -452,6 +452,7 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            this.tableLayoutPanel29.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_reports)).BeginInit();
             this.tab_worker.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
@@ -485,7 +486,6 @@
             this.groupBox13.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_it_value)).BeginInit();
-            this.tableLayoutPanel29.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -2122,6 +2122,26 @@
             this.btn_jo_edit_address.UseVisualStyleBackColor = true;
             this.btn_jo_edit_address.Click += new System.EventHandler(this.btn_jo_edit_address_Click);
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label44.Location = new System.Drawing.Point(3, 43);
+            this.label44.Margin = new System.Windows.Forms.Padding(3);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(273, 13);
+            this.label44.TabIndex = 18;
+            this.label44.Text = "Name";
+            // 
+            // tb_jo_name
+            // 
+            this.tb_jo_name.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_jo_name.Location = new System.Drawing.Point(282, 43);
+            this.tb_jo_name.Name = "tb_jo_name";
+            this.tb_jo_name.Size = new System.Drawing.Size(274, 20);
+            this.tb_jo_name.TabIndex = 19;
+            this.tb_jo_name.TextChanged += new System.EventHandler(this.tb_jo_name_TextChanged);
+            // 
             // groupBox17
             // 
             this.groupBox17.Controls.Add(this.tableLayoutPanel19);
@@ -2174,6 +2194,20 @@
             this.btn_jo_next.Text = "Angebot erstellen";
             this.btn_jo_next.UseVisualStyleBackColor = true;
             this.btn_jo_next.Click += new System.EventHandler(this.btn_jo_next_Click);
+            // 
+            // btn_jo_actions
+            // 
+            this.btn_jo_actions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_actions.Enabled = false;
+            this.btn_jo_actions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_jo_actions.Location = new System.Drawing.Point(421, 3);
+            this.btn_jo_actions.Name = "btn_jo_actions";
+            this.btn_jo_actions.Size = new System.Drawing.Size(135, 26);
+            this.btn_jo_actions.TabIndex = 2;
+            this.btn_jo_actions.Text = "Text";
+            this.btn_jo_actions.UseVisualStyleBackColor = true;
+            this.btn_jo_actions.Visible = false;
+            this.btn_jo_actions.Click += new System.EventHandler(this.btn_jo_actions_Click);
             // 
             // groupBox18
             // 
@@ -2372,6 +2406,17 @@
             this.btn_jo_openFolder.Text = "Öffne Ordner";
             this.btn_jo_openFolder.UseVisualStyleBackColor = true;
             this.btn_jo_openFolder.Click += new System.EventHandler(this.btn_jo_openFolder_Click);
+            // 
+            // btn_jo_export_all
+            // 
+            this.btn_jo_export_all.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_jo_export_all.Location = new System.Drawing.Point(3, 181);
+            this.btn_jo_export_all.Name = "btn_jo_export_all";
+            this.btn_jo_export_all.Size = new System.Drawing.Size(273, 23);
+            this.btn_jo_export_all.TabIndex = 15;
+            this.btn_jo_export_all.Text = "Exportiere Alle";
+            this.btn_jo_export_all.UseVisualStyleBackColor = true;
+            this.btn_jo_export_all.Click += new System.EventHandler(this.btn_jo_export_all_Click);
             // 
             // tab_terms
             // 
@@ -3034,7 +3079,6 @@
             // lv_re_reports
             // 
             this.lv_re_reports.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
             this.columnHeader4});
             this.lv_re_reports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv_re_reports.FullRowSelect = true;
@@ -3047,11 +3091,6 @@
             this.lv_re_reports.View = System.Windows.Forms.View.Details;
             this.lv_re_reports.SelectedIndexChanged += new System.EventHandler(this.lv_re_reports_SelectedIndexChanged);
             this.lv_re_reports.Resize += new System.EventHandler(this.lv_re_reports_Resize);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "ID";
-            this.columnHeader3.Width = 25;
             // 
             // columnHeader4
             // 
@@ -3077,21 +3116,67 @@
             this.splitContainer4.SplitterDistance = 542;
             this.splitContainer4.TabIndex = 0;
             // 
+            // tableLayoutPanel29
+            // 
+            this.tableLayoutPanel29.ColumnCount = 2;
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel29.Controls.Add(this.label46, 0, 0);
+            this.tableLayoutPanel29.Controls.Add(this.cb_re_filter_year, 1, 0);
+            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
+            this.tableLayoutPanel29.RowCount = 1;
+            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(618, 30);
+            this.tableLayoutPanel29.TabIndex = 1;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label46.Location = new System.Drawing.Point(3, 3);
+            this.label46.Margin = new System.Windows.Forms.Padding(3);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(303, 24);
+            this.label46.TabIndex = 0;
+            this.label46.Text = "Jahr";
+            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cb_re_filter_year
+            // 
+            this.cb_re_filter_year.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cb_re_filter_year.FormattingEnabled = true;
+            this.cb_re_filter_year.Location = new System.Drawing.Point(312, 3);
+            this.cb_re_filter_year.Name = "cb_re_filter_year";
+            this.cb_re_filter_year.Size = new System.Drawing.Size(303, 21);
+            this.cb_re_filter_year.TabIndex = 1;
+            this.cb_re_filter_year.SelectedIndexChanged += new System.EventHandler(this.cb_re_filter_year_SelectedIndexChanged);
+            // 
             // grid_reports
             // 
             this.grid_reports.AllowUserToAddRows = false;
             this.grid_reports.AllowUserToDeleteRows = false;
             this.grid_reports.AllowUserToOrderColumns = true;
-            this.grid_reports.AllowUserToResizeColumns = false;
             this.grid_reports.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.grid_reports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grid_reports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid_reports.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grid_reports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_reports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_reports.Location = new System.Drawing.Point(0, 0);
+            this.grid_reports.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.grid_reports.Location = new System.Drawing.Point(0, 30);
+            this.grid_reports.MultiSelect = false;
             this.grid_reports.Name = "grid_reports";
+            this.grid_reports.ReadOnly = true;
+            this.grid_reports.RowHeadersVisible = false;
             this.grid_reports.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grid_reports.Size = new System.Drawing.Size(618, 542);
+            this.grid_reports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.grid_reports.ShowEditingIcon = false;
+            this.grid_reports.Size = new System.Drawing.Size(618, 512);
             this.grid_reports.TabIndex = 0;
             // 
             // btn_re_Export
@@ -4095,88 +4180,6 @@
             this.timer.Interval = 300000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label44.Location = new System.Drawing.Point(3, 43);
-            this.label44.Margin = new System.Windows.Forms.Padding(3);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(273, 13);
-            this.label44.TabIndex = 18;
-            this.label44.Text = "Name";
-            // 
-            // tb_jo_name
-            // 
-            this.tb_jo_name.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tb_jo_name.Location = new System.Drawing.Point(282, 43);
-            this.tb_jo_name.Name = "tb_jo_name";
-            this.tb_jo_name.Size = new System.Drawing.Size(274, 20);
-            this.tb_jo_name.TabIndex = 19;
-            this.tb_jo_name.TextChanged += new System.EventHandler(this.tb_jo_name_TextChanged);
-            // 
-            // btn_jo_export_all
-            // 
-            this.btn_jo_export_all.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_export_all.Location = new System.Drawing.Point(3, 181);
-            this.btn_jo_export_all.Name = "btn_jo_export_all";
-            this.btn_jo_export_all.Size = new System.Drawing.Size(273, 23);
-            this.btn_jo_export_all.TabIndex = 15;
-            this.btn_jo_export_all.Text = "Exportiere Alle";
-            this.btn_jo_export_all.UseVisualStyleBackColor = true;
-            this.btn_jo_export_all.Click += new System.EventHandler(this.btn_jo_export_all_Click);
-            // 
-            // tableLayoutPanel29
-            // 
-            this.tableLayoutPanel29.ColumnCount = 2;
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.Controls.Add(this.label46, 0, 0);
-            this.tableLayoutPanel29.Controls.Add(this.cb_re_filter_year, 1, 0);
-            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
-            this.tableLayoutPanel29.RowCount = 1;
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(618, 30);
-            this.tableLayoutPanel29.TabIndex = 1;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label46.Location = new System.Drawing.Point(3, 3);
-            this.label46.Margin = new System.Windows.Forms.Padding(3);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(303, 13);
-            this.label46.TabIndex = 0;
-            this.label46.Text = "Jahr";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cb_re_filter_year
-            // 
-            this.cb_re_filter_year.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cb_re_filter_year.FormattingEnabled = true;
-            this.cb_re_filter_year.Location = new System.Drawing.Point(312, 3);
-            this.cb_re_filter_year.Name = "cb_re_filter_year";
-            this.cb_re_filter_year.Size = new System.Drawing.Size(303, 21);
-            this.cb_re_filter_year.TabIndex = 1;
-            this.cb_re_filter_year.SelectedIndexChanged += new System.EventHandler(this.cb_re_filter_year_SelectedIndexChanged);
-            // 
-            // btn_jo_actions
-            // 
-            this.btn_jo_actions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_jo_actions.Enabled = false;
-            this.btn_jo_actions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_jo_actions.Location = new System.Drawing.Point(421, 3);
-            this.btn_jo_actions.Name = "btn_jo_actions";
-            this.btn_jo_actions.Size = new System.Drawing.Size(135, 26);
-            this.btn_jo_actions.TabIndex = 2;
-            this.btn_jo_actions.Text = "Text";
-            this.btn_jo_actions.UseVisualStyleBackColor = true;
-            this.btn_jo_actions.Visible = false;
-            this.btn_jo_actions.Click += new System.EventHandler(this.btn_jo_actions_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4296,6 +4299,8 @@
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            this.tableLayoutPanel29.ResumeLayout(false);
+            this.tableLayoutPanel29.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_reports)).EndInit();
             this.tab_worker.ResumeLayout(false);
             this.splitContainer14.Panel1.ResumeLayout(false);
@@ -4332,8 +4337,6 @@
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nu_it_value)).EndInit();
-            this.tableLayoutPanel29.ResumeLayout(false);
-            this.tableLayoutPanel29.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4438,7 +4441,6 @@
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.Button btn_re_Export;
         private System.Windows.Forms.ListView lv_re_reports;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.DataGridView grid_reports;
         private System.Windows.Forms.SplitContainer splitContainer5;

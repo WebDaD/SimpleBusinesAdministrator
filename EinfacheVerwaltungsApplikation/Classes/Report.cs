@@ -15,19 +15,34 @@ namespace ManageAdministerExalt.Classes
         public Database DB { get { return this.db; } }
 
         private string reportname;
+        public string Text { get { return this.reportname; } }
 
         private string year;
         public string Year { get { return year; } }
 
-        public static Dictionary<int, string> Reports
+        public Report Value { get { return this; } }
+
+        public List<Report> Reports
         {
             get
             {
-                Dictionary<int, string> r = new Dictionary<int, string>();
-                r.Add(1, "Einnahmen-Überschuss-Rechnung");
+                List<Report> r = new List<Report>();
+                r.Add(new Surplus(this.db));
                 //TODO: Every Report here
                 return r;
             }
+        }
+
+        public Report SelectedReport(string reportname)
+        {
+            foreach (Report item in this.Reports)
+            {
+                if (reportname == item.reportname)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public Report(Database db, string reportname, string year)
@@ -38,16 +53,6 @@ namespace ManageAdministerExalt.Classes
         }
 
         public abstract DataTable GetData();
-
-        public static Report GetReport(Database db, int id)
-        {
-            switch (id)
-            {
-                case 1: return new Surplus(db);
-                //TODO: reports also here
-                default: return null;
-            }
-        }
 
         public DataTable ChangeYear(string year)
         {
@@ -65,12 +70,11 @@ namespace ManageAdministerExalt.Classes
             else
             {
                 DataTable t = new DataTable();
-                t.Columns.Add("ID");
                 t.Columns.Add("Name");
 
-                foreach (KeyValuePair<int, string> item in Report.Reports)
+                foreach (Report item in Reports)
                 {
-                    t.Rows.Add(new string[] { item.Key.ToString(), item.Value });
+                    t.Rows.Add(new string[] { item.Text });
                 }
 
                 Content ct = new ContentTable(DataType.Table, t);

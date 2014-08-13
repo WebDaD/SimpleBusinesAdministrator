@@ -134,29 +134,50 @@ namespace ManageAdministerExalt.Classes
             return ok;
         }
 
-
-
-        public Dictionary<string, string> CreateReport()
+        //Report Properties
+        public decimal R_Jobs
         {
-            Dictionary<string, string> r = new Dictionary<string, string>();
-
-            //TODO: Write some Reports (jobs,jobs_avg,jobs_sum,work_months,salary_sum,value)
-            r.Add("jobs", "0");
-
-            r.Add("jobs_avg", "400,32");
-
-            decimal job_sum = 50000;
-            r.Add("jobs_sum", job_sum.ToString());
-
-            int work_months = DateTime.Now.AddMonths(1).Month - WorksSince.Month;
-            r.Add("work_months", work_months.ToString());
-
-            decimal sal_sum = work_months * salary;
-            r.Add("salary_sum", sal_sum.ToString());
-
-            decimal value = job_sum / sal_sum;
-            r.Add("value", value.ToString());
-            return r;
+            get
+            {
+                return 0; //TODO: From Database
+            }
         }
+        public decimal R_Jobs_Avg
+        {
+            get
+            {
+                return 400.32M; //TODO: From Database
+            }
+        }
+
+        public decimal R_Jobs_Sum
+        {
+            get
+            {
+                return 50000; //TODO: From Database
+            }
+        }
+        public int R_Work_Months
+        {
+            get
+            {
+                return DateTime.Now.AddMonths(1).Month - WorksSince.Month;
+            }
+        }
+        public decimal R_Salary_Sum
+        {
+            get
+            {
+                return R_Work_Months * salary;
+            }
+        }
+        public decimal R_Value
+        {
+            get
+            {
+                return R_Jobs_Sum / R_Salary_Sum; //TODO: ReThink!
+            }
+        }
+        
     }
 }

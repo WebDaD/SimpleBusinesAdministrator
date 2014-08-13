@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO;
 using WebDaD.Toolkit.Export;
 using WebDaD.Toolkit.Helper;
+using ManageAdministerExalt.Classes.Reports;
 
 namespace ManageAdministerExalt
 {
@@ -33,7 +34,7 @@ namespace ManageAdministerExalt
         private Job job;
         private Dictionary<string, string> jobs;
         private Report report;
-        private Dictionary<string, string> reports;
+        private List<Report> reports;
 
         private bool editmode;
         private bool filterstart = true;
@@ -196,7 +197,17 @@ namespace ManageAdministerExalt
         }
         private void fillReports()
         {
-            //TODO: use static Report.Reports here
+            reports = new Surplus(db).Reports;
+            if (reports.Count > 0)
+            {
+                lv_re_reports.Items.Clear();
+                foreach (Report item in reports)
+                {
+                    ListViewItem t = new ListViewItem(item.Text);
+                    lv_re_reports.Items.Add(t);
+                }
+            }
+
         }
 
         private void fillItems()
@@ -1207,13 +1218,12 @@ namespace ManageAdministerExalt
                 tb_wo_mail.Text = worker.EMail;
                 tb_wo_mobile.Text = worker.Mobile;
 
-                Dictionary<string, string> wo_rep = worker.CreateReport();
-                lb_wo_report_jobs.Text = wo_rep["jobs"];
-                lb_wo_report_job_avg.Text = wo_rep["jobs_avg"];
-                lb_wo_report_job_sum.Text = wo_rep["jobs_sum"];
-                lb_wo_report_work_months.Text = wo_rep["work_months"];
-                lb_wo_reports_salary_sum.Text = wo_rep["salary_sum"];
-                lb_wo_report_value.Text = wo_rep["value"];
+                lb_wo_report_jobs.Text = worker.R_Jobs.ToString();
+                lb_wo_report_job_avg.Text = worker.R_Jobs_Avg.ToString();
+                lb_wo_report_job_sum.Text = worker.R_Jobs_Sum.ToString();
+                lb_wo_report_work_months.Text = worker.R_Work_Months.ToString();
+                lb_wo_reports_salary_sum.Text = worker.R_Salary_Sum.ToString();
+                lb_wo_report_value.Text = worker.R_Value.ToString();
 
                 setEditmode(false);
 
@@ -1457,7 +1467,8 @@ namespace ManageAdministerExalt
         {
             if (lv_re_reports.SelectedIndices.Count > 0)
             {
-                report = Report.GetReport(db, Convert.ToInt32(lv_wo_worker.SelectedItems[0].Text));
+                if (report == null) report = new Surplus(db);
+                report = report.SelectedReport(lv_re_reports.SelectedItems[0].Text);
                 grid_reports.DataSource = report.GetData();
                 grid_reports.Refresh();
             }
