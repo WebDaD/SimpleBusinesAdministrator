@@ -192,5 +192,17 @@ namespace ManageAdministerExalt.Properties {
                 this["askforexit"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Program Files\\\\wkhtmltopdf\\\\bin\\\\wkhtmltopdf.exe")]
+        public string wkhtmltopdf {
+            get {
+                return ((string)(this["wkhtmltopdf"]));
+            }
+            set {
+                this["wkhtmltopdf"] = value;
+            }
+        }
     }
 }

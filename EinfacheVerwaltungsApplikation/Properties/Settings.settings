@@ -51,5 +51,8 @@
     <Setting Name="askforexit" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="wkhtmltopdf" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

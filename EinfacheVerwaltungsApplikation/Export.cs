@@ -68,7 +68,7 @@ namespace ManageAdministerExalt
                 t = new Template(db, cb_template.SelectedValue.ToString());
             }
 
-            string file = WebDaD.Toolkit.Export.Export.DataExport(et, data, t, Config.BasePath, ec);
+            string file = WebDaD.Toolkit.Export.Export.DataExport(et, data, t, Config.BasePath, ec, Config.WKHTMLTOPDFPath);
 
             if (cb_open_export.Checked)
             {

@@ -227,5 +227,17 @@ namespace ManageAdministerExalt.Classes
                 Properties.Settings.Default.Save();
             }
         }
+        public static string WKHTMLTOPDFPath
+        {
+            get
+            {
+                return Properties.Settings.Default.wkhtmltopdf;
+            }
+            set
+            {
+                Properties.Settings.Default.wkhtmltopdf = value;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }
