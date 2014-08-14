@@ -6,17 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using WebDaD.Toolkit.Database;
 
 namespace ManageAdministerExalt
 {
     public partial class Templates : Form
     {
         private bool editmode;
-
-        public Templates()
+        private Database db;
+        public Templates(Database db)
         {
             InitializeComponent();
             this.editmode = false;
+            this.db = db;
+            //TODO: FIll Template List
         }
 
         private void lv_templates_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,9 +79,13 @@ namespace ManageAdministerExalt
 
         private void tb_changed(object sender, EventArgs e)
         {
-
+            setEditMode(true);
         }
-
+        private void setEditMode(bool edit)
+        {
+            this.editmode = edit;
+            //Enable, disable buttons
+        }
 
     }
 }

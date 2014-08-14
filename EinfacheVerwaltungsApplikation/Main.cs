@@ -847,6 +847,11 @@ namespace ManageAdministerExalt
             new Payment_Conditions(db).ShowDialog();
         }
 
+        private void vorlagenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Templates(db).ShowDialog();
+        }
+
         private void tb_ex_attachment_Click(object sender, EventArgs e)
         {
             DialogResult dr = ofd_ex_attachement.ShowDialog();
@@ -1558,6 +1563,8 @@ namespace ManageAdministerExalt
         {
 
         }
+
+        
 
     }
 }

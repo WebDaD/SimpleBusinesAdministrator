@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -367,6 +367,7 @@
             this.ausgabenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mitarbeiterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vorlagenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -547,7 +548,8 @@
             this.datenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rabatteToolStripMenuItem,
             this.mahnungenToolStripMenuItem,
-            this.zahlungsbedigungenToolStripMenuItem});
+            this.zahlungsbedigungenToolStripMenuItem,
+            this.vorlagenToolStripMenuItem});
             this.datenToolStripMenuItem.Name = "datenToolStripMenuItem";
             this.datenToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.datenToolStripMenuItem.Text = "Daten";
@@ -3170,8 +3172,8 @@
             this.grid_reports.AllowUserToDeleteRows = false;
             this.grid_reports.AllowUserToOrderColumns = true;
             this.grid_reports.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.grid_reports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -4254,6 +4256,13 @@
             this.lagerToolStripMenuItem.Text = "Lager";
             this.lagerToolStripMenuItem.Click += new System.EventHandler(this.lagerToolStripMenuItem_Click);
             // 
+            // vorlagenToolStripMenuItem
+            // 
+            this.vorlagenToolStripMenuItem.Name = "vorlagenToolStripMenuItem";
+            this.vorlagenToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.vorlagenToolStripMenuItem.Text = "Vorlagen";
+            this.vorlagenToolStripMenuItem.Click += new System.EventHandler(this.vorlagenToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4755,5 +4764,6 @@
         private System.Windows.Forms.ToolStripMenuItem ausgabenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mitarbeiterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vorlagenToolStripMenuItem;
     }
 }
