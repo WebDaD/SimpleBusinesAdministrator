@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using WebDaD.Toolkit.Database;
 using WebDaD.Toolkit.Export;
+using System.IO;
 
 namespace ManageAdministerExalt
 {
@@ -47,7 +48,6 @@ namespace ManageAdministerExalt
             {
                 template = new Template(db, lv_templates.SelectedItems[0].Text);
 
-                //TODO: Fill fields
                 lb_id.Text = template.ID;
                 tb_name.Text = template.Name;
                 if (template.Header != null)
@@ -62,7 +62,13 @@ namespace ManageAdministerExalt
                     tb_header_center.Text = template.Header_Center;
                     tb_header_right.Text = template.Header_Right;
                 }
-                //TODO ANgaben
+
+                cb_textBefore_Left.Checked = template.TextBefore_Left.Equals(Template.ADDR);
+                cb_textBefore_right_id.Checked = template.TextBefore_Right.Contains(Template.OBJECT_ID);
+                cb_textBefore_right_worker.Checked = template.TextBefore_Right.Contains(Template.WORKER);
+                cb_textBefore_right_creationdate.Checked = template.TextBefore_Right.Contains(Template.DATE_CREATE);
+                cb_textBefore_right_second_date.Checked = template.TextBefore_Right.Contains(Template.DATE_SECOND);
+
                 tb_beforeContent.Text = template.BeforeContent;
                 tb_afterContent.Text = template.AfterContent;
                 if (template.Footer != null)
@@ -108,6 +114,8 @@ namespace ManageAdministerExalt
 
         private void btn_apply_Click(object sender, EventArgs e)
         {
+            template.Name = tb_name.Text;
+
             //TODO: write fields to object (reverse of selcted_index_Changed)
             template.Save(); //TODO: save images to basepath/template/id/images/
         }
@@ -192,9 +200,23 @@ namespace ManageAdministerExalt
 
         private void bildEinfügenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: open image selector.
-            //TODO: save image into LIST
-            //TODO: set TAG into SENDER field (after cursor)
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                images.Add(openFileDialog.FileName);
+                string tag = Template.IMAGE_TAG + Path.GetFileName(openFileDialog.FileName) + Template.IMAGE_END;
+                if (sender is RichTextBox)
+                {
+                    RichTextBox t = (RichTextBox)sender as RichTextBox;
+                    int cp = t.SelectionStart;
+                    t.Text = t.Text.Insert(cp, tag);
+                }
+                else //TextBox
+                {
+                    TextBox t = (TextBox)sender as TextBox;
+                    int cp = t.SelectionStart;
+                    t.Text = t.Text.Insert(cp, tag);
+                }
+            }
         }
 
         private void tb_changed(object sender, EventArgs e)
