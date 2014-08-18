@@ -13,6 +13,9 @@ using System.IO;
 using WebDaD.Toolkit.Export;
 using WebDaD.Toolkit.Helper;
 using ManageAdministerExalt.Classes.Reports;
+using WebDaD.Toolkit.Update;
+using WebDaD.Toolkit.Log;
+using WebDaD.Toolkit.Backup;
 
 namespace ManageAdministerExalt
 {
@@ -35,6 +38,10 @@ namespace ManageAdministerExalt
         private Dictionary<string, string> jobs;
         private Report report;
         private List<Report> reports;
+
+        private Update update;
+        private Backup backup;
+        private Log log;
 
         private bool editmode;
         private bool filterstart = true;
@@ -87,6 +94,48 @@ namespace ManageAdministerExalt
                 timer.Start();
             }
             else { timer.Enabled = false; }
+
+            update = new WebDaD.Toolkit.Update.Update(Config.BasePath, Config.Name, Double.Parse(Config.Version), this.db);
+            backup = new Backup(this.db, Config.BasePath, Config.BackupFolder, Config.Name);
+
+            checkUpdates();
+            checkBackup();
+        }
+
+        private void checkBackup()
+        {
+            if (backup.RecentBackup)
+            {
+                backupToolStripMenuItem.Image = Properties.Resources.tick_circle;
+            }
+            else
+            {
+                if (Config.AutoBackup)
+                {
+                    backup.Dump();
+                    backupToolStripMenuItem.Image = Properties.Resources.tick_circle;
+                }
+                else { backupToolStripMenuItem.Image = Properties.Resources.arrow_090; }
+            }
+        }
+
+        private void checkUpdates()
+        {
+            if (!update.ServerReachable)
+            {
+                updateToolStripMenuItem.Image = Properties.Resources.exclamation_red;
+            }
+            else
+            {
+                if (update.UpdateAvaiable)
+                {
+                    updateToolStripMenuItem.Image = Properties.Resources.arrow_transition_090;
+                }
+                else
+                {
+                    updateToolStripMenuItem.Image = Properties.Resources.tick_circle;
+                }
+            }
         }
 
         private void loadEmptyOjects()
@@ -128,7 +177,7 @@ namespace ManageAdministerExalt
                 fillLists();
 
             }
-            //TODO: backup
+            checkBackup();
             checkOpenPoints();
         }
 
@@ -1048,7 +1097,7 @@ namespace ManageAdministerExalt
         }
         private void btn_jo_edit_address_Click(object sender, EventArgs e)
         {
-            job_edit_address j = new job_edit_address(job); 
+            job_edit_address j = new job_edit_address(job);
             if (j.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 job = j.Job;
@@ -1255,7 +1304,7 @@ namespace ManageAdministerExalt
                 lb_wo_report_jobs.Text = worker.R_Jobs.ToString();
                 lb_wo_report_job_avg.Text = worker.R_Jobs_Avg.ToString("C");
                 lb_wo_report_job_sum.Text = worker.R_Jobs_Sum.ToString("C");
-                lb_wo_report_work_months.Text = worker.R_Work_Months.ToString() +" "+ ((worker.R_Work_Months>1)?"Monaten":"Monat");
+                lb_wo_report_work_months.Text = worker.R_Work_Months.ToString() + " " + ((worker.R_Work_Months > 1) ? "Monaten" : "Monat");
                 lb_wo_reports_salary_sum.Text = worker.R_Salary_Sum.ToString("C");
                 lb_wo_report_value.Text = worker.R_Value.ToString();
 
@@ -1526,7 +1575,7 @@ namespace ManageAdministerExalt
 
         private void hilfeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: Show Help?
+            //TODO: Show Help!
         }
 
         private void kundenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1536,35 +1585,52 @@ namespace ManageAdministerExalt
 
         private void leistungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO: load Exporter (multi)
         }
 
         private void aufträgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO: load Exporter (multi)
         }
 
         private void aGBsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO: load Exporter (multi)
         }
 
         private void ausgabenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO: load Exporter (multi)
         }
 
         private void mitarbeiterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO: load Exporter (multi)
         }
 
         private void lagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //TODO: load Exporter (multi)
         }
 
-        
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wollen Sie ein Backup machen?", "Nachfrage", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                backup.Dump();
+                backupToolStripMenuItem.Image = Properties.Resources.tick_circle;
+            }
+        }
 
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (update.ServerReachable && update.UpdateAvaiable)
+            {
+                if (MessageBox.Show("Wollen Sie updaten?\nDie Anwendung wird dafür beendet.", "Nachfrage", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //TODO: start Update.exe and kill this
+                }
+            }
+        }
     }
 }

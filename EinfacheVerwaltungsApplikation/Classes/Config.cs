@@ -239,5 +239,29 @@ namespace ManageAdministerExalt.Classes
                 Properties.Settings.Default.Save();
             }
         }
+        public static string BackupFolder
+        {
+            get
+            {
+                return Properties.Settings.Default.backupFolder;
+            }
+            set
+            {
+                Properties.Settings.Default.backupFolder = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        public static bool AutoBackup
+        {
+            get
+            {
+                return Properties.Settings.Default.autobackup;
+            }
+            set
+            {
+                Properties.Settings.Default.autobackup = value;
+                Properties.Settings.Default.Save();
+            }
+        }
     }
 }
