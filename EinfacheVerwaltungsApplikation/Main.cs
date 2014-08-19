@@ -16,6 +16,7 @@ using ManageAdministerExalt.Classes.Reports;
 using WebDaD.Toolkit.Update;
 using WebDaD.Toolkit.Log;
 using WebDaD.Toolkit.Backup;
+using System.Reflection;
 
 namespace ManageAdministerExalt
 {
@@ -1628,7 +1629,8 @@ namespace ManageAdministerExalt
             {
                 if (MessageBox.Show("Wollen Sie updaten?\nDie Anwendung wird dafür beendet.", "Nachfrage", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //TODO: start Update.exe and kill this
+                    if(update.LaunchUpdater(Assembly.GetExecutingAssembly().Location))
+                        Application.Exit();
                 }
             }
         }
