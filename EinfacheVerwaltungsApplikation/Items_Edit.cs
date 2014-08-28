@@ -24,6 +24,7 @@ namespace ManageAdministerExalt
             InitializeComponent();
             setInitialMode(import);
             this.Text = Config.Name + " :: " + "Gegenstandsbearbeitung";
+            this.Icon = Properties.Resources.simba;
             loadItems();
         }
         public Items_Edit(Database db,bool import, Item item)

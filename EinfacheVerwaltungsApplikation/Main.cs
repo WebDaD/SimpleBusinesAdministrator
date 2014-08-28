@@ -68,6 +68,7 @@ namespace ManageAdministerExalt
             fillFilters();
             fillLists();
             this.Text = Config.Name + " :: " + "Hauptansicht";
+            this.Icon = Properties.Resources.simba;
 
             checkOpenPoints();
 

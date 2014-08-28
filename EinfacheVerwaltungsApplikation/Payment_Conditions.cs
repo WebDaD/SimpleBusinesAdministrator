@@ -22,6 +22,7 @@ namespace ManageAdministerExalt
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Zahlungsbedingungen";
+            this.Icon = Properties.Resources.simba;
             this.db = db;
             fillPaymentConditions();
             foreach (KeyValuePair<int, string> item in Reminder.Types)

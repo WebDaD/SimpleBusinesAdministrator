@@ -18,6 +18,7 @@ namespace ManageAdministerExalt
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Datenbank";
+            this.Icon = Properties.Resources.simba;
         }
 
         private void SelectModule_Load(object sender, EventArgs e)

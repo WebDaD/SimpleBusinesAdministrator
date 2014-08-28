@@ -23,6 +23,9 @@ namespace ManageAdministerExalt
         public Templates(Database db)
         {
             InitializeComponent();
+
+
+            this.Icon = Properties.Resources.simba;
             this.editmode = false;
             this.db = db;
             images = new List<string>();

@@ -16,6 +16,7 @@ namespace ManageAdministerExalt
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Optionen";
+            this.Icon = Properties.Resources.simba;
         }
     }
 }

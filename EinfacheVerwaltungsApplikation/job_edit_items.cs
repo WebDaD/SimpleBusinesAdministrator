@@ -18,7 +18,8 @@ namespace ManageAdministerExalt
             InitializeComponent();
             this.job = job;
             //TODO: Load Services, fill left list and listview
-            this.Text = Config.Name + " :: " + "Lager :: " + job.NiceID; 
+            this.Text = Config.Name + " :: " + "Lager :: " + job.NiceID;
+            this.Icon = Properties.Resources.simba;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace ManageAdministerExalt
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Mahnungen";
+            this.Icon = Properties.Resources.simba;
             this.db = db;
             fillReminders();
             foreach (KeyValuePair<int, string> item in Reminder.Types)

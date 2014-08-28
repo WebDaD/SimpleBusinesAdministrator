@@ -21,6 +21,7 @@ namespace ManageAdministerExalt
             this.db = db;
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Rabatte";
+            this.Icon = Properties.Resources.simba;
             fillDiscounts();
             foreach (KeyValuePair<int,string> item in Discount.TYPES)
             {

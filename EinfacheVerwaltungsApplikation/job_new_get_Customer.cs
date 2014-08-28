@@ -18,6 +18,7 @@ namespace ManageAdministerExalt
             InitializeComponent();
             //TODO: fill combobox
             this.Text = Config.Name + " :: " + "Kundenauswahl";
+            this.Icon = Properties.Resources.simba;
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

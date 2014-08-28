@@ -16,6 +16,7 @@ namespace ManageAdministerExalt
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Lizenzeingabe";
+            this.Icon = Properties.Resources.simba;
         }
 
         private void btn_exit_Click(object sender, EventArgs e)

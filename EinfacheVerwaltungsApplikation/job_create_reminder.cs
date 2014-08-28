@@ -16,6 +16,7 @@ namespace ManageAdministerExalt
         {
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Erstelle Mahnung"; //TODO: also show Job
+            this.Icon = Properties.Resources.simba;
         }
     }
 }

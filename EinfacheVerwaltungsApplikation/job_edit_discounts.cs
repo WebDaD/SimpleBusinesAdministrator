@@ -28,6 +28,7 @@ namespace ManageAdministerExalt
             this.db = db;
             this.changed = false;
             this.Text = Config.Name + " :: " + "Rabatte :: " + id;
+            this.Icon = Properties.Resources.simba;
             this.avaiableDiscounts = getAvaiableDiscounts();
 
             lv_avaiable.Items.Clear();

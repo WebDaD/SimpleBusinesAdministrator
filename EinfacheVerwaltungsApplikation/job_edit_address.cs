@@ -21,6 +21,7 @@ namespace ManageAdministerExalt
             InitializeComponent();
             this.job = job;
             this.Text = Config.Name + " :: " + "Adresse :: " + job.NiceID;
+            this.Icon = Properties.Resources.simba;
             this.changes = false;
 
             if (this.job.Address_Text == "Kunde")

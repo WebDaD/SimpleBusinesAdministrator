@@ -30,6 +30,7 @@ namespace ManageAdministerExalt
             this.db = db;
             this.changes = false;
             this.Text = Config.Name + " :: " + "Leistungen :: " + jobid;
+            this.Icon = Properties.Resources.simba;
             this.avaiableServices = getAvaiableServices();
 
             lv_avaiable.Items.Clear();
