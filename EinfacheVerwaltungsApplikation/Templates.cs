@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using WebDaD.Toolkit.Database;
 using WebDaD.Toolkit.Export;
 using System.IO;
+using ManageAdministerExalt.Classes;
 
 namespace ManageAdministerExalt
 {
@@ -55,12 +56,16 @@ namespace ManageAdministerExalt
                 tb_name.Text = template.Name;
                 if (template.Header != null)
                 {
-                    rb_header_full.Checked =true;
-                    tb_header_full.Text = template.Header;
+                    rb_header_full.Checked = true;
+                    tb_header_full.Text = template.Header.Replace(Template.FULLSTARTER,"");
+                    tb_header_left.Text ="";
+                    tb_header_center.Text = "";
+                    tb_header_right.Text ="";
                 }
                 else
                 {
                     rb_header_split.Checked = true;
+                    tb_header_full.Text = "";
                     tb_header_left.Text = template.Header_Left;
                     tb_header_center.Text = template.Header_Center;
                     tb_header_right.Text = template.Header_Right;
@@ -77,11 +82,15 @@ namespace ManageAdministerExalt
                 if (template.Footer != null)
                 {
                     rb_footer_full.Checked = true;
-                    tb_footer_full.Text = template.Footer;
+                    tb_footer_full.Text = template.Footer.Replace(Template.FULLSTARTER, "");
+                    tb_footer_left.Text = "";
+                    tb_footer_center.Text = "";
+                    tb_footer_right.Text = "";
                 }
                 else
                 {
                     rb_footer_split.Checked = true;
+                    tb_footer_full.Text = "";
                     tb_footer_left.Text = template.Footer_Left;
                     tb_footer_center.Text = template.Footer_Center;
                     tb_footer_right.Text = template.Footer_Right;
@@ -118,14 +127,57 @@ namespace ManageAdministerExalt
         private void btn_apply_Click(object sender, EventArgs e)
         {
             template.Name = tb_name.Text;
+            if (!rb_header_full.Checked)
+            {
+                template.Header_Left = tb_header_left.Text;
+                template.Header_Center = tb_header_center.Text;
+                template.Header_Right = tb_header_right.Text;
+            }
+            else
+            {
+                template.Header = tb_header_full.Text;
+            }
+            if (cb_textBefore_Left.Checked) template.TextBefore_Left = Template.ADDR;
+            else template.TextBefore_Left = "";
 
-            //TODO: write fields to object (reverse of selcted_index_Changed)
-            template.Save(); //TODO: save images to basepath/template/id/images/
+            template.TextBefore_Right = "";
+            if (cb_textBefore_right_id.Checked) template.TextBefore_Right += Template.OBJECT_ID + ";";
+            if (cb_textBefore_right_worker.Checked) template.TextBefore_Right += Template.WORKER + ";";
+            if (cb_textBefore_right_creationdate.Checked) template.TextBefore_Right += Template.DATE_CREATE + ";";
+            if (cb_textBefore_right_second_date.Checked) template.TextBefore_Right += Template.DATE_SECOND + ";";
+
+            template.BeforeContent = tb_beforeContent.Text;
+            template.AfterContent = tb_afterContent.Text;
+
+            if (!rb_footer_full.Checked)
+            {
+                template.Footer_Left = tb_footer_left.Text;
+                template.Footer_Center = tb_footer_center.Text;
+                template.Footer_Right = tb_footer_right.Text;
+            }
+            else
+            {
+                template.Footer = tb_footer_full.Text;
+            }
+            template.Save(images, Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["template"] + Path.DirectorySeparatorChar + Config.IDFormating["template"] + Path.DirectorySeparatorChar + "images" + Path.DirectorySeparatorChar);
+            templates = Template.getTemplates(this.db);
+            if (templates != null)
+            {
+                templates.Remove("0");
+                lv_templates.Items.Clear();
+                foreach (KeyValuePair<string, string> item in templates)
+                {
+                    ListViewItem t = new ListViewItem(item.Key);
+                    t.SubItems.Add(item.Value);
+                    lv_templates.Items.Add(t);
+                }
+            }
+            lv_templates.SelectedIndices.Clear();
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            btn_apply_Click(sender,e);
+            btn_apply_Click(sender, e);
             this.Close();
         }
 
@@ -231,6 +283,71 @@ namespace ManageAdministerExalt
             this.editmode = edit;
             btn_apply.Enabled = edit;
             btn_save.Enabled = edit;
+        }
+
+        private void neuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lv_templates.SelectedIndices.Clear();
+
+            lb_id.Text = "";
+            tb_name.Text = "";
+
+            rb_header_full.Checked = true;
+            tb_header_full.Text = "";
+            tb_header_left.Text = "";
+            tb_header_center.Text = "";
+            tb_header_right.Text = "";
+
+            cb_textBefore_Left.Checked = false;
+            cb_textBefore_right_id.Checked = false;
+            cb_textBefore_right_worker.Checked = false;
+            cb_textBefore_right_creationdate.Checked = false;
+            cb_textBefore_right_second_date.Checked = false;
+
+            tb_beforeContent.Text = "";
+            tb_afterContent.Text = "";
+
+            rb_footer_full.Checked = true;
+            tb_footer_full.Text = "";
+
+
+            tb_footer_left.Text = "";
+            tb_footer_center.Text = "";
+            tb_footer_right.Text = "";
+
+
+            setEditMode(true);
+
+
+            template = new Template(db);
+            btn_apply.Enabled = true;
+            tb_name.Focus();
+        }
+
+        private void löschenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Wollen Sie wirklick " + template.ID + " (" + template.Name + ") löschen?", "Bestätigung", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                template.Delete();
+                templates = Template.getTemplates(this.db);
+                if (templates != null)
+                {
+                    templates.Remove("0");
+                    lv_templates.Items.Clear();
+                    foreach (KeyValuePair<string, string> item in templates)
+                    {
+                        ListViewItem t = new ListViewItem(item.Key);
+                        t.SubItems.Add(item.Value);
+                        lv_templates.Items.Add(t);
+                    }
+                }
+                lv_templates.SelectedIndices.Clear();
+            }
+        }
+
+        private void cmd_neu_Opening(object sender, CancelEventArgs e)
+        {
+            löschenToolStripMenuItem.Enabled = lv_templates.SelectedIndices.Count > 0;
         }
 
     }

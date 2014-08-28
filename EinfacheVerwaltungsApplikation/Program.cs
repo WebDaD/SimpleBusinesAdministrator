@@ -5,6 +5,9 @@ using System.Windows.Forms;
 using System.Configuration;
 using ManageAdministerExalt.Classes;
 using WebDaD.Toolkit.Licensing;
+using System.Diagnostics;
+using ManageAdministerExalt.Properties;
+using WebDaD.Toolkit.Database;
 
 namespace ManageAdministerExalt
 {
@@ -19,6 +22,12 @@ namespace ManageAdministerExalt
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            if (Debugger.IsAttached)
+            {
+                Config.DatabaseConnectionString = Database_SQLite.GetConnectionString(@"Z:\Shared\Code\Simba\eva_db.sqlite");
+                Config.BackupFolder = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug\backup";
+                Config.BasePath = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug";
+            }
             if (!String.IsNullOrEmpty(Config.LicenseKey))
             {
                 Application.Run(new EnterLicense());
@@ -26,7 +35,7 @@ namespace ManageAdministerExalt
             else
             {
 
-                if (!String.IsNullOrEmpty(Config.DatabaseConnectionString))
+                if (!String.IsNullOrEmpty(Config.DatabaseConnectionString)) //TODO: default use of sqlite
                 {
                     Application.Run(new Main());
                 }

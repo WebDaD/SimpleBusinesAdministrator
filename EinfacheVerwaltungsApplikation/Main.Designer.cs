@@ -602,49 +602,49 @@
             // kundenToolStripMenuItem
             // 
             this.kundenToolStripMenuItem.Name = "kundenToolStripMenuItem";
-            this.kundenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kundenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.kundenToolStripMenuItem.Text = "Kunden";
             this.kundenToolStripMenuItem.Click += new System.EventHandler(this.kundenToolStripMenuItem_Click);
             // 
             // leistungenToolStripMenuItem
             // 
             this.leistungenToolStripMenuItem.Name = "leistungenToolStripMenuItem";
-            this.leistungenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.leistungenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.leistungenToolStripMenuItem.Text = "Leistungen";
             this.leistungenToolStripMenuItem.Click += new System.EventHandler(this.leistungenToolStripMenuItem_Click);
             // 
             // aufträgeToolStripMenuItem
             // 
             this.aufträgeToolStripMenuItem.Name = "aufträgeToolStripMenuItem";
-            this.aufträgeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aufträgeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.aufträgeToolStripMenuItem.Text = "Aufträge";
             this.aufträgeToolStripMenuItem.Click += new System.EventHandler(this.aufträgeToolStripMenuItem_Click);
             // 
             // aGBsToolStripMenuItem
             // 
             this.aGBsToolStripMenuItem.Name = "aGBsToolStripMenuItem";
-            this.aGBsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aGBsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.aGBsToolStripMenuItem.Text = "AGB\'s";
             this.aGBsToolStripMenuItem.Click += new System.EventHandler(this.aGBsToolStripMenuItem_Click);
             // 
             // ausgabenToolStripMenuItem
             // 
             this.ausgabenToolStripMenuItem.Name = "ausgabenToolStripMenuItem";
-            this.ausgabenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ausgabenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.ausgabenToolStripMenuItem.Text = "Ausgaben";
             this.ausgabenToolStripMenuItem.Click += new System.EventHandler(this.ausgabenToolStripMenuItem_Click);
             // 
             // mitarbeiterToolStripMenuItem
             // 
             this.mitarbeiterToolStripMenuItem.Name = "mitarbeiterToolStripMenuItem";
-            this.mitarbeiterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mitarbeiterToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.mitarbeiterToolStripMenuItem.Text = "Mitarbeiter";
             this.mitarbeiterToolStripMenuItem.Click += new System.EventHandler(this.mitarbeiterToolStripMenuItem_Click);
             // 
             // lagerToolStripMenuItem
             // 
             this.lagerToolStripMenuItem.Name = "lagerToolStripMenuItem";
-            this.lagerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lagerToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.lagerToolStripMenuItem.Text = "Lager";
             this.lagerToolStripMenuItem.Click += new System.EventHandler(this.lagerToolStripMenuItem_Click);
             // 
@@ -663,7 +663,7 @@
             // 
             this.updateToolStripMenuItem.Image = global::ManageAdministerExalt.Properties.Resources.arrow_transition_090;
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
@@ -671,7 +671,7 @@
             // 
             this.backupToolStripMenuItem.Image = global::ManageAdministerExalt.Properties.Resources.exclamation_red;
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.backupToolStripMenuItem.Text = "Backup";
             this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
@@ -679,14 +679,14 @@
             // 
             this.hilfeToolStripMenuItem.Image = global::ManageAdministerExalt.Properties.Resources.question;
             this.hilfeToolStripMenuItem.Name = "hilfeToolStripMenuItem";
-            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfeToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.hilfeToolStripMenuItem.Text = "Hilfe";
             this.hilfeToolStripMenuItem.Click += new System.EventHandler(this.hilfeToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.überToolStripMenuItem.Text = "Über ...";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 

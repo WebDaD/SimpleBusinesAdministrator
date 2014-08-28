@@ -84,6 +84,9 @@
             this.cb_textBefore_right_creationdate = new System.Windows.Forms.CheckBox();
             this.cb_textBefore_right_second_date = new System.Windows.Forms.CheckBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.cmd_neu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -97,6 +100,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.cmd_neu.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -121,10 +125,12 @@
             this.lv_templates.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.lv_templates.ContextMenuStrip = this.cmd_neu;
             this.lv_templates.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv_templates.FullRowSelect = true;
             this.lv_templates.GridLines = true;
             this.lv_templates.Location = new System.Drawing.Point(0, 0);
+            this.lv_templates.MultiSelect = false;
             this.lv_templates.Name = "lv_templates";
             this.lv_templates.Size = new System.Drawing.Size(224, 762);
             this.lv_templates.TabIndex = 0;
@@ -780,9 +786,32 @@
             // 
             this.openFileDialog.FileName = "image";
             this.openFileDialog.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Fi" +
-                "les (*.gif)|*.gif";
+    "les (*.gif)|*.gif";
             this.openFileDialog.ReadOnlyChecked = true;
             this.openFileDialog.RestoreDirectory = true;
+            // 
+            // cmd_neu
+            // 
+            this.cmd_neu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.löschenToolStripMenuItem});
+            this.cmd_neu.Name = "cmd_neu";
+            this.cmd_neu.Size = new System.Drawing.Size(153, 70);
+            this.cmd_neu.Opening += new System.ComponentModel.CancelEventHandler(this.cmd_neu_Opening);
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
+            // 
+            // löschenToolStripMenuItem
+            // 
+            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
+            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.löschenToolStripMenuItem.Text = "Löschen";
+            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
             // 
             // Templates
             // 
@@ -814,6 +843,7 @@
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
+            this.cmd_neu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -875,5 +905,8 @@
         private System.Windows.Forms.RadioButton rb_header_full;
         private System.Windows.Forms.RadioButton rb_header_split;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ContextMenuStrip cmd_neu;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
     }
 }
