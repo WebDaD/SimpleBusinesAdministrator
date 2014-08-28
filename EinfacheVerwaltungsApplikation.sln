@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDaD.Toolkit", "..\WebDaD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "..\Updater\Updater\Updater.csproj", "{663DFFFF-FA92-4A4A-BB9C-5F834CB6CBF2}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SimbaSetup", "SimbaSetup\SimbaSetup.vdproj", "{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,14 @@ Global
 		{663DFFFF-FA92-4A4A-BB9C-5F834CB6CBF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{663DFFFF-FA92-4A4A-BB9C-5F834CB6CBF2}.Release|x64.ActiveCfg = Release|Any CPU
 		{663DFFFF-FA92-4A4A-BB9C-5F834CB6CBF2}.Release|x86.ActiveCfg = Release|Any CPU
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Debug|Any CPU.ActiveCfg = Debug
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Debug|x64.ActiveCfg = Debug
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Debug|x86.ActiveCfg = Debug
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Release|Any CPU.ActiveCfg = Release
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Release|Mixed Platforms.ActiveCfg = Release
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Release|x64.ActiveCfg = Release
+		{944DABF3-9A09-4DA9-89EA-3E3E83A2DD14}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
