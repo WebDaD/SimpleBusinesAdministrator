@@ -350,5 +350,21 @@ namespace ManageAdministerExalt
             löschenToolStripMenuItem.Enabled = lv_templates.SelectedIndices.Count > 0;
         }
 
+        private void zeilenumbruchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sender is RichTextBox)
+            {
+                RichTextBox t = (RichTextBox)sender as RichTextBox;
+                int cp = t.SelectionStart;
+                t.Text = t.Text.Insert(cp, Template.LINEBREAK);
+            }
+            else //TextBox
+            {
+                TextBox t = (TextBox)sender as TextBox;
+                int cp = t.SelectionStart;
+                t.Text = t.Text.Insert(cp, Template.LINEBREAK);
+            }
+        }
+
     }
 }

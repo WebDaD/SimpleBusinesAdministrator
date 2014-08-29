@@ -33,6 +33,9 @@
             this.lv_templates = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmd_neu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.rb_footer_full = new System.Windows.Forms.RadioButton();
@@ -84,13 +87,12 @@
             this.cb_textBefore_right_creationdate = new System.Windows.Forms.CheckBox();
             this.cb_textBefore_right_second_date = new System.Windows.Forms.CheckBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.cmd_neu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zeilenumbruchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.cmd_neu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.cmd_inserter.SuspendLayout();
@@ -100,7 +102,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
-            this.cmd_neu.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -148,6 +149,29 @@
             // 
             this.columnHeader2.Text = "Name";
             this.columnHeader2.Width = 120;
+            // 
+            // cmd_neu
+            // 
+            this.cmd_neu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.löschenToolStripMenuItem});
+            this.cmd_neu.Name = "cmd_neu";
+            this.cmd_neu.Size = new System.Drawing.Size(119, 48);
+            this.cmd_neu.Opening += new System.ComponentModel.CancelEventHandler(this.cmd_neu_Opening);
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
+            // 
+            // löschenToolStripMenuItem
+            // 
+            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
+            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.löschenToolStripMenuItem.Text = "Löschen";
+            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -247,14 +271,15 @@
             // cmd_inserter
             // 
             this.cmd_inserter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bildEinfügenToolStripMenuItem});
+            this.bildEinfügenToolStripMenuItem,
+            this.zeilenumbruchToolStripMenuItem});
             this.cmd_inserter.Name = "cmd_inserter";
-            this.cmd_inserter.Size = new System.Drawing.Size(145, 26);
+            this.cmd_inserter.Size = new System.Drawing.Size(156, 70);
             // 
             // bildEinfügenToolStripMenuItem
             // 
             this.bildEinfügenToolStripMenuItem.Name = "bildEinfügenToolStripMenuItem";
-            this.bildEinfügenToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.bildEinfügenToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.bildEinfügenToolStripMenuItem.Text = "Bild einfügen";
             this.bildEinfügenToolStripMenuItem.Click += new System.EventHandler(this.bildEinfügenToolStripMenuItem_Click);
             // 
@@ -790,28 +815,12 @@
             this.openFileDialog.ReadOnlyChecked = true;
             this.openFileDialog.RestoreDirectory = true;
             // 
-            // cmd_neu
+            // zeilenumbruchToolStripMenuItem
             // 
-            this.cmd_neu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem,
-            this.löschenToolStripMenuItem});
-            this.cmd_neu.Name = "cmd_neu";
-            this.cmd_neu.Size = new System.Drawing.Size(153, 70);
-            this.cmd_neu.Opening += new System.ComponentModel.CancelEventHandler(this.cmd_neu_Opening);
-            // 
-            // neuToolStripMenuItem
-            // 
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem.Text = "Neu";
-            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
-            // 
-            // löschenToolStripMenuItem
-            // 
-            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.löschenToolStripMenuItem.Text = "Löschen";
-            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
+            this.zeilenumbruchToolStripMenuItem.Name = "zeilenumbruchToolStripMenuItem";
+            this.zeilenumbruchToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.zeilenumbruchToolStripMenuItem.Text = "Zeilenumbruch";
+            this.zeilenumbruchToolStripMenuItem.Click += new System.EventHandler(this.zeilenumbruchToolStripMenuItem_Click);
             // 
             // Templates
             // 
@@ -827,6 +836,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.cmd_neu.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -843,7 +853,6 @@
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
-            this.cmd_neu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -908,5 +917,6 @@
         private System.Windows.Forms.ContextMenuStrip cmd_neu;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zeilenumbruchToolStripMenuItem;
     }
 }
