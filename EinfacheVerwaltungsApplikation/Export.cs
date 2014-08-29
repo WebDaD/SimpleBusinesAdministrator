@@ -74,7 +74,17 @@ namespace ManageAdministerExalt
             {
                 Process.Start(file);
             }
-            //TODO: Checkbox Mail
+            if (cb_Mail.Checked)
+            {
+                try
+                {
+                    Process.Start("mailto: ?subject=" + data.DataName(ec) + "&attachment=" + file);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Konnte Mail-Programm nicht starten", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

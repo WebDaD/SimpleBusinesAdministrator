@@ -81,7 +81,30 @@ namespace ManageAdministerExalt.Classes
                 return ct;
             }
         }
+        public  string ObjectID
+        {
+            get  { throw new NotImplementedException(); }
+        }
+        
+        public  string WorkerName
+        {
+            get { return ""; }
+        }
 
+        public  string Adress
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public  string DateCreated
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public  string DateSecond
+        {
+            get { throw new NotImplementedException(); }
+        }
         public string DataName(ExportCount c)
         {
             if (c == ExportCount.SINGLE) return this.reportname;

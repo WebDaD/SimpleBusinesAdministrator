@@ -120,7 +120,25 @@ namespace ManageAdministerExalt.Classes
                 throw new NotImplementedException();
             }
         }
+        public override string WorkerName
+        {
+            get { return ""; }
+        }
 
+        public override string Adress
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string DateCreated
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string DateSecond
+        {
+            get { throw new NotImplementedException(); }
+        }
         public override bool Save()
         {
             bool ok = base.Save();

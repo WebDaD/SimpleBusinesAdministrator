@@ -418,7 +418,25 @@ namespace ManageAdministerExalt.Classes
             //TODO: Here the Offer will be created in SIngle Mode!
             throw new NotImplementedException();
         }
+        public override string WorkerName
+        {
+            get { return this.worker.Name; }
+        }
 
+        public override string Adress
+        {
+            get { return this.Adress; }
+        }
+
+        public override string DateCreated
+        {
+            get { return this.offer_created.ToString("dd.MM.yyyy"); }
+        }
+
+        public override string DateSecond
+        {
+            get { return "Lieferdatum: "+this.offer_created.ToString("dd.MM.yyyy"); }
+        }
         internal List<string> GetYears()
         {
             Result d = base.DB.getRow(base.Tablename, new string[] { "strftime('%Y',jdate_created)" }, "`active`='1'");

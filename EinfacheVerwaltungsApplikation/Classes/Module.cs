@@ -156,5 +156,31 @@ namespace ManageAdministerExalt.Classes
                 return this.NiceID;
             }
         }
+
+
+        public abstract string Adress
+        {
+            get;
+        }
+
+        public string ObjectID
+        {
+            get { return this.NiceID; }
+        }
+
+        public abstract string WorkerName
+        {
+            get;
+        }
+
+        public abstract string DateCreated
+        {
+            get;
+        }
+
+        public abstract string DateSecond
+        {
+            get;
+        }
     }
 }

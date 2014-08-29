@@ -88,5 +88,24 @@ namespace ManageAdministerExalt.Classes
                 throw new NotImplementedException();
             }
         }
+        public override string WorkerName
+        {
+            get { return ""; }
+        }
+
+        public override string Adress
+        {
+            get { return ""; }
+        }
+
+        public override string DateCreated
+        {
+            get { return ""; }
+        }
+
+        public override string DateSecond
+        {
+            get { return ""; }
+        }
     }
 }

@@ -177,5 +177,24 @@ namespace ManageAdministerExalt.Classes
             //TODO: Here will be the BILL! (so calculate!)
             throw new NotImplementedException();
         }
+        public override string WorkerName
+        {
+            get { return ""; }
+        }
+
+        public override string Adress
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string DateCreated
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string DateSecond
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

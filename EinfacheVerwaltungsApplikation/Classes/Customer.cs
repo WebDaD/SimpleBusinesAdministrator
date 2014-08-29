@@ -118,7 +118,25 @@ namespace ManageAdministerExalt.Classes
             }
         }
 
+        public override string WorkerName
+        {
+            get { return ""; throw new NotImplementedException(); }
+        }
 
+        public override string Adress
+        {
+            get { return ""; throw new NotImplementedException(); }
+        }
+
+        public override string DateCreated
+        {
+            get { return ""; throw new NotImplementedException(); }
+        }
+
+        public override string DateSecond
+        {
+            get { return ""; throw new NotImplementedException(); }
+        }
 
         public override CRUDable createObject(Database db, string id)
         {

@@ -60,7 +60,25 @@ public class Term : Module
             }
         }
 
-        
+        public override string WorkerName
+        {
+            get { return ""; }
+        }
+
+        public override string Adress
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string DateCreated
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public override string DateSecond
+        {
+            get { throw new NotImplementedException(); }
+        }
 
         public bool Move(int direction)
         {
