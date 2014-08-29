@@ -1582,37 +1582,37 @@ namespace ManageAdministerExalt
 
         private void kundenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(customer, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void leistungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(service, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void aufträgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(job, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void aGBsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(term, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void ausgabenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(expense, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void mitarbeiterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(worker, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void lagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TODO: load Exporter (multi)
+            new Export(item, db, ExportCount.MULTI).ShowDialog();
         }
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
