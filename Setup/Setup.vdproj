@@ -765,7 +765,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup"
         "ProductCode" = "8:{3E42CD74-A7D7-4C12-9527-4766A3991457}"
-        "PackageCode" = "8:{19A8992E-710B-4488-A97D-EA49A5A4D20D}"
+        "PackageCode" = "8:{C0E3BF13-4D42-476D-92FC-186544A7B892}"
         "UpgradeCode" = "8:{B33699A1-CC3D-4CAF-A9D0-20DDB8A4816D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -897,20 +897,6 @@
             "Folder" = "8:_E9648465F6BB4B16ACF27C635A0CEB9B"
             "WorkingFolder" = "8:_47C29D91794F4BCEB4DB95ECB9F0CCC4"
             "Icon" = "8:"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BBD6E6ED52AD4CAC86BDE0D50D6369E9"
-            {
-            "Name" = "8:SimBA"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_277B74C550DD4DB1AF04D842FCB2C9C1"
-            "Folder" = "8:_E9648465F6BB4B16ACF27C635A0CEB9B"
-            "WorkingFolder" = "8:_47C29D91794F4BCEB4DB95ECB9F0CCC4"
-            "Icon" = "8:_B4B10C356BB64E53BFA02402FB4F12F1"
             "Feature" = "8:"
             }
         }
