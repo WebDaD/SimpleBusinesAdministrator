@@ -129,6 +129,7 @@ namespace ManageAdministerExalt
             template.Name = tb_name.Text;
             if (!rb_header_full.Checked)
             {
+                template.Header = " | | ";
                 template.Header_Left = tb_header_left.Text;
                 template.Header_Center = tb_header_center.Text;
                 template.Header_Right = tb_header_right.Text;
@@ -151,6 +152,7 @@ namespace ManageAdministerExalt
 
             if (!rb_footer_full.Checked)
             {
+                template.Footer = " | | ";
                 template.Footer_Left = tb_footer_left.Text;
                 template.Footer_Center = tb_footer_center.Text;
                 template.Footer_Right = tb_footer_right.Text;
@@ -253,26 +255,7 @@ namespace ManageAdministerExalt
             }
         }
 
-        private void bildEinfügenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                images.Add(openFileDialog.FileName);
-                string tag = Template.IMAGE_TAG + Path.GetFileName(openFileDialog.FileName) + Template.IMAGE_END;
-                if (sender is RichTextBox)
-                {
-                    RichTextBox t = (RichTextBox)sender as RichTextBox;
-                    int cp = t.SelectionStart;
-                    t.Text = t.Text.Insert(cp, tag);
-                }
-                else //TextBox
-                {
-                    TextBox t = (TextBox)sender as TextBox;
-                    int cp = t.SelectionStart;
-                    t.Text = t.Text.Insert(cp, tag);
-                }
-            }
-        }
+        
 
         private void tb_changed(object sender, EventArgs e)
         {
@@ -349,20 +332,57 @@ namespace ManageAdministerExalt
         {
             löschenToolStripMenuItem.Enabled = lv_templates.SelectedIndices.Count > 0;
         }
+        private void bildEinfügenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                images.Add(openFileDialog.FileName);
+                string tag = Template.IMAGE_TAG + Path.GetFileName(openFileDialog.FileName) + Template.IMAGE_END;
+                ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+                if (tsmi != null)
+                {
+                    ContextMenuStrip cms = tsmi.Owner as ContextMenuStrip;
+                    if (cms != null)
+                    {
+                        if (cms.SourceControl is RichTextBox)
+                        {
+                            RichTextBox t = (RichTextBox)cms.SourceControl as RichTextBox;
+                            int cp = t.SelectionStart;
+                            t.Text = t.Text.Insert(cp, tag);
+                        }
+                        else if (cms.SourceControl is TextBox)
+                        {
+                            TextBox t = (TextBox)cms.SourceControl as TextBox;
+                            int cp = t.SelectionStart;
+                            t.Text = t.Text.Insert(cp, tag);
+                        }
 
+                    }
+                }
+            }
+        }
         private void zeilenumbruchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (sender is RichTextBox)
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+            if (tsmi != null)
             {
-                RichTextBox t = (RichTextBox)sender as RichTextBox;
-                int cp = t.SelectionStart;
-                t.Text = t.Text.Insert(cp, Template.LINEBREAK);
-            }
-            else //TextBox
-            {
-                TextBox t = (TextBox)sender as TextBox;
-                int cp = t.SelectionStart;
-                t.Text = t.Text.Insert(cp, Template.LINEBREAK);
+                ContextMenuStrip cms = tsmi.Owner as ContextMenuStrip;
+                if (cms != null)
+                {
+                    if (cms.SourceControl is RichTextBox)
+                    {
+                        RichTextBox t = (RichTextBox)cms.SourceControl as RichTextBox;
+                        int cp = t.SelectionStart;
+                        t.Text = t.Text.Insert(cp, Template.LINEBREAK);
+                    }
+                    else if (cms.SourceControl is TextBox)
+                    {
+                        TextBox t = (TextBox)cms.SourceControl as TextBox;
+                        int cp = t.SelectionStart;
+                        t.Text = t.Text.Insert(cp, Template.LINEBREAK);
+                    }
+                    
+                }
             }
         }
 
