@@ -57,7 +57,7 @@ namespace ManageAdministerExalt
                 if (template.Header != null)
                 {
                     rb_header_full.Checked = true;
-                    tb_header_full.Text = template.Header.Replace(Template.FULLSTARTER,"");
+                    tb_header_full.Text = template.Header.Replace(Template.FULLSTARTER, "").Replace(Template.LINEBREAK, "\n");
                     tb_header_left.Text ="";
                     tb_header_center.Text = "";
                     tb_header_right.Text ="";
@@ -77,12 +77,12 @@ namespace ManageAdministerExalt
                 cb_textBefore_right_creationdate.Checked = template.TextBefore_Right.Contains(Template.DATE_CREATE);
                 cb_textBefore_right_second_date.Checked = template.TextBefore_Right.Contains(Template.DATE_SECOND);
 
-                tb_beforeContent.Text = template.BeforeContent;
-                tb_afterContent.Text = template.AfterContent;
+                tb_beforeContent.Text = template.BeforeContent.Replace(Template.LINEBREAK, "\n");
+                tb_afterContent.Text = template.AfterContent.Replace(Template.LINEBREAK, "\n");
                 if (template.Footer != null)
                 {
                     rb_footer_full.Checked = true;
-                    tb_footer_full.Text = template.Footer.Replace(Template.FULLSTARTER, "");
+                    tb_footer_full.Text = template.Footer.Replace(Template.FULLSTARTER, "").Replace(Template.LINEBREAK, "\n");
                     tb_footer_left.Text = "";
                     tb_footer_center.Text = "";
                     tb_footer_right.Text = "";
@@ -135,19 +135,19 @@ namespace ManageAdministerExalt
             }
             else
             {
-                template.Header = tb_header_full.Text;
+                template.Header = tb_header_full.Text.Replace("\n", Template.LINEBREAK);
             }
             if (cb_textBefore_Left.Checked) template.TextBefore_Left = Template.ADDR;
             else template.TextBefore_Left = "";
 
             template.TextBefore_Right = "";
-            if (cb_textBefore_right_id.Checked) template.TextBefore_Right += Template.OBJECT_ID + ";";
-            if (cb_textBefore_right_worker.Checked) template.TextBefore_Right += Template.WORKER + ";";
-            if (cb_textBefore_right_creationdate.Checked) template.TextBefore_Right += Template.DATE_CREATE + ";";
-            if (cb_textBefore_right_second_date.Checked) template.TextBefore_Right += Template.DATE_SECOND + ";";
+            if (cb_textBefore_right_id.Checked) template.TextBefore_Right += Template.OBJECT_ID + Template.LINEBREAK;
+            if (cb_textBefore_right_worker.Checked) template.TextBefore_Right += Template.WORKER + Template.LINEBREAK;
+            if (cb_textBefore_right_creationdate.Checked) template.TextBefore_Right += Template.DATE_CREATE + Template.LINEBREAK;
+            if (cb_textBefore_right_second_date.Checked) template.TextBefore_Right += Template.DATE_SECOND + Template.LINEBREAK;
 
-            template.BeforeContent = tb_beforeContent.Text;
-            template.AfterContent = tb_afterContent.Text;
+            template.BeforeContent = tb_beforeContent.Text.Replace("\n", Template.LINEBREAK);
+            template.AfterContent = tb_afterContent.Text.Replace("\n", Template.LINEBREAK);
 
             if (!rb_footer_full.Checked)
             {
@@ -157,7 +157,7 @@ namespace ManageAdministerExalt
             }
             else
             {
-                template.Footer = tb_footer_full.Text;
+                template.Footer = tb_footer_full.Text.Replace("\n",Template.LINEBREAK);
             }
             template.Save(images, Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["template"] + Path.DirectorySeparatorChar + Config.IDFormating["template"] + Path.DirectorySeparatorChar + "images" + Path.DirectorySeparatorChar);
             templates = Template.getTemplates(this.db);
