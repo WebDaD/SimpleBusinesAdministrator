@@ -46,13 +46,13 @@ namespace ManageAdministerExalt
             else
             {
 
-                if (!String.IsNullOrEmpty(Config.DatabaseConnectionString)) //TODO: default use of sqlite
+                if (!String.IsNullOrEmpty(Config.DatabaseConnectionString)) //TODO: Replace with Config.FirstStart (boolean)
                 {
                     Application.Run(new Main());
                 }
                 else
                 {
-                    Application.Run(new SelectModule());
+                    Application.Run(new SelectModule()); //TODO: Here shall be paths from above!
                 }
             }
         }
