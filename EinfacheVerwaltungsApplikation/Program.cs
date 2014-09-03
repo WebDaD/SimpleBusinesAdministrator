@@ -27,32 +27,25 @@ namespace ManageAdministerExalt
                 Config.DatabaseConnectionString = Database_SQLite.GetConnectionString(@"Z:\Shared\Code\Simba\eva_db.sqlite");
                 Config.BackupFolder = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug\backup";
                 Config.BasePath = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug";
+                Config.LicenseKey = "1234";
+                Config.FirstStart = false;
             }
-            else
-            {
-                //TODO: this is the real run!
-                //if first start:
-                    //backupfolder = appdata/webdad/backup
-                    //basepath= appdata/webdad/simba
-                    //db = basepath/eva_db.sqlite
-                    //username / Email from setup?
-                    //search for wkhtmltopdf exe
 
-            }
-            if (!String.IsNullOrEmpty(Config.LicenseKey))
+            if (String.IsNullOrEmpty(Config.LicenseKey))
             {
                 Application.Run(new EnterLicense());
             }
             else
             {
 
-                if (!String.IsNullOrEmpty(Config.DatabaseConnectionString)) //TODO: Replace with Config.FirstStart (boolean)
+                if (Config.FirstStart)
                 {
-                    Application.Run(new Main());
+                    Application.Run(new SelectModule());
                 }
                 else
                 {
-                    Application.Run(new SelectModule()); //TODO: Here shall be paths from above!
+                    Application.Run(new Main());
+                   
                 }
             }
         }

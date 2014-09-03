@@ -223,7 +223,45 @@ namespace ManageAdministerExalt.Classes
             }
 
         }
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.services = new Dictionary<Service, int>();
+            this.reminders = new Dictionary<Reminder, DateTime>();
+            this.discounts = new List<Discount>();
+            this.bill = new Bill(base.DB);
+            this.items = new Dictionary<Item, int>();
+            this.status = JobStatus.S0_SAVED;
+            this.offer_sent = DateTime.MinValue;
+            this.offer_created = DateTime.Now;
+            this.customer = new Customer(base.DB);
+            this.worker = new Worker(base.DB);
+            this.address = "C";
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.status = (JobStatus)Enum.Parse(typeof(JobStatus), d.FirstRow["jstatus"]);
+                this.offer_sent = DateTime.Parse(d.FirstRow["jdate_sent"]);
+                this.offer_created = DateTime.Parse(d.FirstRow["jdate_created"]);
+                this.customer = new Customer(db, d.FirstRow["customer_id"]);
+                this.worker = new Worker(db, d.FirstRow["worker_id"]);
+                this.address = d.FirstRow["address"];
 
+                this.services = loadServices();
+                this.reminders = loadReminders();
+                this.discounts = loadDiscounts();
+                this.bill = loadBill();
+                this.items = loadItems();
+                return true;
+            }
+            else return false;
+        }
         public void setWorker(string id)
         {
             this.worker = new Worker(base.DB, id);

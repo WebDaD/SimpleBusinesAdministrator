@@ -49,6 +49,28 @@ namespace ManageAdministerExalt.Classes
                 this.value = Decimal.Parse(d.FirstRow["value"]);
             }
         }
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.description = "";
+            this.unit = "";
+            this.value = 0;
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "description", "unit", "value" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.description = d.FirstRow["description"];
+                this.unit = d.FirstRow["unit"];
+                this.value = Decimal.Parse(d.FirstRow["value"]);
+                return true;
+            }
+            else return false;
+        }
         public override CRUDable createObject(Database db, string id)
         {
             return new Service(db, id);

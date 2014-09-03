@@ -103,7 +103,7 @@ namespace ManageAdministerExalt.Classes
             return ok;
         }
 
-        public virtual Dictionary<string, string> GetIDList()
+        public virtual Dictionary<string, string> GetDictionary()
         {
             Result d = this.db.getRow(this.tablename, new string[] { "id", "name" }, "`active`='1'");
             if (d.RowCount < 1) return null;
@@ -117,7 +117,29 @@ namespace ManageAdministerExalt.Classes
             if (r.Count > 0) return r;
             else return null;
         }
+     
 
+        /// <summary>
+        /// Fills the Internal Fields with the Data from given ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public abstract bool Load(string id);
+        public abstract void Unload();
+        List<string> GetIDList()
+        {
+            Result d = this.db.getRow(this.tablename, new string[] { "id" }, "`active`='1'");
+            if (d.RowCount < 1) return null;
+
+            List<string> r = new List<string>();
+            foreach (Row item in d.Rows)
+            {
+                r.Add(item.Cells["id"]);
+            }
+
+            if (r.Count > 0) return r;
+            else return null;
+        }
         public List<CRUDable> GetFullList()
         {
             List<CRUDable> r = new List<CRUDable>();
@@ -128,7 +150,7 @@ namespace ManageAdministerExalt.Classes
             }
             return r;
         }
-
+        
         public abstract CRUDable createObject(Database db, string id);
 
         public abstract Content ToContent(ExportCount c);
@@ -182,5 +204,8 @@ namespace ManageAdministerExalt.Classes
         {
             get;
         }
+
+
+        
     }
 }

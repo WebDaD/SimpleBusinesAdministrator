@@ -65,7 +65,28 @@ namespace ManageAdministerExalt.Classes
                 this.attachment = d.FirstRow["attachment"];
             }
         }
-
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.edate = DateTime.Now;
+            this.value = 0;
+            this.attachment = "";
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "edate", "value", "attachment" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.edate = DateTime.Parse(d.FirstRow["edate"]);
+                this.value = Decimal.Parse(d.FirstRow["value"]);
+                this.attachment = d.FirstRow["attachment"];
+                return true;
+            }
+            else return false;
+        }
         public Dictionary<string, string> GetIDList(string year)
         {
             Result d;

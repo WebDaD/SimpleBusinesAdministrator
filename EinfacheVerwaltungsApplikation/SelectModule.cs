@@ -19,6 +19,12 @@ namespace ManageAdministerExalt
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Datenbank";
             this.Icon = Properties.Resources.simba;
+            //TODO if first start:
+            //backupfolder = appdata/webdad/backup
+            //basepath= appdata/webdad/simba
+            //db = basepath/eva_db.sqlite
+            //username / Email from setup?
+            //search for wkhtmltopdf exe
         }
 
         private void SelectModule_Load(object sender, EventArgs e)

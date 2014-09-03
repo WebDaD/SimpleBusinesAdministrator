@@ -200,6 +200,15 @@ namespace ManageAdministerExalt.Classes
 
             return r;
         }
+        public static bool FirstStart
+        {
+            get { return Properties.Settings.Default.firststart; }
+            set
+            {
+                Properties.Settings.Default.firststart = value;
+                Properties.Settings.Default.Save();
+            }
+        }
         public static bool Timer
         {
             get { return Properties.Settings.Default.timer; }

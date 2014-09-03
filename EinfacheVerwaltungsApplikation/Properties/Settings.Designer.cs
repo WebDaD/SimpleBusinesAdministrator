@@ -228,5 +228,17 @@ namespace ManageAdministerExalt.Properties {
                 this["autobackup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool firststart {
+            get {
+                return ((bool)(this["firststart"]));
+            }
+            set {
+                this["firststart"] = value;
+            }
+        }
     }
 }

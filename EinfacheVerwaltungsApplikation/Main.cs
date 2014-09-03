@@ -55,6 +55,9 @@ namespace ManageAdministerExalt
                 case DatabaseType.SQLite:
                     db = Database_SQLite.getDatabase(Config.DatabaseConnectionString);
                     break;
+                case DatabaseType.MySQL:
+                    db = Database_MySQL.createFromConnectionString(Config.DatabaseConnectionString);
+                    break;
                 default:
                     //TODO: ERROR
                     break;
@@ -276,7 +279,7 @@ namespace ManageAdministerExalt
 
         private void fillItems()
         {
-            items = item.GetIDList();
+            items = item.GetDictionary();
             if (items != null)
             {
                 lv_it_items.Items.Clear();
@@ -299,7 +302,7 @@ namespace ManageAdministerExalt
             }
             else
             {
-                jobs = job.GetIDList();
+                jobs = job.GetDictionary();
             }
             if (jobs != null)
             {
@@ -327,7 +330,7 @@ namespace ManageAdministerExalt
         }
         private void fillWorkers()
         {
-            workers = worker.GetIDList();
+            workers = worker.GetDictionary();
             if (workers != null)
             {
                 lv_wo_worker.Items.Clear();
@@ -359,7 +362,7 @@ namespace ManageAdministerExalt
 
         private void fillCustomers()
         {
-            customers = customer.GetIDList();
+            customers = customer.GetDictionary();
             if (customers != null)
             {
                 lv_cu_customers.Items.Clear();
@@ -374,7 +377,7 @@ namespace ManageAdministerExalt
 
         private void fillServices()
         {
-            services = service.GetIDList();
+            services = service.GetDictionary();
             if (services != null)
             {
                 lv_se_services.Items.Clear();
@@ -389,7 +392,7 @@ namespace ManageAdministerExalt
 
         private void fillTerms()
         {
-            terms = term.GetIDList();
+            terms = term.GetDictionary();
             if (terms != null)
             {
                 lv_tc_terms.Items.Clear();
@@ -452,7 +455,7 @@ namespace ManageAdministerExalt
             tb_cu_mobile.Text = "";
             tb_cu_fax.Text = "";
             tb_cu_contact.Text = "";
-            customer = new Customer(db);
+            customer.Unload();
             btn_cu_save.Enabled = true;
             tb_cu_name.Focus();
         }
@@ -542,7 +545,7 @@ namespace ManageAdministerExalt
         {
             if (lv_cu_customers.SelectedIndices.Count > 0)
             {
-                customer = new Customer(db, lv_cu_customers.SelectedItems[0].Text);
+                customer.Load(lv_cu_customers.SelectedItems[0].Text);
 
                 lb_cu_id.Text = customer.NiceID;
                 tb_cu_name.Text = customer.Name;
@@ -608,7 +611,7 @@ namespace ManageAdministerExalt
                 cb_jo_worker.SelectedIndex = -1;
                 lb_jo_adress.Text = "";
 
-                job = new Job(db);
+                job.Unload();
                 job.setCustomer(lv_cu_customers.SelectedItems[0].Text);
                 lb_jo_customer_id.Text = job.Customer_ID;
                 btn_jo_save.Enabled = true;
@@ -647,7 +650,7 @@ namespace ManageAdministerExalt
             tb_se_description.Text = "";
             tb_se_unit.Text = "";
             nu_se_value.Value = 0;
-            service = new Service(db);
+            service.Unload();
             btn_se_save.Enabled = true;
             tb_se_name.Focus();
         }
@@ -666,7 +669,7 @@ namespace ManageAdministerExalt
         {
             if (lv_se_services.SelectedIndices.Count > 0)
             {
-                service = new Service(db, lv_se_services.SelectedItems[0].Text);
+                service.Load(lv_se_services.SelectedItems[0].Text);
 
                 lb_se_ID.Text = service.NiceID;
                 tb_se_name.Text = service.Name;
@@ -787,7 +790,7 @@ namespace ManageAdministerExalt
         {
             if (lv_tc_terms.SelectedIndices.Count > 0)
             {
-                term = new Term(db, lv_tc_terms.SelectedItems[0].Text);
+                term.Load(lv_tc_terms.SelectedItems[0].Text);
 
                 lb_tc_id.Text = term.NiceID;
                 tb_tc_title.Text = term.Name;
@@ -815,7 +818,7 @@ namespace ManageAdministerExalt
             lb_tc_id.Text = "";
             tb_tc_title.Text = "";
             tb_tc_content.Text = "";
-            term = new Term(db);
+            term.Unload();
             btn_tc_save.Enabled = true;
             tb_tc_title.Focus();
         }
@@ -962,7 +965,7 @@ namespace ManageAdministerExalt
         {
             if (lv_ex_expenses.SelectedIndices.Count > 0)
             {
-                expense = new Expense(db, lv_ex_expenses.SelectedItems[0].Text);
+                expense.Load(lv_ex_expenses.SelectedItems[0].Text);
 
                 lb_ex_id.Text = expense.NiceID;
                 tb_ex_name.Text = expense.Name;
@@ -992,7 +995,7 @@ namespace ManageAdministerExalt
             nu_ex_value.Value = 0;
             tb_ex_attachment.Text = "";
 
-            expense = new Expense(db);
+            expense.Unload();
             btn_ex_save.Enabled = true;
             tb_ex_name.Focus();
         }
@@ -1114,7 +1117,7 @@ namespace ManageAdministerExalt
         {
             if (lv_jo_jobs.SelectedIndices.Count > 0)
             {
-                job = new Job(db, lv_jo_jobs.SelectedItems[0].Text);
+                job.Load(lv_jo_jobs.SelectedItems[0].Text);
 
 
                 lb_jo_id.Text = job.NiceID;
@@ -1240,7 +1243,7 @@ namespace ManageAdministerExalt
                 cb_jo_worker.SelectedIndex = -1;
                 lb_jo_adress.Text = "";
 
-                job = new Job(db);
+                job.Unload();
                 job.setCustomer(j.customer_id);
                 lb_jo_customer_id.Text = job.Customer_ID;
                 btn_jo_save.Enabled = true;
@@ -1288,7 +1291,7 @@ namespace ManageAdministerExalt
         {
             if (lv_wo_worker.SelectedIndices.Count > 0)
             {
-                worker = new Worker(db, lv_wo_worker.SelectedItems[0].Text);
+                worker.Load(lv_wo_worker.SelectedItems[0].Text);
 
                 lb_wo_id.Text = worker.NiceID;
                 tb_wo_name.Text = worker.Name;
@@ -1342,7 +1345,7 @@ namespace ManageAdministerExalt
             lb_wo_reports_salary_sum.Text = "";
             lb_wo_report_value.Text = "";
 
-            worker = new Worker(db);
+            worker.Unload();
             btn_wo_save.Enabled = true;
             btn_wo_export.Enabled = false;
             btn_wo_openfolder.Enabled = false;
@@ -1445,7 +1448,7 @@ namespace ManageAdministerExalt
 
         private void loadItem(string id)
         {
-            item = new Item(db, id);
+            item.Load(id);
 
             lb_it_id.Text = item.NiceID;
             tb_it_name.Text = item.Name;
@@ -1543,7 +1546,7 @@ namespace ManageAdministerExalt
             tb_it_name.Text = "";
             nu_it_value.Value = 0;
 
-            item = new Item(db);
+            item.Unload();
             btn_it_save.Enabled = true;
             tb_it_name.Focus();
         }

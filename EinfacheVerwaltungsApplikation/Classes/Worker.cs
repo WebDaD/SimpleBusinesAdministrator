@@ -93,6 +93,42 @@ namespace ManageAdministerExalt.Classes
             }
             
         }
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.dateofbirth = new DateTime();
+            this.works_since = new DateTime();
+            this.salary = 0;
+            this.hoursperweek = 0;
+            this.streetnr = "";
+            this.plz = "";
+            this.city = "";
+            this.email = "";
+            this.phone = "";
+            this.mobile = "";
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "dateofbirth", "works_since", "salary", "streetnr", "hoursperweek", "plz", "city", "email", "phone", "mobile" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.dateofbirth = DateTime.Parse(d.FirstRow["dateofbirth"]);
+                this.works_since = DateTime.Parse(d.FirstRow["works_since"]);
+                this.salary = Decimal.Parse(d.FirstRow["salary"]);
+                this.hoursperweek = Decimal.Parse(d.FirstRow["hoursperweek"]);
+                this.streetnr = d.FirstRow["streetnr"];
+                this.plz = d.FirstRow["plz"];
+                this.city = d.FirstRow["city"];
+                this.email = d.FirstRow["email"];
+                this.phone = d.FirstRow["phone"];
+                this.mobile = d.FirstRow["mobile"];
+                return true;
+            }
+            else return false;
+        }
 
         public override CRUDable createObject(Database db, string id)
         {

@@ -57,6 +57,29 @@ namespace ManageAdministerExalt.Classes
                 this.value = Decimal.Parse(d.FirstRow["value"]);
             }
         }
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.period = 14;
+            this.type = 0;
+            this.value = 0;
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "period", "price_type", "value" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.period = Convert.ToInt32(d.FirstRow["period"]);
+                this.type = Convert.ToInt32(d.FirstRow["price_type"]);
+                this.value = Decimal.Parse(d.FirstRow["value"]);
+                return true;
+            }
+            else return false;
+        }
+
         public override CRUDable createObject(Database db, string id)
         {
             return new Reminder(db, id);

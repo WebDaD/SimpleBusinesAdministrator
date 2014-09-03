@@ -41,6 +41,26 @@ public class Term : Module
                 this.ordering = Convert.ToInt32(d.FirstRow["ordering"]);
             }
         }
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.description = "";
+            this.ordering = 0;
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "description", "ordering" }, "`id`='" + id + "'", "ordering ASC", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.description = d.FirstRow["description"];
+                this.ordering = Convert.ToInt32(d.FirstRow["ordering"]);
+                return true;
+            }
+            else return false;
+        }
 
         public override CRUDable createObject(Database db, string id)
         {
@@ -51,7 +71,7 @@ public class Term : Module
         {
             if (c == ExportCount.MULTI)
             {
-                Content ct = new ContentParagraphs(DataType.Paragraphs, this.GetIDList()); //TODO: this may not be in the right order...
+                Content ct = new ContentParagraphs(DataType.Paragraphs, this.GetDictionary()); //TODO: this may not be in the right order...
                 return ct;
             }
             else

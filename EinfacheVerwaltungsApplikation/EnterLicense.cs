@@ -28,7 +28,7 @@ namespace ManageAdministerExalt
         {
             if (String.IsNullOrEmpty(tb_username.Text)) MessageBox.Show("Bitte Benutzername eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (String.IsNullOrEmpty(tb_licensekey.Text)) MessageBox.Show("Bitte Lizenzschlüssel eingeben", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (WebDaD.Toolkit.Licensing.License.Check(tb_username.Text, tb_licensekey.Text))
+            if (WebDaD.Toolkit.Licensing.License.IsLicensed(Config.Name,tb_username.Text,tb_licensekey.Text))
             {
                 Config.Username = tb_username.Text;
                 Config.LicenseKey = tb_licensekey.Text;

@@ -48,7 +48,36 @@ namespace ManageAdministerExalt.Classes
             }
 
         }
-
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.taxes = true;
+            this.payment_received = DateTime.MinValue;
+            this.bill_sent = DateTime.MinValue;
+            this.job_id = "";
+            this.services = new Dictionary<Service, int>();
+            this.discounts = new List<Discount>();
+            this.conditions = new List<PaymentCondition>();
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "taxes", "bdate_received", "bdate_sent", "job_id" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = "";
+                this.payment_received = DateTime.Parse(d.FirstRow["bdate_received"]);
+                this.bill_sent = DateTime.Parse(d.FirstRow["bdate_sent"]);
+                this.job_id = d.FirstRow["job_id"];
+                this.services = loadServices();
+                this.conditions = loadConditions();
+                this.discounts = loadDiscounts();
+                this.taxes = d.FirstRow["taxes"] == "0" ? false : true;
+                return true;
+            }
+            else return false;
+        }
         private Dictionary<Service, int> loadServices()
         {
             Dictionary<Service, int> r = new Dictionary<Service, int>();

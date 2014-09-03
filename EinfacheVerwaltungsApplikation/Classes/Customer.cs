@@ -83,7 +83,38 @@ namespace ManageAdministerExalt.Classes
             }
            
         }
-
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.street = "";
+            this.plz = "";
+            this.city = "";
+            this.mail = "";
+            this.phone = "";
+            this.mobile = "";
+            this.fax = "";
+            this.contact = "";
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "street", "plz", "city", "mail", "phone", "mobile", "fax", "contact" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.street = d.FirstRow["street"];
+                this.plz = d.FirstRow["plz"];
+                this.city = d.FirstRow["city"];
+                this.mail = d.FirstRow["mail"];
+                this.phone = d.FirstRow["phone"];
+                this.mobile = d.FirstRow["mobile"];
+                this.fax = d.FirstRow["fax"];
+                this.contact = d.FirstRow["contact"];
+                return true;
+            }
+            else return false;
+        }
         public override bool Save()
         {
             bool ok = base.Save();

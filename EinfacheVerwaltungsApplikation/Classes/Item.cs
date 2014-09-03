@@ -53,7 +53,26 @@ namespace ManageAdministerExalt.Classes
             }
             
         }
-
+        public override void Unload()
+        {
+            base.ID = "";
+            base.Name = "";
+            this.value = 0;
+            this.log = null;
+        }
+        public override bool Load(string id)
+        {
+            base.ID = id;
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "value_per_unit" }, "`id`='" + id + "'", "", 1);
+            if (d.RowCount > 0)
+            {
+                base.Name = d.FirstRow["name"];
+                this.value = Decimal.Parse(d.FirstRow["value_per_unit"]);
+                this.log = getLog();
+                return true;
+            }
+            else return false;
+        }
         private DataTable getLog()
         {
             DataTable dt = new DataTable();
