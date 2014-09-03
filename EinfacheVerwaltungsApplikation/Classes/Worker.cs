@@ -49,8 +49,8 @@ namespace ManageAdministerExalt.Classes
             Dictionary<string, string> r = base.FieldSet();
             r.Add("dateofbirth", this.dateofbirth.ToString("yyyy-MM-dd"));
             r.Add("works_since", this.works_since.ToString("yyyy-MM-dd"));
-            r.Add("salary", this.salary.ToString());
-            r.Add("hoursperweek", this.hoursperweek.ToString());
+            r.Add("salary", this.salary.ToString().Replace(",", "."));
+            r.Add("hoursperweek", this.hoursperweek.ToString().Replace(",", "."));
             r.Add("streetnr", this.streetnr);
             r.Add("plz", this.plz);
             r.Add("city", this.city);
@@ -229,7 +229,8 @@ namespace ManageAdministerExalt.Classes
         {
             get
             {
-                return R_Jobs_Sum / R_Salary_Sum; //TODO: ReThink!
+                decimal r = R_Jobs_Sum - R_Salary_Sum;
+                return r;
             }
         }
         

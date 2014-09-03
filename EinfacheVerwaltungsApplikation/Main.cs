@@ -1320,7 +1320,7 @@ namespace ManageAdministerExalt
                 lb_wo_report_job_sum.Text = worker.R_Jobs_Sum.ToString("C");
                 lb_wo_report_work_months.Text = worker.R_Work_Months.ToString() + " " + ((worker.R_Work_Months > 1) ? "Monaten" : "Monat");
                 lb_wo_reports_salary_sum.Text = worker.R_Salary_Sum.ToString("C");
-                lb_wo_report_value.Text = worker.R_Value.ToString();
+                lb_wo_report_value.Text = worker.R_Value.ToString("C");
 
                 setEditmode(false);
 

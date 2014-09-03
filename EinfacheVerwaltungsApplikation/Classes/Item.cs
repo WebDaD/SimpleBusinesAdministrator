@@ -106,7 +106,7 @@ namespace ManageAdministerExalt.Classes
         public override Dictionary<string, string> FieldSet()
         {
             Dictionary<string, string> r = base.FieldSet();
-            r.Add("value_per_unit", this.value.ToString());
+            r.Add("value_per_unit", this.value.ToString().Replace(",", "."));
             return r;
         }
 

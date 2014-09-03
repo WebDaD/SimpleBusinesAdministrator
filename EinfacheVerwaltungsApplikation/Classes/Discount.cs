@@ -19,7 +19,7 @@ namespace ManageAdministerExalt.Classes
         public override Dictionary<string, string> FieldSet()
         {
             Dictionary<string, string> r = base.FieldSet();
-            r.Add("value", this.value.ToString());
+            r.Add("value", this.value.ToString().Replace(",", "."));
             r.Add("type", this.type.ToString());
             return r;
         }

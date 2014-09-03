@@ -5,6 +5,7 @@ using System.Text;
 using WebDaD.Toolkit.Export;
 using WebDaD.Toolkit.Database;
 using System.IO;
+using System.Globalization;
 
 namespace ManageAdministerExalt.Classes
 {
@@ -42,7 +43,7 @@ namespace ManageAdministerExalt.Classes
         {
             Dictionary<string, string> r = base.FieldSet();
             r.Add("edate", this.edate.ToString("yyyy-MM-dd"));
-            r.Add("value", this.value.ToString());
+            r.Add("value", this.value.ToString().Replace(",","."));
             r.Add("attachment", this.attachment);
             return r;
         }
@@ -61,7 +62,7 @@ namespace ManageAdministerExalt.Classes
                 Result d = base.DB.getRow(base.Tablename, new string[] { "name", "edate", "value", "attachment" }, "`id`='" + id + "'", "", 1);
                 base.Name = d.FirstRow["name"];
                 this.edate = DateTime.Parse(d.FirstRow["edate"]);
-                this.value = Decimal.Parse(d.FirstRow["value"]);
+                this.value = Decimal.Parse(d.FirstRow["value"], NumberStyles.AllowDecimalPoint);
                 this.attachment = d.FirstRow["attachment"];
             }
         }
@@ -154,7 +155,7 @@ namespace ManageAdministerExalt.Classes
             if (ok)
             {
                 if (String.IsNullOrEmpty(base.ID)) base.ID = base.DB.GetLastInsertedID();
-                string target = Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["expense"] + Path.DirectorySeparatorChar + this.NiceID;
+                string target = Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["expenses"] + Path.DirectorySeparatorChar + this.NiceID;
                 if (!Directory.Exists(target)) Directory.CreateDirectory(target);
                 if (this.attachment.Contains(Path.DirectorySeparatorChar))
                 {

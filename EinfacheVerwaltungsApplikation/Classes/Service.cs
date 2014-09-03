@@ -26,7 +26,7 @@ namespace ManageAdministerExalt.Classes
             Dictionary<string, string> r = base.FieldSet();
             r.Add("description", this.description);
             r.Add("unit", this.unit);
-            r.Add("value", this.value.ToString());
+            r.Add("value", this.value.ToString().Replace(",", "."));
             return r;
         }
 

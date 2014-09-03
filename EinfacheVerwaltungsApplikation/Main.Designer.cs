@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -193,6 +193,8 @@
             this.btn_jo_edit_address = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
             this.tb_jo_name = new System.Windows.Forms.TextBox();
+            this.dt_jo_delivery_date = new System.Windows.Forms.DateTimePicker();
+            this.label48 = new System.Windows.Forms.Label();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_jo_status = new System.Windows.Forms.Label();
@@ -370,8 +372,6 @@
             this.lb_it_count = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.dt_jo_delivery_date = new System.Windows.Forms.DateTimePicker();
-            this.label48 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -2252,6 +2252,24 @@
             this.tb_jo_name.TabIndex = 19;
             this.tb_jo_name.TextChanged += new System.EventHandler(this.tb_jo_name_TextChanged);
             // 
+            // dt_jo_delivery_date
+            // 
+            this.dt_jo_delivery_date.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dt_jo_delivery_date.Location = new System.Drawing.Point(282, 95);
+            this.dt_jo_delivery_date.Name = "dt_jo_delivery_date";
+            this.dt_jo_delivery_date.Size = new System.Drawing.Size(274, 20);
+            this.dt_jo_delivery_date.TabIndex = 20;
+            this.dt_jo_delivery_date.ValueChanged += new System.EventHandler(this.dt_jo_delivery_date_ValueChanged);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(3, 92);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(62, 13);
+            this.label48.TabIndex = 21;
+            this.label48.Text = "Lieferdatum";
+            // 
             // groupBox17
             // 
             this.groupBox17.Controls.Add(this.tableLayoutPanel19);
@@ -3093,7 +3111,6 @@
             this.nu_ex_value.Name = "nu_ex_value";
             this.nu_ex_value.Size = new System.Drawing.Size(264, 20);
             this.nu_ex_value.TabIndex = 13;
-            this.nu_ex_value.ThousandsSeparator = true;
             this.nu_ex_value.ValueChanged += new System.EventHandler(this.tb_ex_TextChanged);
             // 
             // groupBox9
@@ -3269,8 +3286,8 @@
             this.grid_reports.AllowUserToDeleteRows = false;
             this.grid_reports.AllowUserToOrderColumns = true;
             this.grid_reports.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.grid_reports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -4289,24 +4306,6 @@
             // 
             this.timer.Interval = 300000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // dt_jo_delivery_date
-            // 
-            this.dt_jo_delivery_date.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dt_jo_delivery_date.Location = new System.Drawing.Point(282, 95);
-            this.dt_jo_delivery_date.Name = "dt_jo_delivery_date";
-            this.dt_jo_delivery_date.Size = new System.Drawing.Size(274, 20);
-            this.dt_jo_delivery_date.TabIndex = 20;
-            this.dt_jo_delivery_date.ValueChanged += new System.EventHandler(this.dt_jo_delivery_date_ValueChanged);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(3, 92);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(62, 13);
-            this.label48.TabIndex = 21;
-            this.label48.Text = "Lieferdatum";
             // 
             // Main
             // 

@@ -34,9 +34,9 @@ namespace ManageAdministerExalt.Classes
         public override Dictionary<string, string> FieldSet()
         {
             Dictionary<string, string> r = base.FieldSet();
-                r.Add("period", this.period.ToString());
+            r.Add("period", this.period.ToString().Replace(",", "."));
                 r.Add("price_type", this.type.ToString());
-                r.Add("value", this.value.ToString());
+                r.Add("value", this.value.ToString().Replace(",", "."));
                 return r;
         }
 
