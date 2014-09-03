@@ -18,7 +18,22 @@ namespace ManageAdministerExalt.Classes
         private List<Discount> discounts;
         private List<PaymentCondition> conditions;
 
-        
+
+        public DateTime Bill_Sent { get { return bill_sent; } set { this.bill_sent = value; } }
+        public DateTime Payment_Received { get { return payment_received; } set { this.payment_received = value; } }
+
+        public decimal Value
+        {
+            get
+            {
+                decimal r = 0;
+                foreach (KeyValuePair<Service, int> item in services)
+                {
+                    r += (item.Key.Value * item.Value);
+                }
+                return r;
+            }
+        }
 
         //TODO: public properties
 
@@ -119,7 +134,7 @@ namespace ManageAdministerExalt.Classes
         {
             Dictionary<string, string> r = base.FieldSet();
             r.Remove("name");
-            r.Add("taxes", (this.taxes?"1":"0"));
+            r.Add("taxes", (this.taxes ? "1" : "0"));
             r.Add("job_id", this.job_id);
             r.Add("bdate_received", this.payment_received.ToString("yyyy-MM-dd"));
             r.Add("bdate_sent", this.bill_sent.ToString("yyyy-MM-dd"));
@@ -138,21 +153,21 @@ namespace ManageAdministerExalt.Classes
         public bool SaveServices()
         {
             bool ok = true;
-            foreach (KeyValuePair<Service,int> item in services)
+            foreach (KeyValuePair<Service, int> item in services)
             {
                 Dictionary<string, string> fs = new Dictionary<string, string>();
                 fs.Add("bill_id", base.ID);
                 fs.Add("service_id", item.Key.ID);
                 fs.Add("value", item.Key.Value.ToString());
                 fs.Add("units", item.Value.ToString());
-                string check = base.DB.getValue("bill_has_services", "id", "`bill_id`='"+base.ID+"' AND `service_id`='"+item.Key.ID+"'");
+                string check = base.DB.getValue("bill_has_services", "id", "`bill_id`='" + base.ID + "' AND `service_id`='" + item.Key.ID + "'");
                 if (String.IsNullOrEmpty(check))
                 {
                     base.DB.Insert("bill_has_services", fs);
                 }
                 else
                 {
-                    base.DB.Update("bill_has_services", fs,"`id`='"+check+"'");
+                    base.DB.Update("bill_has_services", fs, "`id`='" + check + "'");
                 }
             }
             return ok;
