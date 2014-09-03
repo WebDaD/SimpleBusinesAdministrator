@@ -1062,6 +1062,11 @@ namespace ManageAdministerExalt
             if (tabs.SelectedTab == tabs.TabPages["tab_jobs"]) setEditmode(true);
         }
 
+        private void dt_jo_delivery_date_ValueChanged(object sender, EventArgs e)
+        {
+            if (tabs.SelectedTab == tabs.TabPages["tab_jobs"]) setEditmode(true);
+        }
+
         private void cb_jo_worker_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabs.SelectedTab == tabs.TabPages["tab_jobs"]) setEditmode(true);
@@ -1124,6 +1129,7 @@ namespace ManageAdministerExalt
                 lb_jo_customer_id.Text = job.Customer_ID;
                 tb_jo_name.Text = job.Name;
                 dt_jo_jdate.Value = job.Offer_Created;
+                dt_jo_delivery_date.Value = job.Delivery_Date;
                 lb_jo_services_sum.Text = job.ServiceCount;
                 lb_jo_discounts_sum.Text = job.DiscountCount;
                 lb_jo_items.Text = job.ItemCount;
@@ -1161,6 +1167,7 @@ namespace ManageAdministerExalt
             lb_jo_customer_id.Text = job.Customer_ID;
             tb_jo_name.Text = job.Name;
             dt_jo_jdate.Value = job.Offer_Created;
+            dt_jo_delivery_date.Value = job.Delivery_Date;
             lb_jo_services_sum.Text = job.ServiceCount;
             lb_jo_discounts_sum.Text = job.DiscountCount;
             lb_jo_items.Text = job.ItemCount;
@@ -1186,6 +1193,7 @@ namespace ManageAdministerExalt
         {
             job.Name = tb_jo_name.Text;
             job.Offer_Created = dt_jo_jdate.Value;
+            job.Delivery_Date = dt_jo_delivery_date.Value;
             job.setWorker(((ComboBoxItem)cb_jo_worker.SelectedItem).Value);
             if (!job.Save())
             {
@@ -1237,6 +1245,7 @@ namespace ManageAdministerExalt
                 lb_jo_id.Text = "";
                 tb_jo_name.Text = "";
                 dt_jo_jdate.Value = DateTime.Now;
+                dt_jo_delivery_date.Value = DateTime.Now.AddDays(14);
                 lb_jo_services_sum.Text = "";
                 lb_jo_discounts_sum.Text = "";
                 lb_jo_items.Text = "";
@@ -1638,5 +1647,7 @@ namespace ManageAdministerExalt
                 }
             }
         }
+
+       
     }
 }

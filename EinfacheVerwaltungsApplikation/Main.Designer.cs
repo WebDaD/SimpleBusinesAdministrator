@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -370,6 +370,8 @@
             this.lb_it_count = new System.Windows.Forms.Label();
             this.ofd_ex_attachement = new System.Windows.Forms.OpenFileDialog();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.dt_jo_delivery_date = new System.Windows.Forms.DateTimePicker();
+            this.label48 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tab_customers.SuspendLayout();
@@ -1891,9 +1893,9 @@
             this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 3;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel14.Size = new System.Drawing.Size(571, 578);
             this.tableLayoutPanel14.TabIndex = 0;
             // 
@@ -1903,7 +1905,7 @@
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox11.Location = new System.Drawing.Point(3, 3);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(565, 283);
+            this.groupBox11.Size = new System.Drawing.Size(565, 311);
             this.groupBox11.TabIndex = 0;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Daten";
@@ -1919,24 +1921,26 @@
             this.tableLayoutPanel15.Controls.Add(this.lb_jo_customer_id, 1, 1);
             this.tableLayoutPanel15.Controls.Add(this.label40, 0, 3);
             this.tableLayoutPanel15.Controls.Add(this.dt_jo_jdate, 1, 3);
-            this.tableLayoutPanel15.Controls.Add(this.label41, 0, 4);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 4);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 9);
-            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 9);
-            this.tableLayoutPanel15.Controls.Add(this.label43, 0, 5);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 5);
-            this.tableLayoutPanel15.Controls.Add(this.label51, 0, 6);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel26, 1, 6);
-            this.tableLayoutPanel15.Controls.Add(this.label53, 0, 7);
-            this.tableLayoutPanel15.Controls.Add(this.label71, 0, 8);
-            this.tableLayoutPanel15.Controls.Add(this.cb_jo_worker, 1, 7);
-            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 1, 8);
+            this.tableLayoutPanel15.Controls.Add(this.label41, 0, 5);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel16, 1, 5);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_cancel, 0, 10);
+            this.tableLayoutPanel15.Controls.Add(this.btn_jo_save, 1, 10);
+            this.tableLayoutPanel15.Controls.Add(this.label43, 0, 6);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel17, 1, 6);
+            this.tableLayoutPanel15.Controls.Add(this.label51, 0, 7);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel26, 1, 7);
+            this.tableLayoutPanel15.Controls.Add(this.label53, 0, 8);
+            this.tableLayoutPanel15.Controls.Add(this.label71, 0, 9);
+            this.tableLayoutPanel15.Controls.Add(this.cb_jo_worker, 1, 8);
+            this.tableLayoutPanel15.Controls.Add(this.tableLayoutPanel18, 1, 9);
             this.tableLayoutPanel15.Controls.Add(this.label44, 0, 2);
             this.tableLayoutPanel15.Controls.Add(this.tb_jo_name, 1, 2);
+            this.tableLayoutPanel15.Controls.Add(this.dt_jo_delivery_date, 1, 4);
+            this.tableLayoutPanel15.Controls.Add(this.label48, 0, 4);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
-            this.tableLayoutPanel15.RowCount = 10;
+            this.tableLayoutPanel15.RowCount = 11;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1946,8 +1950,9 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(559, 264);
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(559, 292);
             this.tableLayoutPanel15.TabIndex = 0;
             // 
             // label36
@@ -2006,7 +2011,7 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(3, 92);
+            this.label41.Location = new System.Drawing.Point(3, 118);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(59, 13);
             this.label41.TabIndex = 6;
@@ -2020,7 +2025,7 @@
             this.tableLayoutPanel16.Controls.Add(this.lb_jo_services_sum, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.btn_jo_services_edit, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(279, 92);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(279, 118);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
@@ -2051,10 +2056,10 @@
             // 
             // btn_jo_cancel
             // 
-            this.btn_jo_cancel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 241);
+            this.btn_jo_cancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_cancel.Location = new System.Drawing.Point(3, 250);
             this.btn_jo_cancel.Name = "btn_jo_cancel";
-            this.btn_jo_cancel.Size = new System.Drawing.Size(273, 20);
+            this.btn_jo_cancel.Size = new System.Drawing.Size(273, 39);
             this.btn_jo_cancel.TabIndex = 8;
             this.btn_jo_cancel.Text = "Abbrechen";
             this.btn_jo_cancel.UseVisualStyleBackColor = true;
@@ -2062,10 +2067,10 @@
             // 
             // btn_jo_save
             // 
-            this.btn_jo_save.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_save.Location = new System.Drawing.Point(282, 241);
+            this.btn_jo_save.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_jo_save.Location = new System.Drawing.Point(282, 250);
             this.btn_jo_save.Name = "btn_jo_save";
-            this.btn_jo_save.Size = new System.Drawing.Size(274, 20);
+            this.btn_jo_save.Size = new System.Drawing.Size(274, 39);
             this.btn_jo_save.TabIndex = 9;
             this.btn_jo_save.Text = "Speichern";
             this.btn_jo_save.UseVisualStyleBackColor = true;
@@ -2074,7 +2079,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(3, 116);
+            this.label43.Location = new System.Drawing.Point(3, 142);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(45, 13);
             this.label43.TabIndex = 10;
@@ -2088,7 +2093,7 @@
             this.tableLayoutPanel17.Controls.Add(this.lb_jo_discounts_sum, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.btn_jo_discounts_edit, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(279, 116);
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(279, 142);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel17.Name = "tableLayoutPanel17";
             this.tableLayoutPanel17.RowCount = 1;
@@ -2119,7 +2124,7 @@
             // 
             // label51
             // 
-            this.label51.Location = new System.Drawing.Point(3, 140);
+            this.label51.Location = new System.Drawing.Point(3, 166);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(273, 13);
             this.label51.TabIndex = 12;
@@ -2133,7 +2138,7 @@
             this.tableLayoutPanel26.Controls.Add(this.btn_jo_edit_items, 1, 0);
             this.tableLayoutPanel26.Controls.Add(this.lb_jo_items, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 140);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(279, 166);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
@@ -2165,7 +2170,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(3, 164);
+            this.label53.Location = new System.Drawing.Point(3, 190);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(56, 13);
             this.label53.TabIndex = 14;
@@ -2174,7 +2179,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(3, 191);
+            this.label71.Location = new System.Drawing.Point(3, 217);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(83, 13);
             this.label71.TabIndex = 15;
@@ -2184,7 +2189,7 @@
             // 
             this.cb_jo_worker.Dock = System.Windows.Forms.DockStyle.Top;
             this.cb_jo_worker.FormattingEnabled = true;
-            this.cb_jo_worker.Location = new System.Drawing.Point(282, 167);
+            this.cb_jo_worker.Location = new System.Drawing.Point(282, 193);
             this.cb_jo_worker.Name = "cb_jo_worker";
             this.cb_jo_worker.Size = new System.Drawing.Size(274, 21);
             this.cb_jo_worker.TabIndex = 16;
@@ -2198,7 +2203,7 @@
             this.tableLayoutPanel18.Controls.Add(this.lb_jo_adress, 0, 0);
             this.tableLayoutPanel18.Controls.Add(this.btn_jo_edit_address, 1, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 194);
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(282, 220);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -2251,7 +2256,7 @@
             // 
             this.groupBox17.Controls.Add(this.tableLayoutPanel19);
             this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox17.Location = new System.Drawing.Point(3, 292);
+            this.groupBox17.Location = new System.Drawing.Point(3, 320);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(565, 51);
             this.groupBox17.TabIndex = 1;
@@ -2318,9 +2323,9 @@
             // 
             this.groupBox18.Controls.Add(this.tableLayoutPanel20);
             this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox18.Location = new System.Drawing.Point(3, 349);
+            this.groupBox18.Location = new System.Drawing.Point(3, 377);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(565, 226);
+            this.groupBox18.Size = new System.Drawing.Size(565, 198);
             this.groupBox18.TabIndex = 2;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Dati";
@@ -2358,7 +2363,7 @@
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 207);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(559, 179);
             this.tableLayoutPanel20.TabIndex = 0;
             // 
             // label72
@@ -2504,7 +2509,7 @@
             // btn_jo_openFolder
             // 
             this.btn_jo_openFolder.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_openFolder.Location = new System.Drawing.Point(282, 181);
+            this.btn_jo_openFolder.Location = new System.Drawing.Point(282, 153);
             this.btn_jo_openFolder.Name = "btn_jo_openFolder";
             this.btn_jo_openFolder.Size = new System.Drawing.Size(274, 23);
             this.btn_jo_openFolder.TabIndex = 14;
@@ -2515,7 +2520,7 @@
             // btn_jo_export_all
             // 
             this.btn_jo_export_all.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_jo_export_all.Location = new System.Drawing.Point(3, 181);
+            this.btn_jo_export_all.Location = new System.Drawing.Point(3, 153);
             this.btn_jo_export_all.Name = "btn_jo_export_all";
             this.btn_jo_export_all.Size = new System.Drawing.Size(273, 23);
             this.btn_jo_export_all.TabIndex = 15;
@@ -3264,8 +3269,8 @@
             this.grid_reports.AllowUserToDeleteRows = false;
             this.grid_reports.AllowUserToOrderColumns = true;
             this.grid_reports.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid_reports.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.grid_reports.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -4285,6 +4290,24 @@
             this.timer.Interval = 300000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // dt_jo_delivery_date
+            // 
+            this.dt_jo_delivery_date.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dt_jo_delivery_date.Location = new System.Drawing.Point(282, 95);
+            this.dt_jo_delivery_date.Name = "dt_jo_delivery_date";
+            this.dt_jo_delivery_date.Size = new System.Drawing.Size(274, 20);
+            this.dt_jo_delivery_date.TabIndex = 20;
+            this.dt_jo_delivery_date.ValueChanged += new System.EventHandler(this.dt_jo_delivery_date_ValueChanged);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(3, 92);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(62, 13);
+            this.label48.TabIndex = 21;
+            this.label48.Text = "Lieferdatum";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4789,5 +4812,7 @@
         private System.Windows.Forms.ToolStripMenuItem vorlagenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dt_jo_delivery_date;
+        private System.Windows.Forms.Label label48;
     }
 }

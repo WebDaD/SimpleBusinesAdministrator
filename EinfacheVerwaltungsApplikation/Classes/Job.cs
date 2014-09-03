@@ -22,6 +22,7 @@ namespace ManageAdministerExalt.Classes
         private JobStatus status;
         private DateTime offer_sent;
         private DateTime offer_created;
+        private DateTime delivery_date;
         private Customer customer;
         private Worker worker;
         private string address; //split: street_nr|plz|city OR "C" <- Kunde
@@ -34,6 +35,7 @@ namespace ManageAdministerExalt.Classes
         public JobStatus Status { get { return status; } set { this.status = value; } }
         public DateTime Offer_Sent { get { return offer_sent; } set { this.offer_sent = value; } }
         public DateTime Offer_Created { get { return offer_created; } set { this.offer_created = value; } }
+        public DateTime Delivery_Date { get { return delivery_date; } set { this.delivery_date = value; } }
         public Customer Customer { get { return customer; } }
         public Worker Worker { get { return worker; } }
 
@@ -199,6 +201,7 @@ namespace ManageAdministerExalt.Classes
                 this.items = new Dictionary<Item, int>();
                 this.status = JobStatus.S0_SAVED;
                 this.offer_sent = DateTime.MinValue;
+                this.delivery_date = DateTime.MinValue;
                 this.offer_created = DateTime.Now;
                 this.customer = new Customer(db);
                 this.worker = new Worker(db);
@@ -206,11 +209,12 @@ namespace ManageAdministerExalt.Classes
             }
             else
             {
-                Result d = base.DB.getRow(base.Tablename, new string[] { "name", "address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created" }, "`id`='" + id + "'", "", 1);
+                Result d = base.DB.getRow(base.Tablename, new string[] { "name", "address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created","jdate_target" }, "`id`='" + id + "'", "", 1);
                 base.Name = d.FirstRow["name"];
                 this.status = (JobStatus)Enum.Parse(typeof(JobStatus), d.FirstRow["jstatus"]);
                 this.offer_sent = DateTime.Parse(d.FirstRow["jdate_sent"]);
                 this.offer_created = DateTime.Parse(d.FirstRow["jdate_created"]);
+                this.delivery_date = DateTime.Parse(d.FirstRow["jdate_target"]);
                 this.customer = new Customer(db, d.FirstRow["customer_id"]);
                 this.worker = new Worker(db, d.FirstRow["worker_id"]);
                 this.address = d.FirstRow["address"];
@@ -234,6 +238,7 @@ namespace ManageAdministerExalt.Classes
             this.items = new Dictionary<Item, int>();
             this.status = JobStatus.S0_SAVED;
             this.offer_sent = DateTime.MinValue;
+            this.delivery_date = DateTime.MinValue;
             this.offer_created = DateTime.Now;
             this.customer = new Customer(base.DB);
             this.worker = new Worker(base.DB);
@@ -242,13 +247,14 @@ namespace ManageAdministerExalt.Classes
         public override bool Load(string id)
         {
             base.ID = id;
-            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created" }, "`id`='" + id + "'", "", 1);
+            Result d = base.DB.getRow(base.Tablename, new string[] { "name", "address", "jdate_sent", "worker_id", "jstatus", "customer_id", "jdate_created", "jdate_target" }, "`id`='" + id + "'", "", 1);
             if (d.RowCount > 0)
             {
                 base.Name = d.FirstRow["name"];
                 this.status = (JobStatus)Enum.Parse(typeof(JobStatus), d.FirstRow["jstatus"]);
                 this.offer_sent = DateTime.Parse(d.FirstRow["jdate_sent"]);
                 this.offer_created = DateTime.Parse(d.FirstRow["jdate_created"]);
+                this.delivery_date = DateTime.Parse(d.FirstRow["jdate_target"]);
                 this.customer = new Customer(base.DB, d.FirstRow["customer_id"]);
                 this.worker = new Worker(base.DB, d.FirstRow["worker_id"]);
                 this.address = d.FirstRow["address"];
@@ -329,6 +335,7 @@ namespace ManageAdministerExalt.Classes
             r.Add("address", this.address);
             r.Add("jdate_sent", this.offer_sent.ToString("yyyy-MM-dd"));
             r.Add("jdate_created", this.offer_created.ToString("yyyy-MM-dd"));
+            r.Add("jdate_target", this.delivery_date.ToString("yyyy-MM-dd"));
             r.Add("worker_id", this.worker.ID.ToString());
             r.Add("jstatus", this.status.ToString());
             r.Add("customer_id", this.customer.ID.ToString());
@@ -473,7 +480,7 @@ namespace ManageAdministerExalt.Classes
 
         public override string DateSecond
         {
-            get { return "Lieferdatum: "+this.offer_created.ToString("dd.MM.yyyy"); }
+            get { return "Lieferdatum: "+this.delivery_date.ToString("dd.MM.yyyy"); }
         }
         internal List<string> GetYears()
         {

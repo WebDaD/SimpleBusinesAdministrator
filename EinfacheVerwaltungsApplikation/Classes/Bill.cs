@@ -18,6 +18,8 @@ namespace ManageAdministerExalt.Classes
         private List<Discount> discounts;
         private List<PaymentCondition> conditions;
 
+        
+
         //TODO: public properties
 
         public Bill(Database db, string id = "")
