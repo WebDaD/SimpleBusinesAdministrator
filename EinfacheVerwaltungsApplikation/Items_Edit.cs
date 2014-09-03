@@ -25,6 +25,7 @@ namespace ManageAdministerExalt
             setInitialMode(import);
             this.Text = Config.Name + " :: " + "Gegenstandsbearbeitung";
             this.Icon = Properties.Resources.simba;
+            item = new Item(db);
             loadItems();
         }
         public Items_Edit(Database db,bool import, Item item)
@@ -51,7 +52,7 @@ namespace ManageAdministerExalt
 
         private void loadItems()
         {
-            Dictionary<string, string> list = item.GetIDList();
+            Dictionary<string, string> list = item.GetDictionary();
             foreach (KeyValuePair<string,string> i in list)
             {
                 cb_items.Items.Add(new ComboBoxItem(i.Key,i.Value));

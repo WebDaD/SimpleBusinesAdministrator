@@ -24,6 +24,7 @@ namespace ManageAdministerExalt
             this.Text = Config.Name + " :: " + "Zahlungsbedingungen";
             this.Icon = Properties.Resources.simba;
             this.db = db;
+            payment_condition = new PaymentCondition(db);
             fillPaymentConditions();
             foreach (KeyValuePair<int, string> item in Reminder.Types)
             {
@@ -32,7 +33,7 @@ namespace ManageAdministerExalt
         }
         private void fillPaymentConditions()
         {
-            payment_conditions = new PaymentCondition(db).GetIDList();
+            payment_conditions = payment_condition.GetDictionary();
             if (payment_conditions != null)
             {
                 lv_payment_conditions.Items.Clear();

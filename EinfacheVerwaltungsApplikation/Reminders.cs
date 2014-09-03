@@ -24,6 +24,7 @@ namespace ManageAdministerExalt
             this.Text = Config.Name + " :: " + "Mahnungen";
             this.Icon = Properties.Resources.simba;
             this.db = db;
+            reminder = new Reminder(db);
             fillReminders();
             foreach (KeyValuePair<int, string> item in Reminder.Types)
             {
@@ -32,7 +33,7 @@ namespace ManageAdministerExalt
         }
         private void fillReminders()
         {
-            reminders = new Reminder(db).GetIDList();
+            reminders = reminder.GetDictionary();
             if (reminders != null)
             {
                 lv_reminders.Items.Clear();

@@ -249,8 +249,8 @@ namespace ManageAdministerExalt.Classes
                 this.status = (JobStatus)Enum.Parse(typeof(JobStatus), d.FirstRow["jstatus"]);
                 this.offer_sent = DateTime.Parse(d.FirstRow["jdate_sent"]);
                 this.offer_created = DateTime.Parse(d.FirstRow["jdate_created"]);
-                this.customer = new Customer(db, d.FirstRow["customer_id"]);
-                this.worker = new Worker(db, d.FirstRow["worker_id"]);
+                this.customer = new Customer(base.DB, d.FirstRow["customer_id"]);
+                this.worker = new Worker(base.DB, d.FirstRow["worker_id"]);
                 this.address = d.FirstRow["address"];
 
                 this.services = loadServices();
@@ -542,7 +542,7 @@ namespace ManageAdministerExalt.Classes
             else return null;
         }
 
-        public override Dictionary<string, string> GetIDList()
+        public override Dictionary<string, string> GetDictionary()
         {
             Result d = base.DB.getRow(base.Tablename, new string[] { "id", "jdate_created", "customer_id" }, "`active`='1'");
             if (d.RowCount < 1) return null;

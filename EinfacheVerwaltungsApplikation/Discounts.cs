@@ -22,6 +22,7 @@ namespace ManageAdministerExalt
             InitializeComponent();
             this.Text = Config.Name + " :: " + "Rabatte";
             this.Icon = Properties.Resources.simba;
+            discount = new Discount(db);
             fillDiscounts();
             foreach (KeyValuePair<int,string> item in Discount.TYPES)
             {
@@ -31,7 +32,7 @@ namespace ManageAdministerExalt
 
         private void fillDiscounts()
         {
-            discounts = new Discount(db).GetIDList();
+            discounts = discount.GetDictionary();
             if (discounts != null)
             {
                 lv_discounts.Items.Clear();

@@ -126,7 +126,7 @@ namespace ManageAdministerExalt.Classes
         /// <returns></returns>
         public abstract bool Load(string id);
         public abstract void Unload();
-        List<string> GetIDList()
+       public List<string> GetIDList()
         {
             Result d = this.db.getRow(this.tablename, new string[] { "id" }, "`active`='1'");
             if (d.RowCount < 1) return null;
@@ -206,6 +206,9 @@ namespace ManageAdministerExalt.Classes
         }
 
 
-        
+
+
+
+       
     }
 }
