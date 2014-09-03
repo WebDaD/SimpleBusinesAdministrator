@@ -1,0 +1,110 @@
+* img{height:60px;width:auto;} #container{
+    width:80%;
+    border:1px solid #CDCDCD;
+    margin: 0 auto;
+    box-shadow:2px 2px 4px #CDCDCD;
+    padding: 20px;
+    font-family:'Roboto';
+}
+#header{
+    margin-bottom:20px;
+    border-bottom:1px solid #CDCDCD;
+    text-align:center;
+    height:70px;
+}
+#header .left{
+    float:left;
+    width:30%;
+    text-align:left;
+}
+#header .center{
+    float:left;
+    width:30%;
+    text-align:center;
+}
+#header .right{
+    float:right;
+    width:30%;
+    text-align:right;
+    padding-right:4%;
+}
+#textBefore{
+    clear:both;
+    height:70px;
+}
+#textBefore_left{
+    width:50%;
+    float:left;
+    text-align:left;
+}
+#textBefore_right{
+    width:46%;
+    float:right;
+    margin-bottom:40px;
+    text-align:right;
+    padding-right:4%;
+}
+#beforeContent{
+    clear:both;
+}
+#content{
+}
+#content h1{
+    font-size:1.5em;
+}
+#content p{
+    padding-bottom:10px;
+}
+#content h2{
+    font-size:1.2em;
+}
+#content table{
+    width:100%;
+    border-collapse: collapse;
+	text-align: left;
+    background: #fff;
+}
+#content table th
+{
+	font-size: 14px;
+	font-weight: normal;
+	color: #039;
+	padding: 10px 8px;
+	border-bottom: 2px solid #6678b1;
+}
+#content table td
+{
+	border-bottom: 1px solid #ccc;
+	color: #669;
+	padding: 6px 8px;
+}
+#content table tbody tr:hover td
+{
+	color: #009;
+}
+
+
+#afterContent{
+    margin-top:20px;
+}
+#footer{
+    border-top:1px solid #CDCDCD;
+    text-align:center;
+    margin-top:20px;
+}
+#footer .left{
+    float:left;
+    width:30%;
+    text-align:left;
+}
+#footer .center{
+    float:left;
+    width:30%;
+    text-align:center;
+}
+#footer .right{
+    float:right;
+    width:30%;
+    text-align:right;
+    padding-right:4%;
+}

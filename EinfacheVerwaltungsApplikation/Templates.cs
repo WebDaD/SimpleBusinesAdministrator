@@ -161,7 +161,7 @@ namespace ManageAdministerExalt
             {
                 template.Footer = tb_footer_full.Text.Replace("\n",Template.LINEBREAK);
             }
-            template.Save(images, Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["template"] + Path.DirectorySeparatorChar + Config.IDFormating["template"] + Path.DirectorySeparatorChar + "images" + Path.DirectorySeparatorChar);
+            template.Save(images, Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["template"] + Path.DirectorySeparatorChar + Config.CreateNiceID(Config.IDFormating["template"],template.ID) + Path.DirectorySeparatorChar + "images" + Path.DirectorySeparatorChar);
             templates = Template.getTemplates(this.db);
             if (templates != null)
             {
