@@ -30,7 +30,7 @@ namespace ManageAdministerExalt
             this.editmode = false;
             this.db = db;
             images = new List<string>();
-            template = new Template(this.db);
+            template = new Template(this.db, Config.BasePath+Path.DirectorySeparatorChar+Config.Paths["templates"]);
 
             templates = Template.getTemplates(this.db);
             if (templates != null)
@@ -161,7 +161,7 @@ namespace ManageAdministerExalt
             {
                 template.Footer = tb_footer_full.Text.Replace("\n",Template.LINEBREAK);
             }
-            template.Save(images, Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["template"] + Path.DirectorySeparatorChar + Config.CreateNiceID(Config.IDFormating["template"],template.ID) + Path.DirectorySeparatorChar + "images" + Path.DirectorySeparatorChar);
+            template.Save(images);
             templates = Template.getTemplates(this.db);
             if (templates != null)
             {
@@ -302,7 +302,7 @@ namespace ManageAdministerExalt
             setEditMode(true);
 
 
-            template = new Template(db);
+            template = new Template(db, Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["templates"]);
             btn_apply.Enabled = true;
             tb_name.Focus();
         }

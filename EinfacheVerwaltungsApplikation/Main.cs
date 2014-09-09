@@ -47,6 +47,11 @@ namespace ManageAdministerExalt
         private bool editmode;
         private bool filterstart = true;
 
+        private void checkDirectory(string dir)
+        {
+            if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
+        }
+
         public Main()
         {
             InitializeComponent();
@@ -628,6 +633,7 @@ namespace ManageAdministerExalt
 
         private void btn_cu_open_folder_Click(object sender, EventArgs e)
         {
+            checkDirectory(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["customers"] + Path.DirectorySeparatorChar + customer.NiceID);
             Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["customers"] + Path.DirectorySeparatorChar + customer.NiceID);
         }
 
@@ -1283,6 +1289,7 @@ namespace ManageAdministerExalt
 
         private void btn_jo_openFolder_Click(object sender, EventArgs e)
         {
+            checkDirectory(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["jobs"] + Path.DirectorySeparatorChar + job.NiceID);
             Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["jobs"] + Path.DirectorySeparatorChar + job.NiceID);
         }
 
@@ -1444,8 +1451,11 @@ namespace ManageAdministerExalt
 
         private void btn_wo_openfolder_Click(object sender, EventArgs e)
         {
+            checkDirectory(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["workers"] + Path.DirectorySeparatorChar + worker.NiceID);
             Process.Start(Config.BasePath + Path.DirectorySeparatorChar + Config.Paths["workers"] + Path.DirectorySeparatorChar + worker.NiceID);
         }
+
+        
 
         private void lv_it_items_SelectedIndexChanged(object sender, EventArgs e)
         {
