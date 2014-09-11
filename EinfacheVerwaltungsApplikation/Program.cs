@@ -24,7 +24,7 @@ namespace ManageAdministerExalt
 
             if (Debugger.IsAttached)
             {
-                Config.DatabaseConnectionString = Database_SQLite.GetConnectionString(@"Z:\Shared\Code\Simba\eva_db.sqlite");
+                Config.DatabaseConnectionString = Database_SQLite.GetConnectionString(@"Z:\Shared\Code\Simba\simba_demo.sqlite");
                 Config.BackupFolder = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug\backup";
                 Config.BasePath = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug";
                 Config.LicenseKey = "1234";
