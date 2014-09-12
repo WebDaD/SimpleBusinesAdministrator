@@ -30,7 +30,6 @@
         {
             this.cb_module = new System.Windows.Forms.ComboBox();
             this.tb_path = new System.Windows.Forms.TextBox();
-            this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_path = new System.Windows.Forms.Label();
@@ -52,6 +51,9 @@
             this.txt_basepath = new System.Windows.Forms.TextBox();
             this.txt_backup = new System.Windows.Forms.TextBox();
             this.txt_wkhtml = new System.Windows.Forms.TextBox();
+            this.openFileDialog_EXE = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog_DB = new System.Windows.Forms.OpenFileDialog();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -77,12 +79,6 @@
             this.tb_path.Size = new System.Drawing.Size(262, 20);
             this.tb_path.TabIndex = 1;
             this.tb_path.Click += new System.EventHandler(this.tb_path_Click);
-            // 
-            // ofd
-            // 
-            this.ofd.FileName = "eva_db.sqlite";
-            this.ofd.ReadOnlyChecked = true;
-            this.ofd.RestoreDirectory = true;
             // 
             // tableLayoutPanel1
             // 
@@ -304,7 +300,7 @@
             this.txt_basepath.Name = "txt_basepath";
             this.txt_basepath.Size = new System.Drawing.Size(283, 20);
             this.txt_basepath.TabIndex = 3;
-            this.txt_basepath.TextChanged += new System.EventHandler(this.txt_basepath_TextChanged);
+            this.txt_basepath.Click += new System.EventHandler(this.txt_basepath_Click);
             // 
             // txt_backup
             // 
@@ -313,7 +309,7 @@
             this.txt_backup.Name = "txt_backup";
             this.txt_backup.Size = new System.Drawing.Size(283, 20);
             this.txt_backup.TabIndex = 4;
-            this.txt_backup.TextChanged += new System.EventHandler(this.txt_backup_TextChanged);
+            this.txt_backup.Click += new System.EventHandler(this.txt_backup_Click);
             // 
             // txt_wkhtml
             // 
@@ -322,7 +318,17 @@
             this.txt_wkhtml.Name = "txt_wkhtml";
             this.txt_wkhtml.Size = new System.Drawing.Size(283, 20);
             this.txt_wkhtml.TabIndex = 5;
-            this.txt_wkhtml.TextChanged += new System.EventHandler(this.txt_wkhtml_TextChanged);
+            this.txt_wkhtml.Click += new System.EventHandler(this.txt_wkhtml_Click);
+            // 
+            // openFileDialog_EXE
+            // 
+            this.openFileDialog_EXE.FileName = "wkhtmltopdf.exe";
+            this.openFileDialog_EXE.Filter = "\"Anwendung|*.exe\"";
+            // 
+            // openFileDialog_DB
+            // 
+            this.openFileDialog_DB.FileName = "simba.sqlite";
+            this.openFileDialog_DB.Filter = "\"SQLite-Datenbanken|*.sqlite\"";
             // 
             // SelectModule
             // 
@@ -352,7 +358,6 @@
 
         private System.Windows.Forms.ComboBox cb_module;
         private System.Windows.Forms.TextBox tb_path;
-        private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_path;
@@ -374,6 +379,9 @@
         private System.Windows.Forms.TextBox txt_basepath;
         private System.Windows.Forms.TextBox txt_backup;
         private System.Windows.Forms.TextBox txt_wkhtml;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_EXE;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_DB;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 
