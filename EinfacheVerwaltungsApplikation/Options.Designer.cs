@@ -31,17 +31,33 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.cb_tabs_customers = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_services = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_jobs = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_terms = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_expenses = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_reports = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_workers = new System.Windows.Forms.CheckBox();
+            this.cb_tabs_items = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.ck_all_askforexit = new System.Windows.Forms.CheckBox();
             this.cb_all_default_tab = new System.Windows.Forms.ComboBox();
-            this.lb_active_tabs = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_database_server = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_database_type = new System.Windows.Forms.ComboBox();
@@ -77,6 +93,8 @@
             this.txt_paths_items = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.txt_ids_bills = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -100,7 +118,13 @@
             this.label31 = new System.Windows.Forms.Label();
             this.cb_timer_active = new System.Windows.Forms.CheckBox();
             this.nd_timer_minutes = new System.Windows.Forms.NumericUpDown();
-            this.lb_timer_elements = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.cb_timer_backup = new System.Windows.Forms.CheckBox();
+            this.cb_timer_refresh = new System.Windows.Forms.CheckBox();
+            this.cb_timer_reminder = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_save_close = new System.Windows.Forms.Button();
@@ -111,6 +135,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -121,6 +146,7 @@
             this.tabPage5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nd_timer_minutes)).BeginInit();
+            this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -156,14 +182,14 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.99189F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.00811F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel9, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label19, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ck_all_askforexit, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.cb_all_default_tab, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lb_active_tabs, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -174,13 +200,233 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(493, 370);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.label34, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.label35, 0, 1);
+            this.tableLayoutPanel9.Controls.Add(this.label36, 0, 2);
+            this.tableLayoutPanel9.Controls.Add(this.label37, 0, 3);
+            this.tableLayoutPanel9.Controls.Add(this.label38, 0, 4);
+            this.tableLayoutPanel9.Controls.Add(this.label39, 0, 5);
+            this.tableLayoutPanel9.Controls.Add(this.label40, 0, 6);
+            this.tableLayoutPanel9.Controls.Add(this.label41, 0, 7);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_customers, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_services, 1, 1);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_jobs, 1, 2);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_terms, 1, 3);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_expenses, 1, 4);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_reports, 1, 5);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_workers, 1, 6);
+            this.tableLayoutPanel9.Controls.Add(this.cb_tabs_items, 1, 7);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(141, 56);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 8;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(349, 311);
+            this.tableLayoutPanel9.TabIndex = 8;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label34.Location = new System.Drawing.Point(3, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(168, 13);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Kunden";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label35.Location = new System.Drawing.Point(3, 23);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(168, 13);
+            this.label35.TabIndex = 1;
+            this.label35.Text = "Leistungen";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label36.Location = new System.Drawing.Point(3, 46);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(168, 13);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "Aufträge";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label37.Location = new System.Drawing.Point(3, 69);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(168, 13);
+            this.label37.TabIndex = 3;
+            this.label37.Text = "AGB\'s";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label38.Location = new System.Drawing.Point(3, 92);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(168, 13);
+            this.label38.TabIndex = 4;
+            this.label38.Text = "Ausgaben";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label39.Location = new System.Drawing.Point(3, 115);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(168, 13);
+            this.label39.TabIndex = 5;
+            this.label39.Text = "Berichte";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label40.Location = new System.Drawing.Point(3, 138);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(168, 13);
+            this.label40.TabIndex = 6;
+            this.label40.Text = "Mitarbeiter";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label41.Location = new System.Drawing.Point(3, 161);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(168, 13);
+            this.label41.TabIndex = 7;
+            this.label41.Text = "Lager";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cb_tabs_customers
+            // 
+            this.cb_tabs_customers.AutoSize = true;
+            this.cb_tabs_customers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_customers.Location = new System.Drawing.Point(177, 3);
+            this.cb_tabs_customers.Name = "cb_tabs_customers";
+            this.cb_tabs_customers.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_customers.TabIndex = 8;
+            this.cb_tabs_customers.Text = "Aktiv";
+            this.cb_tabs_customers.UseVisualStyleBackColor = true;
+            this.cb_tabs_customers.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_services
+            // 
+            this.cb_tabs_services.AutoSize = true;
+            this.cb_tabs_services.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_services.Location = new System.Drawing.Point(177, 26);
+            this.cb_tabs_services.Name = "cb_tabs_services";
+            this.cb_tabs_services.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_services.TabIndex = 9;
+            this.cb_tabs_services.Text = "Aktiv";
+            this.cb_tabs_services.UseVisualStyleBackColor = true;
+            this.cb_tabs_services.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_jobs
+            // 
+            this.cb_tabs_jobs.AutoSize = true;
+            this.cb_tabs_jobs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_jobs.Location = new System.Drawing.Point(177, 49);
+            this.cb_tabs_jobs.Name = "cb_tabs_jobs";
+            this.cb_tabs_jobs.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_jobs.TabIndex = 10;
+            this.cb_tabs_jobs.Text = "Aktiv";
+            this.cb_tabs_jobs.UseVisualStyleBackColor = true;
+            this.cb_tabs_jobs.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_terms
+            // 
+            this.cb_tabs_terms.AutoSize = true;
+            this.cb_tabs_terms.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_terms.Location = new System.Drawing.Point(177, 72);
+            this.cb_tabs_terms.Name = "cb_tabs_terms";
+            this.cb_tabs_terms.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_terms.TabIndex = 11;
+            this.cb_tabs_terms.Text = "Aktiv";
+            this.cb_tabs_terms.UseVisualStyleBackColor = true;
+            this.cb_tabs_terms.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_expenses
+            // 
+            this.cb_tabs_expenses.AutoSize = true;
+            this.cb_tabs_expenses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_expenses.Location = new System.Drawing.Point(177, 95);
+            this.cb_tabs_expenses.Name = "cb_tabs_expenses";
+            this.cb_tabs_expenses.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_expenses.TabIndex = 12;
+            this.cb_tabs_expenses.Text = "Aktiv";
+            this.cb_tabs_expenses.UseVisualStyleBackColor = true;
+            this.cb_tabs_expenses.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_reports
+            // 
+            this.cb_tabs_reports.AutoSize = true;
+            this.cb_tabs_reports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_reports.Location = new System.Drawing.Point(177, 118);
+            this.cb_tabs_reports.Name = "cb_tabs_reports";
+            this.cb_tabs_reports.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_reports.TabIndex = 13;
+            this.cb_tabs_reports.Text = "Aktiv";
+            this.cb_tabs_reports.UseVisualStyleBackColor = true;
+            this.cb_tabs_reports.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_workers
+            // 
+            this.cb_tabs_workers.AutoSize = true;
+            this.cb_tabs_workers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_workers.Location = new System.Drawing.Point(177, 141);
+            this.cb_tabs_workers.Name = "cb_tabs_workers";
+            this.cb_tabs_workers.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_workers.TabIndex = 14;
+            this.cb_tabs_workers.Text = "Aktiv";
+            this.cb_tabs_workers.UseVisualStyleBackColor = true;
+            this.cb_tabs_workers.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_tabs_items
+            // 
+            this.cb_tabs_items.AutoSize = true;
+            this.cb_tabs_items.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_tabs_items.Location = new System.Drawing.Point(177, 164);
+            this.cb_tabs_items.Name = "cb_tabs_items";
+            this.cb_tabs_items.Size = new System.Drawing.Size(169, 17);
+            this.cb_tabs_items.TabIndex = 15;
+            this.cb_tabs_items.Text = "Aktiv";
+            this.cb_tabs_items.UseVisualStyleBackColor = true;
+            this.cb_tabs_items.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Top;
             this.label18.Location = new System.Drawing.Point(3, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(240, 13);
+            this.label18.Size = new System.Drawing.Size(132, 26);
             this.label18.TabIndex = 0;
             this.label18.Text = "Vor Beenden Nachfragen?";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,9 +435,9 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label19.Location = new System.Drawing.Point(3, 23);
+            this.label19.Location = new System.Drawing.Point(3, 26);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(240, 13);
+            this.label19.Size = new System.Drawing.Size(132, 13);
             this.label19.TabIndex = 1;
             this.label19.Text = "Start-Modul";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -200,9 +446,9 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(3, 50);
+            this.label20.Location = new System.Drawing.Point(3, 53);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(240, 320);
+            this.label20.Size = new System.Drawing.Size(132, 317);
             this.label20.TabIndex = 2;
             this.label20.Text = "Aktive Module";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,9 +457,9 @@
             // 
             this.ck_all_askforexit.AutoSize = true;
             this.ck_all_askforexit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ck_all_askforexit.Location = new System.Drawing.Point(249, 3);
+            this.ck_all_askforexit.Location = new System.Drawing.Point(141, 3);
             this.ck_all_askforexit.Name = "ck_all_askforexit";
-            this.ck_all_askforexit.Size = new System.Drawing.Size(241, 17);
+            this.ck_all_askforexit.Size = new System.Drawing.Size(349, 17);
             this.ck_all_askforexit.TabIndex = 3;
             this.ck_all_askforexit.Text = "Ja";
             this.ck_all_askforexit.UseVisualStyleBackColor = true;
@@ -223,22 +469,11 @@
             // 
             this.cb_all_default_tab.Dock = System.Windows.Forms.DockStyle.Top;
             this.cb_all_default_tab.FormattingEnabled = true;
-            this.cb_all_default_tab.Location = new System.Drawing.Point(249, 26);
+            this.cb_all_default_tab.Location = new System.Drawing.Point(141, 29);
             this.cb_all_default_tab.Name = "cb_all_default_tab";
-            this.cb_all_default_tab.Size = new System.Drawing.Size(241, 21);
+            this.cb_all_default_tab.Size = new System.Drawing.Size(349, 21);
             this.cb_all_default_tab.TabIndex = 4;
             this.cb_all_default_tab.SelectedIndexChanged += new System.EventHandler(this.Content_TextChanged);
-            // 
-            // lb_active_tabs
-            // 
-            this.lb_active_tabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_active_tabs.FormattingEnabled = true;
-            this.lb_active_tabs.Location = new System.Drawing.Point(249, 53);
-            this.lb_active_tabs.Name = "lb_active_tabs";
-            this.lb_active_tabs.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lb_active_tabs.Size = new System.Drawing.Size(241, 314);
-            this.lb_active_tabs.TabIndex = 5;
-            this.lb_active_tabs.SelectedIndexChanged += new System.EventHandler(this.Content_TextChanged);
             // 
             // tabPage2
             // 
@@ -258,7 +493,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.label4, 0, 4);
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lb_database_server, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.cb_database_type, 1, 0);
@@ -300,16 +535,16 @@
             this.label4.Text = "Datenbankname";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lb_database_server
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Location = new System.Drawing.Point(3, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(240, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Server";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_database_server.AutoSize = true;
+            this.lb_database_server.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lb_database_server.Location = new System.Drawing.Point(3, 27);
+            this.lb_database_server.Name = "lb_database_server";
+            this.lb_database_server.Size = new System.Drawing.Size(240, 13);
+            this.lb_database_server.TabIndex = 2;
+            this.lb_database_server.Text = "Server";
+            this.lb_database_server.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -700,6 +935,8 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.txt_ids_bills, 1, 8);
+            this.tableLayoutPanel6.Controls.Add(this.label42, 0, 8);
             this.tableLayoutPanel6.Controls.Add(this.label21, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label22, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.label23, 0, 2);
@@ -719,7 +956,8 @@
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 8;
+            this.tableLayoutPanel6.RowCount = 9;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -730,6 +968,26 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.Size = new System.Drawing.Size(499, 376);
             this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // txt_ids_bills
+            // 
+            this.txt_ids_bills.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txt_ids_bills.Location = new System.Drawing.Point(252, 211);
+            this.txt_ids_bills.Name = "txt_ids_bills";
+            this.txt_ids_bills.Size = new System.Drawing.Size(244, 20);
+            this.txt_ids_bills.TabIndex = 17;
+            this.txt_ids_bills.TextChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label42.Location = new System.Drawing.Point(3, 208);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(243, 13);
+            this.label42.TabIndex = 16;
+            this.label42.Text = "Rechnung";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label21
             // 
@@ -904,14 +1162,14 @@
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.26854F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.73146F));
             this.tableLayoutPanel7.Controls.Add(this.label29, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.label30, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label31, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.cb_timer_active, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.nd_timer_minutes, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.lb_timer_elements, 1, 2);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 2);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -928,7 +1186,7 @@
             this.label29.Dock = System.Windows.Forms.DockStyle.Top;
             this.label29.Location = new System.Drawing.Point(3, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(243, 13);
+            this.label29.Size = new System.Drawing.Size(165, 13);
             this.label29.TabIndex = 0;
             this.label29.Text = "Timer Aktiv";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -939,7 +1197,7 @@
             this.label30.Dock = System.Windows.Forms.DockStyle.Top;
             this.label30.Location = new System.Drawing.Point(3, 23);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(243, 13);
+            this.label30.Size = new System.Drawing.Size(165, 13);
             this.label30.TabIndex = 1;
             this.label30.Text = "Intervall in Minuten";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -950,7 +1208,7 @@
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label31.Location = new System.Drawing.Point(3, 49);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(243, 327);
+            this.label31.Size = new System.Drawing.Size(165, 327);
             this.label31.TabIndex = 2;
             this.label31.Text = "Ausgeführte Elemente";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -959,9 +1217,9 @@
             // 
             this.cb_timer_active.AutoSize = true;
             this.cb_timer_active.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cb_timer_active.Location = new System.Drawing.Point(252, 3);
+            this.cb_timer_active.Location = new System.Drawing.Point(174, 3);
             this.cb_timer_active.Name = "cb_timer_active";
-            this.cb_timer_active.Size = new System.Drawing.Size(244, 17);
+            this.cb_timer_active.Size = new System.Drawing.Size(322, 17);
             this.cb_timer_active.TabIndex = 3;
             this.cb_timer_active.Text = "Ja";
             this.cb_timer_active.UseVisualStyleBackColor = true;
@@ -970,7 +1228,7 @@
             // nd_timer_minutes
             // 
             this.nd_timer_minutes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.nd_timer_minutes.Location = new System.Drawing.Point(252, 26);
+            this.nd_timer_minutes.Location = new System.Drawing.Point(174, 26);
             this.nd_timer_minutes.Maximum = new decimal(new int[] {
             3600,
             0,
@@ -982,7 +1240,7 @@
             0,
             0});
             this.nd_timer_minutes.Name = "nd_timer_minutes";
-            this.nd_timer_minutes.Size = new System.Drawing.Size(244, 20);
+            this.nd_timer_minutes.Size = new System.Drawing.Size(322, 20);
             this.nd_timer_minutes.TabIndex = 4;
             this.nd_timer_minutes.Value = new decimal(new int[] {
             1,
@@ -991,16 +1249,95 @@
             0});
             this.nd_timer_minutes.ValueChanged += new System.EventHandler(this.Content_TextChanged);
             // 
-            // lb_timer_elements
+            // tableLayoutPanel8
             // 
-            this.lb_timer_elements.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lb_timer_elements.FormattingEnabled = true;
-            this.lb_timer_elements.Location = new System.Drawing.Point(252, 52);
-            this.lb_timer_elements.Name = "lb_timer_elements";
-            this.lb_timer_elements.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lb_timer_elements.Size = new System.Drawing.Size(244, 321);
-            this.lb_timer_elements.TabIndex = 5;
-            this.lb_timer_elements.SelectedIndexChanged += new System.EventHandler(this.Content_TextChanged);
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label32, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.label33, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.cb_timer_backup, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.cb_timer_refresh, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.cb_timer_reminder, 1, 2);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(174, 52);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 3;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(322, 321);
+            this.tableLayoutPanel8.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(155, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Backup";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label32.Location = new System.Drawing.Point(3, 23);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(155, 13);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Aktualisieren";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label33.Location = new System.Drawing.Point(3, 46);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(155, 13);
+            this.label33.TabIndex = 2;
+            this.label33.Text = "Erinnerungen";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cb_timer_backup
+            // 
+            this.cb_timer_backup.AutoSize = true;
+            this.cb_timer_backup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_timer_backup.Location = new System.Drawing.Point(164, 3);
+            this.cb_timer_backup.Name = "cb_timer_backup";
+            this.cb_timer_backup.Size = new System.Drawing.Size(155, 17);
+            this.cb_timer_backup.TabIndex = 3;
+            this.cb_timer_backup.Text = "Aktiv";
+            this.cb_timer_backup.UseVisualStyleBackColor = true;
+            this.cb_timer_backup.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_timer_refresh
+            // 
+            this.cb_timer_refresh.AutoSize = true;
+            this.cb_timer_refresh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_timer_refresh.Location = new System.Drawing.Point(164, 26);
+            this.cb_timer_refresh.Name = "cb_timer_refresh";
+            this.cb_timer_refresh.Size = new System.Drawing.Size(155, 17);
+            this.cb_timer_refresh.TabIndex = 4;
+            this.cb_timer_refresh.Text = "Aktiv";
+            this.cb_timer_refresh.UseVisualStyleBackColor = true;
+            this.cb_timer_refresh.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
+            // 
+            // cb_timer_reminder
+            // 
+            this.cb_timer_reminder.AutoSize = true;
+            this.cb_timer_reminder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cb_timer_reminder.Location = new System.Drawing.Point(164, 49);
+            this.cb_timer_reminder.Name = "cb_timer_reminder";
+            this.cb_timer_reminder.Size = new System.Drawing.Size(155, 17);
+            this.cb_timer_reminder.TabIndex = 5;
+            this.cb_timer_reminder.Text = "Aktiv";
+            this.cb_timer_reminder.UseVisualStyleBackColor = true;
+            this.cb_timer_reminder.CheckedChanged += new System.EventHandler(this.Content_TextChanged);
             // 
             // splitContainer1
             // 
@@ -1089,6 +1426,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -1104,6 +1443,8 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nd_timer_minutes)).EndInit();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1130,7 +1471,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_database_server;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cb_database_type;
@@ -1168,7 +1509,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.CheckBox ck_all_askforexit;
         private System.Windows.Forms.ComboBox cb_all_default_tab;
-        private System.Windows.Forms.ListBox lb_active_tabs;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -1192,8 +1532,33 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.CheckBox cb_timer_active;
         private System.Windows.Forms.NumericUpDown nd_timer_minutes;
-        private System.Windows.Forms.ListBox lb_timer_elements;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.CheckBox cb_timer_backup;
+        private System.Windows.Forms.CheckBox cb_timer_refresh;
+        private System.Windows.Forms.CheckBox cb_timer_reminder;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.CheckBox cb_tabs_customers;
+        private System.Windows.Forms.CheckBox cb_tabs_services;
+        private System.Windows.Forms.CheckBox cb_tabs_jobs;
+        private System.Windows.Forms.CheckBox cb_tabs_terms;
+        private System.Windows.Forms.CheckBox cb_tabs_expenses;
+        private System.Windows.Forms.CheckBox cb_tabs_reports;
+        private System.Windows.Forms.CheckBox cb_tabs_workers;
+        private System.Windows.Forms.CheckBox cb_tabs_items;
+        private System.Windows.Forms.TextBox txt_ids_bills;
+        private System.Windows.Forms.Label label42;
     }
 }

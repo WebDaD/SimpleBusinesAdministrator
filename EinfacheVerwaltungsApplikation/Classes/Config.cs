@@ -100,24 +100,30 @@ namespace ManageAdministerExalt.Classes
             }
         }
 
-        public static List<string> ActiveTabs
+        public static Dictionary<string,bool> Tabs
         {
             get
             {
-                List<string> r = new List<string>();
-                foreach (string item in Properties.Settings.Default.active_tabs)
+                string[] t = Properties.Settings.Default.tabs.Split(';');
+                Dictionary<string, bool> r = new Dictionary<string, bool>();
+                foreach (string item in t)
                 {
-                    r.Add(item);
+                    if (!String.IsNullOrEmpty(item))
+                    {
+                        r.Add(item.Split('|')[0], Convert.ToBoolean(item.Split('|')[1]));
+                    }
                 }
                 return r;
+
             }
             set
             {
-                Properties.Settings.Default.active_tabs.Clear();
-                foreach (string item in value)
+                string x = "";
+                foreach (KeyValuePair<string, bool> item in value)
                 {
-                    Properties.Settings.Default.active_tabs.Add(item);
+                    x += item.Key + "|" + item.Value + ";";
                 }
+                Properties.Settings.Default.tabs = x;
                 Properties.Settings.Default.Save();
             }
         }
@@ -200,6 +206,10 @@ namespace ManageAdministerExalt.Classes
 
             return r;
         }
+        internal static string GetIDFromFormattedName(string name)
+        {
+            return Int32.Parse(Regex.Match(name, @"\d+").Value).ToString();
+        }
         public static bool FirstStart
         {
             get { return Properties.Settings.Default.firststart; }
@@ -224,6 +234,33 @@ namespace ManageAdministerExalt.Classes
             set
             {
                 Properties.Settings.Default.timer_interval = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        public static Dictionary<string, bool> TimerActions
+        {
+            get
+            {
+                string[] t = Properties.Settings.Default.timer_actions.Split(';');
+                Dictionary<string, bool> r = new Dictionary<string, bool>();
+                foreach (string item in t)
+                {
+                    if (!String.IsNullOrEmpty(item))
+                    {
+                        r.Add(item.Split('|')[0], Convert.ToBoolean(item.Split('|')[1]));
+                    }
+                }
+                return r;
+
+            }
+            set
+            {
+                string x = "";
+                foreach (KeyValuePair<string, bool> item in value)
+                {
+                    x += item.Key + "|" + item.Value + ";";
+                }
+                Properties.Settings.Default.timer_actions = x;
                 Properties.Settings.Default.Save();
             }
         }
@@ -257,18 +294,6 @@ namespace ManageAdministerExalt.Classes
             set
             {
                 Properties.Settings.Default.backupFolder = value;
-                Properties.Settings.Default.Save();
-            }
-        }
-        public static bool AutoBackup
-        {
-            get
-            {
-                return Properties.Settings.Default.autobackup;
-            }
-            set
-            {
-                Properties.Settings.Default.autobackup = value;
                 Properties.Settings.Default.Save();
             }
         }

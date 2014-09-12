@@ -137,23 +137,14 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
-<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-  <string>tab_customers</string>
-  <string>tab_services</string>
-  <string>tab_terms</string>
-  <string>tab_reports</string>
-  <string>tab_worker</string>
-  <string>tab_jobs</string>
-  <string>tab_items</string>
-  <string>tab_expenses</string>
-</ArrayOfString>")]
-        public global::System.Collections.Specialized.StringCollection active_tabs {
+        [global::System.Configuration.DefaultSettingValueAttribute("tab_customers|true;tab_services|true;tab_terms|true;tab_reports|true;tab_worker|t" +
+            "rue;tab_jobs|true;tab_items|true;tab_expenses|true;")]
+        public string tabs {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["active_tabs"]));
+                return ((string)(this["tabs"]));
             }
             set {
-                this["active_tabs"] = value;
+                this["tabs"] = value;
             }
         }
         
@@ -238,6 +229,18 @@ namespace ManageAdministerExalt.Properties {
             }
             set {
                 this["firststart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("backup|false;refresh|true;reminders|false;")]
+        public string timer_actions {
+            get {
+                return ((string)(this["timer_actions"]));
+            }
+            set {
+                this["timer_actions"] = value;
             }
         }
     }

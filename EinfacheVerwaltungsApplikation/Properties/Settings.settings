@@ -29,18 +29,8 @@
     <Setting Name="idformating" Type="System.String" Scope="User">
       <Value Profile="(Default)">bills|B%ID5%;customers|C%ID5%;discounts|D%ID5%;expenses|E%ID5%;items|I%ID5%;jobs|J%ID5%;paymentconditions|P%ID5%;reminders|R%ID5%;services|S%ID5%;terms|P%ID2%;workers|W%ID5%;template|T%ID5%</Value>
     </Setting>
-    <Setting Name="active_tabs" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;tab_customers&lt;/string&gt;
-  &lt;string&gt;tab_services&lt;/string&gt;
-  &lt;string&gt;tab_terms&lt;/string&gt;
-  &lt;string&gt;tab_reports&lt;/string&gt;
-  &lt;string&gt;tab_worker&lt;/string&gt;
-  &lt;string&gt;tab_jobs&lt;/string&gt;
-  &lt;string&gt;tab_items&lt;/string&gt;
-  &lt;string&gt;tab_expenses&lt;/string&gt;
-&lt;/ArrayOfString&gt;</Value>
+    <Setting Name="tabs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tab_customers|true;tab_services|true;tab_terms|true;tab_reports|true;tab_worker|true;tab_jobs|true;tab_items|true;tab_expenses|true;</Value>
     </Setting>
     <Setting Name="timer" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -62,6 +52,9 @@
     </Setting>
     <Setting Name="firststart" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="timer_actions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">backup|false;refresh|true;reminders|false;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -55,6 +55,38 @@ namespace ManageAdministerExalt
         public Main()
         {
             InitializeComponent();
+
+            createDatabase();
+
+            loadEmptyOjects();
+
+            fillFilters();
+            fillLists();
+            this.Text = Config.Name + " :: " + "Hauptansicht";
+            this.Icon = Properties.Resources.simba;
+
+            
+
+            
+
+            setTabs();
+
+            tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
+
+            editmode = false;
+
+            editTimer();
+
+            update = new WebDaD.Toolkit.Update.Update(Config.BasePath, Config.Name, Double.Parse(Config.Version), this.db);
+            backup = new Backup(this.db, Config.BasePath, Config.BackupFolder, Config.Name);
+
+            checkUpdates();
+            checkBackup(false);
+            checkOpenPoints();
+        }
+
+        private void createDatabase()
+        {
             switch (Config.DatabaseType)
             {
                 case DatabaseType.SQLite:
@@ -72,20 +104,14 @@ namespace ManageAdministerExalt
                 //TODO: ERROR
             }
             db.Open();
-            loadEmptyOjects();
-            fillFilters();
-            fillLists();
-            this.Text = Config.Name + " :: " + "Hauptansicht";
-            this.Icon = Properties.Resources.simba;
+        }
 
-            checkOpenPoints();
-
-            tabs.SelectedTab = tabs.TabPages[Config.DefaultTab];
-
+        private void setTabs()
+        {
             List<TabPage> remove = new List<TabPage>();
             foreach (TabPage tp in tabs.TabPages)
             {
-                if (!Config.ActiveTabs.Contains(tp.Name))
+                if (!Config.Tabs[tp.Name])
                 {
                     remove.Add(tp);
                 }
@@ -94,9 +120,10 @@ namespace ManageAdministerExalt
             {
                 tabs.TabPages.Remove(t);
             }
+        }
 
-            editmode = false;
-
+        private void editTimer()
+        {
             if (Config.Timer)
             {
                 timer.Interval = Config.TimerInterval * 60 * 1000;
@@ -104,15 +131,33 @@ namespace ManageAdministerExalt
                 timer.Start();
             }
             else { timer.Enabled = false; }
-
-            update = new WebDaD.Toolkit.Update.Update(Config.BasePath, Config.Name, Double.Parse(Config.Version), this.db);
-            backup = new Backup(this.db, Config.BasePath, Config.BackupFolder, Config.Name);
-
-            checkUpdates();
-            checkBackup();
         }
 
-        private void checkBackup()
+        private void optionenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Options o = new Options();
+            DialogResult x = o.ShowDialog();
+            if (x == System.Windows.Forms.DialogResult.OK)
+            {
+                if (o.ChangedDatabase)
+                {
+                    createDatabase();
+                    fillLists();
+                    fillFilters();
+                    checkOpenPoints();
+                }
+                if (o.ChangedTabs)
+                {
+                    setTabs();
+                }
+                if (o.ChangedTimer)
+                {
+                    editTimer();
+                }
+            }//do not need else, its a cancel
+        }
+
+        private void checkBackup(bool backupNow)
         {
             if (backup.RecentBackup)
             {
@@ -120,12 +165,16 @@ namespace ManageAdministerExalt
             }
             else
             {
-                if (Config.AutoBackup)
+                if (backupNow)
                 {
                     backup.Dump();
                     backupToolStripMenuItem.Image = Properties.Resources.tick_circle;
                 }
-                else { backupToolStripMenuItem.Image = Properties.Resources.arrow_090; }
+                else
+                {
+                    backupToolStripMenuItem.Image = Properties.Resources.arrow_090;
+                }
+             
             }
         }
 
@@ -181,14 +230,16 @@ namespace ManageAdministerExalt
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (!editmode)
+            if (Config.TimerActions["refresh"] && !editmode)
             {
                 fillFilters();
                 fillLists();
 
             }
-            checkBackup();
-            checkOpenPoints();
+            if(Config.TimerActions["backup"])
+                checkBackup(true);
+            if(Config.TimerActions["reminders"])
+                checkOpenPoints();
         }
 
         private void tabs_Deselecting(object sender, TabControlCancelEventArgs e)
@@ -198,7 +249,7 @@ namespace ManageAdministerExalt
 
         private void checkOpenPoints()
         {
-            //TODO: check for open bills, reminders with target date now
+            //TODO: check for open bills, reminders with target date now and message
         }
 
         private void fillFilters()
@@ -880,10 +931,7 @@ namespace ManageAdministerExalt
             }
         }
 
-        private void optionenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new Options().ShowDialog();
-        }
+        
 
         private void aktualisierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
