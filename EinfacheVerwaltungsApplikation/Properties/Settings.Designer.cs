@@ -186,7 +186,7 @@ namespace ManageAdministerExalt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\Program Files\\\\wkhtmltopdf\\\\bin\\\\wkhtmltopdf.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string wkhtmltopdf {
             get {
                 return ((string)(this["wkhtmltopdf"]));

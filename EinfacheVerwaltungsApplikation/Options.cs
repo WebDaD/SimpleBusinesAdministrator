@@ -334,22 +334,56 @@ namespace ManageAdministerExalt
 
         private void txt_database_server_Click(object sender, EventArgs e)
         {
-            //TODO: if type == sqlite --> open filebrowser
+            if ((DatabaseType)Enum.Parse(typeof(DatabaseType), cb_database_type.SelectedItem.ToString()) == DatabaseType.SQLite)
+            {
+                if (DialogResult.OK == openFileDialog_DB.ShowDialog())
+                {
+                    txt_database_server.Text = openFileDialog_DB.FileName;
+                }
+            }
         }
 
         private void txt_paths_base_Click(object sender, EventArgs e)
         {
-            //TODO: open folderbrowser
+            if (DialogResult.OK == folderBrowserDialog.ShowDialog())
+            {
+                txt_paths_base.Text = folderBrowserDialog.SelectedPath;
+            }
         }
 
         private void txt_paths_backup_Click(object sender, EventArgs e)
         {
-            //TODO: open folderbrowser
+            if (DialogResult.OK == folderBrowserDialog.ShowDialog())
+            {
+                txt_paths_backup.Text = folderBrowserDialog.SelectedPath;
+            }
         }
 
         private void txt_paths_wktohtml_Click(object sender, EventArgs e)
         {
-            //TODO: open filebrowser (*.exe
+            if (DialogResult.OK == openFileDialog_EXE.ShowDialog())
+            {
+                txt_paths_wktohtml.Text = openFileDialog_EXE.FileName;
+            }
+        }
+
+        private void cb_database_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setEditmode(true);
+            if ((DatabaseType)Enum.Parse(typeof(DatabaseType), cb_database_type.SelectedItem.ToString()) == DatabaseType.SQLite)
+            {
+                lb_database_server.Text = "Datei";
+                txt_database_user.Enabled = false;
+                txt_database_password.Enabled = false;
+                txt_database_name.Enabled = false;
+            }
+            else
+            {
+                lb_database_server.Text = "Server";
+                txt_database_user.Enabled = true;
+                txt_database_password.Enabled = true;
+                txt_database_name.Enabled = true;
+            }
         }
 
 

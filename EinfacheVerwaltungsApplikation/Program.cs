@@ -27,6 +27,7 @@ namespace ManageAdministerExalt
                 Config.DatabaseConnectionString = Database_SQLite.GetConnectionString(@"Z:\Shared\Code\Simba\simba_demo.sqlite");
                 Config.BackupFolder = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug\backup";
                 Config.BasePath = @"Z:\Shared\Code\Simba\EinfacheVerwaltungsApplikation\bin\Debug";
+                Config.WKHTMLTOPDFPath = @"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe";
                 Config.LicenseKey = "1234";
                 Config.FirstStart = false;
             }

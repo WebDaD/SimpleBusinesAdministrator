@@ -35,15 +35,7 @@ namespace ManageAdministerExalt
             }
         }
 
-        private void btn_browse_Click(object sender, EventArgs e)
-        {
-            DialogResult t = ofd.ShowDialog();
-            if (t == System.Windows.Forms.DialogResult.OK)
-            {
-                tb_path.Text = ofd.FileName;
-            }
 
-        }
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
@@ -86,12 +78,31 @@ namespace ManageAdministerExalt
         private void tb_path_Click(object sender, EventArgs e)
         {
             //TODO: only if databasetype == sqlite!
-            btn_browse_Click(sender, e);
+            DialogResult t = ofd.ShowDialog();
+            if (t == System.Windows.Forms.DialogResult.OK)
+            {
+                tb_path.Text = ofd.FileName;
+            }
         }
 
         private void cb_module_SelectionChangeCommitted(object sender, EventArgs e)
         {
             //TODO: if MySQL enable textboxes, rename lb_path to Server
+        }
+
+        private void txt_basepath_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_backup_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_wkhtml_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

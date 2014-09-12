@@ -131,7 +131,8 @@
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog_DB = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog_EXE = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -576,7 +577,7 @@
             this.cb_database_type.Name = "cb_database_type";
             this.cb_database_type.Size = new System.Drawing.Size(241, 21);
             this.cb_database_type.TabIndex = 5;
-            this.cb_database_type.SelectedIndexChanged += new System.EventHandler(this.Content_TextChanged);
+            this.cb_database_type.SelectedIndexChanged += new System.EventHandler(this.cb_database_type_SelectedIndexChanged);
             // 
             // txt_database_server
             // 
@@ -1409,10 +1410,15 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // openFileDialog
+            // openFileDialog_DB
             // 
-            this.openFileDialog.FileName = "simba.sqlite";
-            this.openFileDialog.Filter = "\"SQLite-Datenbanken|*.sqlite\"";
+            this.openFileDialog_DB.FileName = "simba.sqlite";
+            this.openFileDialog_DB.Filter = "\"SQLite-Datenbanken|*.sqlite\"";
+            // 
+            // openFileDialog_EXE
+            // 
+            this.openFileDialog_EXE.FileName = "wkhtmltopdf.exe";
+            this.openFileDialog_EXE.Filter = "\"Anwendung|*.exe\"";
             // 
             // Options
             // 
@@ -1533,7 +1539,7 @@
         private System.Windows.Forms.CheckBox cb_timer_active;
         private System.Windows.Forms.NumericUpDown nd_timer_minutes;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_DB;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label32;
@@ -1560,5 +1566,6 @@
         private System.Windows.Forms.CheckBox cb_tabs_items;
         private System.Windows.Forms.TextBox txt_ids_bills;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_EXE;
     }
 }
