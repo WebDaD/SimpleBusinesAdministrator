@@ -43,6 +43,7 @@
             this.tb_footer_full = new System.Windows.Forms.RichTextBox();
             this.cmd_inserter = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bildEinfügenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zeilenumbruchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tb_footer_left = new System.Windows.Forms.TextBox();
             this.tb_footer_center = new System.Windows.Forms.TextBox();
@@ -87,7 +88,7 @@
             this.cb_textBefore_right_creationdate = new System.Windows.Forms.CheckBox();
             this.cb_textBefore_right_second_date = new System.Windows.Forms.CheckBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.zeilenumbruchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktuellesDatumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -272,16 +273,24 @@
             // 
             this.cmd_inserter.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bildEinfügenToolStripMenuItem,
-            this.zeilenumbruchToolStripMenuItem});
+            this.zeilenumbruchToolStripMenuItem,
+            this.aktuellesDatumToolStripMenuItem});
             this.cmd_inserter.Name = "cmd_inserter";
-            this.cmd_inserter.Size = new System.Drawing.Size(156, 70);
+            this.cmd_inserter.Size = new System.Drawing.Size(162, 92);
             // 
             // bildEinfügenToolStripMenuItem
             // 
             this.bildEinfügenToolStripMenuItem.Name = "bildEinfügenToolStripMenuItem";
-            this.bildEinfügenToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.bildEinfügenToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.bildEinfügenToolStripMenuItem.Text = "Bild einfügen";
             this.bildEinfügenToolStripMenuItem.Click += new System.EventHandler(this.bildEinfügenToolStripMenuItem_Click);
+            // 
+            // zeilenumbruchToolStripMenuItem
+            // 
+            this.zeilenumbruchToolStripMenuItem.Name = "zeilenumbruchToolStripMenuItem";
+            this.zeilenumbruchToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.zeilenumbruchToolStripMenuItem.Text = "Zeilenumbruch";
+            this.zeilenumbruchToolStripMenuItem.Click += new System.EventHandler(this.zeilenumbruchToolStripMenuItem_Click);
             // 
             // tableLayoutPanel6
             // 
@@ -815,12 +824,12 @@
             this.openFileDialog.ReadOnlyChecked = true;
             this.openFileDialog.RestoreDirectory = true;
             // 
-            // zeilenumbruchToolStripMenuItem
+            // aktuellesDatumToolStripMenuItem
             // 
-            this.zeilenumbruchToolStripMenuItem.Name = "zeilenumbruchToolStripMenuItem";
-            this.zeilenumbruchToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.zeilenumbruchToolStripMenuItem.Text = "Zeilenumbruch";
-            this.zeilenumbruchToolStripMenuItem.Click += new System.EventHandler(this.zeilenumbruchToolStripMenuItem_Click);
+            this.aktuellesDatumToolStripMenuItem.Name = "aktuellesDatumToolStripMenuItem";
+            this.aktuellesDatumToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.aktuellesDatumToolStripMenuItem.Text = "Aktuelles Datum";
+            this.aktuellesDatumToolStripMenuItem.Click += new System.EventHandler(this.aktuellesDatumToolStripMenuItem_Click);
             // 
             // Templates
             // 
@@ -918,5 +927,6 @@
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zeilenumbruchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aktuellesDatumToolStripMenuItem;
     }
 }

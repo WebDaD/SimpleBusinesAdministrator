@@ -386,5 +386,30 @@ namespace ManageAdministerExalt
             }
         }
 
+        private void aktuellesDatumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+            if (tsmi != null)
+            {
+                ContextMenuStrip cms = tsmi.Owner as ContextMenuStrip;
+                if (cms != null)
+                {
+                    if (cms.SourceControl is RichTextBox)
+                    {
+                        RichTextBox t = (RichTextBox)cms.SourceControl as RichTextBox;
+                        int cp = t.SelectionStart;
+                        t.Text = t.Text.Insert(cp, Template.DATE_NOW);
+                    }
+                    else if (cms.SourceControl is TextBox)
+                    {
+                        TextBox t = (TextBox)cms.SourceControl as TextBox;
+                        int cp = t.SelectionStart;
+                        t.Text = t.Text.Insert(cp, Template.DATE_NOW);
+                    }
+
+                }
+            }
+        }
+
     }
 }

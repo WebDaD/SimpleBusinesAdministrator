@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ManageAdministerExalt.Classes;
+using WebDaD.Toolkit.Helper;
 
 namespace ManageAdministerExalt
 {
@@ -22,6 +23,64 @@ namespace ManageAdministerExalt
             this.editmode = false;
 
             //TODO: load settings from config
+            
+            //Allgemeines
+            ck_all_askforexit.Checked = Config.AskForExit;
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_customers","Kunden"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_services", "Leistungen"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_terms", "AGB's"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_reports", "Berichte"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_worker", "Mitarbeiter"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_jobs", "Aufträge"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_items", "Lager"));
+            cb_all_default_tab.Items.Add(new ComboBoxItem("tab_expenses", "Ausgaben"));
+            foreach (object o in cb_all_default_tab.Items)
+            {
+                if (o is ComboBoxItem)
+                {
+                    if (((ComboBoxItem)o).Value == Config.DefaultTab)
+                    {
+                        cb_all_default_tab.SelectedItem = o;
+                        break;
+                    }
+                }
+            }
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_customers", "Kunden"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_services", "Leistungen"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_terms", "AGB's"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_reports", "Berichte"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_worker", "Mitarbeiter"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_jobs", "Aufträge"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_items", "Lager"));
+            lb_active_tabs.Items.Add(new ComboBoxItem("tab_expenses", "Ausgaben"));
+            foreach (string at in Config.ActiveTabs)
+            {
+                foreach (object o in lb_active_tabs.Items)
+                {
+                    if (o is ComboBoxItem)
+                    {
+                        if (((ComboBoxItem)o).Value == at)
+                        {
+                            lb_active_tabs.SetSelected(lb_active_tabs.Items.IndexOf(o), true);
+                            break;
+                        }
+                    }
+                }
+            }
+           
+
+            //Database
+
+
+            //Paths
+
+
+            //ID'S
+            txt_ids_customers.Text = Config.IDFormating["customers"];
+
+
+            //Timer
+
 
         }
 
